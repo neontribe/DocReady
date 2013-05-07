@@ -5,10 +5,6 @@ from docready_api.views import (
     AdviceCategoryList,
     AdviceDetail,
     AdviceCategoryDetail,
-    UserList,
-    UserDetail,
-    GroupList,
-    GroupDetail
 )
 
 urlpatterns = patterns('docready_api.views',
@@ -17,10 +13,6 @@ urlpatterns = patterns('docready_api.views',
     url(r'^categories/(?P<pk>\d+)/$', AdviceCategoryDetail.as_view(), name='advicecategory-detail'),
     url(r'^advice/$', AdviceList.as_view(), name='advice-list'),
     url(r'^advice/(?P<pk>\d+)/$', AdviceDetail.as_view(), name='advice-detail'),
-    url(r'^users/$', UserList.as_view(), name='user-list'),
-    url(r'^users/(?P<pk>\d+)/$', UserDetail.as_view(), name='user-detail'),
-    url(r'^groups/$', GroupList.as_view(), name='group-list'),
-    url(r'^groups/(?P<pk>\d+)/$', GroupDetail.as_view(), name='group-detail'),
 )
 
 # Format suffixes
