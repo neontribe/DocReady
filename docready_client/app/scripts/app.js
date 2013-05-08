@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('docready', [])
+angular.module('docready', ['ngResource'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
