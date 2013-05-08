@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="docready">
+  <body ng-app="docreadyTest">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -28,7 +28,7 @@
     <div class="container" ng-view></div>
 
     <script src="components/angular-unstable/angular.js"></script>
-    <script src="components/angular-resource/angular-resource.js"></script>
+    <script src="components/angular-resource-unstable/angular-resource.js"></script>
     <script src="components/underscore/underscore.js"></script>
 
     <!-- build:js scripts/scripts.js -->
@@ -36,6 +36,9 @@
     <script src="scripts/controllers/advice.js"></script>
     <script src="scripts/services/adviceService.js"></script>
     <!-- endbuild -->
+
+    <script src="components/angular-mocks-unstable/index.js"></script>
+    <script src="../test/mock/mocks.js"></script>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
