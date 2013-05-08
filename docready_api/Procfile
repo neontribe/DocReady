@@ -1,0 +1,1 @@
+web: gunicorn docready_api.wsgi
