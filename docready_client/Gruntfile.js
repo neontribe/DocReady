@@ -197,7 +197,7 @@ module.exports = function (grunt) {
       }
     },
     less: {
-      dist: {
+      app: {
         options: {
           paths: ['<%= yeoman.app %>/styles']
         },
@@ -241,8 +241,11 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
+  grunt.registerTask('lesscompile', ['less:app']);
+
   grunt.registerTask('build', [
     'clean:dist',
+    'lesscompile',
     'jshint',
     'test',
     'useminPrepare',
@@ -257,8 +260,6 @@ module.exports = function (grunt) {
     'rev',
     'usemin'
   ]);
-
-  grunt.registerTask('lesscompile', ['less:dist']);
 
   grunt.registerTask('default', ['build']);
 };
