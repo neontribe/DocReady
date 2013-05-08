@@ -15,12 +15,17 @@ files = [
   'test/spec/**/*.js'
 ];
 
+preprocessors = {
+  'app/scripts/*.js' : 'coverage',
+  'app/scripts/**/*.js': 'coverage'
+};
+
 // list of files to exclude
 exclude = [];
 
 // test results reporter to use
 // possible values: dots || progress || growl
-reporters = ['progress'];
+reporters = ['progress', 'coverage'];
 
 // web server port
 port = 8080;
@@ -36,7 +41,7 @@ colors = true;
 logLevel = LOG_INFO;
 
 // enable / disable watching file and executing tests whenever any file changes
-autoWatch = false;
+autoWatch = true;
 
 
 process.env['PHANTOMJS_BIN'] = './node_modules/.bin/phantomjs';
