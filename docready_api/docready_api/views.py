@@ -1,4 +1,3 @@
-from django.contrib.auth.models import User, Group
 from rest_framework import generics
 from rest_framework.decorators import api_view
 from rest_framework.reverse import reverse
@@ -51,4 +50,3 @@ class AdviceCategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     model = AdviceCategory
     serializer_class = AdviceCategorySerializer
-
