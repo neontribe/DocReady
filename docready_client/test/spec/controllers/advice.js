@@ -3,7 +3,7 @@
 describe('Controller: AdviceCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('docreadyClientApp'));
+  beforeEach(module('docready'));
 
   var AdviceCtrl,
     scope;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('docreadyClientApp')
+angular.module('docready')
   .controller('AdviceCtrl', function ($scope) {
     $scope.topics = [
         {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('docreadyClientApp', [])
+angular.module('docready', [])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
