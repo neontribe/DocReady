@@ -25,9 +25,18 @@ angular.module('docready')
           {
             title: 'Item 2',
             slug: 'item-2',
-            body: 'Blah',
+            body: 'Blabber',
             topic: 'Topic 2',
             weight: 2.0
+          },
+          {
+            title: 'Item 3',
+            slug: 'item-3',
+            body: 'Blah blah',
+            topic: 'Topic 2',
+            weight: 3.0
           }
         ];
   });
+
+
