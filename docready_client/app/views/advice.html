@@ -1,8 +1,17 @@
-<div>
-  <ul>
-      <li ng-repeat="topic in topics">{{topic.title}}</li>
-  </ul>
-  <ul>
-      <li ng-repeat="item in items">{{item.title}} :: {{item.body}}</li>
-  </ul>
+<ul aria-label="Topic Options" role="tablist">
+	<li ng-repeat="topic in topics">
+		<a href="javascript:void(0)" role="tab" aria-controls="{{topic.slug}}">{{topic.title}}</a>
+	</li>
+</ul>
+
+<div ng-repeat="topic in topics" role="tabpanel" id="{{topic.slug}}">
+	<h2>{{topic.title}}</h2>
+	<ul>
+		<li ng-repeat="item in items | filter: { topic: topic.title }">
+			<h3><a role="button" aria-controls="{{item.slug}}" href="javascript:void(0)">{{item.title}}</a></h3>
+			<div id="{{item.slug}}">
+				{{item.body}}
+			</div>
+		</li>
+	</ul>
 </div>
