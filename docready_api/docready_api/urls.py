@@ -7,7 +7,8 @@ from docready_api.views import (
     AdviceCategoryDetail,
 )
 
-urlpatterns = patterns('docready_api.views',
+urlpatterns = patterns(
+    'docready_api.views',
     url(r'^$', 'api_root'),
     url(r'^categories/$', AdviceCategoryList.as_view(), name='advicecategory-list'),
     url(r'^categories/(?P<pk>\d+)/$', AdviceCategoryDetail.as_view(), name='advicecategory-detail'),
@@ -19,6 +20,7 @@ urlpatterns = patterns('docready_api.views',
 urlpatterns = format_suffix_patterns(urlpatterns, allowed=['json', 'api'])
 
 # Default login/logout views
-urlpatterns += patterns('',
+urlpatterns += patterns(
+    '',
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 )
