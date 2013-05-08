@@ -7,3 +7,6 @@
   -o-transition: height 0.35s ease;
   transition: height 0.35s ease;
 }
+.active {
+  background: red;
+}

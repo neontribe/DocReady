@@ -3,6 +3,7 @@
   	<a role="button"
   	   aria-controls="{{slug}}"
   	   ng-click="isOpen = !isOpen"
+  	   ng-class="{ active: isOpen }"
   	   ng-bind-html="heading"></a>
   </h3>
   <div id="{{slug}}" collapse="!isOpen" aria-expanded="{{isOpen}}">

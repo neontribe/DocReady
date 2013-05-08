@@ -1,14 +1,20 @@
-<ul aria-label="Topic Options" role="tablist">
+<ul aria-label="Topic Options">
 	<li ng-repeat="topic in topics">
-		<a href="javascript:void(0)" role="tab" aria-controls="{{topic.slug}}">{{topic.title}}</a>
+		<a href="javascript:void(0)" 
+			ng-class="{ active: activeTopic === topic }"
+			ng-click="setActiveTopic(topic)" 
+			role="button" 
+			aria-controls="info">
+			{{topic.title}}
+		</a>
 	</li>
 </ul>
 
-<div ng-repeat="topic in topics" role="tabpanel" id="{{topic.slug}}">
-	<h2>{{topic.title}}</h2>
+<div id="info">
+	<h2>{{activeTopic.title}}</h2>
 	<accordion>
 		<accordion-group 
-			ng-repeat="item in items | filter: { topic: topic.title }"
+			ng-repeat="item in items | filter: { topic: activeTopic.title }"
 			heading="{{item.title}}"
 			slug="{{item.slug}}"
 			content="{{item.body}}">

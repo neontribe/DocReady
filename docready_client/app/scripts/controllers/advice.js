@@ -2,8 +2,16 @@
 
 angular.module('docready')
   .controller('AdviceCtrl', function ($scope, adviceService) {
-    $scope.topics = adviceService.Topic.query();
+    $scope.activeTopic = null;
+    $scope.topics = adviceService.Topic.query(function(topics){
+      $scope.setActiveTopic(topics[0]);
+    });
     $scope.items = adviceService.Item.query();
+
+    $scope.setActiveTopic = function(topic) {
+      $scope.activeTopic = topic;
+    };
+
   });
 
 
