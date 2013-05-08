@@ -24,7 +24,7 @@ function registerMocks($httpBackend) {
         {
           title: 'Item 2',
           slug: 'item-2',
-          body: 'Blah',
+          body: '<strong>Blah</strong>',
           topic: 'Topic 2',
           weight: 2.0
         },
@@ -36,7 +36,6 @@ function registerMocks($httpBackend) {
           weight: 3.0
         }
       ]);
-  
 }
 
 angular.module('docreadyTest', ['docready', 'ngMockE2E'])

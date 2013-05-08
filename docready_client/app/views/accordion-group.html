@@ -1,0 +1,11 @@
+<li>
+  <h3>
+  	<a role="button"
+  	   aria-controls="{{slug}}"
+  	   ng-click="isOpen = !isOpen"
+  	   ng-bind-html="heading"></a>
+  </h3>
+  <div id="{{slug}}" collapse="!isOpen" aria-expanded="{{isOpen}}">
+    <div ng-bind-html="content"></div>  
+  </div>
+</li>

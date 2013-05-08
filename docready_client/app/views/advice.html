@@ -6,12 +6,13 @@
 
 <div ng-repeat="topic in topics" role="tabpanel" id="{{topic.slug}}">
 	<h2>{{topic.title}}</h2>
-	<ul>
-		<li ng-repeat="item in items | filter: { topic: topic.title }">
-			<h3><a role="button" aria-controls="{{item.slug}}" href="javascript:void(0)">{{item.title}}</a></h3>
-			<div id="{{item.slug}}">
-				{{item.body}}
-			</div>
-		</li>
-	</ul>
+	<accordion>
+		<accordion-group 
+			ng-repeat="item in items | filter: { topic: topic.title }"
+			heading="{{item.title}}"
+			slug="{{item.slug}}"
+			content="{{item.body}}">
+		</accordion-group>
+  	</accordion>
 </div>
+
