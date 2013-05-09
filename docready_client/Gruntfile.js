@@ -222,8 +222,28 @@ module.exports = function (grunt) {
           ]
         }]
       }
-    }
-  });
+    },
+    devcode: {
+      options: {
+        html: true,        // html files parsing?
+        js: false,          // javascript files parsing?
+        css: false,         // css files parsing?
+        clean: true,       // removes devcode comments even if code was not removed
+        block: {
+          open: 'devcode', // with this string we open a block of code
+          close: 'enddevcode' // with this string we close a block of code
+        },
+        dest: 'dist'       // default destination which overwrites environment variable
+      },
+      dist: {             // settings for task used with 'devcode:dist'
+        options: {
+            source: 'dist/',
+            dest: 'dist/',
+            env: 'production'
+          }
+        }
+      }
+    });
 
   grunt.renameTask('regarde', 'watch');
 
@@ -258,7 +278,8 @@ module.exports = function (grunt) {
     'ngmin',
     'uglify',
     'rev',
-    'usemin'
+    'usemin',
+    'devcode:dist'
   ]);
 
   grunt.registerTask('default', ['build']);
