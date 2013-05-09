@@ -229,7 +229,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
     controller:'AccordionController',
     transclude: true,
     replace: false,
-    templateUrl: 'views/accordion.html'
+    templateUrl: 'views/accordion/accordion.html'
   };
 })
 
@@ -240,7 +240,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
     restrict:'EA',
     transclude:true,              // It transcludes the contents of the directive into the template
     replace: true,                // The element containing the directive will be replaced with the template
-    templateUrl:'views/accordion-group.html',
+    templateUrl:'views/accordion/accordion-group.html',
     scope:{ heading:'@', slug:'@', content:'@' },        // Create an isolated scope and interpolate the heading attribute onto this scope
     controller: ['$scope', function($scope) {
       this.setHeading = function(element) {
