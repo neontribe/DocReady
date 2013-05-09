@@ -1,6 +1,5 @@
 'use strict';
-
-var docready = angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize'])
+angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
