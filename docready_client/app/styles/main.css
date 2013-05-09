@@ -800,17 +800,17 @@ li:last-child .collapse {
 .collapse > div {
   padding: 18px;
 }
-ul.accordian {
+ul.accordion {
   margin-top: 13.5px;
 }
-ul.accordian li {
+ul.accordion li {
   list-style: none;
 }
-.accordian h3 > a {
+.accordion h3 > a {
   display: block;
   margin: 0;
   font-size: 1.125em;
 }
-.accordian h3 > a.active {
+.accordion h3 > a.active {
   margin: 0;
 }

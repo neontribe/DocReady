@@ -12,13 +12,13 @@
 
 <div id="info">
 	<h2>{{activeTopic.title}}</h2>
-	<ul class="accordian">
+	<accordion>
 		<accordion-group 
 			ng-repeat="item in items | filter: { topic: activeTopic.title }"
 			heading="{{item.title}}"
 			slug="{{item.slug}}"
 			content="{{item.body}}">
 		</accordion-group>
-	</ul>
+	</accordion>
 </div>
 
