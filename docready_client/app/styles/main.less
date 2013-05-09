@@ -1,13 +1,760 @@
+@import url(http://fonts.googleapis.com/css?family=Sintony:400,700);
+@import url(http://fonts.googleapis.com/css?family=Play:700);
+/**
+* LESS CSS VARIABLES AND MIXINS
+----------------------------------------------------------------------
+*/
+
+/**
+* Variables
+--------------------------------*/
+
+/* Colors */
+
+@font-color: #333;
+@font-color-light: #fefefe;
+
+@link-color: #8aa54b;
+@link-color-darker: darken(@link-color, 20%);
+@link-color-lighter: lighten(@link-color, 30%);
+
+@primary-color: #d96342;
+@primary-color-darker: darken(@primary-color, 25%);
+@primary-color-lighter: lighten(@primary-color, 35%);
+
+@secondary-color: #3e8885;
+@secondary-color-darker: darken(@secondary-color, 25%);
+@secondary-color-lighter: lighten(@secondary-color, 35%);
+
+@tertiary-color: #8aa54b;
+@tertiary-color-darker: darken(@tertiary-color, 25%);
+@tertiary-color-lighter: lighten(@tertiary-color, 30%);
+
+.primary-color { background: @primary-color }
+.secondary-color { background: @secondary-color }
+.tertiary-color { background: @tertiary-color }
+
+.primary-color-darker { background: @primary-color-darker }
+.secondary-color-darker { background: @secondary-color-darker }
+.tertiary-color-darker { background: @tertiary-color-darker }
+
+.primary-color-lighter { background: @primary-color-lighter }
+.secondary-color-lighter { background: @secondary-color-lighter }
+.tertiary-color-lighter { background: @tertiary-color-lighter }
+
+/* Sizes */
+
+@font-size-base: 18px;
+@font-size-increased: @font-size-base * 1.25;
+@font-size-reduced: @font-size-base * 0.9;
+
+@base-space: @font-size-base;
+@slim-spacing: @base-space / 2;
+@v-space: @base-space * 1.5;
+@v-space-reduced: @v-space / 2;
+@v-space-increased: @v-space * 2;
+@h-space: @base-space * 2;
+@h-space-reduced: @h-space / 2;
+@h-space-increased: @h-space * 2;
+@heading-before-space: @font-size-base * 2.25;
+
+@border-width: 0.125em;
+
+/* Font families */
+
+@family-main: 'Sintony';
+@family-headings: 'Play';
+
+/* Layout */
+
+@content-max-width: 900px; /* overall width of contents, not wrappers */
+@right-column-width: 200px; /* fixed width of aside role="complementary" */
+@column-gutter: @h-space; /* space between columns */
+
+div[role="main"] {
+	float: left;
+	width: 100%;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 900px;
+}
+
+div[role="main"] > div {
+	margin-right: @right-column-width + @column-gutter;
+}
+
+aside[role="complementary"] {
+	float: left;
+	width: @right-column-width;
+	margin-left: -@right-column-width;
+	margin-top: 0;
+}
+
+footer {
+	clear: both;
+}
+
+/* Helper mixins */
+
+.call-to-action-font {
+	font-family: @family-headings;
+	text-transform: uppercase;
+	letter-spacing: @font-size-base / 8;
+}
+
+.hyphens {
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+}
+
+.box-sized {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	*behavior: url(js/boxsizing.htc);
+}
+
+.box-style-primary {
+}
+
+.border-radius {
+	-moz-border-radius: @base-space;
+	-webkit-border-radius: @base-space;
+	border-radius: @base-space;
+}
+
+.translucent {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
+	-moz-opacity: 0.5;
+	-khtml-opacity: 0.5;
+	opacity: 0.5;
+}
+
+.transition-basic(@time) {
+	-webkit-transition: @time linear all;
+	-moz-transition: @time linear all;
+	-o-transition: @time linear all;
+	-ms-transition: @time linear all;
+	transition: @time linear all;
+}
+
+.headings {
+	font-weight: 700;
+	text-transform: capitalize;
+	color: @primary-color;
+}
+
+/**
+* -------------------------------------------------------------- 
+End LESS CSS VARIABLES AND MIXINS
+*/
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure,  footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+nav ul { list-style: none }
+
+blockquote, q { quotes: none }
+
+table { 
+	border-collapse: collapse; 
+	border-spacing: 0;
+}
+
+input, select { vertical-align: middle }
+
+/**
+* Body
+----------------------------------------------------------------------
+*/
+
+body { 
+	font-size: @font-size-base;
+	background: url('images/grid.gif');
+	line-height: @v-space;
+	font-weight: 400;
+	font-family: @family-main;
+	color: @font-color;
+}
+
+/**
+* Generic links
+----------------------------------------------------------------------
+*/
+
+a, a:visited { 
+	color: @link-color;
+	border-bottom: 1px solid;
+	text-decoration: none;
+}
+
+a:hover { 
+	color: @link-color-darker;
+	border-bottom: 2px solid;
+}
+
+a:active { 
+	outline: none;
+	border-bottom: 3px solid;
+}
+
+a:focus { outline: 1px dotted #999 }
+
+/**
+* Flow
+----------------------------------------------------------------------
+*/
+
+body * + * {
+	margin-top: @v-space;
+}
+
+blockquote, figure {
+	padding: @base-space;
+}
+
+blockquote p {
+	font-size: @font-size-increased;
+	font-style: italic;
+}
+
+caption { 
+	text-align: center;
+	padding: @slim-spacing;
+	padding-bottom: 0;
+}
+
+blockquote footer:before { 
+	content: '\2014';
+	padding: 0 @slim-spacing 0 0;
+}
+
+blockquote p:before, q:before { content: '\201C' }
+
+blockquote p:after, q:after { content: '\201D' }
+
+/**
+* Media
+----------------------------------------------------------------------
+*/
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/**
+* Paragraphs and lists
+----------------------------------------------------------------------
+*/
+
+p { 
+	text-align: justify;
+}
+
+p:only-child {
+	text-align: left;
+}
+
+li, dt, dd { margin-top: 0 }
+
+p + p { margin-top: @v-space/2; }
+
+p * { margin: 0 }
+
+/* for introductory paragraphs belonging to major sections */
+h1 + p, header + p, hgroup + p { font-size: @font-size-increased }
+
+li { list-style: disc inside }
+
+ol li { list-style-type: decimal }
+
+dl {
+	font-size: 0;
+}
+
+dt, dd {
+	font-size: @font-size-base;
+	display: inline-block;
+	vertical-align: top;
+	width: 75%;
+	.box-sized;
+	padding-top: @v-space-reduced;
+}
+
+dt {
+	width: 25%;
+	text-align: right;
+	font-style: italic;
+	padding-right: 1.5em;
+	.hyphens;
+}
+
+/**
+* <nav> sections
+----------------------------------------------------------------------
+*/
+
+nav ul {
+	text-align: center;
+	font-size: 0;
+}
+
+nav li, .tabs-nav li {
+	list-style: none;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1;
+	font-size: @font-size-increased;
+	padding: 0;
+}
+
+nav a, nav a:hover, nav a:active, nav a:visited, .tabs-nav a {
+	border: 0;
+	outline: none;
+	display: inline-block;
+	margin-bottom: @slim-spacing/2;
+	text-align: center;
+	font-weight: 700;
+	color: @link-color;
+	padding: 0.25em 0.5em;
+}
+
+nav a:hover, nav a:active, nav a:focus {
+	color: @link-color-darker;
+}
+
+nav li + li a {
+	margin-left: @slim-spacing / 2;
+}
+
+nav li + li:before {
+	content: '\2605';
+	color: @secondary-color;
+}
+
+/**
+* Headings
+----------------------------------------------------------------------
+*/
+
+h1, h2, h3, h4, hgroup {
+	font-family: @family-headings;
+    font-weight: 700;
+	line-height: 1;
+	.headings;
+	text-align: center;
+}
+
+* + h1, * + h2, * + hgroup { margin-top: @v-space*1.5 }
+* + h4 { margin-top: @v-space; }
+
+hgroup * {
+	margin: 0;
+}
+
+h4 { 
+	font-size: 1em; 
+	text-align: left;
+}
+
+h3 { 
+	font-size: 1.5em;
+	text-align: left;
+}
+
+h2 { font-size: 2.5em }
+h1 { font-size: 3.5em }
+h1 span {
+	display: inline-block;
+	height: 0;
+	width: 0;
+	overflow: hidden;
+}
+hgroup h1 { font-size: 3.75em }
+
+h2 {
+	background: url(images/heading_bar.png) no-repeat center bottom;
+	background-size: 100% auto;
+	padding-bottom: 0.5em;
+}
+
+/**
+* Phrasing
+----------------------------------------------------------------------
+*/
+
+p * { line-height: 1; }
+
+strong, abbr, b { font-weight:700 }
+em, cite, q, i { font-style: italic }
+abbr { letter-spacing: 0.125em }
+del { text-decoration: line-through }
+abbr[title], dfn[title] { cursor: help }
+
+small {
+	font-size: @font-size-reduced;
+	.translucent;
+}
+
+code {
+	background: #eee;
+	padding: 0.25em;
+	font-family: 'Lucida Console', monospace;
+	font-size: 0.9em;
+	letter-spacing: 1px;
+	-moz-hyphens: none;
+	-webkit-hyphens: none;
+	hyphens: none;
+}
+
+sup, sub {
+	line-height: 0;
+	font-size: 0.8em;
+}
+
+sup {
+	vertical-align: super;
+	font-style: italic;
+}
+
+sub {
+	vertical-align: sub;
+	position: relative;
+	top: -0.125em;
+	font-size: 0.8em;
+}
+
+kbd {
+	font-family: 'Lucida Console', monospaced;
+	border: 2px solid;
+	padding: 0 0.125em;
+	white-space: nowrap;
+}
+
+/**
+* Forms
+----------------------------------------------------------------------
+*/
+
+fieldset {
+	padding: 1.5em;
+	border: @border-width solid @primary-color;
+}
+
+legend {
+	font-size: 1.25rem;
+	font-style: italic;
+	padding: 0 0.5em;
+}
+
+form div {
+	font-size: 0;
+}
+
+legend + div {
+	margin-top: 0;
+}
+
+form div > * {
+	font-size: @font-size-base;
+	margin-top: 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+label {
+	width: 40%;
+	text-align: right;
+	padding-right: 0.5em;
+	line-height: 1;
+	font-weight: 700;
+}
+
+input, textarea, select {
+	font-size: inherit;
+	font-family: inherit;
+	margin: 0;
+	line-height: 1;
+	width: 50%;
+	padding: 0.25em;
+	border: 1px solid @font-color;
+	.box-sized;
+}
+
+form p {
+	padding: 0 0 0 40%;
+	margin: 0 0 0 0.5em;
+}
+
+form p + p {
+	margin-top: 0.5em;
+	text-indent: 0;
+}
+
+input:focus, textarea:focus, select:focus {
+	outline: 2px solid @font-color;
+}
+
+input[type="submit"]:focus {
+	outline: 1px dotted #999;
+}
+
+option {
+	margin-top: 0;
+}
+
+input[type="checkbox"], input[type="radio"] {
+	width: auto;
+	border: 0;
+}
+
+/**
+* Buttons
+----------------------------------------------------------------------
+*/
+
+button, a[role="button"], input[type="submit"] {
+	background: @link-color;
+	color: @font-color-light;
+	padding: @slim-spacing @slim-spacing*2;
+	border: 0;
+	cursor: pointer;
+	display: inline-block;
+	width: auto;
+	margin-right: @slim-spacing;
+	margin-top: 0;
+	font-family: inherit;
+	font-size: @font-size-increased;
+	line-height: 1;
+	.call-to-action-font;
+}
+
+button:active, a[role="button"]:active, input[type="submit"]:active {
+	box-shadow: inset 1px 1px 0 @link-color-darker, inset -1px -1px 0 @link-color-darker, inset 2px 2px 0 @link-color-darker;
+	position: relative;
+	left: 0px;
+	top: 1px;
+}
+
+/* use #disabled as the href value on links that you wish to display as disabled */
+*[disabled="disabled"], a[href="#disabled"] {
+	opacity: 0.5;
+	cursor: default;
+}
+
+/* reset active styles for disabled elements */
+*[disabled="disabled"]:active, a[href="#disabled"]:active {
+	top: 0;
+	background: #990000;
+}
+
+/**
+* Boxes (divs and sections)
+----------------------------------------------------------------------
+*/
+
+div { 
+	.box-sized;
+}
+
+* + section, * + article, * + aside {
+	margin-top: @v-space-increased;
+}
+
+/**
+* Grid-like helper styles
+* For making quasi-columns / adjacent boxes. Example HTML to follow
+----------------------------------------------------------------------
+*/
+
+/* to remove inline-block white space separating children */
+div[class^="group"] { 
+	font-size: 0; 
+	text-align: left;
+} 
+
+div[class^="group"] > * {
+	font-size: @font-size-base; /* override reset in above rule */
+	display: inline-block; /* floats are for losers */
+	vertical-align: top;
+	margin-top: 0;
+}
+
+/* adjacent boxes need gutters. We create this using margin on their direct children  */
+div[class^="group"] > * > * { 
+	margin: 0 @h-space-reduced 0 0;
+	.box-style-primary; /* import basic box styling */
+}
+div[class^="group"] > * + * > * { margin: 0 @h-space-reduced 0 } 
+div[class^="group"] > *:last-child > * { margin-right: 0 }
+
+/* One from each of the following sets of three to be placed on the containing div element */ 
+
+/* Set 1: Horizontal alignment of boxes */
+div.group-left { text-align: left }
+div.group-center { text-align: center }
+div.group-right { text-align: right }
+
+/* Set 2: Vertical alignment of boxes */
+div.group-top > * { vertical-align: top }
+div.group-middle > * { vertical-align: middle }
+div.group-bottom > * { vertical-align: baseline }
+
+/** 
+* EXAMPLE
+* Inline styles are used to define width 
+*(saves on spawning classes like ".three-fifths" etc)
+* Boxes are centered on vertical axis 
+********************************************
+
+<div class="group-center group-middle">
+	<div style="width:50%">
+		<div><!-- box content --></div>
+	</div>
+	<div style="width:30%">
+		<div><!-- box content --></div>
+	</div>
+	<div style="width:20%">
+		<div><!-- box content --></div>
+	</div>
+</div>
+
+*/
+
+/**
+* Collapsable definition items
+* Uses the 5k collapse plugin (http://webcloud.se/jQuery-Collapse/)
+----------------------------------------------------------------------
+*/
+
+.box dt, .box dd {
+	display: block;
+	text-align: left;
+	width: auto;
+	padding: 0;
+}
+
+.box dt  a {
+	padding: @v-space/2 @h-space/2;
+	background: @link-color;
+	display: block;
+	color: @font-color-light;
+	border: 0;
+	font-style: normal;
+}
+
+.box dt {
+	margin-bottom: @v-space/4;
+}
+
+.box dt a:before {
+	content:'\25B6';
+	padding-right: @h-space/2;
+}
+
+.box dt.open a:before {
+	content:'\25BC';
+}
+
+.box dt.open {
+	margin-bottom: 0;
+}
+
+.box dd {
+	padding: @v-space/2 0;
+	.transition-basic(2s);
+}
+
+.box dt  a:hover, .box a:active, .box a:focus {
+	background: @link-color-darker;
+}
+
+/**
+* Accessible tabs
+----------------------------------------------------------------------
+*/
+
+.tabs > div .tabs-panel { 
+	display: none; 
+	background: @font-color-light;
+	padding: @v-space @h-space;
+}
+
+.tabs-panel {
+	margin-top: 0;
+}
+
+.tabs > div .tabs-panel-selected { display: block; }
+
+.tabs-nav a {
+	margin-bottom: 0;
+}
+
+li.tabs-selected a {
+	background: @font-color-light;
+	color: @font-color;
+}
+
+.tabs-body {
+	margin-top: 0;
+}
+
+/**
+* Accordians
+----------------------------------------------------------------------
+*/
+
 .collapse {
 	position: relative;
 	height: 0;
 	overflow: hidden;
+	margin: 0;
+	background: @link-color-lighter;
+	.box-sized;
+	border-top: 2px solid @link-color-lighter;
 	-webkit-transition: height 0.35s ease;
 	-moz-transition: height 0.35s ease;
 	-o-transition: height 0.35s ease;
 	transition: height 0.35s ease;
 }
 
-.active {
-	background: red;
+li:last-child .collapse {
+	border: 0;
+}
+
+.collapse > div {
+	padding: @h-space/2;
+}
+
+ul.accordian {
+	margin-top: @v-space/2;
+}
+
+ul.accordian li {
+	list-style: none;
+}
+
+.accordian h3 > a {
+	display: block;
+	margin: 0;
+	font-size: 1.125em;
+}
+
+.accordian h3 > a.active {
+	margin: 0;
 }
