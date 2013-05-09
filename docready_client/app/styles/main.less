@@ -79,6 +79,8 @@ div[role="main"] {
 .container {
 	margin: 0 auto;
 	max-width: 900px;
+	padding: @v-space/2;
+
 }
 
 div[role="main"] > div {
@@ -389,7 +391,7 @@ hgroup h1 { font-size: 3.75em }
 
 h2 {
 	background: url(images/heading_bar.png) no-repeat center bottom;
-	background-size: 100% auto;
+	background-size: 900px auto;
 	padding-bottom: 0.5em;
 }
 
@@ -545,7 +547,7 @@ button, a[role="button"], input[type="submit"] {
 }
 
 button:active, a[role="button"]:active, input[type="submit"]:active {
-	box-shadow: inset 1px 1px 0 @link-color-darker, inset -1px -1px 0 @link-color-darker, inset 2px 2px 0 @link-color-darker;
+	box-shadow: inset 1px 1px 0 @link-color-darker, inset 2px 2px 0 @link-color-darker;
 	position: relative;
 	left: 0px;
 	top: 1px;
@@ -755,6 +757,16 @@ ul.accordian li {
 	font-size: 1.125em;
 }
 
+.accordian h3 > a:before {
+	content: '\25B6';
+	font-weight: normal;
+	padding-right: 0.25em;
+}
+
 .accordian h3 > a.active {
 	margin: 0;
+}
+
+.accordian h3 > a.active:before {
+	content: '\25BC';
 }
