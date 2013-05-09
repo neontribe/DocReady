@@ -1,22 +1,22 @@
 describe('accordion', function () {
-  var $scope;
+  var $scope, $httpBackend;
 
   beforeEach(module('ui.bootstrap.accordion'));
 
   beforeEach(inject(function ($rootScope, _$httpBackend_) {
       $scope = $rootScope;
-      _$httpBackend_.whenGET('views/accordion/accordion.html').respond('<ul ng-transclude></ul>');
-      _$httpBackend_.whenGET('views/accordion/accordion-group.html').respond([
+      $httpBackend = _$httpBackend_;
+      $httpBackend.whenGET('views/accordion.html').respond('<ul ng-transclude></ul>');
+      $httpBackend.whenGET('views/accordion-group.html').respond([
         '<li>',
         '  <h3>',
         '    <a role="button"',
         '       aria-controls="{{slug}}"',
         '       ng-click="isOpen = !isOpen"',
         '       ng-class="{ active: isOpen }"',
-        '       ng-bind-html="heading"></a>',
+        '       accordion-tranclude="heading">{{heading}}</a>',
         '  </h3>',
-        '  <div id="{{slug}}" collapse="!isOpen" aria-expanded="{{isOpen}}">',
-        '    <div ng-bind-html="content"></div>',
+        '  <div id="{{slug}}" collapse="!isOpen" aria-expanded="{{isOpen}}" ng-transclude>',
         '  </div>',
         '</li>'
         ].join(''));
@@ -144,20 +144,27 @@ describe('accordion', function () {
       beforeEach(function () {
         var tpl =
           "<accordion>" +
-            "<accordion-group heading=\"title 1\" content=\"Content 1\"></accordion-group>" +
-            "<accordion-group heading=\"title 2\" content=\"Content 2\"></accordion-group>" +
+            "<accordion-group heading=\"title 1\">Content 1</accordion-group>" +
+            "<accordion-group heading=\"title 2\">Content 2</accordion-group>" +
             "</accordion>";
         element = angular.element(tpl);
+
         angular.element(document.body).append(element);
+        scope.$digest();
         $compile(element)(scope);
+        $httpBackend.flush(); 
+        //$compile(element)(scope);
         scope.$digest();
         groups = element.find('li');
       });
+
       afterEach(function() {
         element.remove();
       });
 
       it('should create accordion groups with content', function () {
+
+        console.log(element.html());
         expect(groups.length).toEqual(2);
         expect(findGroupLink(0).text()).toEqual('title 1');
         expect(findGroupBody(0).text().trim()).toEqual('Content 1');
@@ -191,7 +198,7 @@ describe('accordion', function () {
       beforeEach(function () {
         var tpl =
           "<accordion>" +
-            "<accordion-group ng-repeat='group in groups' heading='{{group.name}}'>{{group.content}}</accordion-group>" +
+            "<accordion-group ng-repeat='group in groups' heading='{{group.name}}' content='{{group.content}}'></accordion-group>" +
           "</accordion>";
         element = angular.element(tpl);
         model = [
@@ -204,14 +211,14 @@ describe('accordion', function () {
       });
 
       it('should have no groups initially', function () {
-        groups = element.find('.accordion-group');
+        groups = element.find('li');
         expect(groups.length).toEqual(0);
       });
 
       it('should have a group for each model item', function() {
         scope.groups = model;
         scope.$digest();
-        groups = element.find('.accordion-group');
+        groups = element.find('li');
         expect(groups.length).toEqual(2);
         expect(findGroupLink(0).text()).toEqual('title 1');
         expect(findGroupBody(0).text().trim()).toEqual('Content 1');
@@ -222,12 +229,12 @@ describe('accordion', function () {
       it('should react properly on removing items from the model', function () {
         scope.groups = model;
         scope.$digest();
-        groups = element.find('.accordion-group');
+        groups = element.find('li');
         expect(groups.length).toEqual(2);
 
         scope.groups.splice(0,1);
         scope.$digest();
-        groups = element.find('.accordion-group');
+        groups = element.find('li');
         expect(groups.length).toEqual(1);
       });
     });
@@ -236,15 +243,15 @@ describe('accordion', function () {
       beforeEach(function () {
         var tpl =
           "<accordion>" +
-            "<accordion-group heading=\"title 1\" is-open=\"open1\">Content 1</accordion-group>" +
-            "<accordion-group heading=\"title 2\" is-open=\"open2\">Content 2</accordion-group>" +
+            "<accordion-group heading=\"title 1\" is-open=\"open1\" content=\"Content 1\"></accordion-group>" +
+            "<accordion-group heading=\"title 2\" is-open=\"open2\" content=\"Content 2\"></accordion-group>" +
             "</accordion>";
         element = angular.element(tpl);
         scope.open1 = false;
         scope.open2 = true;
         $compile(element)(scope);
         scope.$digest();
-        groups = element.find('.accordion-group');
+        groups = element.find('li');
       });
 
       it('should open the group with isOpen set to true', function () {
@@ -267,7 +274,7 @@ describe('accordion', function () {
         angular.element(document.body).append(element);
         $compile(element)(scope);
         scope.$digest();
-        groups = element.find('.accordion-group');
+        groups = element.find('li');
       });
 
       afterEach(function() {

@@ -4,9 +4,7 @@
   	   aria-controls="{{slug}}"
   	   ng-click="isOpen = !isOpen"
   	   ng-class="{ active: isOpen }"
-  	   ng-bind-html="heading"></a>
+  	   accordion-transclude="heading">{{heading}}</a>
   </h3>
-  <div id="{{slug}}" collapse="!isOpen" aria-expanded="{{isOpen}}" ng-class="{ expanded: isOpen }">
-    <div ng-bind-html="content"></div>  
-  </div>
+  <div id="{{slug}}" collapse="!isOpen" aria-expanded="{{isOpen}}" ng-class="{ expanded: isOpen }"ng-transclude></div>
 </li>
