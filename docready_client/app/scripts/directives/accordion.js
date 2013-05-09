@@ -1,4 +1,6 @@
-angular.module("ui.bootstrap", ["ui.bootstrap.transition","ui.bootstrap.collapse","ui.bootstrap.accordion"]);
+/* jshint unused: false */
+'use strict';
+angular.module('ui.bootstrap', ['ui.bootstrap.transition','ui.bootstrap.collapse','ui.bootstrap.accordion']);
 angular.module('ui.bootstrap.transition', [])
 
 /**
@@ -15,9 +17,9 @@ angular.module('ui.bootstrap.transition', [])
   var $transition = function(element, trigger, options) {
     options = options || {};
     var deferred = $q.defer();
-    var endEventName = $transition[options.animation ? "animationEndEventName" : "transitionEndEventName"];
+    var endEventName = $transition[options.animation ? 'animationEndEventName' : 'transitionEndEventName'];
 
-    var transitionEndHandler = function(event) {
+    var transitionEndHandler = function() {
       $rootScope.$apply(function() {
         element.unbind(endEventName, transitionEndHandler);
         deferred.resolve(element);
@@ -106,7 +108,7 @@ angular.module('ui.bootstrap.collapse',['ui.bootstrap.transition'])
 
       var isCollapsed;
       var initialAnimSkip = true;
-      scope.$watch(function (){ return element[0].scrollHeight; }, function (value) {
+      scope.$watch(function (){ return element[0].scrollHeight; }, function () {
         //The listener is called when scollHeight changes
         //It actually does on 2 scenarios: 
         // 1. Parent is set to display none
@@ -122,7 +124,7 @@ angular.module('ui.bootstrap.collapse',['ui.bootstrap.transition'])
           }
         }
       });
-      
+
       scope.$watch(attrs.collapse, function(value) {
         if (value) {
           collapse();
@@ -130,7 +132,7 @@ angular.module('ui.bootstrap.collapse',['ui.bootstrap.transition'])
           expand();
         }
       });
-      
+
 
       var currentTransition;
       var doTransition = function(change) {
@@ -163,7 +165,7 @@ angular.module('ui.bootstrap.collapse',['ui.bootstrap.transition'])
         }
         isCollapsed = false;
       };
-      
+
       var collapse = function() {
         isCollapsed = true;
         if (initialAnimSkip) {
@@ -185,7 +187,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
 })
 
 .controller('AccordionController', ['$scope', '$attrs', 'accordionConfig', function ($scope, $attrs, accordionConfig) {
-  
+
   // This array keeps track of the accordion groups
   this.groups = [];
 
@@ -200,13 +202,13 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
       });
     }
   };
-  
+
   // This is called from the accordion-group directive to add itself to the accordion
   this.addGroup = function(groupScope) {
     var that = this;
     this.groups.push(groupScope);
 
-    groupScope.$on('$destroy', function (event) {
+    groupScope.$on('$destroy', function () {
       that.removeGroup(groupScope);
     });
   };
@@ -229,7 +231,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
     controller:'AccordionController',
     transclude: true,
     replace: false,
-    templateUrl: 'views/accordion/accordion.html'
+    templateUrl: 'views/accordion.html'
   };
 })
 
@@ -240,7 +242,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
     restrict:'EA',
     transclude:true,              // It transcludes the contents of the directive into the template
     replace: true,                // The element containing the directive will be replaced with the template
-    templateUrl:'views/accordion/accordion-group.html',
+    templateUrl:'views/accordion-group.html',
     scope:{ heading:'@', slug:'@', content:'@' },        // Create an isolated scope and interpolate the heading attribute onto this scope
     controller: ['$scope', function($scope) {
       this.setHeading = function(element) {
@@ -253,7 +255,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
       accordionCtrl.addGroup(scope);
 
       scope.isOpen = false;
-      
+
       if ( attrs.isOpen ) {
         getIsOpen = $parse(attrs.isOpen);
         setIsOpen = getIsOpen.assign;
@@ -262,7 +264,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
           function watchIsOpen() { return getIsOpen(scope.$parent); },
           function updateOpen(value) { scope.isOpen = value; }
         );
-        
+
         scope.isOpen = getIsOpen ? getIsOpen(scope.$parent) : false;
       }
 
