@@ -43,3 +43,5 @@ angular.module('docreadyTest', ['docready', 'ngMockE2E'])
   registerMocks($httpBackend);
   $httpBackend.whenGET().passThrough();
 });
+
+angular.element(document).find('body').attr('ng-app', 'docreadyTest');
