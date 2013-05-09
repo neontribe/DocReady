@@ -1,12 +1,816 @@
+@import url(http://fonts.googleapis.com/css?family=Sintony:400,700);
+
+@import url(http://fonts.googleapis.com/css?family=Play:700);
+/**
+* LESS CSS VARIABLES AND MIXINS
+----------------------------------------------------------------------
+*/
+/**
+* Variables
+--------------------------------*/
+/* Colors */
+.primary-color {
+  background: #d96342;
+}
+.secondary-color {
+  background: #3e8885;
+}
+.tertiary-color {
+  background: #8aa54b;
+}
+.primary-color-darker {
+  background: #81311a;
+}
+.secondary-color-darker {
+  background: #16302f;
+}
+.tertiary-color-darker {
+  background: #414d23;
+}
+.primary-color-lighter {
+  background: #f7ded7;
+}
+.secondary-color-lighter {
+  background: #a3d5d3;
+}
+.tertiary-color-lighter {
+  background: #cddaaf;
+}
+/* Sizes */
+/* Font families */
+/* Layout */
+/* overall width of contents, not wrappers */
+/* fixed width of aside role="complementary" */
+/* space between columns */
+div[role="main"] {
+  float: left;
+  width: 100%;
+}
+.container {
+  margin: 0 auto;
+  max-width: 900px;
+}
+div[role="main"] > div {
+  margin-right: 236px;
+}
+aside[role="complementary"] {
+  float: left;
+  width: 200px;
+  margin-left: -200px;
+  margin-top: 0;
+}
+footer {
+  clear: both;
+}
+/* Helper mixins */
+.call-to-action-font {
+  font-family: 'Play';
+  text-transform: uppercase;
+  letter-spacing: 2.25px;
+}
+.hyphens {
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+.box-sized {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  *behavior: url(js/boxsizing.htc);
+}
+.border-radius {
+  -moz-border-radius: 18px;
+  -webkit-border-radius: 18px;
+  border-radius: 18px;
+}
+.translucent {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+}
+.headings {
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #d96342;
+}
+/**
+* -------------------------------------------------------------- 
+End LESS CSS VARIABLES AND MIXINS
+*/
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+nav ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+input,
+select {
+  vertical-align: middle;
+}
+/**
+* Body
+----------------------------------------------------------------------
+*/
+body {
+  font-size: 18px;
+  background: url('images/grid.gif');
+  line-height: 27px;
+  font-weight: 400;
+  font-family: 'Sintony';
+  color: #333333;
+}
+/**
+* Generic links
+----------------------------------------------------------------------
+*/
+a,
+a:visited {
+  color: #8aa54b;
+  border-bottom: 1px solid;
+  text-decoration: none;
+}
+a:hover {
+  color: #4f5f2b;
+  border-bottom: 2px solid;
+}
+a:active {
+  outline: none;
+  border-bottom: 3px solid;
+}
+a:focus {
+  outline: 1px dotted #999999;
+}
+/**
+* Flow
+----------------------------------------------------------------------
+*/
+body * + * {
+  margin-top: 27px;
+}
+blockquote,
+figure {
+  padding: 18px;
+}
+blockquote p {
+  font-size: 22.5px;
+  font-style: italic;
+}
+caption {
+  text-align: center;
+  padding: 9px;
+  padding-bottom: 0;
+}
+blockquote footer:before {
+  content: '\2014';
+  padding: 0 9px 0 0;
+}
+blockquote p:before,
+q:before {
+  content: '\201C';
+}
+blockquote p:after,
+q:after {
+  content: '\201D';
+}
+/**
+* Media
+----------------------------------------------------------------------
+*/
+img {
+  max-width: 100%;
+  height: auto;
+}
+/**
+* Paragraphs and lists
+----------------------------------------------------------------------
+*/
+p {
+  text-align: justify;
+}
+p:only-child {
+  text-align: left;
+}
+li,
+dt,
+dd {
+  margin-top: 0;
+}
+p + p {
+  margin-top: 13.5px;
+}
+p * {
+  margin: 0;
+}
+/* for introductory paragraphs belonging to major sections */
+h1 + p,
+header + p,
+hgroup + p {
+  font-size: 22.5px;
+}
+li {
+  list-style: disc inside;
+}
+ol li {
+  list-style-type: decimal;
+}
+dl {
+  font-size: 0;
+}
+dt,
+dd {
+  font-size: 18px;
+  display: inline-block;
+  vertical-align: top;
+  width: 75%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  *behavior: url(js/boxsizing.htc);
+  padding-top: 13.5px;
+}
+dt {
+  width: 25%;
+  text-align: right;
+  font-style: italic;
+  padding-right: 1.5em;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+/**
+* <nav> sections
+----------------------------------------------------------------------
+*/
+nav ul {
+  text-align: center;
+  font-size: 0;
+}
+nav li,
+.tabs-nav li {
+  list-style: none;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  font-size: 22.5px;
+  padding: 0;
+}
+nav a,
+nav a:hover,
+nav a:active,
+nav a:visited,
+.tabs-nav a {
+  border: 0;
+  outline: none;
+  display: inline-block;
+  margin-bottom: 4.5px;
+  text-align: center;
+  font-weight: 700;
+  color: #8aa54b;
+  padding: 0.25em 0.5em;
+}
+nav a:hover,
+nav a:active,
+nav a:focus {
+  color: #4f5f2b;
+}
+nav li + li a {
+  margin-left: 4.5px;
+}
+nav li + li:before {
+  content: '\2605';
+  color: #3e8885;
+}
+/**
+* Headings
+----------------------------------------------------------------------
+*/
+h1,
+h2,
+h3,
+h4,
+hgroup {
+  font-family: 'Play';
+  line-height: 1;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #d96342;
+  text-align: center;
+}
+* + h1,
+* + h2,
+* + hgroup {
+  margin-top: 40.5px;
+}
+* + h4 {
+  margin-top: 27px;
+}
+hgroup * {
+  margin: 0;
+}
+h4 {
+  font-size: 1em;
+  text-align: left;
+}
+h3 {
+  font-size: 1.5em;
+  text-align: left;
+}
+h2 {
+  font-size: 2.5em;
+}
+h1 {
+  font-size: 3.5em;
+}
+h1 span {
+  display: inline-block;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
+hgroup h1 {
+  font-size: 3.75em;
+}
+h2 {
+  background: url(images/heading_bar.png) no-repeat center bottom;
+  background-size: 100% auto;
+  padding-bottom: 0.5em;
+}
+/**
+* Phrasing
+----------------------------------------------------------------------
+*/
+p * {
+  line-height: 1;
+}
+strong,
+abbr,
+b {
+  font-weight: 700;
+}
+em,
+cite,
+q,
+i {
+  font-style: italic;
+}
+abbr {
+  letter-spacing: 0.125em;
+}
+del {
+  text-decoration: line-through;
+}
+abbr[title],
+dfn[title] {
+  cursor: help;
+}
+small {
+  font-size: 16.2px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+}
+code {
+  background: #eee;
+  padding: 0.25em;
+  font-family: 'Lucida Console', monospace;
+  font-size: 0.9em;
+  letter-spacing: 1px;
+  -moz-hyphens: none;
+  -webkit-hyphens: none;
+  hyphens: none;
+}
+sup,
+sub {
+  line-height: 0;
+  font-size: 0.8em;
+}
+sup {
+  vertical-align: super;
+  font-style: italic;
+}
+sub {
+  vertical-align: sub;
+  position: relative;
+  top: -0.125em;
+  font-size: 0.8em;
+}
+kbd {
+  font-family: 'Lucida Console', monospaced;
+  border: 2px solid;
+  padding: 0 0.125em;
+  white-space: nowrap;
+}
+/**
+* Forms
+----------------------------------------------------------------------
+*/
+fieldset {
+  padding: 1.5em;
+  border: 0.125em solid #d96342;
+}
+legend {
+  font-size: 1.25rem;
+  font-style: italic;
+  padding: 0 0.5em;
+}
+form div {
+  font-size: 0;
+}
+legend + div {
+  margin-top: 0;
+}
+form div > * {
+  font-size: 18px;
+  margin-top: 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+label {
+  width: 40%;
+  text-align: right;
+  padding-right: 0.5em;
+  line-height: 1;
+  font-weight: 700;
+}
+input,
+textarea,
+select {
+  font-size: inherit;
+  font-family: inherit;
+  margin: 0;
+  line-height: 1;
+  width: 50%;
+  padding: 0.25em;
+  border: 1px solid #333333;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  *behavior: url(js/boxsizing.htc);
+}
+form p {
+  padding: 0 0 0 40%;
+  margin: 0 0 0 0.5em;
+}
+form p + p {
+  margin-top: 0.5em;
+  text-indent: 0;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #333333;
+}
+input[type="submit"]:focus {
+  outline: 1px dotted #999;
+}
+option {
+  margin-top: 0;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  border: 0;
+}
+/**
+* Buttons
+----------------------------------------------------------------------
+*/
+button,
+a[role="button"],
+input[type="submit"] {
+  background: #8aa54b;
+  color: #fefefe;
+  padding: 9px 18px;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  width: auto;
+  margin-right: 9px;
+  margin-top: 0;
+  font-family: inherit;
+  font-size: 22.5px;
+  line-height: 1;
+  font-family: 'Play';
+  text-transform: uppercase;
+  letter-spacing: 2.25px;
+}
+button:active,
+a[role="button"]:active,
+input[type="submit"]:active {
+  box-shadow: inset 1px 1px 0 #4f5f2b, inset -1px -1px 0 #4f5f2b, inset 2px 2px 0 #4f5f2b;
+  position: relative;
+  left: 0px;
+  top: 1px;
+}
+/* use #disabled as the href value on links that you wish to display as disabled */
+*[disabled="disabled"],
+a[href="#disabled"] {
+  opacity: 0.5;
+  cursor: default;
+}
+/* reset active styles for disabled elements */
+*[disabled="disabled"]:active,
+a[href="#disabled"]:active {
+  top: 0;
+  background: #990000;
+}
+/**
+* Boxes (divs and sections)
+----------------------------------------------------------------------
+*/
+div {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  *behavior: url(js/boxsizing.htc);
+}
+* + section,
+* + article,
+* + aside {
+  margin-top: 54px;
+}
+/**
+* Grid-like helper styles
+* For making quasi-columns / adjacent boxes. Example HTML to follow
+----------------------------------------------------------------------
+*/
+/* to remove inline-block white space separating children */
+div[class^="group"] {
+  font-size: 0;
+  text-align: left;
+}
+div[class^="group"] > * {
+  font-size: 18px;
+  /* override reset in above rule */
+
+  display: inline-block;
+  /* floats are for losers */
+
+  vertical-align: top;
+  margin-top: 0;
+}
+/* adjacent boxes need gutters. We create this using margin on their direct children  */
+div[class^="group"] > * > * {
+  margin: 0 18px 0 0;
+  /* import basic box styling */
+
+}
+div[class^="group"] > * + * > * {
+  margin: 0 18px 0;
+}
+div[class^="group"] > *:last-child > * {
+  margin-right: 0;
+}
+/* One from each of the following sets of three to be placed on the containing div element *//* Set 1: Horizontal alignment of boxes */
+div.group-left {
+  text-align: left;
+}
+div.group-center {
+  text-align: center;
+}
+div.group-right {
+  text-align: right;
+}
+/* Set 2: Vertical alignment of boxes */
+div.group-top > * {
+  vertical-align: top;
+}
+div.group-middle > * {
+  vertical-align: middle;
+}
+div.group-bottom > * {
+  vertical-align: baseline;
+}
+/** 
+* EXAMPLE
+* Inline styles are used to define width 
+*(saves on spawning classes like ".three-fifths" etc)
+* Boxes are centered on vertical axis 
+********************************************
+
+<div class="group-center group-middle">
+	<div style="width:50%">
+		<div><!-- box content --></div>
+	</div>
+	<div style="width:30%">
+		<div><!-- box content --></div>
+	</div>
+	<div style="width:20%">
+		<div><!-- box content --></div>
+	</div>
+</div>
+
+*/
+/**
+* Collapsable definition items
+* Uses the 5k collapse plugin (http://webcloud.se/jQuery-Collapse/)
+----------------------------------------------------------------------
+*/
+.box dt,
+.box dd {
+  display: block;
+  text-align: left;
+  width: auto;
+  padding: 0;
+}
+.box dt a {
+  padding: 13.5px 18px;
+  background: #8aa54b;
+  display: block;
+  color: #fefefe;
+  border: 0;
+  font-style: normal;
+}
+.box dt {
+  margin-bottom: 6.75px;
+}
+.box dt a:before {
+  content: '\25B6';
+  padding-right: 18px;
+}
+.box dt.open a:before {
+  content: '\25BC';
+}
+.box dt.open {
+  margin-bottom: 0;
+}
+.box dd {
+  padding: 13.5px 0;
+  -webkit-transition: 2s linear all;
+  -moz-transition: 2s linear all;
+  -o-transition: 2s linear all;
+  -ms-transition: 2s linear all;
+  transition: 2s linear all;
+}
+.box dt a:hover,
+.box a:active,
+.box a:focus {
+  background: #4f5f2b;
+}
+/**
+* Accessible tabs
+----------------------------------------------------------------------
+*/
+.tabs > div .tabs-panel {
+  display: none;
+  background: #fefefe;
+  padding: 27px 36px;
+}
+.tabs-panel {
+  margin-top: 0;
+}
+.tabs > div .tabs-panel-selected {
+  display: block;
+}
+.tabs-nav a {
+  margin-bottom: 0;
+}
+li.tabs-selected a {
+  background: #fefefe;
+  color: #333333;
+}
+.tabs-body {
+  margin-top: 0;
+}
+/**
+* Accordians
+----------------------------------------------------------------------
+*/
 .collapse {
   position: relative;
   height: 0;
   overflow: hidden;
+  margin: 0;
+  background: #cddaaf;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  *behavior: url(js/boxsizing.htc);
+  border-top: 2px solid #cddaaf;
   -webkit-transition: height 0.35s ease;
   -moz-transition: height 0.35s ease;
   -o-transition: height 0.35s ease;
   transition: height 0.35s ease;
 }
-.active {
-  background: red;
+li:last-child .collapse {
+  border: 0;
+}
+.collapse > div {
+  padding: 18px;
+}
+ul.accordian {
+  margin-top: 13.5px;
+}
+ul.accordian li {
+  list-style: none;
+}
+.accordian h3 > a {
+  display: block;
+  margin: 0;
+  font-size: 1.125em;
+}
+.accordian h3 > a.active {
+  margin: 0;
 }

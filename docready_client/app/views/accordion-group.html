@@ -6,7 +6,7 @@
   	   ng-class="{ active: isOpen }"
   	   ng-bind-html="heading"></a>
   </h3>
-  <div id="{{slug}}" collapse="!isOpen" aria-expanded="{{isOpen}}">
+  <div id="{{slug}}" collapse="!isOpen" aria-expanded="{{isOpen}}" ng-class="{ expanded: isOpen }">
     <div ng-bind-html="content"></div>  
   </div>
 </li>
