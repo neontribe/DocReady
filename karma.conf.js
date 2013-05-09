@@ -7,6 +7,7 @@ basePath = '';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
+  'test/libs/*.js',
   'app/components/angular-unstable/angular.js',
   'app/components/angular-resource-unstable/angular-resource.js',
   'app/components/angular-sanitize-unstable/index.js',

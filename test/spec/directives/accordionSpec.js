@@ -14,7 +14,7 @@ describe('accordion', function () {
         '       aria-controls="{{slug}}"',
         '       ng-click="isOpen = !isOpen"',
         '       ng-class="{ active: isOpen }"',
-        '       accordion-tranclude="heading">{{heading}}</a>',
+        '       accordion-transclude="heading">{{heading}}</a>',
         '  </h3>',
         '  <div id="{{slug}}" collapse="!isOpen" aria-expanded="{{isOpen}}" ng-transclude>',
         '  </div>',
@@ -148,13 +148,10 @@ describe('accordion', function () {
             "<accordion-group heading=\"title 2\">Content 2</accordion-group>" +
             "</accordion>";
         element = angular.element(tpl);
-
         angular.element(document.body).append(element);
         scope.$digest();
         $compile(element)(scope);
         $httpBackend.flush(); 
-        //$compile(element)(scope);
-        scope.$digest();
         groups = element.find('li');
       });
 
@@ -163,8 +160,6 @@ describe('accordion', function () {
       });
 
       it('should create accordion groups with content', function () {
-
-        console.log(element.html());
         expect(groups.length).toEqual(2);
         expect(findGroupLink(0).text()).toEqual('title 1');
         expect(findGroupBody(0).text().trim()).toEqual('Content 1');
@@ -176,7 +171,6 @@ describe('accordion', function () {
         findGroupLink(0).click();
         scope.$digest();
         expect(findGroupBody(0).scope().isOpen).toBe(true);
-
         findGroupLink(1).click();
         scope.$digest();
         expect(findGroupBody(0).scope().isOpen).toBe(false);
@@ -198,15 +192,15 @@ describe('accordion', function () {
       beforeEach(function () {
         var tpl =
           "<accordion>" +
-            "<accordion-group ng-repeat='group in groups' heading='{{group.name}}' content='{{group.content}}'></accordion-group>" +
+            "<accordion-group ng-repeat='group in groups' heading='{{group.name}}'>{{group.content}}</accordion-group>" +
           "</accordion>";
         element = angular.element(tpl);
         model = [
           {name: 'title 1', content: 'Content 1'},
           {name: 'title 2', content: 'Content 2'}
         ];
-
         $compile(element)(scope);
+        $httpBackend.flush(); 
         scope.$digest();
       });
 
@@ -231,7 +225,6 @@ describe('accordion', function () {
         scope.$digest();
         groups = element.find('li');
         expect(groups.length).toEqual(2);
-
         scope.groups.splice(0,1);
         scope.$digest();
         groups = element.find('li');
@@ -243,13 +236,14 @@ describe('accordion', function () {
       beforeEach(function () {
         var tpl =
           "<accordion>" +
-            "<accordion-group heading=\"title 1\" is-open=\"open1\" content=\"Content 1\"></accordion-group>" +
-            "<accordion-group heading=\"title 2\" is-open=\"open2\" content=\"Content 2\"></accordion-group>" +
+            "<accordion-group heading=\"title 1\" is-open=\"open1\">Content 1</accordion-group>" +
+            "<accordion-group heading=\"title 2\" is-open=\"open2\">Content 2</accordion-group>" +
             "</accordion>";
         element = angular.element(tpl);
         scope.open1 = false;
         scope.open2 = true;
         $compile(element)(scope);
+        $httpBackend.flush();
         scope.$digest();
         groups = element.find('li');
       });
@@ -273,6 +267,7 @@ describe('accordion', function () {
         scope.open2 = false;
         angular.element(document.body).append(element);
         $compile(element)(scope);
+        $httpBackend.flush();
         scope.$digest();
         groups = element.find('li');
       });
@@ -298,22 +293,26 @@ describe('accordion', function () {
           '</accordion>';
         element = $compile(tpl)(scope);
         scope.$digest();
-        groups = element.find('.accordion-group');
+        $httpBackend.flush();
+        groups = element.find('li');
       });
       it('transcludes the <accordion-heading> content into the heading link', function() {
         expect(findGroupLink(0).text()).toBe('Heading Element 123 ');
       });
       it('attaches the same scope to the transcluded heading and body', function() {
-        expect(findGroupLink(0).find('span').scope().$id).toBe(findGroupBody(0).find('span').scope().$id);
+        expect(findGroupLink(0).scope().$id).toBe(findGroupBody(0).scope().$id);
       });
 
     });
 
     describe('accordion-heading, with repeating accordion-groups', function() {
       it('should clone the accordion-heading for each group', function() {
-        element = $compile('<accordion><accordion-group ng-repeat="x in [1,2,3]"><accordion-heading>{{x}}</accordion-heading></accordion-group></accordion>')(scope);
+        element = angular.element('<accordion><accordion-group ng-repeat="x in [1,2,3]"><accordion-heading>{{x}}</accordion-heading></accordion-group></accordion>');
+        angular.element(document.body).append(element);
+        $compile(element)(scope);
+        $httpBackend.flush();
         scope.$digest();
-        groups = element.find('.accordion-group');
+        groups = element.find('li');
         expect(groups.length).toBe(3);
         expect(findGroupLink(0).text()).toBe('1');
         expect(findGroupLink(1).text()).toBe('2');
