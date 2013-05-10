@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" href="styles/6acee701.main.css">
+    <link rel="stylesheet" href="styles/b7a2f865.main.css">
   </head>
   <body ng-app="docready">
     <!--[if lt IE 7]>
@@ -23,9 +23,15 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+    <nav role="navigation">
+      <ul>
+        <li><a href="#/info">info</a></li>
+        <li><a href="#/tool">checklist</a></li>
+      </ul>
+    </nav>
+    <div class="container" ng-view="" ng-animate="{enter: 'view-enter', leave: 'view-leave'}"></div>
 
-    <script src="scripts/df702e09.scripts.js"></script>
+    <script src="scripts/b78cfa22.scripts.js"></script>
 
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
