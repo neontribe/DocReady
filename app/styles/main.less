@@ -117,7 +117,6 @@ footer {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	*behavior: url(js/boxsizing.htc);
 }
 
 .box-style-primary {
@@ -186,7 +185,7 @@ input, select { vertical-align: middle }
 
 body { 
 	font-size: @font-size-base;
-	background: url('images/grid.gif');
+	background: url('../images/grid.gif');
 	line-height: @v-space;
 	font-weight: 400;
 	font-family: @family-main;
@@ -390,7 +389,7 @@ h1 span {
 hgroup h1 { font-size: 3.75em }
 
 h2 {
-	background: url(images/heading_bar.png) no-repeat center bottom;
+	background: url(../images/heading_bar.png) no-repeat center bottom;
 	background-size: 900px auto;
 	padding-bottom: 0.5em;
 }
@@ -757,20 +756,16 @@ ul.accordion li {
 	font-size: 1.125em;
 }
 
-<<<<<<< HEAD
-.accordian h3 > a:before {
+.accordion h3 > a:before {
 	content: '\25B6';
 	font-weight: normal;
 	padding-right: 0.25em;
 }
 
-.accordian h3 > a.active {
-=======
 .accordion h3 > a.active {
->>>>>>> a80ce54b35df6b7d7fe96887be2291bcbd8fc7ff
 	margin: 0;
 }
 
-.accordian h3 > a.active:before {
+.accordion h3 > a.active:before {
 	content: '\25BC';
 }

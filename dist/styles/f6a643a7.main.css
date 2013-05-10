@@ -79,7 +79,6 @@ footer {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  *behavior: url(js/boxsizing.htc);
 }
 .border-radius {
   -moz-border-radius: 18px;
@@ -213,7 +212,7 @@ select {
 */
 body {
   font-size: 18px;
-  background: url('images/grid.gif');
+  background: url('../images/160643b1.grid.gif');
   line-height: 27px;
   font-weight: 400;
   font-family: 'Sintony';
@@ -325,7 +324,6 @@ dd {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  *behavior: url(js/boxsizing.htc);
   padding-top: 13.5px;
 }
 dt {
@@ -432,7 +430,7 @@ hgroup h1 {
   font-size: 3.75em;
 }
 h2 {
-  background: url(images/heading_bar.png) no-repeat center bottom;
+  background: url(../images/76ae828b.heading_bar.png) no-repeat center bottom;
   background-size: 900px auto;
   padding-bottom: 0.5em;
 }
@@ -548,7 +546,6 @@ select {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  *behavior: url(js/boxsizing.htc);
 }
 form p {
   padding: 0 0 0 40%;
@@ -625,7 +622,6 @@ div {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  *behavior: url(js/boxsizing.htc);
 }
 * + section,
 * + article,
@@ -788,7 +784,6 @@ li.tabs-selected a {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  *behavior: url(js/boxsizing.htc);
   border-top: 2px solid #cddaaf;
   -webkit-transition: height 0.35s ease;
   -moz-transition: height 0.35s ease;
@@ -812,18 +807,14 @@ ul.accordion li {
   margin: 0;
   font-size: 1.125em;
 }
-<<<<<<< HEAD
-.accordian h3 > a:before {
+.accordion h3 > a:before {
   content: '\25B6';
   font-weight: normal;
   padding-right: 0.25em;
 }
-.accordian h3 > a.active {
-=======
 .accordion h3 > a.active {
->>>>>>> a80ce54b35df6b7d7fe96887be2291bcbd8fc7ff
   margin: 0;
 }
-.accordian h3 > a.active:before {
+.accordion h3 > a.active:before {
   content: '\25BC';
 }
