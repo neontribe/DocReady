@@ -5,7 +5,8 @@
 			ng-click="setActiveTopic(topic)" 
 			role="button" 
 			aria-controls="info">
-			{{topic.title}}
+			<img src="images/circle.svg" alt="" />
+			<span>{{topic.title}}</span>
 		</a>
 	</li>
 </ul>
@@ -14,7 +15,7 @@
 	<h2>{{activeTopic.title}}</h2>
 	<accordion>
 		<accordion-group 
-			ng-repeat="item in items | filter: { topic: activeTopic.title }"
+			ng-repeat="item in items | filter: { topic: activeTopic.slug }"
 			heading="{{item.title}}"
 			slug="{{item.slug}}">
 			<div ng-bind-html="item.body"></div>

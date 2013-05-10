@@ -14,7 +14,7 @@
 @font-color: #333;
 @font-color-light: #fefefe;
 
-@link-color: #8aa54b;
+@link-color: #c871aa;
 @link-color-darker: darken(@link-color, 20%);
 @link-color-lighter: lighten(@link-color, 30%);
 
@@ -22,11 +22,11 @@
 @primary-color-darker: darken(@primary-color, 25%);
 @primary-color-lighter: lighten(@primary-color, 35%);
 
-@secondary-color: #3e8885;
+@secondary-color: #8aa54b;
 @secondary-color-darker: darken(@secondary-color, 25%);
-@secondary-color-lighter: lighten(@secondary-color, 35%);
+@secondary-color-lighter: lighten(@secondary-color, 30%);
 
-@tertiary-color: #8aa54b;
+@tertiary-color: #c871aa;
 @tertiary-color-darker: darken(@tertiary-color, 25%);
 @tertiary-color-lighter: lighten(@tertiary-color, 30%);
 
@@ -79,7 +79,7 @@ div[role="main"] {
 .container {
 	margin: 0 auto;
 	max-width: 900px;
-	padding: @v-space/2;
+	padding: @v-space;
 
 }
 
@@ -96,6 +96,24 @@ aside[role="complementary"] {
 
 footer {
 	clear: both;
+}
+
+body > nav {
+	background: @font-color;
+	padding: @v-space*1.5 @v-space/2;
+	font-size: @font-size-base*2;
+	background-image: url(../images/logo.svg);
+	background-repeat: no-repeat;
+	background-position: 0.5em center;
+	background-size: auto 80%;
+}
+
+body > nav li {
+	font-size: @font-size-base*1.75;
+}
+
+body > nav ul {
+	text-align: right;
 }
 
 /* Helper mixins */
@@ -720,6 +738,17 @@ li.tabs-selected a {
 ----------------------------------------------------------------------
 */
 
+#info h2 {
+	background: @link-color-darker;
+	color: @font-color-light;
+	padding: @v-space/2 0;
+}
+
+accordian {
+	display: block;
+	margin-top: 0;
+}
+
 .collapse {
 	position: relative;
 	height: 0;
@@ -727,7 +756,7 @@ li.tabs-selected a {
 	margin: 0;
 	background: @link-color-lighter;
 	.box-sized;
-	border-top: 2px solid @link-color-lighter;
+	border-top: 4px solid @link-color-lighter;
 	-webkit-transition: height 0.35s ease;
 	-moz-transition: height 0.35s ease;
 	-o-transition: height 0.35s ease;
@@ -743,7 +772,7 @@ li:last-child .collapse {
 }
 
 ul.accordion {
-	margin-top: @v-space/2;
+	margin-top: 0;
 }
 
 ul.accordion li {
@@ -760,6 +789,7 @@ ul.accordion li {
 	content: '\25B6';
 	font-weight: normal;
 	padding-right: 0.25em;
+	color: @primary-color-lighter;
 }
 
 .accordion h3 > a.active {
@@ -768,4 +798,92 @@ ul.accordion li {
 
 .accordion h3 > a.active:before {
 	content: '\25BC';
+}
+
+ul[role="toolbar"] li {
+	display: inline-block;
+	list-style: none;
+	width: 25%;
+	-webkit-transition: all 0.35s ease;
+	-moz-transition: all 0.35s ease;
+	-o-transition: all 0.35s ease;
+	transition: all 0.35s ease;
+}
+
+ul[role="toolbar"] a {
+	display: block;
+	margin: 0;
+	text-align: center;
+	background: transparent;
+	color: @font-color;
+	padding: 0;
+}
+
+ul[role="toolbar"] a:hover, ul[role="toolbar"] a:active, ul[role="toolbar"] a:focus {
+	box-shadow: none;
+	position: static;
+}
+
+ul[role="toolbar"] a:hover span, ul[role="toolbar"] a:active span, 
+ul[role="toolbar"] a:focus span {
+	color: @link-color;
+}
+
+ul[role="toolbar"] span {
+	display: block;
+	-moz-transform:rotate(-7deg); /* Firefox */
+	-ms-transform:rotate(-7deg); /* IE 9 */
+	-webkit-transform:rotate(-7deg); /* Safari and Chrome */
+	transform:rotate(-7deg);
+	margin: 0;
+}
+
+@media (max-width: 600px) {
+
+body > nav {
+	background-position: center 18px;
+	background-size: auto 80px;
+	padding: 110px 0 @v-space/2;
+}
+
+body > nav ul {
+	text-align: center;
+}
+
+ul[role="toolbar"] li {
+	width: 50%;
+}
+
+}
+
+/**
+* Animations
+----------------------------------------------------------------------
+*/
+.view-enter-setup {
+	-webkit-transition: opacity 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.25s;
+	-moz-transition: opacity 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.25s;
+	-o-transition: opacity 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.25s;
+	transition: opacity 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.25s;
+}
+
+.view-enter-setup {
+	opacity: 0
+}
+.view-enter-setup.view-enter-start {
+	opacity: 1;
+}
+
+.view-leave-setup {
+	-webkit-transition: opacity 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0;
+	-moz-transition: opacity 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0;
+	-o-transition: opacity 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0;
+	transition: opacity 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0;
+}
+
+.view-leave-setup {
+	opacity: 1;
+}
+.view-leave-setup.view-leave-start {
+	opacity: 0;
 }
