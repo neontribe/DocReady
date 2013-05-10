@@ -139,6 +139,33 @@ describe('accordion', function () {
     afterEach(function () {
       element = groups = scope = $compile = undefined;
     });
+    describe('as an attribute', function () {
+      beforeEach(function () {
+        var tpl =
+          "<div accordion>" +
+            "<accordion-group heading=\"title 1\">Content 1</accordion-group>" +
+            "<accordion-group heading=\"title 2\">Content 2</accordion-group>" +
+            "</div>";
+        element = angular.element(tpl);
+        angular.element(document.body).append(element);
+        scope.$digest();
+        $compile(element)(scope);
+        $httpBackend.flush(); 
+        groups = element.find('li');
+      });
+
+      afterEach(function() {
+        element.remove();
+      });
+
+      it('should create accordion groups with content', function () {
+        expect(groups.length).toEqual(2);
+        expect(findGroupLink(0).text()).toEqual('title 1');
+        expect(findGroupBody(0).text().trim()).toEqual('Content 1');
+        expect(findGroupLink(1).text()).toEqual('title 2');
+        expect(findGroupBody(1).text().trim()).toEqual('Content 2');
+      });
+    });
 
     describe('with static groups', function () {
       beforeEach(function () {
