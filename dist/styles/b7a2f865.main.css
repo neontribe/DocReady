@@ -13,28 +13,28 @@
   background: #d96342;
 }
 .secondary-color {
-  background: #c871aa;
+  background: #8aa54b;
 }
 .tertiary-color {
-  background: #8aa54b;
+  background: #c871aa;
 }
 .primary-color-darker {
   background: #81311a;
 }
 .secondary-color-darker {
-  background: #863469;
+  background: #414d23;
 }
 .tertiary-color-darker {
-  background: #414d23;
+  background: #863469;
 }
 .primary-color-lighter {
   background: #f7ded7;
 }
 .secondary-color-lighter {
-  background: #f3dfec;
+  background: #cddaaf;
 }
 .tertiary-color-lighter {
-  background: #cddaaf;
+  background: #f3dfec;
 }
 /* Sizes */
 /* Font families */
@@ -49,7 +49,7 @@ div[role="main"] {
 .container {
   margin: 0 auto;
   max-width: 900px;
-  padding: 13.5px;
+  padding: 27px;
 }
 div[role="main"] > div {
   margin-right: 236px;
@@ -62,6 +62,14 @@ aside[role="complementary"] {
 }
 footer {
   clear: both;
+}
+body > nav {
+  background: #333333;
+  padding: 27px;
+  font-size: 36px;
+}
+body > nav ul {
+  text-align: right;
 }
 /* Helper mixins */
 .call-to-action-font {
@@ -224,12 +232,12 @@ body {
 */
 a,
 a:visited {
-  color: #8aa54b;
+  color: #c871aa;
   border-bottom: 1px solid;
   text-decoration: none;
 }
 a:hover {
-  color: #4f5f2b;
+  color: #983b78;
   border-bottom: 2px solid;
 }
 a:active {
@@ -364,20 +372,20 @@ nav a:visited,
   margin-bottom: 4.5px;
   text-align: center;
   font-weight: 700;
-  color: #8aa54b;
+  color: #c871aa;
   padding: 0.25em 0.5em;
 }
 nav a:hover,
 nav a:active,
 nav a:focus {
-  color: #4f5f2b;
+  color: #983b78;
 }
 nav li + li a {
   margin-left: 4.5px;
 }
 nav li + li:before {
   content: '\2605';
-  color: #c871aa;
+  color: #8aa54b;
 }
 /**
 * Headings
@@ -578,7 +586,7 @@ input[type="radio"] {
 button,
 a[role="button"],
 input[type="submit"] {
-  background: #8aa54b;
+  background: #c871aa;
   color: #fefefe;
   padding: 9px 18px;
   border: 0;
@@ -597,7 +605,7 @@ input[type="submit"] {
 button:active,
 a[role="button"]:active,
 input[type="submit"]:active {
-  box-shadow: inset 1px 1px 0 #4f5f2b, inset 2px 2px 0 #4f5f2b;
+  box-shadow: inset 1px 1px 0 #983b78, inset 2px 2px 0 #983b78;
   position: relative;
   left: 0px;
   top: 1px;
@@ -714,7 +722,7 @@ div.group-bottom > * {
 }
 .box dt a {
   padding: 13.5px 18px;
-  background: #8aa54b;
+  background: #c871aa;
   display: block;
   color: #fefefe;
   border: 0;
@@ -744,7 +752,7 @@ div.group-bottom > * {
 .box dt a:hover,
 .box a:active,
 .box a:focus {
-  background: #4f5f2b;
+  background: #983b78;
 }
 /**
 * Accessible tabs
@@ -776,7 +784,7 @@ li.tabs-selected a {
 ----------------------------------------------------------------------
 */
 #info h2 {
-  background: #4f5f2b;
+  background: #983b78;
   color: #fefefe;
   padding: 13.5px 0;
 }
@@ -789,11 +797,11 @@ accordian {
   height: 0;
   overflow: hidden;
   margin: 0;
-  background: #cddaaf;
+  background: #f3dfec;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  border-top: 4px solid #cddaaf;
+  border-top: 4px solid #f3dfec;
   -webkit-transition: height 0.35s ease;
   -moz-transition: height 0.35s ease;
   -o-transition: height 0.35s ease;
@@ -854,7 +862,7 @@ ul[role="toolbar"] a:focus {
 ul[role="toolbar"] a:hover span,
 ul[role="toolbar"] a:active span,
 ul[role="toolbar"] a:focus span {
-  color: #8aa54b;
+  color: #c871aa;
 }
 ul[role="toolbar"] span {
   display: block;
@@ -874,4 +882,32 @@ ul[role="toolbar"] span {
   ul[role="toolbar"] li {
     width: 50%;
   }
+}
+/**
+* Animations
+----------------------------------------------------------------------
+*/
+.view-enter-setup {
+  -webkit-transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s;
+  -moz-transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s;
+  -o-transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s;
+  transition: opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.25s;
+}
+.view-enter-setup {
+  opacity: 0;
+}
+.view-enter-setup.view-enter-start {
+  opacity: 1;
+}
+.view-leave-setup {
+  -webkit-transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0;
+  -moz-transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0;
+  -o-transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0;
+  transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0;
+}
+.view-leave-setup {
+  opacity: 1;
+}
+.view-leave-setup.view-leave-start {
+  opacity: 0;
 }

@@ -855,3 +855,35 @@ ul[role="toolbar"] li {
 }
 
 }
+
+/**
+* Animations
+----------------------------------------------------------------------
+*/
+.view-enter-setup {
+	-webkit-transition: opacity 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.25s;
+	-moz-transition: opacity 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.25s;
+	-o-transition: opacity 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.25s;
+	transition: opacity 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.25s;
+}
+
+.view-enter-setup {
+	opacity: 0
+}
+.view-enter-setup.view-enter-start {
+	opacity: 1;
+}
+
+.view-leave-setup {
+	-webkit-transition: opacity 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0;
+	-moz-transition: opacity 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0;
+	-o-transition: opacity 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0;
+	transition: opacity 0.25s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0;
+}
+
+.view-leave-setup {
+	opacity: 1;
+}
+.view-leave-setup.view-leave-start {
+	opacity: 0;
+}
