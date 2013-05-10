@@ -1,7 +1,7 @@
 'use strict';
 
 function registerMocks($httpBackend) {
-  $httpBackend.whenGET('/api/advice_topics').respond([
+  $httpBackend.whenGET('/api/advice_topic').respond([
       {
           title: 'Topic 1',
           slug: 'topic-1',
@@ -13,26 +13,26 @@ function registerMocks($httpBackend) {
           weight: 2.0
         }
       ]);
-  $httpBackend.whenGET('/api/advice_items').respond([
+  $httpBackend.whenGET('/api/advice_item').respond([
       {
           title: 'Item 1',
           slug: 'item-1',
           body: 'Blah',
-          topic: 'Topic 1',
+          topic: 'topic-1',
           weight: 1.0
         },
         {
           title: 'Item 2',
           slug: 'item-2',
           body: '<strong>Blah</strong>',
-          topic: 'Topic 2',
+          topic: 'topic-2',
           weight: 2.0
         },
         {
           title: 'Item 3',
           slug: 'item-3',
           body: 'Blah blah',
-          topic: 'Topic 2',
+          topic: 'topic-2',
           weight: 3.0
         }
       ]);
