@@ -14,7 +14,7 @@
 @font-color: #333;
 @font-color-light: #fefefe;
 
-@link-color: #8aa54b;
+@link-color: #c871aa;
 @link-color-darker: darken(@link-color, 20%);
 @link-color-lighter: lighten(@link-color, 30%);
 
@@ -22,11 +22,11 @@
 @primary-color-darker: darken(@primary-color, 25%);
 @primary-color-lighter: lighten(@primary-color, 35%);
 
-@secondary-color: #c871aa;
+@secondary-color: #8aa54b;
 @secondary-color-darker: darken(@secondary-color, 25%);
 @secondary-color-lighter: lighten(@secondary-color, 30%);
 
-@tertiary-color: #8aa54b;
+@tertiary-color: #c871aa;
 @tertiary-color-darker: darken(@tertiary-color, 25%);
 @tertiary-color-lighter: lighten(@tertiary-color, 30%);
 
@@ -79,7 +79,7 @@ div[role="main"] {
 .container {
 	margin: 0 auto;
 	max-width: 900px;
-	padding: @v-space/2;
+	padding: @v-space;
 
 }
 
@@ -96,6 +96,16 @@ aside[role="complementary"] {
 
 footer {
 	clear: both;
+}
+
+body > nav {
+	background: @font-color;
+	padding: @v-space;
+	font-size: @font-size-base*2;
+}
+
+body > nav ul {
+	text-align: right;
 }
 
 /* Helper mixins */
