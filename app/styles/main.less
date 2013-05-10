@@ -100,8 +100,16 @@ footer {
 
 body > nav {
 	background: @font-color;
-	padding: @v-space;
+	padding: @v-space*1.5 @v-space/2;
 	font-size: @font-size-base*2;
+	background-image: url(../images/logo.svg);
+	background-repeat: no-repeat;
+	background-position: 0.5em center;
+	background-size: auto 80%;
+}
+
+body > nav li {
+	font-size: @font-size-base*1.75;
 }
 
 body > nav ul {
@@ -831,6 +839,16 @@ ul[role="toolbar"] span {
 }
 
 @media (max-width: 600px) {
+
+body > nav {
+	background-position: center 18px;
+	background-size: auto 80px;
+	padding: 110px 0 @v-space/2;
+}
+
+body > nav ul {
+	text-align: center;
+}
 
 ul[role="toolbar"] li {
 	width: 50%;
