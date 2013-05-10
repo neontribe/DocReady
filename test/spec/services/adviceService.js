@@ -12,7 +12,7 @@ describe('Service: adviceService', function () {
   beforeEach(inject(function(_$httpBackend_, _adviceService_){
     $httpBackend = _$httpBackend_;
     adviceService = _adviceService_;
-    $httpBackend.whenGET('/api/advice_topics').respond([
+    $httpBackend.whenGET('/api/advice_topic').respond([
       {
           title: 'Topic 1',
           slug: 'topic-1',
@@ -24,19 +24,19 @@ describe('Service: adviceService', function () {
           weight: 2.0
         }
     ]);
-    $httpBackend.whenGET('/api/advice_items').respond([
+    $httpBackend.whenGET('/api/advice_item').respond([
         {
             title: 'Item 1',
             slug: 'item-1',
             body: 'Blah',
-            topic: 'Topic 1',
+            topic: 'topic-1',
             weight: 1.0
           },
           {
             title: 'Item 2',
             slug: 'item-2',
             body: 'Blah',
-            topic: 'Topic 2',
+            topic: 'topic-2',
             weight: 2.0
           }
         ]);
@@ -57,7 +57,7 @@ describe('Service: adviceService', function () {
   describe('Service: adviceService.Topic', function(){
     it('should resolve to an array of topic objects', function(){
       var topics = null;
-      $httpBackend.expectGET('/api/advice_topics');
+      $httpBackend.expectGET('/api/advice_topic');
       topics = adviceService.Topic.query();
       $httpBackend.flush();
       expect(topics.length).toEqual(2);
@@ -67,7 +67,7 @@ describe('Service: adviceService', function () {
   describe('Service: adviceService.Items', function(){
     it('should resolve to an array of topic objects', function(){
       var items;
-      $httpBackend.expectGET('/api/advice_items');
+      $httpBackend.expectGET('/api/advice_item');
       items = adviceService.Item.query();
       $httpBackend.flush();
       expect(items.length).toEqual(2);
