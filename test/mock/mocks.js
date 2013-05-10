@@ -49,7 +49,7 @@ function registerMocks($httpBackend) {
           title: 'Item 4',
           slug: 'item-4',
           body: 'Blah blah',
-          topic: 'Topic 1',
+          topic: 'topic-2',
           weight: 4.0
         }
       ]);

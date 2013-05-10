@@ -1,7 +1,8 @@
 <ul aria-label="Topic Options" role="toolbar">
 	<li ng-repeat="topic in topics">
 		<a href="javascript:void(0)" ng-class="{ active: activeTopic === topic }" ng-click="setActiveTopic(topic)" role="button" aria-controls="info">
-			{{topic.title}}
+			<img src="images/circle.svg" alt="">
+			<span>{{topic.title}}</span>
 		</a>
 	</li>
 </ul>

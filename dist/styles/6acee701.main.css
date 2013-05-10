@@ -13,7 +13,7 @@
   background: #d96342;
 }
 .secondary-color {
-  background: #3e8885;
+  background: #c871aa;
 }
 .tertiary-color {
   background: #8aa54b;
@@ -22,7 +22,7 @@
   background: #81311a;
 }
 .secondary-color-darker {
-  background: #16302f;
+  background: #863469;
 }
 .tertiary-color-darker {
   background: #414d23;
@@ -31,7 +31,7 @@
   background: #f7ded7;
 }
 .secondary-color-lighter {
-  background: #a3d5d3;
+  background: #f3dfec;
 }
 .tertiary-color-lighter {
   background: #cddaaf;
@@ -377,7 +377,7 @@ nav li + li a {
 }
 nav li + li:before {
   content: '\2605';
-  color: #3e8885;
+  color: #c871aa;
 }
 /**
 * Headings
@@ -775,6 +775,15 @@ li.tabs-selected a {
 * Accordians
 ----------------------------------------------------------------------
 */
+#info h2 {
+  background: #4f5f2b;
+  color: #fefefe;
+  padding: 13.5px 0;
+}
+accordian {
+  display: block;
+  margin-top: 0;
+}
 .collapse {
   position: relative;
   height: 0;
@@ -784,7 +793,7 @@ li.tabs-selected a {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  border-top: 2px solid #cddaaf;
+  border-top: 4px solid #cddaaf;
   -webkit-transition: height 0.35s ease;
   -moz-transition: height 0.35s ease;
   -o-transition: height 0.35s ease;
@@ -797,7 +806,7 @@ li:last-child .collapse {
   padding: 18px;
 }
 ul.accordion {
-  margin-top: 13.5px;
+  margin-top: 0;
 }
 ul.accordion li {
   list-style: none;
@@ -811,10 +820,58 @@ ul.accordion li {
   content: '\25B6';
   font-weight: normal;
   padding-right: 0.25em;
+  color: #f7ded7;
 }
 .accordion h3 > a.active {
   margin: 0;
 }
 .accordion h3 > a.active:before {
   content: '\25BC';
+}
+ul[role="toolbar"] li {
+  display: inline-block;
+  list-style: none;
+  width: 25%;
+  -webkit-transition: all 0.35s ease;
+  -moz-transition: all 0.35s ease;
+  -o-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+ul[role="toolbar"] a {
+  display: block;
+  margin: 0;
+  text-align: center;
+  background: transparent;
+  color: #333333;
+  padding: 0;
+}
+ul[role="toolbar"] a:hover,
+ul[role="toolbar"] a:active,
+ul[role="toolbar"] a:focus {
+  box-shadow: none;
+  position: static;
+}
+ul[role="toolbar"] a:hover span,
+ul[role="toolbar"] a:active span,
+ul[role="toolbar"] a:focus span {
+  color: #8aa54b;
+}
+ul[role="toolbar"] span {
+  display: block;
+  -moz-transform: rotate(-7deg);
+  /* Firefox */
+
+  -ms-transform: rotate(-7deg);
+  /* IE 9 */
+
+  -webkit-transform: rotate(-7deg);
+  /* Safari and Chrome */
+
+  transform: rotate(-7deg);
+  margin: 0;
+}
+@media (max-width: 600px) {
+  ul[role="toolbar"] li {
+    width: 50%;
+  }
 }

@@ -21,11 +21,11 @@ describe('Controller: AdviceCtrl', function () {
 
   it('should attatch a list of topics to the scope', function () {
     $httpBackend.flush();
-    expect(scope.topics.length).toBe(2);
+    expect(scope.topics.length).toBe(4);
   });
 
   it('should attatch a list of items to the scope', function () {
     $httpBackend.flush();
-    expect(scope.items.length).toBe(3);
+    expect(scope.items.length).toBe(4);
   });
 });
