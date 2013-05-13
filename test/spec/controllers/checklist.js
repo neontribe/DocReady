@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: ToolCtrl', function () {
+describe('Controller: ChecklistCtrl', function () {
 
   // load the controller's module
   beforeEach(module('docready'));
 
-  var ToolCtrl,
+  var ChecklistCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    ToolCtrl = $controller('ToolCtrl', {
+    ChecklistCtrl = $controller('ChecklistCtrl', {
       $scope: scope
     });
   }));
