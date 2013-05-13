@@ -47,28 +47,21 @@ describe('Service: adviceService', function () {
     $httpBackend.verifyNoOutstandingRequest();
   });
 
-  it('should provide topics and items', function () {
-    expect(adviceService.Topic).toBeDefined();
-    expect(typeof adviceService.Topic).toEqual('function');
-    expect(adviceService.Item).toBeDefined();
-    expect(typeof adviceService.Item).toEqual('function');
-  });
-
-  describe('Service: adviceService.Topic', function(){
+  describe('Service: adviceService.topics', function(){
     it('should resolve to an array of topic objects', function(){
       var topics = null;
       $httpBackend.expectGET('/api/advice_topic');
-      topics = adviceService.Topic.query();
+      topics = adviceService.topics;
       $httpBackend.flush();
       expect(topics.length).toEqual(2);
     });
   });
 
-  describe('Service: adviceService.Items', function(){
+  describe('Service: adviceService.items', function(){
     it('should resolve to an array of topic objects', function(){
       var items;
       $httpBackend.expectGET('/api/advice_item');
-      items = adviceService.Item.query();
+      items = adviceService.items;
       $httpBackend.flush();
       expect(items.length).toEqual(2);
     });

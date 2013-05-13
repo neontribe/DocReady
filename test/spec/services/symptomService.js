@@ -37,4 +37,13 @@ describe('Service: symptomService', function () {
     expect(symptoms.length).toEqual(2);
   });
 
+  it('should provide an array of unique tags', function () {
+    var tags;
+    $httpBackend.expectGET('/api/symptom');
+    tags = symptomService.tags;
+    $httpBackend.flush();
+    expect(tags.length).toEqual(3);
+    expect(tags).toEqual(['sleep', 'drugs', 'anxiety']);
+  });
+
 });

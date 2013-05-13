@@ -10,13 +10,6 @@ describe('Controller: PickerCtrl', function () {
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    PickerCtrl = $controller('PickerCtrl', {
-      $scope: scope
-    });
-  }));
-  // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope, _$httpBackend_) {
     $httpBackend = _$httpBackend_;
     registerMocks($httpBackend);

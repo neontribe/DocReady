@@ -6,6 +6,14 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize'])
         templateUrl: 'views/advice.html',
         controller: 'AdviceCtrl'
       })
+      .when('/advice/:topic', {
+        templateUrl: 'views/advice.html',
+        controller: 'AdviceCtrl'
+      })
+      .when('/advice/:topic/:item', {
+        templateUrl: 'views/advice.html',
+        controller: 'AdviceCtrl'
+      })
       .when('/tool', {
         templateUrl: 'views/picker.html',
         controller: 'PickerCtrl'
@@ -29,5 +37,4 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize'])
       .otherwise({
         redirectTo: '/advice'
       });
-  })
-  .value('userData', { checklist:[] });
+  });

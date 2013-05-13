@@ -3,16 +3,16 @@
 	
   <div ng-switch-when="false">
     <ul>
-      <li ng-repeat="symptom in symptoms"><a ng-href="#/tool/picker/{{symptom.title}}">{{symptom.title}}</a></li>
+      <li ng-repeat="tag in tags"><a ng-href="#/tool/picker/{{tag}}">{{tag}}</a></li>
     </ul>
   </div>
   <div ng-switch-when="true">
     <h4>{{activeTag}}</h4>
     <ul>
-      <li ng-repeat="symptom in activeSymptoms">
-        <h5>{{symptom.title}} <input type="checkbox" ng-model="symptom.selected" ng-change="select(symptom)"/></h5>
+      <li ng-repeat="symptom in symptoms | filter:hasActiveTag">
+        <h5>{{symptom.title}} <input type="checkbox" ng-model="symptom.selected"/></h5>
       </li>
     </ul>
-    <button ng-click="go('/tool/picker')">Back</button>
+    <a role="button" ng-href="#/tool/picker">Back</a>
   </div>
 </div>
