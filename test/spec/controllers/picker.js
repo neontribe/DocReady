@@ -35,4 +35,12 @@ describe('Controller: PickerCtrl', function () {
     expect(scope.hasActiveTag).toBeDefined();
     expect(_.filter(scope.symptoms, scope.hasActiveTag).length).toEqual(2);
   });
+
+  it('should provide a method which counts the selected symptoms for a tag', function(){
+    $httpBackend.flush();
+    scope.symptoms[1].selected = true;
+    expect(scope.countForTag('sleep')).toEqual(1);
+    expect(scope.countForTag('drugs')).toEqual(1);
+    expect(scope.countForTag('anxiety')).toEqual(1);
+  });
 });
