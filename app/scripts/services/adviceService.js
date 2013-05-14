@@ -2,9 +2,12 @@
 
 angular.module('docready')
   .factory('adviceService', function ($resource) {
+    var topics, items;
+    topics = $resource('/api/advice_topic/:topicId').query();
+    items = $resource('/api/advice_item/').query();
     // Public API here
     return {
-      'Topic': $resource('/api/advice_topic/:topicId', {}),
-      'Item': $resource('/api/advice_item/', {})
+      topics: topics,
+      items: items
     };
   });

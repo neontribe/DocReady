@@ -53,6 +53,25 @@ function registerMocks($httpBackend) {
           weight: 4.0
         }
       ]);
+
+  $httpBackend.whenGET('/api/symptom').respond([
+      {
+          title: 'Feeling Tired',
+          tags: ['sleep']
+        },
+        {
+          title: 'Trouble Falling Asleep',
+          tags: ['sleep', 'drugs', 'anxiety']
+        },
+        {
+          title: 'Don\'t Feel Like Eating',
+          tags: ['anxiety', 'appetite']
+        },
+        {
+          title: 'Feel I Eat Too Much',
+          tags: ['appetite']
+        }
+      ]);
 }
 
 angular.module('docreadyTest', ['docready', 'ngMockE2E'])

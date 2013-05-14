@@ -15,6 +15,7 @@
 	<h2>{{activeTopic.title}}</h2>
 	<accordion>
 		<accordion-group 
+			is-open="$first"
 			ng-repeat="item in items | filter: { topic: activeTopic.slug }"
 			heading="{{item.title}}"
 			slug="{{item.slug}}">

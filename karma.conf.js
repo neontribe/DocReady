@@ -12,6 +12,7 @@ files = [
   'app/components/angular-resource-unstable/angular-resource.js',
   'app/components/angular-sanitize-unstable/index.js',
   'app/components/angular-mocks-unstable/index.js',
+  'app/components/underscore/underscore.js',
   'app/scripts/*.js',
   'app/scripts/**/*.js',
   'test/mock/**/*.js',
