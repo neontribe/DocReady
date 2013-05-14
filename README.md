@@ -1,4 +1,4 @@
-DocReady
+DocReady [![Build Status](https://travis-ci.org/neontribe/DocReady.png?branch=develop)](https://travis-ci.org/neontribe/DocReady)
 ========
 
 An angularjs application for the [Docready Project](http://www.docready.org)
