@@ -11,9 +11,9 @@ describe('Controller: AdviceCtrl', function () {
     $httpBackend;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_) {
+  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, mocks) {
     $httpBackend = _$httpBackend_;
-    registerMocks($httpBackend);
+    mocks.registerMocks($httpBackend);
     scope = $rootScope.$new();
     controller = $controller;
     AdviceCtrl = $controller('AdviceCtrl', {

@@ -10,9 +10,9 @@ describe('Controller: PickerCtrl', function () {
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_) {
+  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, mocks) {
     $httpBackend = _$httpBackend_;
-    registerMocks($httpBackend);
+    mocks.registerMocks($httpBackend);
     scope = $rootScope.$new();
     PickerCtrl = $controller('PickerCtrl', {
       $scope: scope,
@@ -43,4 +43,5 @@ describe('Controller: PickerCtrl', function () {
     expect(scope.countForTag('drugs')).toEqual(1);
     expect(scope.countForTag('anxiety')).toEqual(1);
   });
+
 });

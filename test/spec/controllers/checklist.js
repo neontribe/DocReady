@@ -10,9 +10,9 @@ describe('Controller: ChecklistCtrl', function () {
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_) {
+  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, mocks) {
     $httpBackend = _$httpBackend_;
-    registerMocks($httpBackend);
+    mocks.registerMocks($httpBackend);
     scope = $rootScope.$new();
     ChecklistCtrl = $controller('ChecklistCtrl', {
       $scope: scope

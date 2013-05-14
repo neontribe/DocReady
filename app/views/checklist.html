@@ -1,6 +1,10 @@
 <div id="checklist">
 	<h3>Checklist</h3>
-    <ul>
-        <li ng-repeat="symptom in symptoms | filter:{ selected: true }">{{symptom.title}}</li>
-    </ul>
+    <ol ui-sortable="{axis:'y', 'cursor':'move'}" ng-model="symptoms">
+        <li ng-repeat="symptom in symptoms" ng-show="symptom.selected">
+          {{symptom.title}}
+          <a ng-click="symptom.selected = false">delete</a>
+        </li>
+    </ol>
+    <a role="button" ng-href="#/tool/picker">Edit/More</a><a role="button" ng-href="#/tool/export">I'm Done</a>
 </div>
