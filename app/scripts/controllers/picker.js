@@ -8,5 +8,11 @@ angular.module('docready')
 
     $scope.hasActiveTag = function(symptom){
         return _.contains(symptom.tags, $scope.activeTag);
+      };
+
+    $scope.countForTag = function(tag){
+      return _.size(_.filter($scope.symptoms, function(symptom){
+        return _.contains(symptom.tags, tag) && symptom.selected;
+      }));
     };
   });

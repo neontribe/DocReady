@@ -21,6 +21,6 @@ describe('Controller: ExportCtrl', function () {
 
   it('should attach a list of symptoms to the scope', function () {
     $httpBackend.flush();
-    expect(scope.symptoms.length).toBe(2);
+    expect(scope.symptoms.length).toBeGreaterThan(2);
   });
 });

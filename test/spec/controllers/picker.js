@@ -22,12 +22,12 @@ describe('Controller: PickerCtrl', function () {
 
   it('should attach a list of symptoms to the scope', function () {
     $httpBackend.flush();
-    expect(scope.symptoms.length).toBe(2);
+    expect(scope.symptoms.length).toBeGreaterThan(2);
   });
 
   it('should attach an array of tags to the scope', function () {
     $httpBackend.flush();
-    expect(scope.tags.length).toBe(3);
+    expect(scope.tags.length).toBeGreaterThan(3);
   });
 
   it('should provide a filter method hasActiveTag', function(){
