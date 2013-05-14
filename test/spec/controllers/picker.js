@@ -15,7 +15,8 @@ describe('Controller: PickerCtrl', function () {
     registerMocks($httpBackend);
     scope = $rootScope.$new();
     PickerCtrl = $controller('PickerCtrl', {
-      $scope: scope
+      $scope: scope,
+      $routeParams: {tag: 'sleep'}
     });
   }));
 
@@ -27,5 +28,11 @@ describe('Controller: PickerCtrl', function () {
   it('should attach an array of tags to the scope', function () {
     $httpBackend.flush();
     expect(scope.tags.length).toBe(3);
+  });
+
+  it('should provide a filter method hasActiveTag', function(){
+    $httpBackend.flush();
+    expect(scope.hasActiveTag).toBeDefined();
+    expect(_.filter(scope.symptoms, scope.hasActiveTag).length).toEqual(2);
   });
 });

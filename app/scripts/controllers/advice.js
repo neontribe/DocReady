@@ -10,7 +10,7 @@ angular.module('docready')
     $scope.activeItem = null;
     adviceService.items.$then(function(data){
       $scope.items = data.resource;
-      $scope.setActiveItem();
+      $scope.initialItem();
     });
 
     $scope.setActiveTopic = function(topic) {
@@ -25,15 +25,11 @@ angular.module('docready')
       }
     };
 
-    $scope.setActiveItem = function(item) {
-      if (item) {
-        $scope.activeItem = item;
-      } else {
-        if ($routeParams.item) {
-          $scope.activeItem = _.findWhere($scope.items, {slug: $routeParams.item});
-          // since we're directly addressing an item we'll move it to the top of the list!
-          $scope.elevateItem($scope.activeItem);
-        }
+    $scope.initialItem = function() {
+      if ($routeParams.item) {
+        $scope.activeItem = _.findWhere($scope.items, {slug: $routeParams.item});
+        // since we're directly addressing an item we'll move it to the top of the list!
+        $scope.elevateItem($scope.activeItem);
       }
     };
 
