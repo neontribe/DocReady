@@ -243,7 +243,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
     transclude:true,              // It transcludes the contents of the directive into the template
     replace: true,                // The element containing the directive will be replaced with the template
     templateUrl:'views/accordion-group.html',
-    scope:{ heading:'@', slug:'@' },        // Create an isolated scope and interpolate the heading attribute onto this scope
+    scope:{ heading:'@', slug:'@', opened:'&opened' },        // Create an isolated scope and interpolate the heading attribute onto this scope
     controller: ['$scope', function($scope) {
       this.setHeading = function(element) {
         this.heading = element;
@@ -255,7 +255,7 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
       accordionCtrl.addGroup(scope);
 
       scope.isOpen = false;
-      
+
       if ( attrs.isOpen ) {
         getIsOpen = $parse(attrs.isOpen);
         setIsOpen = getIsOpen.assign;
@@ -269,8 +269,13 @@ angular.module('ui.bootstrap.accordion', ['ui.bootstrap.collapse'])
       }
 
       scope.$watch('isOpen', function(value) {
+        var onOpen;
         if ( value ) {
           accordionCtrl.closeOthers(scope);
+          onOpen = scope.opened(scope);
+          if (onOpen) {
+            onOpen(scope.slug);
+          }
         }
         if ( setIsOpen ) {
           setIsOpen(scope.$parent, value);

@@ -4,15 +4,8 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
     $routeProvider
       .when('/advice', {
         templateUrl: 'views/advice.html',
-        controller: 'AdviceCtrl'
-      })
-      .when('/advice/:topic', {
-        templateUrl: 'views/advice.html',
-        controller: 'AdviceCtrl'
-      })
-      .when('/advice/:topic/:item', {
-        templateUrl: 'views/advice.html',
-        controller: 'AdviceCtrl'
+        controller: 'AdviceCtrl',
+        reloadOnSearch: false
       })
       .when('/tool', {
         templateUrl: 'views/picker.html',

@@ -309,6 +309,35 @@ describe('accordion', function () {
       });
     });
 
+    describe('opened attribute', function() {
+      beforeEach(function () {
+        var tpl =
+          "<accordion>" +
+            "<accordion-group heading=\"title 1\" slug=\"test\" opened=\"openhandler\" is-open=\"open1\"><div ng-repeat='item in items'>{{item}}</div></accordion-group>" +
+            "<accordion-group heading=\"title 2\" slug=\"test-2\" opened=\"openhandler\" is-open=\"open2\">Static content</accordion-group>" +
+            "</accordion>";
+        element = angular.element(tpl);
+        scope.items = ['Item 1', 'Item 2', 'Item 3'];
+        scope.open1 = true;
+        scope.open2 = false;
+        scope.openhandler = function(){};
+        spyOn(scope, 'openhandler');
+        angular.element(document.body).append(element);
+        $compile(element)(scope);
+        $httpBackend.flush();
+        scope.$digest();
+        groups = element.find('li');
+      });
+
+      afterEach(function() {
+        element.remove();
+      });
+
+      it('an expression in opened should be called', function () {
+        expect(scope.openhandler).toHaveBeenCalledWith('test');
+      });
+    });
+
     describe('accordion-heading element', function() {
       beforeEach(function() {
         var tpl = 

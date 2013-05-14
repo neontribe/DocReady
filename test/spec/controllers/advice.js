@@ -8,11 +8,13 @@ describe('Controller: AdviceCtrl', function () {
   var AdviceCtrl,
     scope,
     controller,
-    $httpBackend;
+    $httpBackend,
+    location;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, mocks) {
+  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, mocks, $location) {
     $httpBackend = _$httpBackend_;
+    location = $location;
     mocks.registerMocks($httpBackend);
     scope = $rootScope.$new();
     controller = $controller;
@@ -70,5 +72,11 @@ describe('Controller: AdviceCtrl', function () {
     });
     $httpBackend.flush();
     expect(scope.items[0].slug).toEqual('item-3');
+  });
+
+  it('should provide a setItem method which sets the item in the location search', function(){
+    $httpBackend.flush();
+    scope.setItem('test-slug');
+    expect(location.search().item).toEqual('test-slug');
   });
 });

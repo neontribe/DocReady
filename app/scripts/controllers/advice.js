@@ -20,9 +20,10 @@ angular.module('docready')
         if ($routeParams.topic) {
           $scope.activeTopic = _.findWhere($scope.topics, {slug: $routeParams.topic});
         } else {
-          $scope.activeTopic = $scope.topics[0]
+          $scope.activeTopic = $scope.topics[0];
         }
       }
+      $location.search('topic', $scope.activeTopic.slug);
     };
 
     $scope.initialItem = function() {
@@ -33,6 +34,10 @@ angular.module('docready')
       }
     };
 
+    $scope.setItem = function(slug) {
+      $location.search('item', slug);
+    };
+
     $scope.elevateItem = function(item) {
       var index, sp;
       index = _.indexOf($scope.items, item);
@@ -40,7 +45,7 @@ angular.module('docready')
         sp = $scope.items.splice(index, 1);
         $scope.items.unshift(sp[0]);
       }
-    }
+    };
   });
 
 
