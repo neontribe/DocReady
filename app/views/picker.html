@@ -4,13 +4,16 @@
   <div ng-switch-when="false">
     <ul>
       <li ng-repeat="tag in tags">
-        <a ng-href="#/tool/picker/{{tag}}">
-          {{tag}}
+        <a ng-href="#/tool/picker/{{tag.text}}">
+          {{tag.text}}
         </a>
-        <span class="count" ng-init="count = countForTag(tag)" ng-show="(count !== 0)">({{count}})</span>
+        <span class="count" ng-show="(tag.count !== 0)">({{tag.count}})</span>
       </li>
     </ul>
+    <div d3cloud words="tags" width="300" height="300"></div>
     <a role="button" ng-href="#/tool/checklist">I'm Done</a>
+    <button ng-click="tags.push({text:'hello', count:4})">add</button>
+    
   </div>
   <div ng-switch-when="true">
     <h4>{{activeTag}}</h4>

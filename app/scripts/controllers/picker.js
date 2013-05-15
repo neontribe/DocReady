@@ -4,7 +4,15 @@ angular.module('docready')
   .controller('PickerCtrl', function ($scope, symptomService, $routeParams) {
     $scope.activeTag = $routeParams.tag;
     $scope.symptoms = symptomService.symptoms;
-    $scope.tags = symptomService.tags;
+    $scope.tags = [];
+
+    $scope.$watch('symptoms', function(newVal){
+      // optimization due here
+      var rawTags = _.uniq(_.union.apply(null, _.pluck(newVal, 'tags')));
+      $scope.tags = _.map(rawTags, function(tag){
+        return { text: tag, count: $scope.countForTag(tag) };
+      });
+    }, true);
 
     $scope.hasActiveTag = function(symptom){
         return _.contains(symptom.tags, $scope.activeTag);
