@@ -20,12 +20,14 @@
     </div>
   </div>
   <div ng-switch-when="true">
-    <h4>{{activeTag}}</h4>
-    <ul>
+    <h2>{{activeTag}}</h2>
+    <ul class="symptoms">
       <li ng-repeat="symptom in symptoms | filter:hasActiveTag">
-        <h5>{{symptom.title}} <input type="checkbox" ng-model="symptom.selected"/></h5>
+        <label><input type="checkbox" ng-model="symptom.selected"/> <span>{{symptom.title}}</span></label>
       </li>
     </ul>
-    <a role="button" ng-href="#/tool/picker">Done</a>
+    <div class="button-group">
+      <a role="button" ng-href="#/tool/picker">Done</a>
+    </div>
   </div>
 </div>

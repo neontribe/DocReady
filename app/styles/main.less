@@ -409,8 +409,8 @@ h3 {
 	text-align: left;
 }
 
-h2 { font-size: 2.5em }
-h1 { font-size: 3.5em }
+h2 { font-size: 2.25em }
+h1 { font-size: 3em }
 h1 span {
 	display: inline-block;
 	height: 0;
@@ -757,7 +757,7 @@ ul.tags {
 
 ul.tags li {
 	display: inline-block;
-	margin-bottom: @v-space/1.5;
+	margin-bottom: @v-space/2;
 	vertical-align: middle;
 }
 
@@ -787,6 +787,19 @@ span.count {
 	background: @secondary-color-lighter;
 	padding: 0 0.33em;
 	border-radius: 50%;
+}
+
+ul.symptoms li {
+	font-size: 1.25em;
+	list-style: none;
+}
+
+ul.symptoms li + li {
+	margin-top: 0.5em;
+}
+
+ul.symptoms li * {
+	vertical-align: middle;
 }
 
 /**
@@ -962,6 +975,14 @@ a[rel="prev"], a[rel="next"], ul.tags a {
 a[rel="prev"]:active, a[rel="prev"]:focus, a[rel="next"]:active, a[rel="prev"]:focus {
 	box-shadow: none;
 	background-color: @tertiary-color-darker;
+}
+
+a[rel="prev"] {
+	padding-left: 1.5em;
+}
+
+a[rel="next"] {
+	padding-right: 1.5em;
 }
 
 a[rel="next"], ul.tags a {
