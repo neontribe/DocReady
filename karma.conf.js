@@ -8,6 +8,7 @@ files = [
   JASMINE,
   JASMINE_ADAPTER,
   'test/libs/*.js',
+  'app/components/modernizr/modernizr.js',
   'app/components/jquery/jquery.js',
   'app/components/jquery-ui/ui/jquery-ui.js',
   'app/components/angular-unstable/angular.js',
