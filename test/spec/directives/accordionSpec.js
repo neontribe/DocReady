@@ -1,4 +1,5 @@
 describe('accordion', function () {
+  'use strict';
   var $scope, $httpBackend;
 
   beforeEach(module('ui.bootstrap.accordion'));
@@ -21,11 +22,6 @@ describe('accordion', function () {
         '</li>'
         ].join(''));
     }));
-
-  //beforeEach(module('views/accordion/accordion.html'));
-  //beforeEach(module('views/accordion/accordion-group.html'));
-
-  
 
   describe('controller', function () {
 
@@ -278,7 +274,7 @@ describe('accordion', function () {
       it('should open the group with isOpen set to true', function () {
         expect(findGroupBody(0).scope().isOpen).toBe(false);
         expect(findGroupBody(1).scope().isOpen).toBe(true);
-       });
+      });
     });
 
     describe('is-open attribute with dynamic content', function() {
@@ -340,7 +336,7 @@ describe('accordion', function () {
 
     describe('accordion-heading element', function() {
       beforeEach(function() {
-        var tpl = 
+        var tpl =
           '<accordion ng-init="a = [1,2,3]">' +
             '<accordion-group heading="I get overridden">' +
               '<accordion-heading>Heading Element <span ng-repeat="x in a">{{x}}</span> </accordion-heading>' +

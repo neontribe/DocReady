@@ -2,7 +2,7 @@
 
 angular.module('docready')
   .factory('symptomService', function ($resource) {
-  var symptoms = [], 
+  var symptoms = [],
     tags = [];
 
   symptoms = $resource('/api/symptom').query({}, function(data){

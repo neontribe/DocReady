@@ -1,0 +1,7 @@
+<div id="export">
+	<h3>Export</h3>
+    <ul>
+        <li ng-repeat="symptom in symptoms | filter:{ selected: true }">{{symptom.title}}</li>
+    </ul>
+    <a role="button" ng-href="#/tool/checklist">Review</a>
+</div>

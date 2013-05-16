@@ -5,7 +5,7 @@ angular.module('docready')
     $scope.activeTag = $routeParams.tag;
     $scope.symptoms = symptomService.symptoms;
     $scope.tags = [];
-    $scope.showCloud = settings.svg;
+    $scope.settings = settings;
 
     $scope.$watch('symptoms', function(newVal){
       // optimization due here

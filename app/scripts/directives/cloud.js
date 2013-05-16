@@ -42,14 +42,12 @@ angular.module('docready')
               .selectAll('text')
                 .data(words)
               .enter().append('text')
-                .on("click", function(d) {
+                .on('click', function(d) {
                   if (scope.navigate) {
-                    console.log(d.text);
-                    console.log(scope.navigate);
                     scope.navigate(d.text);
                   }
                 })
-                .style('font-size', function(d) { ;return d.size + 'px'; })
+                .style('font-size', function(d) { return d.size + 'px'; })
                 .style('font-family', opts.font)
                 .style('fill', function(d, i) { return fill(i); })
                 .attr('text-anchor', 'middle')
@@ -63,11 +61,11 @@ angular.module('docready')
          * Establish a watch on the word data. Note that we pass true as the last argument to the watcher
          * so that we compare on equality rather than identity. It may be that the words array has been updated in place
          */
-        scope.$watch('words', function(newVal, oldVal){
+        scope.$watch('words', function(newVal){
           layout = d3.layout.cloud()
             .size([opts.width, opts.height])
             .words(newVal)
-            .rotate(function() { return ~~(Math.random() * 2) * 90; })
+            .rotate(function() { return Math.floor((Math.random() * 2)) * 90; })
             .font(opts.font)
             .fontSize(function(d) { return fontSize(+d.count); })
             .on('end', draw)
