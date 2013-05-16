@@ -7,11 +7,13 @@ describe('Controller: PickerCtrl', function () {
 
   var PickerCtrl,
     $httpBackend,
+    location,
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, mocks) {
+  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, mocks, $location) {
     $httpBackend = _$httpBackend_;
+    location = $location;
     mocks.registerMocks($httpBackend);
     scope = $rootScope.$new();
     PickerCtrl = $controller('PickerCtrl', {
@@ -42,6 +44,12 @@ describe('Controller: PickerCtrl', function () {
     expect(scope.countForTag('sleep')).toEqual(1);
     expect(scope.countForTag('drugs')).toEqual(1);
     expect(scope.countForTag('anxiety')).toEqual(1);
+  });
+
+  it('should provide a showTag method which adjusts the location', function(){
+    $httpBackend.flush();
+    scope.showTag('test');
+    expect(location.path()).toEqual('/tool/picker/test');
   });
 
 });
