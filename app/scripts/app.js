@@ -30,4 +30,8 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
       .otherwise({
         redirectTo: '/advice'
       });
+  })
+  .value('settings', {})
+  .run(function(settings, $location){
+    settings.svg = Modernizr.inlinesvg && !/nosvg/.test($location.absUrl());
   });

@@ -2,15 +2,23 @@
 <div id="picker" ng-switch="!!activeTag">
 	
   <div ng-switch-when="false">
-    <ul>
-      <li ng-repeat="tag in tags">
-        <a ng-href="#/tool/picker/{{tag.text}}">
-          {{tag.text}}
-        </a>
-        <span class="count" ng-show="(tag.count !== 0)">({{tag.count}})</span>
-      </li>
-    </ul>
-    <div d3cloud words="tags" width="400" height="400" font="Play"></div>
+    <div ng-switch="showCloud">
+      <div ng-switch-when="false">
+        <ul>
+          <li ng-repeat="tag in tags">
+            <a ng-href="#/tool/picker/{{tag.text}}">
+              {{tag.text}}
+            </a>
+            <span class="count" ng-show="(tag.count !== 0)">({{tag.count}})</span>
+          </li>
+        </ul>
+      </div>
+      <div ng-switch-when="true">
+        <div d3cloud words="tags" width="400" height="400" font="Play" navigate="showTag"></div>
+      </div>
+    </div>
+    
+    
     <a role="button" ng-href="#/tool/checklist">I'm Done</a>
     <button ng-click="tags.push({text:'hello', count:4})">add</button>
     

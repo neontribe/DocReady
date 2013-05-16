@@ -18,7 +18,8 @@ angular.module('docready')
         words: '=',
         height: '@',
         width: '@',
-        font: '@'
+        font: '@',
+        navigate: '='
       },
       link: function(scope, element, attrs) {
         var svg,
@@ -42,7 +43,11 @@ angular.module('docready')
                 .data(words)
               .enter().append('text')
                 .on("click", function(d) {
-                  console.log(d.text);
+                  if (scope.navigate) {
+                    console.log(d.text);
+                    console.log(scope.navigate);
+                    scope.navigate(d.text);
+                  }
                 })
                 .style('font-size', function(d) { ;return d.size + 'px'; })
                 .style('font-family', opts.font)

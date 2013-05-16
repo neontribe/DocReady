@@ -26,6 +26,7 @@
     "it": false,
     "beforeEach": false,
     "inject": false,
-    "expect": false
+    "expect": false,
+    "Modernizr": true
   }
 }

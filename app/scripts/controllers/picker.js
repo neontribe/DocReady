@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('docready')
-  .controller('PickerCtrl', function ($scope, symptomService, $routeParams) {
+  .controller('PickerCtrl', function ($scope, symptomService, $routeParams, $location, settings) {
     $scope.activeTag = $routeParams.tag;
     $scope.symptoms = symptomService.symptoms;
     $scope.tags = [];
+    $scope.showCloud = settings.svg;
 
     $scope.$watch('symptoms', function(newVal){
       // optimization due here
@@ -17,6 +18,11 @@ angular.module('docready')
     $scope.hasActiveTag = function(symptom){
         return _.contains(symptom.tags, $scope.activeTag);
       };
+
+    $scope.showTag = function(tag) {
+      $location.path('/tool/picker/' + tag);
+      $scope.$apply();
+    };
 
     $scope.countForTag = function(tag){
       return _.size(_.filter($scope.symptoms, function(symptom){
