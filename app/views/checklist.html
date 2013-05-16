@@ -1,10 +1,13 @@
 <div id="checklist">
-	<h3>Checklist</h3>
+	<h1>Checklist</h1>
+	<p>Drag and drop checklist items to prioritize&hellip;</p>
     <ol ui-sortable="{axis:'y', 'cursor':'move'}" ng-model="symptoms">
         <li ng-repeat="symptom in symptoms" ng-show="symptom.selected">
-          {{symptom.title}}
-          <a ng-click="symptom.selected = false">delete</a>
+          {{symptom.title}} <button ng-click="symptom.selected = false"><i>&#x274c;</i> <span>delete</span></button>
         </li>
     </ol>
-    <a role="button" ng-href="#/tool/picker">Edit/More</a><a role="button" ng-href="#/tool/export">I'm Done</a>
+    <div role="toolbar">
+    	<a role="button" rel="prev" ng-href="#/tool/picker">Edit/More</a> 
+    	<a role="button" rel="next" ng-href="#/tool/export">I'm Done</a>
+    </div>
 </div>

@@ -233,6 +233,19 @@ a:active {
 
 a:focus { outline: 1px dotted #999 }
 
+/* Icon provisions */
+
+button span, a[role="button"] span {
+	display: inline-block;
+	height: 0;
+	width: 0;
+	overflow: hidden;
+}
+
+i {
+	font-style: normal !important;
+}
+
 /**
 * Flow
 ----------------------------------------------------------------------
@@ -915,7 +928,48 @@ ul[role="toolbar"] li {
 */
 
 /* modify items in the checklist while dragging */
-.ui-sortable-helper {
-	list-style-type: none;
-	padding-left: 1em;
+
+#checklist ol {
+	list-style: none;
+	counter-reset: section;
+}
+
+#checklist li {
+	padding: @v-space/3 @v-space/2 @v-space/2;
+	background: @font-color-light;
+	border: 2px solid @primary-color;
+	list-style: none;
+	font-size: 1.25em;
+	cursor: s-resize !important;
+}
+
+#checklist li {
+	margin-top: @v-space/3;
+}
+
+#checklist li:before {
+	counter-increment: section;
+	content:counter(section);
+	font-family: 'Play', sans-serif;
+	background: @primary-color;
+	color: @font-color-light;
+	padding: @v-space/4 @v-space/2;
+	margin-right: @v-space/4;
+	display: inline-block;
+}
+
+#checklist li.ui-sortable-helper {
+	box-shadow: 2px 2px 5px #000;
+}
+
+.ui-sortable-helper:before, 
+#checklist li.ui-sortable-helper ~ li:before {
+	content:'?' !important;
+}
+
+#checklist li button {
+	padding: 0;
+	background: transparent;
+	color: @tertiary-color;
+	margin: 0;
 }
