@@ -7,7 +7,8 @@ angular.module('docready')
     var opts = {
         width: null,
         height: null,
-        font: 'Impact,serif'
+        font: 'Impact,serif',
+        spiral: 'rectangular'
       },
       fill = d3.scale.category20(),
       fontSize = d3.scale.threshold().domain([1,2,3,4]).range([30, 40, 45, 50, 55]);
@@ -71,6 +72,7 @@ angular.module('docready')
             .words(newVal)
             .rotate(function() { return ~~(Math.random() * 5) * 30 - 60; })
             .font(opts.font)
+            .spiral(opts.spiral)
             .fontSize(function(d) { return fontSize(+d.count); })
             .on('end', draw)
             .start();
