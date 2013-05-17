@@ -74,7 +74,7 @@
 @font-color-light: #fefefe;
 
 @link-color: #167975;
-@link-color-darker: darken(@link-color, 15%);
+@link-color-darker: darken(@link-color, 10%);
 @link-color-lighter: #a3dbd9;
 
 @primary-color: #d96342;
@@ -124,57 +124,6 @@
 @family-main: 'Roboto';
 @family-headings: 'Sintony';
 @family-special: 'Akashi';
-
-/* Layout */
-
-@content-max-width: 900px; /* overall width of contents, not wrappers */
-@right-column-width: 200px; /* fixed width of aside role="complementary" */
-@column-gutter: @h-space; /* space between columns */
-
-div[role="main"] {
-	float: left;
-	width: 100%;
-}
-
-.container {
-	margin: 0 auto;
-	max-width: 900px;
-	padding: @v-space;
-
-}
-
-div[role="main"] > div {
-	margin-right: @right-column-width + @column-gutter;
-}
-
-aside[role="complementary"] {
-	float: left;
-	width: @right-column-width;
-	margin-left: -@right-column-width;
-	margin-top: 0;
-}
-
-footer {
-	clear: both;
-}
-
-body > nav {
-	background: @font-color;
-	padding: @v-space*1.5 @v-space/2;
-	font-size: @font-size-base*2;
-	background-image: url(../images/logo.svg);
-	background-repeat: no-repeat;
-	background-position: 0.5em center;
-	background-size: auto 80%;
-}
-
-body > nav li {
-	font-size: @font-size-base*1.75;
-}
-
-body > nav ul {
-	text-align: right;
-}
 
 /* Helper mixins */
 
@@ -262,11 +211,67 @@ input, select { vertical-align: middle }
 
 body { 
 	font-size: @font-size-base;
-	background: url('../images/grid.gif');
+	background: url('../images/tiny_grid.png');
 	line-height: @v-space;
 	font-weight: normal;
 	font-family: @family-main;
 	color: @font-color;
+}
+
+/* Layout */
+
+@content-max-width: 900px; /* overall width of contents, not wrappers */
+@right-column-width: 200px; /* fixed width of aside role="complementary" */
+@column-gutter: @h-space; /* space between columns */
+
+div[role="main"] {
+	float: left;
+	width: 100%;
+}
+
+.container {
+	margin: 0 auto;
+	max-width: 900px;
+	padding: @v-space;
+
+}
+
+div[role="main"] > div {
+	margin-right: @right-column-width + @column-gutter;
+}
+
+aside[role="complementary"] {
+	float: left;
+	width: @right-column-width;
+	margin-left: -@right-column-width;
+	margin-top: 0;
+}
+
+footer {
+	clear: both;
+}
+
+body > nav {
+	background: @font-color;
+	padding: @v-space/2 @v-space/2;
+	font-size: @font-size-base*2;
+}
+
+body > nav img {
+	width: 200px;
+	height: auto;
+	position: absolute;
+	left: 0.5em;
+	top: 0.5em;
+}
+
+body > nav li {
+	font-size: @font-size-base*1.75;
+}
+
+body > nav ul {
+	text-align: right;
+	margin: 0;
 }
 
 /**
@@ -421,12 +426,12 @@ nav a, nav a:hover, nav a:active, nav a:visited, .tabs-nav a {
 	margin-bottom: @slim-spacing/2;
 	text-align: center;
 	font-weight: 700;
-	color: @link-color;
+	color: @font-color-light;
 	padding: 0.25em 0.5em;
 }
 
 nav a:hover, nav a:active, nav a:focus {
-	color: @link-color-darker;
+	color: @link-color;
 }
 
 nav li + li a {
@@ -566,8 +571,6 @@ form div > * {
 }
 
 label {
-	width: 40%;
-	text-align: right;
 	padding-right: 0.5em;
 	line-height: 1;
 	font-weight: 700;
@@ -633,7 +636,7 @@ button, a[role="button"], input[type="submit"] {
 
 button:focus, a[role="button"]:focus, input[type="submit"]:focus {
 	outline: none;
-	background: #000;
+	background-color: #000;
 }
 
 button:active, a[role="button"]:active, input[type="submit"]:active {
@@ -769,7 +772,7 @@ div.group-bottom > * { vertical-align: baseline }
 
 .box dd {
 	padding: @v-space/2 0;
-	.transition-basic(2s);
+	.transition-basic(0.3s);
 }
 
 .box dt  a:hover, .box a:active, .box a:focus {
@@ -816,42 +819,54 @@ ul.tags {
 }
 
 ul.tags li {
-	display: inline-block;
-	margin-bottom: @v-space/2;
-	vertical-align: middle;
-}
-
-ul.tags a {
-	background-size: 1.125em 100% !important;
-	padding-right: 1.5em;
-	-ms-transform: rotate(-6deg);
-	-moz-transform: rotate(-6deg);
-	-webkit-transform: rotate(-6deg);
-	transform: rotate(-6deg);
-	background-color: @secondary-color;
-	font-family: 'Sintony', sans-serif;
-	text-transform: none;
-	font-weight: 700;
-}
-
-ul.tags a:hover, ul.tags a:active, ul.tags a:focus {
-	box-shadow: none;
-	background-color: @secondary-color-darker;
+	list-style: none;
+	display: inline;
+	padding: 0.33em;
 }
 
 span.count {
-	font-size: 0.7em;
+	font-size: 0.6em;
+    letter-spacing: 0;
 	line-height: 1;
 	vertical-align: middle;
 	color: @secondary-color-darker;
 	background: @secondary-color-lighter;
-	padding: 0 0.33em;
+	padding: 0 0.4em;
 	border-radius: 50%;
+	position: relative;
+	left: -0.33em;
+}
+
+ul.tags a[role="button"] {
+	background: 0;
+	color: @link-color;
+	padding: 0;
+	font-size: 1.5em;
+	white-space: nowrap;
+}
+
+ul.tags a[role="button"]:hover, ul.tags a[role="button"]:active, ul.tags a[role="button"]:focus {
+	color: @link-color-darker;
+	box-shadow: none;
+}
+
+ul.tags a[role="button"]:hover span {
+	background: @link-color-darker;
+	color: @font-color-light;
+}
+
+ul.symptoms {
+	background: @font-color-light;
+	padding: 1.5em;
+	box-shadow: 3px 3px 0 @primary-color-lighter;
 }
 
 ul.symptoms li {
 	font-size: 1.25em;
 	list-style: none;
+	line-height: 1;
+	vertical-align: top;
+	font-size: 1.5em;
 }
 
 ul.symptoms li + li {
@@ -860,6 +875,31 @@ ul.symptoms li + li {
 
 ul.symptoms li * {
 	vertical-align: middle;
+}
+
+ul.symptoms label span:before {
+	content: '\2610';
+	padding-right: 0.25em;
+}
+
+ul.symptoms label {
+	display: block;
+	.transition-basic(0.3s);
+	cursor: pointer;
+}
+
+ul.symptoms label.selected {
+	background: @secondary-color-lighter;
+	padding: 0.33em;
+}
+
+ul.symptoms label.selected span:before {
+	content: '\2611';
+	padding-right: 0.25em;
+}
+
+ul.symptoms input {
+	display: none;
 }
 
 /**
@@ -1050,20 +1090,62 @@ a[rel="next"], ul.tags a {
 	background-position: right center;
 }
 
+@media (max-width: 1000px) {
+
+body > nav img {
+	width: 150px;
+}
+
+}
+
+@media (max-width: 800px) {
+
+body > nav img {
+	width: 150px;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.75em;
+}
+
+}
+
 @media (max-width: 600px) {
 
 body > nav {
 	background-position: center 18px;
 	background-size: auto 80px;
-	padding: 110px 0 @v-space/2;
+	text-align: center;
 }
 
 body > nav ul {
 	text-align: center;
 }
 
+body > nav img {
+	position: static;
+}
+
 ul[role="toolbar"] li {
 	width: 50%;
+}
+
+button, a[role="button"], 
+a[rel="prev"], a[rel="next"], label 
+ {
+	font-size: 1em;
+}
+
+a[rel="prev"], a[rel="next"] {
+	padding: 0.5em 1em;
+}
+
+ul.symptoms li {
+	font-size: 1.125em;
 }
 
 }
