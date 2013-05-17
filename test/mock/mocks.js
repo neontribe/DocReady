@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('docready')
-  .factory('mocks', function(){
+  .factory('mocks', function(settings){
     var symptoms, items, topics;
 
     symptoms = [{
@@ -116,9 +116,9 @@ angular.module('docready')
         ];
 
     function registerMocks($httpBackend) {
-      $httpBackend.whenGET('/api/advice_topic').respond(topics);
-      $httpBackend.whenGET('/api/advice_item').respond(items);
-      $httpBackend.whenGET('/api/symptom').respond(symptoms);
+      $httpBackend.whenGET(settings.apiRoot + '/advice_topic').respond(topics);
+      $httpBackend.whenGET(settings.apiRoot + '/advice_item').respond(items);
+      $httpBackend.whenGET(settings.apiRoot + '/symptom').respond(symptoms);
     }
 
     return {
