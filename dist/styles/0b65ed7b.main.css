@@ -255,8 +255,8 @@ a:focus {
   outline: 1px dotted #999999;
 }
 /* Icon provisions */
-button span,
-a[role="button"] span {
+#checklist li button span,
+#checklist li a[role="button"] span {
   display: inline-block;
   height: 0;
   width: 0;
@@ -331,6 +331,7 @@ h1 + p,
 header + p,
 hgroup + p {
   font-size: 22.5px;
+  text-align: center;
 }
 li {
   list-style: disc inside;
@@ -441,10 +442,10 @@ h3 {
   text-align: left;
 }
 h2 {
-  font-size: 2.5em;
+  font-size: 2.25em;
 }
 h1 {
-  font-size: 3.5em;
+  font-size: 3em;
 }
 h1 span {
   display: inline-block;
@@ -798,6 +799,103 @@ li.tabs-selected a {
   margin-top: 0;
 }
 /**
+* Picker 
+----------------------------------------------------------------------
+*/
+ul.tags {
+  text-align: center;
+}
+ul.tags li {
+  display: inline-block;
+  margin-bottom: 13.5px;
+  vertical-align: middle;
+}
+ul.tags a {
+  background-size: 1.125em 100% !important;
+  padding-right: 1.5em;
+  -ms-transform: rotate(-6deg);
+  -moz-transform: rotate(-6deg);
+  -webkit-transform: rotate(-6deg);
+  transform: rotate(-6deg);
+  background-color: #8aa54b;
+  font-family: 'Sintony', sans-serif;
+  text-transform: none;
+  font-weight: 700;
+}
+ul.tags a:hover,
+ul.tags a:active,
+ul.tags a:focus {
+  box-shadow: none;
+  background-color: #414d23;
+}
+span.count {
+  font-size: 0.7em;
+  line-height: 1;
+  vertical-align: middle;
+  color: #414d23;
+  background: #cddaaf;
+  padding: 0 0.33em;
+  border-radius: 50%;
+}
+ul.symptoms li {
+  font-size: 1.25em;
+  list-style: none;
+}
+ul.symptoms li + li {
+  margin-top: 0.5em;
+}
+ul.symptoms li * {
+  vertical-align: middle;
+}
+/**
+* Checklist
+----------------------------------------------------------------------
+*/
+#checklist ol {
+  list-style: none;
+  counter-reset: section;
+}
+#checklist li {
+  padding: 9px 13.5px 13.5px;
+  background: #fefefe;
+  border: 2px solid #d96342;
+  list-style: none;
+  font-size: 1.25em;
+  cursor: s-resize !important;
+}
+#checklist li {
+  margin-top: 9px;
+}
+#checklist li:before {
+  counter-increment: section;
+  content: counter(section);
+  font-family: 'Play', sans-serif;
+  background: #d96342;
+  color: #fefefe;
+  padding: 6.75px 13.5px;
+  margin-right: 6.75px;
+  display: inline-block;
+}
+#checklist li.ui-sortable-helper {
+  box-shadow: 2px 2px 5px #000;
+}
+.ui-sortable-helper:before,
+#checklist li.ui-sortable-helper ~ li:before {
+  content: '?' !important;
+}
+#checklist li button {
+  padding: 0;
+  background: transparent;
+  color: #c871aa;
+  margin: 0;
+}
+.button-group {
+  text-align: center;
+}
+.button-group button {
+  margin: 0 13.5px 13.5px;
+}
+/**
 * Accordians
 ----------------------------------------------------------------------
 */
@@ -896,6 +994,32 @@ ul[role="toolbar"] span {
   transform: rotate(-7deg);
   margin: 0;
 }
+a[rel="prev"],
+a[rel="next"],
+ul.tags a {
+  background-image: url(../images/188e595d.arrow_left.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 0.5em 100%;
+}
+a[rel="prev"]:active,
+a[rel="prev"]:focus,
+a[rel="next"]:active,
+a[rel="prev"]:focus {
+  box-shadow: none;
+  background-color: #863469;
+}
+a[rel="prev"] {
+  padding-left: 1.5em;
+}
+a[rel="next"] {
+  padding-right: 1.5em;
+}
+a[rel="next"],
+ul.tags a {
+  background-image: url(../images/a32b22b1.arrow_right.png);
+  background-position: right center;
+}
 @media (max-width: 600px) {
   body > nav {
     background-position: center 18px;
@@ -966,42 +1090,3 @@ ul[role="toolbar"] span {
   left:100%;
 }
 */
-/* modify items in the checklist while dragging */
-#checklist ol {
-  list-style: none;
-  counter-reset: section;
-}
-#checklist li {
-  padding: 9px 13.5px 13.5px;
-  background: #fefefe;
-  border: 2px solid #d96342;
-  list-style: none;
-  font-size: 1.25em;
-  cursor: s-resize !important;
-}
-#checklist li {
-  margin-top: 9px;
-}
-#checklist li:before {
-  counter-increment: section;
-  content: counter(section);
-  font-family: 'Play', sans-serif;
-  background: #d96342;
-  color: #fefefe;
-  padding: 6.75px 13.5px;
-  margin-right: 6.75px;
-  display: inline-block;
-}
-#checklist li.ui-sortable-helper {
-  box-shadow: 2px 2px 5px #000;
-}
-.ui-sortable-helper:before,
-#checklist li.ui-sortable-helper ~ li:before {
-  content: '?' !important;
-}
-#checklist li button {
-  padding: 0;
-  background: transparent;
-  color: #c871aa;
-  margin: 0;
-}
