@@ -6,15 +6,15 @@ describe('Controller: PickerCtrl', function () {
   beforeEach(module('docready'));
 
   var PickerCtrl,
-    $httpBackend,
+    httpBackend,
     location,
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, mocks, $location) {
-    $httpBackend = _$httpBackend_;
+  beforeEach(inject(function ($controller, $rootScope, $httpBackend, mocks, $location) {
+    httpBackend = $httpBackend;
     location = $location;
-    mocks.registerMocks($httpBackend);
+    mocks.registerMocks(httpBackend);
     scope = $rootScope.$new();
     PickerCtrl = $controller('PickerCtrl', {
       $scope: scope,
@@ -23,31 +23,31 @@ describe('Controller: PickerCtrl', function () {
   }));
 
   it('should attach a list of symptoms to the scope', function () {
-    $httpBackend.flush();
+    httpBackend.flush();
     expect(scope.symptoms.length).toBeGreaterThan(2);
   });
 
   it('should attach an array of tags to the scope', function () {
-    $httpBackend.flush();
+    httpBackend.flush();
     expect(scope.tags.length).toBeGreaterThan(3);
   });
 
   it('should provide a filter method hasActiveTag', function(){
-    $httpBackend.flush();
+    httpBackend.flush();
     expect(scope.hasActiveTag).toBeDefined();
-    expect(_.filter(scope.symptoms, scope.hasActiveTag).length).toEqual(2);
+    expect(_.filter(scope.symptoms, scope.hasActiveTag).length).toEqual(3);
   });
 
   it('should provide a method which counts the selected symptoms for a tag', function(){
-    $httpBackend.flush();
-    scope.symptoms[1].selected = true;
-    expect(scope.countForTag('sleep')).toEqual(1);
-    expect(scope.countForTag('drugs')).toEqual(1);
-    expect(scope.countForTag('anxiety')).toEqual(1);
+    httpBackend.flush();
+    scope.symptoms[0].selected = true;
+    _.each(scope.symptoms[0].tags, function(tag){
+      expect(scope.countForTag(tag)).toEqual(1);
+    });
   });
 
   it('should provide a showTag method which adjusts the location', function(){
-    $httpBackend.flush();
+    httpBackend.flush();
     scope.showTag('test');
     expect(location.path()).toEqual('/tool/picker/test');
   });

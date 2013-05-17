@@ -27,6 +27,7 @@
     "beforeEach": false,
     "inject": false,
     "expect": false,
-    "Modernizr": true
+    "spyOn": false,
+    "Modernizr": false
   }
 }

@@ -4,24 +4,63 @@ angular.module('docready')
   .factory('mocks', function(){
     var symptoms, items, topics;
 
-    symptoms = [
-        {
-            title: 'Feeling Tired',
-            tags: ['sleep']
-          },
-          {
-            title: 'Trouble Falling Asleep Sometimes Which Is Horrid & I Hate It',
-            tags: ['sleep', 'drugs', 'anxiety']
-          },
-          {
-            title: 'Don\'t Feel Like Eating',
-            tags: ['anxiety', 'appetite']
-          },
-          {
-            title: 'Feel I Eat Too Much',
-            tags: ['appetite']
-          }
-        ];
+    symptoms = [{
+      'url': 'http://docready-staging.herokuapp.com/api/symptom/1',
+      'title': 'I feel tired all the time',
+      'tags': ['sleep', 'enthusiasm']
+    }, {
+      'url': 'http://docready-staging.herokuapp.com/api/symptom/2',
+      'title': 'I\'m eating too much',
+      'tags': ['appetite']
+    }, {
+      'url': 'http://docready-staging.herokuapp.com/api/symptom/3',
+      'title': 'I can\'t get to sleep at night',
+      'tags': ['sleep']
+    }, {
+      'url': 'http://docready-staging.herokuapp.com/api/symptom/4',
+      'title': 'I lose my temper too much',
+      'tags': ['anxiety', 'relationships']
+    }, {
+      'url': 'http://docready-staging.herokuapp.com/api/symptom/5',
+      'title': 'Nobody seems to like me',
+      'tags': ['anxiety', 'relationships']
+    }, {
+      'url': 'http://docready-staging.herokuapp.com/api/symptom/7',
+      'title': 'I\'m getting into debt',
+      'tags': ['finances']
+    }, {
+      'url': 'http://docready-staging.herokuapp.com/api/symptom/8',
+      'title': 'My memory is playing tricks on me',
+      'tags': ['memory']
+    }, {
+      'url': 'http://docready-staging.herokuapp.com/api/symptom/6',
+      'title': 'I\'m drinking too much',
+      'tags': ['health', 'drinking', 'drug use']
+    }, {
+      'url': 'http://docready-staging.herokuapp.com/api/symptom/9',
+      'title': 'I don\'t eat properly',
+      'tags': ['appetite', 'anxiety', 'health', 'eating']
+    }, {
+      'url': 'http://docready-staging.herokuapp.com/api/symptom/10',
+      'title': 'I can\'t get out of bed',
+      'tags': ['sleep', 'enthusiasm']
+    }, {
+      'url': 'http://docready-staging.herokuapp.com/api/symptom/11',
+      'title': 'I feel depressed',
+      'tags': ['mood', 'thoughts']
+    }, {
+      'url': 'http://docready-staging.herokuapp.com/api/symptom/12',
+      'title': 'I think about killing myself',
+      'tags': ['self harm', 'thoughts']
+    }, {
+      'url': 'http://docready-staging.herokuapp.com/api/symptom/13',
+      'title': 'I don\'t feel quite real',
+      'tags': ['anxiety', 'thoughts', 'unreality']
+    }, {
+      'url': 'http://docready-staging.herokuapp.com/api/symptom/14',
+      'title': 'I\'ve started cutting myself',
+      'tags': ['self harm']
+    }];
     items = [
         {
             title: 'Item 1',

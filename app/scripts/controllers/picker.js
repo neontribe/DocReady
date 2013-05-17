@@ -7,6 +7,10 @@ angular.module('docready')
     $scope.tags = [];
     $scope.settings = settings;
 
+    $scope.cloudConfig = {
+      font: 'Play'
+    };
+
     $scope.$watch('symptoms', function(newVal){
       // optimization due here
       var rawTags = _.uniq(_.union.apply(null, _.pluck(newVal, 'tags')));
