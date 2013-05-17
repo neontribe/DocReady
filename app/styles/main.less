@@ -1,5 +1,64 @@
-@import url(http://fonts.googleapis.com/css?family=Sintony:400,700);
-@import url(http://fonts.googleapis.com/css?family=Play:700);
+/**
+* FONT-FACE
+----------------------------------------------------------------------
+*/
+
+@font-face {
+    font-family: 'Akashi';
+    src: url('akashi-webfont.eot');
+    src: url('akashi-webfont.eot?#iefix') format('embedded-opentype'),
+         url('akashi-webfont.woff') format('woff'),
+         url('akashi-webfont.ttf') format('truetype'),
+         url('akashi-webfont.svg#akashiregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('roboto-bold-webfont.eot');
+    src: url('roboto-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('roboto-bold-webfont.woff') format('woff'),
+         url('roboto-bold-webfont.ttf') format('truetype'),
+         url('roboto-bold-webfont.svg#robotobold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('roboto-regular-webfont.eot');
+    src: url('roboto-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('roboto-regular-webfont.woff') format('woff'),
+         url('roboto-regular-webfont.ttf') format('truetype'),
+         url('roboto-regular-webfont.svg#robotoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('roboto-mediumitalic-webfont.eot');
+    src: url('roboto-mediumitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('roboto-mediumitalic-webfont.woff') format('woff'),
+         url('roboto-mediumitalic-webfont.ttf') format('truetype'),
+         url('roboto-mediumitalic-webfont.svg#robotomedium_italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Sintony';
+    src: url('sintony-regular-webfont.eot');
+    src: url('sintony-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('sintony-regular-webfont.woff') format('woff'),
+         url('sintony-regular-webfont.ttf') format('truetype'),
+         url('sintony-regular-webfont.svg#sintonyregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /**
 * LESS CSS VARIABLES AND MIXINS
 ----------------------------------------------------------------------
@@ -14,9 +73,9 @@
 @font-color: #333;
 @font-color-light: #fefefe;
 
-@link-color: #c871aa;
-@link-color-darker: darken(@link-color, 20%);
-@link-color-lighter: lighten(@link-color, 30%);
+@link-color: #167975;
+@link-color-darker: darken(@link-color, 15%);
+@link-color-lighter: #a3dbd9;
 
 @primary-color: #d96342;
 @primary-color-darker: darken(@primary-color, 25%);
@@ -26,9 +85,9 @@
 @secondary-color-darker: darken(@secondary-color, 25%);
 @secondary-color-lighter: lighten(@secondary-color, 30%);
 
-@tertiary-color: #c871aa;
-@tertiary-color-darker: darken(@tertiary-color, 25%);
-@tertiary-color-lighter: lighten(@tertiary-color, 30%);
+@tertiary-color: #167975;
+@tertiary-color-darker: darken(@tertiary-color, 15%);
+@tertiary-color-lighter: #a3dbd9;
 
 .primary-color { background: @primary-color }
 .secondary-color { background: @secondary-color }
@@ -62,8 +121,9 @@
 
 /* Font families */
 
-@family-main: 'Sintony';
-@family-headings: 'Play';
+@family-main: 'Roboto';
+@family-headings: 'Sintony';
+@family-special: 'Akashi';
 
 /* Layout */
 
@@ -163,9 +223,8 @@ body > nav ul {
 }
 
 .headings {
-	font-weight: 700;
 	text-transform: capitalize;
-	color: @primary-color;
+	color: @font-color;
 }
 
 /**
@@ -205,7 +264,7 @@ body {
 	font-size: @font-size-base;
 	background: url('../images/grid.gif');
 	line-height: @v-space;
-	font-weight: 400;
+	font-weight: normal;
 	font-family: @family-main;
 	color: @font-color;
 }
@@ -386,10 +445,13 @@ nav li + li:before {
 
 h1, h2, h3, h4, hgroup {
 	font-family: @family-headings;
-    font-weight: 700;
 	line-height: 1;
 	.headings;
 	text-align: center;
+}
+
+h1 {
+	font-family: @family-special;
 }
 
 * + h1, * + h2, * + hgroup { margin-top: @v-space*1.5 }
@@ -399,17 +461,17 @@ hgroup * {
 	margin: 0;
 }
 
-h4 { 
-	font-size: 1em; 
-	text-align: left;
-}
-
 h3 { 
 	font-size: 1.5em;
 	text-align: left;
 }
 
-h2 { font-size: 2.25em }
+h4 { 
+	font-size: 1em; 
+	text-align: left;
+}
+
+h2 { font-size: 2.125em }
 h1 { font-size: 3em }
 h1 span {
 	display: inline-block;
@@ -418,12 +480,6 @@ h1 span {
 	overflow: hidden;
 }
 hgroup h1 { font-size: 3.75em }
-
-h2 {
-	background: url(../images/heading_bar.png) no-repeat center bottom;
-	background-size: 900px auto;
-	padding-bottom: 0.5em;
-}
 
 /**
 * Phrasing
@@ -561,9 +617,9 @@ input[type="checkbox"], input[type="radio"] {
 */
 
 button, a[role="button"], input[type="submit"] {
-	background: @link-color;
+	background: @font-color;
 	color: @font-color-light;
-	padding: @slim-spacing @slim-spacing*2;
+	padding: @slim-spacing*1.5 @slim-spacing*4;
 	border: 0;
 	cursor: pointer;
 	display: inline-block;
@@ -573,11 +629,15 @@ button, a[role="button"], input[type="submit"] {
 	font-family: inherit;
 	font-size: @font-size-increased;
 	line-height: 1;
-	.call-to-action-font;
+}
+
+button:focus, a[role="button"]:focus, input[type="submit"]:focus {
+	outline: none;
+	background: #000;
 }
 
 button:active, a[role="button"]:active, input[type="submit"]:active {
-	box-shadow: inset 1px 1px 0 @link-color-darker, inset 2px 2px 0 @link-color-darker;
+	box-shadow: inset 1px 1px 0 #000, inset 2px 2px 0 #000;
 	position: relative;
 	left: 0px;
 	top: 1px;
