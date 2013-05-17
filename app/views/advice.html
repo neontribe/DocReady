@@ -13,14 +13,14 @@
 
 <div id="info">
 	<h2>{{activeTopic.title}}</h2>
-	<accordion>
-		<accordion-group 
+	<div accordion="">
+		<div accordion-group="" 
 			is-open="$first"
 			ng-repeat="item in items | filter: { topic: activeTopic.slug }"
 			opened="setItem"
 			heading="{{item.title}}"
 			slug="{{item.slug}}">
 			<div ng-bind-html="item.body"></div>
-		</accordion-group>
-	</accordion>
+		</div>
+	</div>
 </div>
