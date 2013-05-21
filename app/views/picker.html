@@ -23,11 +23,11 @@
     <h2>{{activeTag}}</h2>
     <ul class="symptoms">
       <li ng-repeat="symptom in symptoms | filter:hasActiveTag">
-        <label ng-class="{selected: symptom.selected}"><input type="checkbox" ng-model="symptom.selected"/> <span>{{symptom.title}}</span></label>
+        <label ng-class="{selected: symptom.selected}"><input type="checkbox" ng-model="symptom.selected"/> <span>{{symptom.title}}</span></span>
       </li>
     </ul>
     <div class="button-group">
-      <a role="button" ng-href="#/tool/picker">Done</a>
+      <a role="button" rel="prev" ng-href="#/tool/picker">Done</a>
     </div>
   </div>
 </div>
