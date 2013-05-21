@@ -53,6 +53,7 @@ angular.module('docready')
                 })
                 .style('font-size', function(d) { return d.size + 'px'; })
                 .style('font-family', opts.font)
+                .style('font-weight', 'bold')
                 .style('fill', function(d) { return fill(d.count); })
                 .attr('text-anchor', 'middle')
                 .attr('transform', function(d) {
