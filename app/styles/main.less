@@ -481,6 +481,7 @@ body > nav {
 	background: @font-color;
 	padding: @v-space/2 @v-space/2;
 	font-size: @font-size-base*2;
+	margin-top: 0;
 }
 
 body > nav img {
@@ -875,7 +876,8 @@ ul.symptoms label.selected span:before {
 }
 
 ul.symptoms input {
-	display: none;
+	position: absolute;
+	top: -500px;
 }
 
 /**
