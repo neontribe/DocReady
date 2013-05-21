@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('docready')
-  .factory('symptomService', function ($resource) {
+  .factory('symptomService', function ($resource, settings) {
   var symptoms = [],
     tags = [];
 
-  symptoms = $resource('/api/symptom').query({}, function(data){
+  symptoms = $resource(settings.apiRoot + '/symptom').query({}, function(data){
     var extracted = _.uniq(_.union.apply(null, _.pluck(data, 'tags')));
     tags.push.apply(tags, extracted);
   });

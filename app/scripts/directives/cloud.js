@@ -8,10 +8,11 @@ angular.module('docready')
         width: null,
         height: null,
         font: 'Impact,serif',
-        spiral: 'rectangular'
+        spiral: 'rectangular',
+        colorDomain: [0,1,2,3,4],
+        colors: ['#07fb07', '#d6fb07', '#fbe107', '#fba207', '#fb2907']
       },
-      fill = d3.scale.category20(),
-      fontSize = d3.scale.threshold().domain([1,2,3,4]).range([30, 40, 45, 50, 55]);
+      fill, fontSize;
 
     return {
       restrict: 'EA',
@@ -28,6 +29,8 @@ angular.module('docready')
         opts.width = parseInt(attrs.width, 10) || opts.width;
         opts.height = parseInt(attrs.height, 10) || opts.height;
         angular.extend(opts, scope.options || {});
+        fill = d3.scale.linear().clamp(true).domain(opts.colorDomain).range(opts.colors),
+        fontSize = d3.scale.linear().clamp(true).domain([0,1,2,3,4]).range([30, 40, 45, 50, 55]);
 
         // set up initial svg object
         svg = d3.select(element[0])
@@ -50,7 +53,7 @@ angular.module('docready')
                 })
                 .style('font-size', function(d) { return d.size + 'px'; })
                 .style('font-family', opts.font)
-                .style('fill', function(d) { return fill(d.size/10); })
+                .style('fill', function(d) { return fill(d.count); })
                 .attr('text-anchor', 'middle')
                 .attr('transform', function(d) {
                   return 'translate(' + [d.x, d.y] + ')rotate(' + d.rotate + ')';
@@ -69,7 +72,7 @@ angular.module('docready')
           }
           layout = d3.layout.cloud()
             .size([opts.width, opts.height])
-            .words(newVal)
+            .words(angular.copy(newVal))
             .rotate(function() { return Math.floor((Math.random() * 5)) * 30 - 60; })
             .font(opts.font)
             .spiral(opts.spiral)

@@ -8,7 +8,8 @@ angular.module('docready')
     $scope.settings = settings;
 
     $scope.cloudConfig = {
-      font: 'Sintony'
+      font: 'Sintony',
+      colors: ['#07fb07', '#d6fb07', '#fbe107', '#fba207', '#fb2907']
     };
 
     $scope.$watch('symptoms', function(newVal){
@@ -33,4 +34,16 @@ angular.module('docready')
         return _.contains(symptom.tags, tag) && symptom.selected;
       }));
     };
+
+    $scope.toggleSymptom = function(symptom, activeTag) {
+      symptom.selected = !symptom.selected;
+      symptom.originalTags = symptom.originalTags || angular.copy(symptom.tags);
+      if (symptom.selected) {
+        symptom.tags = [activeTag];
+      } else {
+        symptom.tags = symptom.originalTags;
+      }
+    };
+
+
   });
