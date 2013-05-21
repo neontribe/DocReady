@@ -1,11 +1,18 @@
 <div id="checklist">
 	<h1>Checklist</h1>
-	<p>Drag and drop checklist items to prioritize&hellip;</p>
+	<p ng-switch="!!((symptoms | filter:{selected:true}).length)">
+        <span ng-switch-when="true">Drag and drop checklist items to prioritize&hellip;</span>
+        <span ng-switch-when="false">Your checklist is empty&hellip;<span>
+    </p>
     <ol ui-sortable="{axis:'y', 'cursor':'move'}" ng-model="symptoms">
         <li ng-repeat="symptom in symptoms" ng-show="symptom.selected">
           {{symptom.title}} <button ng-click="symptom.selected = false"><i>&#x274c;</i> <span>delete</span></button>
         </li>
     </ol>
+    <div>
+        <div add-symptom symptoms="symptoms" tag="other" button-text="Add">My label here</div>
+        <div add-symptom symptoms="symptoms" tag="other">Another label here</div>
+    </div>
     <div class="button-group">
     	<a role="button" rel="prev" ng-href="#/tool/picker">Edit/More</a> 
     	<a role="button" rel="next" ng-href="#/tool/export">I'm Done</a>
