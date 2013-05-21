@@ -34,9 +34,9 @@ angular.module('docready')
 
         // set up initial svg object
         svg = d3.select(element[0])
-          .append('svg')
-            .attr('width', opts.width || '100%')
-            .attr('height', opts.height || '100%');
+          .append('svg');
+            //.attr('width', opts.width || '100%')
+            //.attr('height', opts.height || '100%');
 
         function draw(words) {
             svg.selectAll('*').remove();
