@@ -8,7 +8,8 @@ angular.module('docready')
     $scope.settings = settings;
 
     $scope.cloudConfig = {
-      font: 'Sintony'
+      font: 'Sintony',
+      colors: ['#07fb07', '#d6fb07', '#fbe107', '#fba207', '#fb2907']
     };
 
     $scope.$watch('symptoms', function(newVal){
