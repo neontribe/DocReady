@@ -69,7 +69,7 @@ angular.module('docready')
           }
           layout = d3.layout.cloud()
             .size([opts.width, opts.height])
-            .words(newVal)
+            .words(angular.copy(newVal))
             .rotate(function() { return Math.floor((Math.random() * 5)) * 30 - 60; })
             .font(opts.font)
             .spiral(opts.spiral)
