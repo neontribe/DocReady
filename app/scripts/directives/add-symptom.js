@@ -11,9 +11,10 @@ angular.module('docready')
         tag: '@',
         buttonText: '@'
       },
-      link: function postLink(scope, element, attrs) {
+      link: function link(scope, element, attrs) {
         scope.sympt = '';
         attrs.buttonText = attrs.buttonText || '+';
+        scope.buttonT = attrs.buttonText;
         scope.add = function (){
           var symptom = {
             title: scope.sympt,
