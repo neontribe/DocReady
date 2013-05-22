@@ -613,7 +613,6 @@ form div > * {
 }
 
 label {
-	padding-right: 0.5em;
 	line-height: 1;
 	font-weight: 700;
 }
@@ -627,6 +626,9 @@ input, textarea, select {
 	padding: 0.25em;
 	border: 1px solid @font-color;
 	.box-sized;
+	padding: 0.66em;
+	border: 2px solid @primary-color;
+	box-shadow: inset 3px 3px 0 @primary-color-lighter;
 }
 
 form p {
@@ -640,7 +642,7 @@ form p + p {
 }
 
 input:focus, textarea:focus, select:focus {
-	outline: 2px solid @font-color;
+	outline: 2px solid @primary-color;
 }
 
 input[type="submit"]:focus {
@@ -936,6 +938,51 @@ ul.symptoms input {
 
 .button-group button {
 	margin:0 @v-space/2 @v-space/2;
+}
+
+.add-symptoms input {
+	width: 100%;
+}
+
+.add-symptoms * {
+	margin: 0;
+}
+
+.add-symptoms > div {
+	position: relative;
+	margin-top: @v-space;
+}
+
+.add-symptoms label > span {
+	display: block;
+	font-size: 1.125em;
+	margin-bottom: @v-space/4;
+}
+
+.add-symptoms {
+
+button, button:active, button:focus  {
+    background: none repeat scroll 0 0 #D96342;
+    top: 100%;
+    box-shadow: none;
+    height: 51px;
+    left: 100%;
+    margin: -51px 0 0 -52px;
+    padding: 0 !important;
+    position: absolute;
+    display: block;
+    width: 51px;
+    font-size: 22.5px !important;
+}
+
+input {
+	padding-right: 3em;
+}
+
+button:active, button:focus {
+	background: @font-color;
+}
+
 }
 
 /**

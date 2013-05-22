@@ -1,10 +1,4 @@
 <h1 class="no-print">Export</h1>
-<!--<div id="export">
-    <ol>
-        <li ng-repeat="symptom in symptoms | filter:{ selected: true }">{{symptom.title}}</li>
-    </ol>
-    <a role="button" ng-href="#/tool/checklist">Review</a>
-</div>-->
 
 <div id="export">
 	<h2>Appointment Details</h2>
@@ -38,13 +32,9 @@
 		</div>
 	</div>
 	<h2>My symptoms</h2>
-	<ol>
-		<li>Feeling tired</li>
-		<li>Headaches</li>
-		<li>Blurry vision</li>
-		<li>No appetite</li>
-		<li>Suicidal ideation</li>
-	</ol>
+    <ol>
+        <li ng-repeat="symptom in symptoms | filter:{ selected: true }">{{symptom.title}}</li>
+    </ol>
 	<h2>Notes</h2>
 	<p>(Place any additional notes in the box below)</p>
 	<div class="editable tall">
