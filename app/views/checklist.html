@@ -2,7 +2,7 @@
 	<h1>Checklist</h1>
 	<p ng-switch="!!((symptoms | filter:{selected:true}).length)">
         <span ng-switch-when="true">Drag and drop checklist items to prioritize&hellip;</span>
-        <span ng-switch-when="false">Your checklist is empty&hellip;<span>
+        <span ng-switch-when="false">Your checklist is empty&hellip;</span>
     </p>
     <ol ui-sortable="{axis:'y', 'cursor':'move'}" ng-model="symptoms">
         <li ng-repeat="symptom in symptoms" ng-show="symptom.selected">
