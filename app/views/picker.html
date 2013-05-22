@@ -5,7 +5,7 @@
       <div ng-switch-when="false">
         <ul class="tags">
           <li ng-repeat="tag in tags">
-            <a role="button" ng-href="#/tool/picker/{{tag.text}}" style="font-size:{{tag.count + 1}}em">
+            <a role="button" href="#/tool/picker/{{tag.text}}" style="font-size:{{tag.count + 1}}em">
             {{tag.text}} <span class="count" ng-show="(tag.count !== 0)">{{tag.count}}</span>
             </a>
           </li>
@@ -16,7 +16,7 @@
       </div>
     </div>  
     <div class="button-group">
-      <a role="button" ng-href="#/tool/checklist" rel="next">I'm Done</a>
+      <a role="button" href="#/tool/checklist" rel="next">I'm Done</a>
     </div>
   </div>
   <div ng-switch-when="true">
@@ -28,7 +28,7 @@
     </ul>
     <div add-symptom symptoms="symptoms" tag="{{activeTag}}" button-text="Add"></div>
     <div class="button-group">
-      <a role="button" rel="prev" ng-href="#/tool/picker">Done</a>
+      <a role="button" rel="prev" href="#/tool/picker">Done</a>
     </div>
   </div>
 </div>
