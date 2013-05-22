@@ -692,10 +692,6 @@ nav a:hover, nav a:active, nav a:focus {
 	color: @link-color;
 }
 
-nav li + li a {
-	margin-left: @slim-spacing / 2;
-}
-
 nav li + li:before {
 	content: '\2605';
 	color: @secondary-color;
@@ -1115,7 +1111,7 @@ a[aria-controls="info"] {
 	.transition-basic(0.7s);
 }
 
-a[aria-controls="info"] div {
+a[aria-controls="info"] span {
 	display: block;
 	position: absolute;
 	top: 0;
@@ -1134,8 +1130,8 @@ a[aria-controls="info"]:hover {
 	box-shadow: none;
 }
 
-a[aria-controls="info"]:focus div, a[aria-controls="info"]:active div, 
-a[aria-controls="info"]:hover div {
+a[aria-controls="info"]:focus span, a[aria-controls="info"]:active span, 
+a[aria-controls="info"]:hover span {
 	color: @link-color-lighter;
 }
 
@@ -1172,7 +1168,7 @@ h1 {
 }
 
 h2 {
-	font-size: 1.75em;
+	font-size: 1.25em;
 }
 
 }
@@ -1191,10 +1187,15 @@ body > nav {
 
 body > nav ul {
 	text-align: center;
+	margin-top: @v-space/2;
 }
 
 body > nav img {
 	position: static;
+}
+
+body > nav a {
+	font-size: 0.8em;
 }
 
 ul[role="toolbar"] li {
@@ -1221,6 +1222,10 @@ a[aria-controls="info"][class*="active"] {
 
 a[aria-controls="info"][class*="active"] img {
 	max-width: 90% !important;
+}
+
+button, a[rel="prev"], a[rel="next"] {
+	margin-bottom:@v-space/2;
 }
 
 }
@@ -1321,7 +1326,7 @@ h1, h2, h3, h4 {
 }
 
 h1 { font-size: 2em; }
-h2 { font-size: 1.5em; }
+h2 { font-size: 1.33em; }
 h3 { font-size: 1em; }
 
 nav[role="navigation"] {

@@ -26,7 +26,9 @@
         <label ng-class="{selected: symptom.selected}"><input type="checkbox" checked="{symptom.selected}" ng-click="toggleSymptom(symptom, activeTag)"/> <span>{{symptom.title}}</span></label>
       </li>
     </ul>
-    <div add-symptom symptoms="symptoms" tag="{{activeTag}}" button-text="Add"></div>
+    <div class="add-symptoms">
+      <div add-symptom symptoms="symptoms" tag="{{activeTag}}"></div>
+    </div>
     <div class="button-group">
       <a role="button" rel="prev" href="#/tool/picker">Done</a>
     </div>
