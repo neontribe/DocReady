@@ -1,7 +1,53 @@
-<div id="export">
-	<h3>Export</h3>
-    <ul>
+<h1 class="no-print">Export</h1>
+<!--<div id="export">
+    <ol>
         <li ng-repeat="symptom in symptoms | filter:{ selected: true }">{{symptom.title}}</li>
-    </ul>
+    </ol>
     <a role="button" ng-href="#/tool/checklist">Review</a>
+</div>-->
+
+<div id="export">
+	<h2>Appointment Details</h2>
+	<p>(please complete)</p>
+	<div class="group-top group-middle">
+		<div style="width:50%">
+			<div class="editable">
+				<p><strong>Doctor's name</strong></p>
+				<div></div>
+			</div>
+		</div>
+		<div style="width:50%">
+			<div class="editable">
+				<p><strong>Surgery name</strong></p>
+				<div></div>
+			</div>
+		</div>
+	</div>
+	<div class="group-top group-middle">
+		<div style="width:50%">
+			<div class="editable">
+				<p><strong>Appointment date</strong></p>
+				<div></div>
+			</div>
+		</div>
+		<div style="width:50%">
+			<div class="editable">
+				<p><strong>Appointment time</strong></p>
+				<div></div>
+			</div>
+		</div>
+	</div>
+	<h2>My symptoms</h2>
+	<ol>
+		<li>Feeling tired</li>
+		<li>Headaches</li>
+		<li>Blurry vision</li>
+		<li>No appetite</li>
+		<li>Suicidal ideation</li>
+	</ol>
+	<h2>Notes</h2>
+	<p>(Place any additional notes in the box below)</p>
+	<div class="editable tall">
+		<div></div>
+	</div>
 </div>

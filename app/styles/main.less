@@ -442,6 +442,85 @@ kbd {
 	white-space: nowrap;
 }
 
+/**
+* Boxes (divs and sections)
+----------------------------------------------------------------------
+*/
+
+div { 
+	.box-sized;
+}
+
+* + section, * + article, * + aside {
+	margin-top: @v-space-increased;
+}
+
+/**
+* Grid-like helper styles
+* For making quasi-columns / adjacent boxes. Example HTML to follow
+----------------------------------------------------------------------
+*/
+
+/* to remove inline-block white space separating children */
+div[class^="group"] { 
+	font-size: 0; 
+	text-align: left;
+} 
+
+div[class^="group"] > * {
+	font-size: @font-size-base; /* override reset in above rule */
+	display: inline-block; /* floats are for losers */
+	vertical-align: top;
+	margin-top: 0;
+}
+
+/* adjacent boxes need gutters. We create this using margin on their direct children  */
+div[class^="group"] > * > * { 
+	margin: 0 @h-space-reduced 0 0;
+	.box-style-primary; /* import basic box styling */
+}
+div[class^="group"] > * + * > * { margin: 0 @h-space-reduced 0 } 
+div[class^="group"] > *:last-child > * { margin-right: 0 }
+
+/* One from each of the following sets of three to be placed on the containing div element */ 
+
+/* Set 1: Horizontal alignment of boxes */
+div.group-left { text-align: left }
+div.group-center { text-align: center }
+div.group-right { text-align: right }
+
+/* Set 2: Vertical alignment of boxes */
+div.group-top > * { vertical-align: top }
+div.group-middle > * { vertical-align: middle }
+div.group-bottom > * { vertical-align: baseline }
+
+/** 
+* EXAMPLE
+* Inline styles are used to define width 
+*(saves on spawning classes like ".three-fifths" etc)
+* Boxes are centered on vertical axis 
+********************************************
+
+<div class="group-center group-middle">
+	<div style="width:50%">
+		<div><!-- box content --></div>
+	</div>
+	<div style="width:30%">
+		<div><!-- box content --></div>
+	</div>
+	<div style="width:20%">
+		<div><!-- box content --></div>
+	</div>
+</div>
+
+*/
+
+/**
+* Collapsable definition items
+* Uses the 5k collapse plugin (http://webcloud.se/jQuery-Collapse/)
+----------------------------------------------------------------------
+*/
+
 @media screen {
 
 /* Layout */
@@ -663,85 +742,6 @@ button:active, a[role="button"]:active, input[type="submit"]:active {
 	top: 0;
 	background: #990000;
 }
-
-/**
-* Boxes (divs and sections)
-----------------------------------------------------------------------
-*/
-
-div { 
-	.box-sized;
-}
-
-* + section, * + article, * + aside {
-	margin-top: @v-space-increased;
-}
-
-/**
-* Grid-like helper styles
-* For making quasi-columns / adjacent boxes. Example HTML to follow
-----------------------------------------------------------------------
-*/
-
-/* to remove inline-block white space separating children */
-div[class^="group"] { 
-	font-size: 0; 
-	text-align: left;
-} 
-
-div[class^="group"] > * {
-	font-size: @font-size-base; /* override reset in above rule */
-	display: inline-block; /* floats are for losers */
-	vertical-align: top;
-	margin-top: 0;
-}
-
-/* adjacent boxes need gutters. We create this using margin on their direct children  */
-div[class^="group"] > * > * { 
-	margin: 0 @h-space-reduced 0 0;
-	.box-style-primary; /* import basic box styling */
-}
-div[class^="group"] > * + * > * { margin: 0 @h-space-reduced 0 } 
-div[class^="group"] > *:last-child > * { margin-right: 0 }
-
-/* One from each of the following sets of three to be placed on the containing div element */ 
-
-/* Set 1: Horizontal alignment of boxes */
-div.group-left { text-align: left }
-div.group-center { text-align: center }
-div.group-right { text-align: right }
-
-/* Set 2: Vertical alignment of boxes */
-div.group-top > * { vertical-align: top }
-div.group-middle > * { vertical-align: middle }
-div.group-bottom > * { vertical-align: baseline }
-
-/** 
-* EXAMPLE
-* Inline styles are used to define width 
-*(saves on spawning classes like ".three-fifths" etc)
-* Boxes are centered on vertical axis 
-********************************************
-
-<div class="group-center group-middle">
-	<div style="width:50%">
-		<div><!-- box content --></div>
-	</div>
-	<div style="width:30%">
-		<div><!-- box content --></div>
-	</div>
-	<div style="width:20%">
-		<div><!-- box content --></div>
-	</div>
-</div>
-
-*/
-
-/**
-* Collapsable definition items
-* Uses the 5k collapse plugin (http://webcloud.se/jQuery-Collapse/)
-----------------------------------------------------------------------
-*/
 
 .box dt, .box dd {
 	display: block;
@@ -1256,6 +1256,126 @@ a[aria-controls="info"][class*="active"] img {
 	width: 500px;
 }
 
+
+
+#export {
+	background: #fff;
+	box-shadow: 4px 4px 0 @primary-color-lighter;
+	padding: @v-space;
+}
+
+#export {
+
+h1, h2, h3, h4 {
+	font-family: 'trebuchet ms', trebuchet, sans-serif;
+	font-weight: bold;
+	text-align: left;
+	color: #111;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1em; }
+
+nav[role="navigation"] {
+	background: transparent;
+	border-bottom: 4px solid #111;
+	padding: 0.5cm 0;
+}
+
+nav[role="navigation"] ul {
+	display: none;
+}
+
+nav[role="navigation"] img {
+	position: static;
+	width: 3cm;
+}
+
+.editable > div {
+	height: 2em;
+	border: 2px solid #111;
+	margin-top: @v-space/4;
+}
+
+h2 + p {
+	margin-top: @v-space/4;
+}
+
+* + h2 {
+	border-top: 2px dotted #666;
+	padding-top: @v-space;
+}
+
+.tall > div {
+	height: 8em;
+}
+
+}
+
 @media print {
+
+body {
+	font-family: 'trebuchet ms', trebuchet, sans-serif;
+	color: #111;
+}
+
+.container {
+	padding: 0;
+}
+
+.no-print {
+	display: none;
+}
+
+#export {
+	padding: 0;
+	box-shadow: none;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'trebuchet ms', trebuchet, sans-serif;
+	font-weight: bold;
+	text-align: left;
+	color: #111;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1em; }
+
+nav[role="navigation"] {
+	background: transparent;
+	border-bottom: 4px solid #111;
+	padding: 0.5cm 0;
+}
+
+nav[role="navigation"] ul {
+	display: none;
+}
+
+nav[role="navigation"] img {
+	position: static;
+	width: 3cm;
+}
+
+.editable > div {
+	height: 2em;
+	border: 2px solid #111;
+	margin-top: @v-space/4;
+}
+
+h2 + p {
+	margin-top: @v-space/4;
+}
+
+* + h2 {
+	border-top: 2px dotted #666;
+	padding-top: @v-space;
+}
+
+.tall > div {
+	height: 8em;
+}
 
 }
