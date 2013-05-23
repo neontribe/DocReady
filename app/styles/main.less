@@ -561,31 +561,6 @@ footer {
 	clear: both;
 }
 
-body > nav {
-	background: @font-color;
-	padding: @v-space/2 @v-space/2;
-	font-size: @font-size-base*2;
-	margin-top: 0;
-}
-
-body > nav img {
-	width: 200px;
-	height: auto;
-	position: absolute;
-	left: 0.5em;
-	top: 0.5em;
-}
-
-body > nav li {
-	font-size: @font-size-base*1.75;
-}
-
-body > nav ul {
-	text-align: right;
-	margin: 0;
-}
-
-
 /**
 * Forms
 ----------------------------------------------------------------------
@@ -705,7 +680,41 @@ nav a:hover, nav a:active, nav a:focus {
 nav li + li:before {
 	content: '\2605';
 	color: @secondary-color;
+	padding: 0 0.5em;
 }
+
+body > nav {
+	background: @font-color;
+	padding: @v-space/2 @v-space/2;
+	font-size: @font-size-base*2;
+	margin-top: 0;
+}
+
+body > nav img {
+	width: 200px;
+	height: auto;
+	position: absolute;
+	left: 0.5em;
+	top: 0.5em;
+}
+
+body > nav li {
+	font-size: @font-size-base*1.75;
+}
+
+body > nav ul {
+	text-align: right;
+	margin: 0;
+}
+
+body > nav a, body > nav a:hover, body > nav a:active, body > nav a:focus {
+	padding: @v-space/2 0;
+}
+
+body > nav a.active {
+	border-bottom: 4px solid #fff !important;
+}
+
 
 /**
 * Buttons
@@ -1140,7 +1149,7 @@ a[aria-controls="info"] span {
 	top: 0;
 	left: 0;
 	width: 100%;
-	padding: @v-space/2 5%;
+	padding: @v-space/2 15% @v-space/2 13%;
 	color: #fff;
 	margin: 0;
 	.box-sized;
@@ -1168,6 +1177,10 @@ a[aria-controls="info"][class*="active"] {
 
 a[aria-controls="info"][class*="active"] img {
 	max-width: 100% !important;
+}
+
+a[aria-controls="info"][class*="active"] span {
+	padding: @v-space/2 5% @v-space/2 3%;
 }
 
 }
@@ -1217,7 +1230,7 @@ body > nav img {
 	position: static;
 }
 
-body > nav a {
+body > nav ul {
 	font-size: 0.8em;
 }
 
@@ -1313,6 +1326,7 @@ button, a[rel="prev"], a[rel="next"] {
 
 .wordcloud {
 	text-align: center;
+	margin-bottom: -27px;
 }
 
 .wordcloud text { 
