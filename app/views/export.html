@@ -3,8 +3,17 @@
 	<a role="button" rel="prev" href="#/tool/checklist">Review</a> 
 	<button ng-click="print()">Print</button>
 	<button disabled="disabled">Download</button>
-	<button disabled="disabled">Email</button>
+	<button ng-click="prepareMail()">Email</button>
 </div>
+<div ng-show="email">
+	<form name="mailer">
+		<label>
+			<input type="email" name="recipient" ng-model="email.recipient" ng-required="true"/>
+		</label>
+		<button ng-disabled="mailer.$invalid" ng-click="sendEmail()">Send</button>
+	</form>
+</div>
+
 <div id="export">
 	<h2>Appointment Details</h2>
 	<p>(please complete)</p>
