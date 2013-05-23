@@ -474,6 +474,11 @@ div[class^="group"] > * {
 	margin-top: 0;
 }
 
+.lt-ie8 div[class^="group"] > * {
+	display: inline;
+	zoom: 1;
+}
+
 /* adjacent boxes need gutters. We create this using margin on their direct children  */
 div[class^="group"] > * > * { 
 	margin: 0 @h-space-reduced 0 0;
@@ -668,13 +673,18 @@ nav ul {
 	font-size: 0;
 }
 
-nav li, .tabs-nav li {
+nav li, {
 	list-style: none;
 	display: inline-block;
 	vertical-align: middle;
 	line-height: 1;
 	font-size: @font-size-increased;
 	padding: 0;
+}
+
+.lt-ie8 nav li, .lt-ie8 {
+	display: inline;
+	zoom: 1;
 }
 
 nav a, nav a:hover, nav a:active, nav a:visited, .tabs-nav a {
@@ -981,11 +991,19 @@ button:active, button:focus {
 
 }
 
+.lt-ie8  .add-symptoms button {
+	margin: -38px 0 0 0;
+	height:38px;
+}
+
+.lt-ie8 .add-symptoms button[disabled="disabled"] {
+	background: @primary-color-lighter;
+}
+
 /**
 * Accordians
 ----------------------------------------------------------------------
 */
-
 
 #info {
 	background: @font-color-light;
@@ -1070,6 +1088,11 @@ ul[role="toolbar"] li {
 	-moz-transition: all 0.35s ease;
 	-o-transition: all 0.35s ease;
 	transition: all 0.35s ease;
+}
+
+.lt-ie8 ul[role="toolbar"] li {
+	display: inline;
+	zoom: 1;
 }
 
 ul[role="toolbar"] a {
@@ -1428,6 +1451,39 @@ h2 + p {
 
 .tall > div {
 	height: 8em;
+}
+
+ul[role="toolbar"] {
+	display: none !important;
+}
+
+#info li {
+	list-style: none !important;
+}
+
+ul.accordion li div {
+	display: block !important;
+	height: auto !important;
+}
+
+.accordion h3 > a:before {
+	content:'';
+}
+
+#info h2 {
+	font-size: 2em;
+}
+
+.accordion h3 > a {
+	font-size: 1.25em;
+	color: #333;
+	border: 0;
+}
+
+#info li + li h3 {
+	border-top: 2px dotted #666;
+	margin-top: @v-space;
+	padding-top: @v-space;
 }
 
 }
