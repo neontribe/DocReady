@@ -42,8 +42,8 @@ describe('Controller: ExportCtrl', function () {
     scope.symptoms[0].selected = true;
     scope.symptoms[1].selected = true;
     scope.prepareMail();
-    expect(scope.email.checklist.length).toBe(2);
-    expect(scope.email.checklist[1]).toEqual(scope.symptoms[1].title);
+    expect(scope.email.symptoms.length).toBe(2);
+    expect(scope.email.symptoms[1]).toEqual(scope.symptoms[1].title);
   });
 
   it('should have a sendEmail function which posts the email', function () {

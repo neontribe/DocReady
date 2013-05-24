@@ -12,7 +12,7 @@ angular.module('docready')
       } else {
         $scope.email = new Email({
           recipient: '',
-          checklist: _.chain($scope.symptoms).where({selected: true}).pluck('title').value()
+          symptoms: _.chain($scope.symptoms).where({selected: true}).pluck('title').value()
         });
       }
     };
