@@ -5,7 +5,7 @@
 	<button disabled="disabled">Download</button>
 	<button ng-click="prepareMail()">Email</button>
 </div>
-<div ng-show="email">
+<div ng-show="email" ng-animate="'fade'" style="display:none">
 	<form name="mailer">
 		<label>
 			<input type="email" name="recipient" ng-model="email.recipient" ng-required="true"/>
