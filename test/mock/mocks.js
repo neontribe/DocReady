@@ -2,7 +2,7 @@
 
 angular.module('docready')
   .factory('mocks', function(settings){
-    var symptoms, items, topics;
+    var symptoms, items, topics, mailer;
 
     symptoms = [{
       'url': 'http://docready-staging.herokuapp.com/api/symptom/1',
@@ -114,11 +114,15 @@ angular.module('docready')
             weight: 4.0
           }
         ];
+    mailer = {};
 
     function registerMocks($httpBackend) {
       $httpBackend.whenGET(settings.apiRoot + '/advice_topic').respond(topics);
       $httpBackend.whenGET(settings.apiRoot + '/advice_item').respond(items);
       $httpBackend.whenGET(settings.apiRoot + '/symptom').respond(symptoms);
+      $httpBackend.whenPOST(settings.apiRoot + '/email').respond(function(method, url, data){
+        return [200];
+      });
     }
 
     return {
@@ -132,6 +136,25 @@ angular.module('docready')
   });
 
 angular.module('docreadyTest', ['docready', 'ngMockE2E'])
+// add a 700ms delay to all mocked requests
+.config(function($provide) {
+    $provide.decorator('$httpBackend', function($delegate) {
+        var proxy = function(method, url, data, callback, headers) {
+            var interceptor = function() {
+                var _this = this,
+                    _arguments = arguments;
+                setTimeout(function() {
+                    callback.apply(_this, _arguments);
+                  }, (method === 'POST') ? 700 : 0);
+              };
+            return $delegate.call(this, method, url, data, interceptor, headers);
+          };
+        for(var key in $delegate) {
+          proxy[key] = $delegate[key];
+        }
+        return proxy;
+      });
+  })
 .run(function($httpBackend, mocks) {
   mocks.registerMocks($httpBackend);
   $httpBackend.whenGET().passThrough();
