@@ -951,8 +951,19 @@ ul.symptoms input {
 	text-align: center;
 }
 
+.button-group.small button,
+.button-group.small a {
+	font-size: 18px;
+	margin: 0 2px @v-space/2;
+}
+
 .button-group button {
 	margin:0 @v-space/2 @v-space/2;
+}
+
+.button-group.small div {
+	display: inline-block;
+	margin-left: @v-space;
 }
 
 .add-symptoms input {
@@ -1126,11 +1137,11 @@ a[rel="prev"]:active, a[rel="prev"]:focus, a[rel="next"]:active, a[rel="prev"]:f
 }
 
 a[rel="prev"] {
-	padding-left: 1.5em;
+	padding-left: 2.5em !important;
 }
 
 a[rel="next"] {
-	padding-right: 1.5em;
+	padding-right: 2.5em !important;
 }
 
 a[rel="next"], ul.tags a {
@@ -1444,7 +1455,7 @@ ul.accordion li div {
 	transition: all .2s ease-in-out;
 }
 .wordcloud text:hover {
- 	font-color: @link-color;
+ 	color: #222;
 }
 
 .svg-container {
