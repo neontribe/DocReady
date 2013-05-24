@@ -10,6 +10,7 @@
 <div ng-show="email" ng-animate="'fade'" style="display:none">
 	<form name="mailer">
 		<label>
+			<span>Enter your email address:</span>
 			<input type="email" name="recipient" ng-model="email.recipient" ng-required="true"/>
 		</label>
 		<button ng-disabled="mailer.$invalid" 

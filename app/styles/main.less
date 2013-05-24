@@ -957,6 +957,57 @@ ul.symptoms input {
 	margin: 0 2px @v-space/2;
 }
 
+.button-group.small + div {
+	margin-top: 4px;
+}
+
+form[name="mailer"] {
+	text-align: center;
+	padding: @v-space/2;
+	background: @secondary-color-lighter;
+	position: relative;
+}
+
+
+form[name="mailer"]:before {
+    content: "▲";
+    font-size: 2em;
+    position: absolute;
+    right: 20%;
+    top: -0.7em;
+    color: @secondary-color-lighter;
+}
+
+form[name="mailer"] * {
+	vertical-align: top;
+}
+
+form[name="mailer"] input {
+	min-width: 200px;
+}
+
+form[name="mailer"] label span {
+	display: block;
+	padding-bottom: @v-space/3;
+}
+
+button.sent {
+	background: @secondary-color;
+}
+
+button.sending {
+	background: @primary-color;
+	text-decoration: blink;
+}
+
+button.sending:after {
+	content: '...';
+}
+
+button.sent:after {
+	content: '\2705';
+}
+
 .button-group button {
 	margin:0 @v-space/2 @v-space/2;
 }
@@ -1224,10 +1275,31 @@ h2 {
 
 }
 
+@media screen and (max-width: 700px) {
+
+.button-group.small div {
+	display: block;
+	margin: 0;
+}
+
+.button-group.small button, .button-group.small a {
+	display: block !important;
+	margin: 0 0 @v-space/3;
+	width: 100%;
+	.box-sized;
+	padding: @v-space/2;
+}
+
+}
+
 @media screen and (max-width: 600px) {
 
 #info {
 	padding: @v-space/2;
+}
+
+form[name="mailer"] button {
+	vertical-align: baseline;
 }
 
 body > nav {
@@ -1283,7 +1355,8 @@ button, a[rel="prev"], a[rel="next"] {
 
 
 #export {
-	background: #fff;
+	background: #fff url(../images/preview.gif);
+	background-size: 200px auto;
 	box-shadow: 4px 4px 0 @primary-color-lighter;
 	padding: @v-space;
 }
