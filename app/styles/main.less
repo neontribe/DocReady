@@ -543,7 +543,7 @@ div[role="main"] {
 	margin: 0 auto;
 	max-width: 900px;
 	padding: @v-space;
-
+	overflow: hidden;
 }
 
 div[role="main"] > div {
@@ -1195,6 +1195,10 @@ body > nav img {
 
 @media screen and (max-width: 800px) {
 
+.container {
+	padding: @v-space/3;
+}
+
 body > nav img {
 	width: 150px;
 }
@@ -1230,7 +1234,7 @@ body > nav img {
 	position: static;
 }
 
-body > nav ul {
+body > nav ul a {
 	font-size: 0.8em;
 }
 
@@ -1443,23 +1447,16 @@ ul.accordion li div {
  	font-color: @link-color;
 }
 
-.wordcloud svg {
-	width: 700px;
-	height: 700px;
-	margin: 0 auto;
-}
-
 .svg-container {
 	text-align: center;
+	margin-top: -19px;
+	margin-bottom: -19px;
 }
-
-@media screen and (max-width: 800px) {
 
 .wordcloud svg {
 	width: 600px;
 	height: 600px;
-}
-
+	margin: 0 auto;
 }
 
 @media screen and (max-width: 700px) {
@@ -1483,8 +1480,17 @@ ul.accordion li div {
 @media screen and (max-width: 400px) {
 
 .wordcloud svg {
-	width: 340px;
-	height: 340px;
+	width: 300px;
+	height: 300px;
+}
+
+}
+
+@media screen and (max-width: 300px) {
+
+.wordcloud svg {
+	width: 220px;
+	height: 220px;
 }
 
 }
