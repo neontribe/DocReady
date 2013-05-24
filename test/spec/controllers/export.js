@@ -28,13 +28,15 @@ describe('Controller: ExportCtrl', function () {
     expect(scope.symptoms.length).toBeGreaterThan(2);
   });
 
-  it('should have a prepareMail function which toggles the Email resource', function () {
+  it('should have a prepareMail function which initializes the dialog and the model', function () {
     $httpBackend.flush();
     expect(scope.email).toBeFalsy();
+    expect(scope.showMailer).toBeFalsy();
     scope.prepareMail();
     expect(scope.email).toBeTruthy();
+    expect(scope.showMailer).toBeTruthy();
     scope.prepareMail();
-    expect(scope.email).toBeFalsy();
+    expect(scope.showMailer).toBeFalsy();
   });
 
   it('should have a prepareMail function which serializes the checklist into the Email', function () {
@@ -57,7 +59,7 @@ describe('Controller: ExportCtrl', function () {
     $httpBackend.flush();
     expect(scope.email.state).toBe('sent');
     timeout.flush();
-    expect(scope.email).toBeFalsy();
+    expect(scope.showMailer).toBeFalsy();
     $httpBackend.verifyNoOutstandingExpectation();
     $httpBackend.verifyNoOutstandingRequest();
   });
