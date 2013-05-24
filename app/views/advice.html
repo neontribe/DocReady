@@ -1,28 +1,20 @@
-<ul aria-label="Topic Options" role="toolbar">
-	<li ng-repeat="topic in topics">
-		<a href="javascript:void(0)" 
-			ng-class="{ active: activeTopic === topic }"
-			ng-click="setActiveTopic(topic)" 
-			role="button" 
-			aria-controls="info">
-			<img src="./images/info_topic.png" alt="" />
-			<span>
-				{{topic.title}}
-			</span>
-		</a>
-	</li>
-</ul>
-
 <div id="info">
-	<h2>{{activeTopic.title}}</h2>
 	<div accordion="">
-		<div accordion-group="" 
+		<div accordion-group=""
 			is-open="$first"
-			ng-repeat="item in items | filter: { topic: activeTopic.slug }"
-			opened="setItem"
-			heading="{{item.title}}"
-			slug="{{item.slug}}">
-			<div ng-bind-html="item.body"></div>
+			ng-repeat="topic in topics"
+			heading="{{topic.title}}"
+			slug="{{topic.slug}}">
+					<div accordion="">
+						<div accordion-group="" 
+							is-open="$first"
+							ng-repeat="item in items | filter: { topic: topic.slug }"
+							opened="setItem"
+							heading="{{item.title}}"
+							slug="{{item.slug}}">
+							<div ng-bind-html="item.body"></div>
+						</div>
+					</div>
 		</div>
 	</div>
 </div>
