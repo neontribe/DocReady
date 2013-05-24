@@ -21,7 +21,7 @@ angular.module('docready')
       $scope.email.$save(function(){
         $scope.email.state = 'sent';
         // close the send dialog after showing the sent state for a while
-        $timeout(function(){ $scope.email = null; }, 500);
+        $timeout(function(){ $scope.email = null; }, 1000);
       });
     };
 

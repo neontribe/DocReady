@@ -10,9 +10,12 @@
 		<label>
 			<input type="email" name="recipient" ng-model="email.recipient" ng-required="true"/>
 		</label>
-		<button ng-disabled="mailer.$invalid" ng-click="sendEmail()" ng-switch="email.state">
-			<span ng-switch-when="sending" class="sending">Sending</span>
-			<span ng-switch-when="sent" class="sent">Sent</span>
+		<button ng-disabled="mailer.$invalid" 
+						ng-click="sendEmail()" 
+						ng-switch="email.state" 
+						ng-class="email.state">
+			<span ng-switch-when="sending">Sending</span>
+			<span ng-switch-when="sent">Sent</span>
 			<span ng-switch-default>Send</span>
 		</button>
 	</form>
