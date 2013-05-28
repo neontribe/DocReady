@@ -542,9 +542,16 @@ div[role="main"] {
 .container {
 	margin: 0 auto;
 	max-width: 900px;
-	padding: @v-space;
+	min-height: 800px;
 	overflow: hidden;
+	position: relative;
 }
+
+.container > div {
+	padding: @v-space;
+  margin-top:0;
+}
+
 
 div[role="main"] > div {
 	margin-right: @right-column-width + @column-gutter;

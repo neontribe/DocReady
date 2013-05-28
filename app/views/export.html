@@ -1,67 +1,69 @@
-<h1 class="no-print">Export</h1>
-<div class="button-group small">
-	<a role="button" rel="prev" href="#/tool/checklist">Review</a> 
-	<div>
-		<button ng-click="print()">Print</button>
-		<button disabled="disabled">Download</button>
-		<button ng-click="prepareMail()">Email</button>
+<div>
+	<h1 class="no-print">Export</h1>
+	<div class="button-group small">
+		<a role="button" rel="prev" href="#/tool/checklist">Review</a> 
+		<div>
+			<button ng-click="print()">Print</button>
+			<button disabled="disabled">Download</button>
+			<button ng-click="prepareMail()">Email</button>
+		</div>
 	</div>
-</div>
-<div ng-show="showMailer"  style="display:none">
-	<form name="mailer">
-		<label>
-			<span>Enter your email address:</span>
-			<input type="email" name="recipient" ng-model="email.recipient" ng-required="true"/>
-		</label>
-		<button ng-disabled="mailer.$invalid" 
-						ng-click="sendEmail()" 
-						ng-switch="email.state" 
-						ng-class="email.state">
-			<span ng-switch-when="sending">Sending</span>
-			<span ng-switch-when="sent">Sent</span>
-			<span ng-switch-default>Send</span>
-		</button>
-	</form>
-</div>
+	<div ng-show="showMailer"  style="display:none" ng-animate="{show:'animated fadeInDown', hide:'animated fadeOutUp'}">
+		<form name="mailer">
+			<label>
+				<span>Enter your email address:</span>
+				<input type="email" name="recipient" ng-model="email.recipient" ng-required="true"/>
+			</label>
+			<button ng-disabled="mailer.$invalid" 
+							ng-click="sendEmail()" 
+							ng-switch="email.state" 
+							ng-class="email.state">
+				<span ng-switch-when="sending">Sending</span>
+				<span ng-switch-when="sent">Sent</span>
+				<span ng-switch-default>Send</span>
+			</button>
+		</form>
+	</div>
 
-<div id="export">
-	<h2>Appointment Details</h2>
-	<p>(please complete)</p>
-	<div class="group-top group-middle">
-		<div style="width:50%">
-			<div class="editable">
-				<p><strong>Doctor's name</strong></p>
-				<div></div>
+	<div id="export">
+		<h2>Appointment Details</h2>
+		<p>(please complete)</p>
+		<div class="group-top group-middle">
+			<div style="width:50%">
+				<div class="editable">
+					<p><strong>Doctor's name</strong></p>
+					<div></div>
+				</div>
+			</div>
+			<div style="width:50%">
+				<div class="editable">
+					<p><strong>Surgery name</strong></p>
+					<div></div>
+				</div>
 			</div>
 		</div>
-		<div style="width:50%">
-			<div class="editable">
-				<p><strong>Surgery name</strong></p>
-				<div></div>
+		<div class="group-top group-middle">
+			<div style="width:50%">
+				<div class="editable">
+					<p><strong>Appointment date</strong></p>
+					<div></div>
+				</div>
+			</div>
+			<div style="width:50%">
+				<div class="editable">
+					<p><strong>Appointment time</strong></p>
+					<div></div>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="group-top group-middle">
-		<div style="width:50%">
-			<div class="editable">
-				<p><strong>Appointment date</strong></p>
-				<div></div>
-			</div>
+		<h2>My symptoms</h2>
+	    <ol>
+	        <li ng-repeat="symptom in symptoms | filter:{ selected: true }">{{symptom.title}}</li>
+	    </ol>
+		<h2>Notes</h2>
+		<p>(Place any additional notes in the box below)</p>
+		<div class="editable tall">
+			<div></div>
 		</div>
-		<div style="width:50%">
-			<div class="editable">
-				<p><strong>Appointment time</strong></p>
-				<div></div>
-			</div>
-		</div>
-	</div>
-	<h2>My symptoms</h2>
-    <ol>
-        <li ng-repeat="symptom in symptoms | filter:{ selected: true }">{{symptom.title}}</li>
-    </ol>
-	<h2>Notes</h2>
-	<p>(Place any additional notes in the box below)</p>
-	<div class="editable tall">
-		<div></div>
 	</div>
 </div>

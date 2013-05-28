@@ -12,7 +12,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="components/animate.css/animate.css">
+    <link rel="stylesheet" href="styles/animations.css">
     <!-- endbuild -->
   </head>
   <body id="ng-app" ng-app="docready">
@@ -33,11 +33,11 @@
     <nav role="navigation">
       <img src="images/logo.png" alt="" aria-hidden="true" />
       <ul>
-        <li><a route-contains="advice" href="#/info" ng-class="{active: $routeContains}">info</a></li>
+        <li><a route-contains="advice" href="#/advice" ng-class="{active: $routeContains}">info</a></li>
         <li><a route-contains="tool" href="#/tool" ng-class="{active: $routeContains}">checklist</a></li>
       </ul>
     </nav>
-    <div class="container" ng-view></div>
+    <div class="container" ng-view ng-animate="{enter:'animated fadeInRightBig', leave:'animated fadeOutLeftBig'}"></div>
     <!-- build:js scripts/scripts.js -->
     <script src="components/modernizr/modernizr.js"></script>
     <script src="components/jquery/jquery.js"></script>
