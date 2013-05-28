@@ -13,7 +13,7 @@ angular.module('docready')
           'Right': 'Left'
         }, from, anim;
 
-      from = current ? current.$$route.animateFrom : null;
+      from = (current && current.$$route) ? current.$$route.animateFrom : null;
       if (from) {
         anim = {
           enter:'animated fadeIn'+from+'Big',
