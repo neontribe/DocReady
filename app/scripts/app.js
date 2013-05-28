@@ -33,8 +33,13 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
         redirectTo: '/advice'
       });
   })
-  .value('settings', {})
+  .value('settings', {
+    userData: { symptoms: [] }
+  })
   .run(function(settings, $location){
+    // Populate userData from any 'load' 
+    var load = $location.search().load;
+    angular.extend(settings.userData, (load) ? JSON.parse(load) : {});
     settings.svg = Modernizr.inlinesvg && !/nosvg/.test($location.absUrl());
     settings.apiRoot = ($location.host() === 'localhost') ? 'http://docready-staging.herokuapp.com/api': '/api';
   });

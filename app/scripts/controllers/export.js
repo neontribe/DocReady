@@ -27,6 +27,13 @@ angular.module('docready')
       return settings.apiRoot + '/pdf?data=' + data;
     };
 
+    $scope.permalink = function(){
+      var persist = JSON.stringify({
+        symptoms: symptomService.mySymptoms()
+      });
+      return './#/tool/checklist?load=' + persist;
+    };
+
     $scope.print = function(){
       $window.print();
     };
