@@ -37,7 +37,7 @@
         <li><a route-contains="tool" href="#/tool" ng-class="{active: $routeContains}">checklist</a></li>
       </ul>
     </nav>
-    <div class="container" ng-view ng-animate="{enter:'animated fadeInRightBig', leave:'animated fadeOutLeftBig'}"></div>
+    <div class="container" ng-view ng-animate="getTransition()" ng-controller="MainCtrl"></div>
     <!-- build:js scripts/scripts.js -->
     <script src="components/modernizr/modernizr.js"></script>
     <script src="components/jquery/jquery.js"></script>
@@ -52,6 +52,7 @@
     <script src="components/angular-ui/modules/directives/sortable/sortable.js"></script>
     <script src="components/underscore/underscore.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
     <script src="scripts/directives/route-contains.js"></script>
     <script src="scripts/services/adviceService.js"></script>
     <script src="scripts/controllers/advice.js"></script>
@@ -69,8 +70,6 @@
     <script src="components/d3/d3.js"></script>
     <script src="components/d3-cloud/d3.layout.cloud.js"></script>
     <script src="scripts/directives/cloud.js"></script>
-    
-    
     <!-- endbuild -->
     <!--<![endif]-->
 
