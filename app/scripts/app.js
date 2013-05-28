@@ -5,11 +5,13 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
       .when('/advice', {
         templateUrl: 'views/advice.html',
         controller: 'AdviceCtrl',
-        reloadOnSearch: false
+        reloadOnSearch: false,
+        animateFrom: 'Left'
       })
       .when('/tool', {
         templateUrl: 'views/picker.html',
-        controller: 'PickerCtrl'
+        controller: 'PickerCtrl',
+        animateFrom: 'Right'
       })
       .when('/tool/picker', {
         templateUrl: 'views/picker.html',
