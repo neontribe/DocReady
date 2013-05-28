@@ -4,4 +4,5 @@ dist
 .sass-cache
 app/components
 app/styles/main.css
+app/styles/animations.css
 coverage
