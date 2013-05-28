@@ -319,7 +319,7 @@ p + p { margin-top: @v-space/2; }
 p * { margin: 0 }
 
 /* for introductory paragraphs belonging to major sections */
-h1 + p, header + p, hgroup + p { font-size: @font-size-increased; text-align: center; }
+h1 + p, header + p, hgroup + p { font-size: @font-size-increased; }
 
 li { list-style: disc inside }
 
@@ -1083,103 +1083,101 @@ button:active, button:focus {
 ----------------------------------------------------------------------
 */
 
-#info {
+ul.accordion {
+	margin: 0 0 @v-space;
+}
+
+ul.accordion ul.accordion {
 	background: @font-color-light;
 	padding: @v-space;
 	box-shadow: 4px 4px 0 @primary-color-lighter;
-	margin-top: 12px;
 }
-
-accordian {
-	display: block;
-	margin-top: 0;
-}
-
 .collapse {
 	position: relative;
 	height: 0;
 	overflow: hidden;
 	margin: 0;
-	background: @link-color-lighter;
 	.box-sized;
-	border-top: 4px solid @link-color-lighter;
 	-webkit-transition: height 0.35s ease;
 	-moz-transition: height 0.35s ease;
 	-o-transition: height 0.35s ease;
 	transition: height 0.35s ease;
 }
 
-.accordian li:first-child {
-	border-top: 4px solid @link-color-lighter;
+.accordion li > a + div > div {
+	margin: 0 @h-space/2 0 0;
+	padding: 0 0 @v-space;
 }
 
-.collapse > div {
-	padding: @h-space/2;
-}
-
-ul.accordion {
-	margin-top: 0;
-}
-
-ul.accordion li {
+.accordion li {
 	list-style: none;
 }
 
-.accordion h3 > a {
+.accordion li > a {
 	display: block;
+	background: transparent;
+	padding: 0;
 	margin: 0;
-	background: #fff;
-	color: @font-color;
-	padding-left: 0;
 }
 
-.accordion h3 > a:focus {
-	background: #fff;
-	position: static;
+.accordion li > a:active, .accordion li > a:focus {
+	background: transparent;
 	box-shadow: none;
 }
 
-.accordion h3 > a:before {
+.accordion h2, .accordion h3 {
+	text-align: left;
+}
+
+.accordion h2 {
+	padding: @v-space/2 @h-space/2;
+	background: @secondary-color-lighter;
+	margin-bottom: @v-space;
+}
+
+.accordion h2:before {
+	content: '+';
+	font-weight: bold;
+	padding-right: 0.5em;
+}
+
+.accordion a.active h2:before {
+	content: '-';
+}
+
+accordion-heading {
+	display: block;
+}
+
+.accordion h3 {
+	margin: @v-space/2 0;
+	font-size: 1.25em !important;
+	border-top: 2px dotted #999;
+	padding-top: @v-space;
+}
+
+.accordion h3:before {
 	content: '\25B6';
-	font-weight: normal;
-	padding-right: 0.25em;
-	color: @link-color;
+	padding: 0 0.5em 0 0;
+	color: #999;
 }
 
-.accordion h3 > a:focus:before {
-	font-size: 27px !important;
-}
-
-.accordion h3 > a.active {
-	margin: 0;
-}
-
-.accordion h3 > a.active:before {
+.accordion a.active h3:before {
 	content: '\25BC';
 }
 
-ul[role="toolbar"] li {
-	display: inline-block;
-	list-style: none;
-	width: 25%;
-	-webkit-transition: all 0.35s ease;
-	-moz-transition: all 0.35s ease;
-	-o-transition: all 0.35s ease;
-	transition: all 0.35s ease;
+.accordion li:first-child h3 { 
+	border-top: 0;
+	padding-top: 0;
 }
 
-.lt-ie8 ul[role="toolbar"] li {
-	display: inline;
-	zoom: 1;
+.accordion a:focus h2, .accordion a:active h2, .accordion a.active h2 {
+	background: @secondary-color;
+	color: #fff;
 }
 
-ul[role="toolbar"] a {
-	display: block;
-	margin: 0;
-	text-align: center;
-	background: transparent;
-	color: @font-color;
-	padding: 0;
+.accordion a:focus h3, .accordion a.active h3 {
+	font-weight: bold;
 }
 
 a[rel="prev"], a[rel="next"], ul.tags a {
@@ -1277,7 +1275,7 @@ h1 {
 }
 
 h2 {
-	font-size: 1.25em;
+	font-size: 1.5em;
 }
 
 }
