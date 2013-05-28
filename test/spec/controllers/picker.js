@@ -52,16 +52,4 @@ describe('Controller: PickerCtrl', function () {
     expect(location.path()).toEqual('/tool/picker/test');
   });
 
-  it('should provide a toggleSymptom method which toggles the selection state of a symptom', function(){
-    httpBackend.flush();
-    expect(scope.symptoms[0].selected).toBeFalsy();
-    expect(scope.symptoms[0].tags).toEqual(['sleep', 'enthusiasm']);
-    scope.toggleSymptom(scope.symptoms[0], 'sleep');
-    expect(scope.symptoms[0].selected).toBeTruthy();
-    expect(scope.symptoms[0].tags).toEqual(['sleep']);
-    scope.toggleSymptom(scope.symptoms[0], 'sleep');
-    expect(scope.symptoms[0].selected).toBeFalsy();
-    expect(scope.symptoms[0].tags).toEqual(['sleep', 'enthusiasm']);
-  });
-
 });

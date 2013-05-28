@@ -13,13 +13,13 @@ angular.module('docready')
    * Modifies the array data in place
    */
   function restore(saved, data){
-    _.each(saved, function(sym){
+    _.each(saved.reverse(), function(sym){
       var dupe = _.findWhere(data, {title: sym.title});
       if (dupe) {
         sym.originalTags = dupe.tags;
         data.splice(_.indexOf(data, dupe), 1);
       }
-      data.push(sym);
+      data.unshift(sym);
     });
   }
 
@@ -33,9 +33,24 @@ angular.module('docready')
     });
   }
 
+  /**
+   * Toggle the selection state of a symptom
+   * setting a single active tag if provided
+   */
+  function toggle(symptom, activeTag) {
+    symptom.selected = !symptom.selected;
+    symptom.originalTags = symptom.originalTags || angular.copy(symptom.tags);
+    if (symptom.selected) {
+      symptom.tags = activeTag ? [activeTag] : symptom.tags;
+    } else {
+      symptom.tags = symptom.originalTags;
+    }
+  }
+
   // Public API here
   return {
     symptoms: symptoms,
-    mySymptoms: mySymptoms
+    mySymptoms: mySymptoms,
+    toggle: toggle
   };
 });

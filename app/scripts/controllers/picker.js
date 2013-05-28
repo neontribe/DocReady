@@ -3,6 +3,7 @@
 angular.module('docready')
   .controller('PickerCtrl', function ($scope, symptomService, $routeParams, $location, settings) {
     $scope.activeTag = $routeParams.tag;
+    $scope.symptomService = symptomService;
     $scope.symptoms = symptomService.symptoms;
     $scope.tags = [];
     $scope.settings = settings;
@@ -34,16 +35,4 @@ angular.module('docready')
         return _.contains(symptom.tags, tag) && symptom.selected;
       }));
     };
-
-    $scope.toggleSymptom = function(symptom, activeTag) {
-      symptom.selected = !symptom.selected;
-      symptom.originalTags = symptom.originalTags || angular.copy(symptom.tags);
-      if (symptom.selected) {
-        symptom.tags = [activeTag];
-      } else {
-        symptom.tags = symptom.originalTags;
-      }
-    };
-
-
   });
