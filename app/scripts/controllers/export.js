@@ -20,6 +20,19 @@ angular.module('docready')
         $timeout(function(){ $scope.showMailer = false; }, 1000);
       });
     };
+    $scope.getpdf = function(){
+      var data = JSON.stringify({
+        symptoms: _.chain($scope.symptoms).where({selected: true}).pluck('title').value()
+      });
+      return settings.apiRoot + '/pdf?data=' + data;
+    };
+
+    $scope.permalink = function(){
+      var persist = JSON.stringify({
+        symptoms: symptomService.mySymptoms()
+      });
+      return './#/tool/checklist?load=' + persist;
+    };
 
     $scope.print = function(){
       $window.print();
