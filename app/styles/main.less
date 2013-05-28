@@ -542,9 +542,16 @@ div[role="main"] {
 .container {
 	margin: 0 auto;
 	max-width: 900px;
-	padding: @v-space;
+	min-height: 800px;
 	overflow: hidden;
+	position: relative;
 }
+
+.container > div {
+	padding: @v-space;
+  margin-top:0;
+}
+
 
 div[role="main"] > div {
 	margin-right: @right-column-width + @column-gutter;
@@ -1583,33 +1590,5 @@ ul.accordion li div {
 
 }
 
-/* ANIMATIONS */
-.fade-enter-setup, 
-.fade-show-setup,
-.fade-leave-setup, 
-.fade-hide-setup,
-{ 
-    -webkit-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -moz-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -ms-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    -o-transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    transition: 400ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    opacity: 0;
-} 
- 
-.fade-enter-setup.fade-enter-start,
-.fade-show-setup.fade-show-start {
-    opacity: 1;
-}
 
-.fade-leave-setup, 
-.fade-hide-setup,
-{ 
-    opacity: 1;
-}
- 
-.fade-leave-setup.fade-leave-start, 
-.fade-hide-setup.fade-hide-start {
-    opacity: 0;
-}
 
