@@ -2,7 +2,7 @@
   "name": "docready",
   "version": "0.0.3",
   "dependencies": {
-    "angular-unstable": "~1.1.4",
+    "angular-unstable": "~1.1.5",
     "json3": "~3.2.4",
     "es5-shim": "~2.0.8",
     "angular-resource-unstable": "johannestroeger/bower-angular-resource-unstable",
@@ -14,7 +14,8 @@
     "d3": "~3.1.6",
     "d3-cloud": "jasondavies/d3-cloud",
     "modernizr": "~2.6.2",
-    "html5shiv": "~3.6.2"
+    "html5shiv": "~3.6.2",
+    "animate.css": "latest"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.5",
