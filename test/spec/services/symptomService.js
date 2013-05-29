@@ -60,12 +60,12 @@ describe('Service: symptomService', function () {
     expect(symptoms[0].tags).toEqual(['sleep', 'enthusiasm']);
   });
 
-  it('should provide a mySymptoms method which returns a stripped-down array of selected symptoms', function(){
+  it('should provide an exportSymptoms method which returns a stripped-down array of selected symptoms', function(){
     var symptoms = symptomService.symptoms;
     $httpBackend.expectGET('/api/symptom');
     $httpBackend.flush();
     symptomService.toggle(symptoms[0], 'sleep');
-    expect(symptomService.mySymptoms()).toEqual([{ title : 'Feeling Tired', tags : [ 'sleep' ], selected : true }]);
+    expect(symptomService.exportSymptoms()).toEqual([{ title : 'Feeling Tired', tags : [ 'sleep' ], selected : true }]);
   });
 
   describe('restore userData', function(){
