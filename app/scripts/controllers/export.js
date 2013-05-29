@@ -9,7 +9,8 @@ angular.module('docready')
       $scope.showMailer = !$scope.showMailer;
       $scope.email = new Email({
         recipient: '',
-        symptoms: _.chain($scope.symptoms).where({selected: true}).pluck('title').value()
+        symptoms: _.chain($scope.symptoms).where({selected: true}).pluck('title').value(),
+        permalink: $scope.permalink()
       });
     };
     $scope.sendEmail = function(){
@@ -22,7 +23,8 @@ angular.module('docready')
     };
     $scope.getpdf = function(){
       var data = JSON.stringify({
-        symptoms: _.chain($scope.symptoms).where({selected: true}).pluck('title').value()
+        symptoms: _.chain($scope.symptoms).where({selected: true}).pluck('title').value(),
+        permalink: $scope.permalink()
       });
       return settings.apiRoot + '/pdf?data=' + data;
     };
