@@ -26,14 +26,14 @@ angular.module('docready')
         symptoms: _.chain(symptomService.exportSymptoms()).pluck('title').value(),
         permalink: $scope.permalink()
       });
-      return settings.apiRoot + '/pdf?data=' + data;
+      return settings.apiRoot + '/pdf?data=' + encodeURIComponent(data);
     };
 
     $scope.permalink = function(){
       var persist = JSON.stringify({
         symptoms: symptomService.exportSymptoms()
       });
-      return '/#/tool/checklist?load=' + persist;
+      return '/#/tool/checklist?load=' + encodeURIComponent(persist);
     };
 
     $scope.print = function(){
