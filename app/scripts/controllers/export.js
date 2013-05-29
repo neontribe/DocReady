@@ -31,7 +31,7 @@ angular.module('docready')
       var persist = JSON.stringify({
         symptoms: symptomService.mySymptoms()
       });
-      return './#/tool/checklist?load=' + persist;
+      return '/#/tool/checklist?load=' + persist;
     };
 
     $scope.print = function(){
