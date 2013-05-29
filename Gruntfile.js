@@ -59,7 +59,8 @@ module.exports = function (grunt) {
           middleware: function (connect) {
             return [
               mountFolder(connect, '.tmp'),
-              mountFolder(connect, 'test')
+              mountFolder(connect, 'test'),
+              mountFolder(connect, yeomanConfig.app)
             ];
           }
         }
@@ -98,7 +99,8 @@ module.exports = function (grunt) {
         singleRun: true
       },
       e2e: {
-        configFile: 'karma-e2e.conf.js'
+        configFile: 'karma-e2e.conf.js',
+        singleRun: true
       }
     },
     concat: {
@@ -264,7 +266,8 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'clean:server',
     'connect:test',
-    'karma:unit'
+    'karma:unit',
+    'karma:e2e'
   ]);
 
   grunt.registerTask('e2e', [
