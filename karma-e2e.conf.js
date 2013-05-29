@@ -7,7 +7,7 @@ basePath = '';
 files = [
   ANGULAR_SCENARIO,
   ANGULAR_SCENARIO_ADAPTER,
-  'test/e2e/**/*.js'
+  'test/e2e/*.js'
 ];
 
 // list of files to exclude
@@ -20,6 +20,12 @@ reporters = ['progress'];
 // web server port
 port = 8080;
 
+urlRoot = '/_karma/';
+
+proxies = {
+'/': 'http://localhost:9000/',
+};
+
 // cli runner port
 runnerPort = 9100;
 
@@ -31,7 +37,7 @@ colors = true;
 logLevel = LOG_INFO;
 
 // enable / disable watching file and executing tests whenever any file changes
-autoWatch = false;
+autoWatch = true;
 
 // Start these browsers, currently available:
 // - Chrome
