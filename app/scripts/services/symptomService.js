@@ -28,7 +28,11 @@ angular.module('docready')
    * @return {array}
    */
   function mySymptoms() {
-    return _.map(_.where(symptoms, {selected: true}), function(v){
+    return _.where(symptoms, {selected: true});
+  }
+
+  function exportSymptoms() {
+    return _.map(mySymptoms(), function(v){
       return _.pick(v, 'title', 'tags', 'selected');
     });
   }
@@ -45,12 +49,29 @@ angular.module('docready')
     } else {
       symptom.tags = symptom.originalTags;
     }
+    symptoms.sort(function(a, b){
+      return  (b.selected || false) - (a.selected || false);
+    });
+  }
+
+  function add(title, tag, selected) {
+    var symptom = {
+      title: title,
+      tags: [tag],
+      selected: false
+    };
+    symptoms.push(symptom);
+    if (selected) {
+      toggle(symptom);
+    }
   }
 
   // Public API here
   return {
     symptoms: symptoms,
     mySymptoms: mySymptoms,
-    toggle: toggle
+    exportSymptoms: exportSymptoms,
+    toggle: toggle,
+    add: add
   };
 });

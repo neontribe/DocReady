@@ -1,11 +1,20 @@
 'use strict';
 
 describe('Directive: addSymptom', function () {
-  var element, $httpBackend;
+  var element, $httpBackend, sservice;
   beforeEach(module('docready'));
 
-  beforeEach(inject(function ($rootScope, _$httpBackend_) {
+  beforeEach(module(function($provide) {
+    $provide.factory('symptomService', function() {
+      return {
+        add: angular.noop
+      };
+    });
+  }));
+
+  beforeEach(inject(function ($rootScope, _$httpBackend_, symptomService) {
       $httpBackend = _$httpBackend_;
+      sservice = symptomService;
       $httpBackend.whenGET('views/add-symptom.html').respond([
         '<label>',
         '<span ng-transclude></span>',
@@ -27,26 +36,25 @@ describe('Directive: addSymptom', function () {
     expect(element.find('input').val()).toBeFalsy();
   }));
 
-  it('should add symptom objects to the supplied array', inject(function ($rootScope, $compile, $sniffer) {
-    $rootScope.symptoms = [];
-    element = angular.element('<add-symptom symptoms="symptoms"></add-symptom>');
+  it('should use the symptomProvider to add symptoms', inject(function ($rootScope, $compile, $sniffer) {
+    element = angular.element('<add-symptom></add-symptom>');
     element = $compile(element)($rootScope);
+    spyOn(sservice, 'add');
     $httpBackend.flush();
     // use the (undocumented $siffer to discover if we're expected to dispatch 'inpu' or 'change' in this browser)
     jQuery(element[0]).find('input').val('A Title').trigger($sniffer.hasEvent('input') ? 'input' : 'change');
     element.find('button').click();
-    expect($rootScope.symptoms[0].title).toEqual('A Title');
-    expect($rootScope.symptoms[0].selected).toBeTruthy();
+    expect(sservice.add).toHaveBeenCalledWith('A Title', undefined, true);
   }));
 
   it('should add tag the new symptom if a tag is provided', inject(function ($rootScope, $compile, $sniffer) {
-    $rootScope.symptoms = [];
-    element = angular.element('<add-symptom symptoms="symptoms" tag="newtag"></add-symptom>');
+    element = angular.element('<add-symptom tag="test"></add-symptom>');
     element = $compile(element)($rootScope);
+    spyOn(sservice, 'add');
     $httpBackend.flush();
     // use the (undocumented $siffer to discover if we're expected to dispatch 'inpu' or 'change' in this browser)
     jQuery(element[0]).find('input').val('A Title').trigger($sniffer.hasEvent('input') ? 'input' : 'change');
     element.find('button').click();
-    expect($rootScope.symptoms[0].tags).toContain('newtag');
+    expect(sservice.add).toHaveBeenCalledWith('A Title', 'test', true);
   }));
 });

@@ -9,10 +9,26 @@ describe('Controller: ExportCtrl', function () {
     $httpBackend,
     timeout,
     $window,
-    scope;
+    scope,
+    sservice;
+
+  beforeEach(module(function($provide) {
+    $provide.factory('symptomService', function() {
+      var sympts = [{ title: 'test symptom', tags: ['test'], selected: true}, { title: 'test symptom2', tags: ['test'], selected: true}];
+      return {
+        mySymptoms: function(){
+          return sympts;
+        },
+        exportSymptoms: function(){
+          return sympts;
+        }
+      };
+    });
+  }));
+
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, mocks, $timeout, _$window_) {
+  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, mocks, $timeout, _$window_, symptomService) {
     $httpBackend = _$httpBackend_;
     timeout = $timeout;
     $window = _$window_;
@@ -23,13 +39,11 @@ describe('Controller: ExportCtrl', function () {
     });
   }));
 
-  it('should attach a list of symptoms to the scope', function () {
-    $httpBackend.flush();
-    expect(scope.symptoms.length).toBeGreaterThan(2);
+  it('should attach a list of selected symptoms to the scope', function () {
+    expect(scope.mySymptoms.length).toBe(2);
   });
 
   it('should have a prepareMail function which initializes the dialog and the model', function () {
-    $httpBackend.flush();
     expect(scope.email).toBeFalsy();
     expect(scope.showMailer).toBeFalsy();
     scope.prepareMail();
@@ -40,18 +54,16 @@ describe('Controller: ExportCtrl', function () {
   });
 
   it('should have a prepareMail function which serializes the checklist into the Email', function () {
-    $httpBackend.flush();
-    scope.symptoms[0].selected = true;
-    scope.symptoms[1].selected = true;
+    scope.mySymptoms[0].selected = true;
+    scope.mySymptoms[1].selected = true;
     scope.prepareMail();
     expect(scope.email.symptoms.length).toBe(2);
-    expect(scope.email.symptoms[1]).toEqual(scope.symptoms[1].title);
+    expect(scope.email.symptoms[1]).toEqual(scope.mySymptoms[1].title);
   });
 
   it('should have a sendEmail function which posts the email', function () {
-    $httpBackend.flush();
-    scope.symptoms[0].selected = true;
-    scope.symptoms[1].selected = true;
+    scope.mySymptoms[0].selected = true;
+    scope.mySymptoms[1].selected = true;
     scope.prepareMail();
     expect(scope.email).toBeTruthy();
     $httpBackend.expectPOST('/api/email');
@@ -65,7 +77,6 @@ describe('Controller: ExportCtrl', function () {
   });
 
   it('should have a print function which calls $window.print', function () {
-    $httpBackend.flush();
     spyOn($window, 'print');
     scope.print();
     expect($window.print).toHaveBeenCalled();

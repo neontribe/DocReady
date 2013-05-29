@@ -7,14 +7,14 @@
 	            is-open="$first"
 	            ng-repeat="topic in topics"
 	            slug="{{topic.slug}}">
-	            <accordion-heading><h2>{{topic.title}}</h2></accordion-heading>
+	            <div accordion-heading><h2>{{topic.title}}</h2></div>
 	            <div accordion="">
 	                <div accordion-group=""
 	                           is-open="$first"
 	                           ng-repeat="item in items | filter: { topic: topic.slug }"
 	                           opened="setItem"
 	                           slug="{{item.slug}}">
-	                    <accordion-heading><h3>{{item.title}}</h3></accordion-heading>
+	                    <div accordion-heading><h3>{{item.title}}</h3></div>
 	                    <div ng-bind-html="item.body"></div>
 	                </div>
 	            </div>

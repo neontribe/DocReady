@@ -1,13 +1,12 @@
 'use strict';
 
 angular.module('docready')
-  .directive('addSymptom', function () {
+  .directive('addSymptom', function (symptomService) {
     return {
       transclude: true,
       templateUrl: 'views/add-symptom.html',
       restrict: 'EA',
       scope: {
-        symptoms: '=',
         tag: '@',
         buttonText: '@'
       },
@@ -16,12 +15,7 @@ angular.module('docready')
         attrs.buttonText = attrs.buttonText || '+';
         scope.buttonT = attrs.buttonText;
         scope.add = function (){
-          var symptom = {
-            title: scope.sympt,
-            selected: true,
-            tags: scope.tag ? [scope.tag] : []
-          };
-          scope.symptoms.push(symptom);
+          symptomService.add(scope.sympt, scope.tag , true);
           scope.sympt = '';
         };
       }

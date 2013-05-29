@@ -3,13 +3,13 @@
 angular.module('docready')
   .controller('ExportCtrl', function ($scope, settings, symptomService, $window, $resource, $timeout) {
     var Email = $resource(settings.apiRoot + '/email');
-    $scope.symptoms = symptomService.symptoms;
+    $scope.mySymptoms = symptomService.mySymptoms();
     $scope.showMailer = false;
     $scope.prepareMail = function(){
       $scope.showMailer = !$scope.showMailer;
       $scope.email = new Email({
         recipient: '',
-        symptoms: _.chain($scope.symptoms).where({selected: true}).pluck('title').value(),
+        symptoms: _.chain(symptomService.exportSymptoms()).pluck('title').value(),
         permalink: $scope.permalink()
       });
     };
@@ -23,17 +23,17 @@ angular.module('docready')
     };
     $scope.getpdf = function(){
       var data = JSON.stringify({
-        symptoms: _.chain($scope.symptoms).where({selected: true}).pluck('title').value(),
+        symptoms: _.chain(symptomService.exportSymptoms()).pluck('title').value(),
         permalink: $scope.permalink()
       });
-      return settings.apiRoot + '/pdf?data=' + data;
+      return settings.apiRoot + '/pdf?data=' + encodeURIComponent(data);
     };
 
     $scope.permalink = function(){
       var persist = JSON.stringify({
-        symptoms: symptomService.mySymptoms()
+        symptoms: symptomService.exportSymptoms()
       });
-      return '/#/tool/checklist?load=' + persist;
+      return '/#/tool/checklist?load=' + encodeURIComponent(persist);
     };
 
     $scope.print = function(){
