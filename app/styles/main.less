@@ -1262,8 +1262,12 @@ body > nav img {
 
 @media screen and (max-width: 800px) {
 
-.container {
-	padding: @v-space/3;
+.container > div {
+	padding: @v-space @v-space/2;
+}
+
+h1 + p {
+	font-size: 1.125em;
 }
 
 body > nav img {
@@ -1298,10 +1302,6 @@ h2 {
 }
 
 @media screen and (max-width: 600px) {
-
-#info {
-	padding: @v-space/2;
-}
 
 form[name="mailer"] button {
 	vertical-align: baseline;
@@ -1446,9 +1446,9 @@ h1, h2, h3, h4 {
 	color: #111;
 }
 
-h1 { font-size: 2em; }
-h2 { font-size: 1.5em; }
-h3 { font-size: 1em; }
+h1 { font-size: 2.125em; }
+h2 { font-size: 1.75em; }
+h3 { font-size: 1.25em; }
 
 nav[role="navigation"] {
 	background: transparent;
@@ -1501,20 +1501,20 @@ ul.accordion li div {
 	content:'';
 }
 
-#info h2 {
-	font-size: 2em;
-}
-
 .accordion h3 > a {
 	font-size: 1.25em;
 	color: #333;
 	border: 0;
 }
 
-#info li + li h3 {
+#info li + li h2 {
 	border-top: 2px dotted #666;
 	margin-top: @v-space;
 	padding-top: @v-space;
+}
+
+#info li + li h3 {
+	margin-top: @v-space;
 }
 
 }
@@ -1548,7 +1548,7 @@ ul.accordion li div {
 
 .wordcloud svg {
 	width: 600px;
-	height: 600px;
+	height: 300px;
 	margin: 0 auto;
 }
 
@@ -1556,7 +1556,7 @@ ul.accordion li div {
 
 .wordcloud svg {
 	width: 500px;
-	height: 500px;
+	height: 300px;
 }
 
 }
@@ -1565,7 +1565,7 @@ ul.accordion li div {
 
 .wordcloud svg {
 	width: 450px;
-	height: 450px;
+	height: 350px;
 }
 
 }
