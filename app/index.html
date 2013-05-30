@@ -34,8 +34,8 @@
     <nav role="navigation">
       <img src="images/logo.png" alt="" aria-hidden="true" />
       <ul>
-        <li><a route-contains="advice" href="#/advice" ng-class="{active: $routeContains}">info</a></li>
-        <li><a route-contains="tool" href="#/tool" ng-class="{active: $routeContains}">checklist</a></li>
+        <li><a route-contains="advice" href="#/advice" ng-class="{active: $routeContains}"><span aria-hidden="true">&#xE005;</span> info</a></li>
+        <li><a route-contains="tool" href="#/tool" ng-class="{active: $routeContains}"><span aria-hidden="true">&#xE004;</span> checklist</a></li>
       </ul>
     </nav>
     <div class="container" ng-view ng-animate="getTransition()" ng-controller="MainCtrl"></div>

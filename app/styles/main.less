@@ -59,6 +59,41 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'icons';
+    src: url('fonts/icons-webfont.eot');
+    src: url('fonts/icons-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/icons-webfont.woff') format('woff'),
+         url('fonts/icons-webfont.ttf') format('truetype'),
+         url('fonts/icons-webfont.svg#anchorageregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ---- ICON STYLES ---- */
+
+a span[aria-hidden="true"], button span[aria-hidden="true"] {
+	font-family: 'icons';
+	font-weight: normal !important;
+	font-size: 1.25em;
+	line-height: 0;
+}
+
+a[rel="next"]:after, a[rel="prev"]:before {
+	font-family: 'icons';
+	content: '\E009';
+	font-weight: normal !important;
+	padding-right: 0.5em;
+	line-height: 0;
+	font-size: 1.33em;
+}
+
+a[rel="next"]:after {
+	font-family: 'icons';
+	content: '\E00A';
+	padding: 0 0 0 0.5em;
+}
+
 /**
 * LESS CSS VARIABLES AND MIXINS
 ----------------------------------------------------------------------
@@ -684,10 +719,8 @@ nav a:hover, nav a:active, nav a:focus {
 	color: @link-color;
 }
 
-nav li + li:before {
-	content: '\2605';
-	color: @secondary-color;
-	padding: 0 0.5em;
+nav li + li {
+	padding: 0 0 0 1.5em;
 }
 
 body > nav {
@@ -1181,28 +1214,11 @@ accordion-heading {
 }
 
 a[rel="prev"], a[rel="next"], ul.tags a {
-	background-image: url(../images/arrow_left.png);
-	background-repeat: no-repeat;
-	background-position: left center;
-	background-size: 0.5em 100%;
 }
 
 a[rel="prev"]:active, a[rel="prev"]:focus, a[rel="next"]:active, a[rel="prev"]:focus {
 	box-shadow: none;
 	background-color: @tertiary-color;
-}
-
-a[rel="prev"] {
-	padding-left: 2.5em !important;
-}
-
-a[rel="next"] {
-	padding-right: 2.5em !important;
-}
-
-a[rel="next"], ul.tags a {
-	background-image: url(../images/arrow_right.png);
-	background-position: right center;
 }
 
 a[aria-controls="info"] {
