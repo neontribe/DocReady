@@ -2,6 +2,11 @@
 angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.directives'])
   .config(function ($routeProvider) {
     $routeProvider
+      .when('/home', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl',
+        animateFrom: 'Left'
+      })
       .when('/advice', {
         templateUrl: 'views/advice.html',
         controller: 'AdviceCtrl',
@@ -30,7 +35,7 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
         controller: 'ExportCtrl'
       })
       .otherwise({
-        redirectTo: '/advice'
+        redirectTo: '/home'
       });
   })
   .value('settings', {
