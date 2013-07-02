@@ -6,3 +6,4 @@ app/components
 app/styles/main.css
 app/styles/animations.css
 coverage
+DocReady.sublime*
