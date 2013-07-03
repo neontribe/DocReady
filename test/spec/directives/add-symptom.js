@@ -1,3 +1,4 @@
+/* global jQuery */
 'use strict';
 
 describe('Directive: addSymptom', function () {
@@ -31,7 +32,7 @@ describe('Directive: addSymptom', function () {
   it('should contain an input and a button', inject(function ($rootScope, $compile) {
     element = angular.element('<div add-symptom></div>');
     element = $compile(element)($rootScope);
-    $httpBackend.flush(); 
+    $httpBackend.flush();
     expect(element.find('button').text()).toEqual('+');
     expect(element.find('input').val()).toBeFalsy();
   }));
@@ -44,10 +45,10 @@ describe('Directive: addSymptom', function () {
     // use the (undocumented $siffer to discover if we're expected to dispatch 'inpu' or 'change' in this browser)
     jQuery(element[0]).find('input').val('A Title').trigger($sniffer.hasEvent('input') ? 'input' : 'change');
     element.find('button').click();
-    expect(sservice.add).toHaveBeenCalledWith('A Title', undefined, true);
+    expect(sservice.add).toHaveBeenCalledWith('A Title', undefined, true, false);
   }));
 
-  it('should add tag the new symptom if a tag is provided', inject(function ($rootScope, $compile, $sniffer) {
+  it('should add to tag the new symptom if a tag is provided', inject(function ($rootScope, $compile, $sniffer) {
     element = angular.element('<add-symptom tag="test"></add-symptom>');
     element = $compile(element)($rootScope);
     spyOn(sservice, 'add');
@@ -55,6 +56,6 @@ describe('Directive: addSymptom', function () {
     // use the (undocumented $siffer to discover if we're expected to dispatch 'inpu' or 'change' in this browser)
     jQuery(element[0]).find('input').val('A Title').trigger($sniffer.hasEvent('input') ? 'input' : 'change');
     element.find('button').click();
-    expect(sservice.add).toHaveBeenCalledWith('A Title', 'test', true);
+    expect(sservice.add).toHaveBeenCalledWith('A Title', 'test', true, false);
   }));
 });

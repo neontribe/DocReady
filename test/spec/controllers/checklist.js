@@ -9,6 +9,18 @@ describe('Controller: ChecklistCtrl', function () {
     $httpBackend,
     scope;
 
+  beforeEach(module(function($provide) {
+    $provide.factory('symptomService', function() {
+      var sympts = [{ title: 'test symptom', tags: ['test'], selected: true}, { title: 'test symptom2', tags: ['test'], selected: true}];
+      return {
+        selections: sympts,
+        exportSymptoms: function(){
+          return sympts;
+        }
+      };
+    });
+  }));
+
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, mocks) {
     $httpBackend = _$httpBackend_;
@@ -19,8 +31,9 @@ describe('Controller: ChecklistCtrl', function () {
     });
   }));
 
-  it('should attach a list of symptoms to the scope', function () {
-    $httpBackend.flush();
-    expect(scope.symptoms.length).toBeGreaterThan(2);
+
+
+  it('should attach a list of selected symptoms to the scope', function () {
+    expect(scope.selections.length).toEqual(2);
   });
 });

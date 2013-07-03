@@ -16,9 +16,7 @@ describe('Controller: ExportCtrl', function () {
     $provide.factory('symptomService', function() {
       var sympts = [{ title: 'test symptom', tags: ['test'], selected: true}, { title: 'test symptom2', tags: ['test'], selected: true}];
       return {
-        mySymptoms: function(){
-          return sympts;
-        },
+        selections: sympts,
         exportSymptoms: function(){
           return sympts;
         }
@@ -40,7 +38,7 @@ describe('Controller: ExportCtrl', function () {
   }));
 
   it('should attach a list of selected symptoms to the scope', function () {
-    expect(scope.mySymptoms.length).toBe(2);
+    expect(scope.selections.length).toBe(2);
   });
 
   it('should have a prepareMail function which initializes the dialog and the model', function () {
@@ -54,16 +52,16 @@ describe('Controller: ExportCtrl', function () {
   });
 
   it('should have a prepareMail function which serializes the checklist into the Email', function () {
-    scope.mySymptoms[0].selected = true;
-    scope.mySymptoms[1].selected = true;
+    scope.selections[0].selected = true;
+    scope.selections[1].selected = true;
     scope.prepareMail();
     expect(scope.email.symptoms.length).toBe(2);
-    expect(scope.email.symptoms[1]).toEqual(scope.mySymptoms[1].title);
+    expect(scope.email.symptoms[1]).toEqual(scope.selections[1].title);
   });
 
   it('should have a sendEmail function which posts the email', function () {
-    scope.mySymptoms[0].selected = true;
-    scope.mySymptoms[1].selected = true;
+    scope.selections[0].selected = true;
+    scope.selections[1].selected = true;
     scope.prepareMail();
     expect(scope.email).toBeTruthy();
     $httpBackend.expectPOST('/api/email');
@@ -77,7 +75,7 @@ describe('Controller: ExportCtrl', function () {
   });
 
   it('should have a getpdf function which returns a link to a pdf', function () {
-    scope.mySymptoms[0].selected = true;
+    scope.selections[0].selected = true;
     expect(scope.getpdf().length).toEqual(470);
   });
 

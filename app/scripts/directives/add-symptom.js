@@ -15,8 +15,9 @@ angular.module('docready')
         attrs.buttonText = attrs.buttonText || '+';
         scope.buttonT = attrs.buttonText;
         scope.placeholder = attrs.placeholder || '';
+        var mode = attrs.mode || false;
         scope.add = function (){
-          symptomService.add(scope.sympt, scope.tag , true);
+          symptomService.add(scope.sympt, scope.tag, true, mode);
           scope.sympt = '';
         };
       }

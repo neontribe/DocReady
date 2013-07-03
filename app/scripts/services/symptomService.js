@@ -2,7 +2,9 @@
 
 angular.module('docready')
   .factory('symptomService', function ($resource, settings) {
-  var symptoms = [];
+  var symptoms = [],
+    selections = [];
+
   symptoms = $resource(settings.apiRoot + '/symptom').query({}, function(data){
     // Restore any saved symptoms
     restore(settings.userData.symptoms, data);
@@ -21,18 +23,17 @@ angular.module('docready')
       }
       data.unshift(sym);
     });
-  }
 
-  /**
-   * Extract a simplified array of selected symptoms
-   * @return {array}
-   */
-  function mySymptoms() {
-    return _.where(symptoms, {selected: true});
+    // Populate the current state of the selections array
+    _.each(data, function(sympt) {
+      if (sympt.selected) {
+        selections.push(sympt);
+      }
+    });
   }
 
   function exportSymptoms() {
-    return _.map(mySymptoms(), function(v){
+    return _.map(selections, function(v){
       return _.pick(v, 'title', 'tags', 'selected');
     });
   }
@@ -46,21 +47,37 @@ angular.module('docready')
     symptom.originalTags = symptom.originalTags || angular.copy(symptom.tags);
     if (symptom.selected) {
       symptom.tags = activeTag ? [activeTag] : symptom.tags;
+      // add to bottom of selections
+      selections.push(symptom);
     } else {
       symptom.tags = symptom.originalTags;
+      // remove from selections
+      selections.splice(_.indexOf(selections, symptom), 1);
     }
-    symptoms.sort(function(a, b){
-      return  (b.selected || false) - (a.selected || false);
-    });
   }
 
-  function add(title, tag, selected) {
+  function add(title, tag, selected, mode) {
     var symptom = {
       title: title,
       tags: [tag],
       selected: false
-    };
-    symptoms.push(symptom);
+    },
+    insertMode = mode || 'last',
+    insertAt,
+    tagGroup = _.filter(symptoms, function(sympt){
+      return (_.indexOf(sympt.tags, tag) !== -1);
+    });
+
+    if (insertMode === 'prepend') {
+      insertAt = tagGroup.length ? _.indexOf(symptoms, _.first(tagGroup)) : 0;
+    } else if (mode === 'append') {
+      insertAt = tagGroup.length ? _.indexOf(symptoms, _.last(tagGroup)) +1 : symptoms.length;
+    } else {
+      insertAt = symptoms.length;
+    }
+
+    symptoms.splice(insertAt, 0, symptom);
+
     if (selected) {
       toggle(symptom);
     }
@@ -69,7 +86,7 @@ angular.module('docready')
   // Public API here
   return {
     symptoms: symptoms,
-    mySymptoms: mySymptoms,
+    selections: selections,
     exportSymptoms: exportSymptoms,
     toggle: toggle,
     add: add

@@ -15,7 +15,7 @@ files = [
   'app/components/angular-resource-unstable/angular-resource.js',
   'app/components/angular-sanitize-unstable/index.js',
   'app/components/angular-mocks-unstable/index.js',
-  'app/components/underscore/underscore.js',
+  'app/components/lodash/dist/lodash.underscore.js',
   'app/components/angular-ui/common/module.js',
   'app/components/angular-ui/modules/directives/sortable/sortable.js',
   'app/components/d3/d3.js',

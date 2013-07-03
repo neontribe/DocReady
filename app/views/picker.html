@@ -23,7 +23,7 @@
     <div ng-switch-when="true">
       <h2>{{activeTag}}</h2>
       <div class="add-symptoms">
-        <div add-symptom tag="{{activeTag}}" placeholder="Which is on my mind because..."></div>
+        <div add-symptom tag="{{activeTag}}" mode="prepend" placeholder="Which is on my mind because..."></div>
       </div>
       <ul class="symptoms">
         <li ng-repeat="symptom in symptoms | filter:hasActiveTag" ng-animate="{enter:'animated fadeInDown', leave:'animated fadeOutUp'}">
