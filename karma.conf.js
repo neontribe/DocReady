@@ -18,8 +18,6 @@ files = [
   'app/components/lodash/dist/lodash.underscore.js',
   'app/components/angular-ui/common/module.js',
   'app/components/angular-ui/modules/directives/sortable/sortable.js',
-  'app/components/d3/d3.js',
-  'app/components/d3-cloud/d3.layout.cloud.js',
   'app/scripts/*.js',
   'app/scripts/**/*.js',
   'test/mock/**/*.js',

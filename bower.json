@@ -1,6 +1,6 @@
 {
   "name": "docready",
-  "version": "0.0.3",
+  "version": "0.2.0",
   "dependencies": {
     "angular-unstable": "~1.1.5",
     "json3": "~3.2.4",
@@ -11,8 +11,6 @@
     "angular-ui": "~0.4.0",
     "jquery": "~1.10.1",
     "jquery-ui": "~1.10.3",
-    "d3": "~3.1.6",
-    "d3-cloud": "jasondavies/d3-cloud",
     "modernizr": "~2.6.2",
     "html5shiv": "~3.6.2",
     "animate.css": "latest",

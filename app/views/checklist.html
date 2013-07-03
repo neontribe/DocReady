@@ -1,6 +1,6 @@
 <div id="checklist">
 	<h1>Checklist</h1>
-	<p ng-switch="!!((symptoms | filter:{selected:true}).length)">
+	<p ng-switch="selections.length > 0">
         <span ng-switch-when="true">Drag and drop checklist items to prioritize&hellip;</span>
         <span ng-switch-when="false">Your checklist is empty&hellip;</span>
     </p>

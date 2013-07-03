@@ -2,24 +2,17 @@
   <h1>Recently I have noticed changes in my...</h1>
   <div id="picker" ng-switch="!!activeTag">
     <div ng-switch-when="false">
-      <div ng-switch="settings.svg">
-        <div ng-switch-when="false">
-          <ul class="tags">
-            <li ng-repeat="tag in tags">
-              <a role="button" href="#/tool/picker/{{tag.text}}" style="font-size:{{tag.count + 1}}em">
-              {{tag.text}} <span class="count" ng-show="(tag.count !== 0)">{{tag.count}}</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div ng-switch-when="true" class="svg-container">
-          <div class="wordcloud" d3cloud words="tags" options="cloudConfig" navigate="showTag"></div>
-        </div>
-      </div>  
+      <ul class="tags">
+        <li ng-repeat="tag in tags">
+          <a role="button" href="#/tool/picker/{{tag.text}}" style="font-size:{{tag.count + 1}}em">
+          {{tag.text}} <span class="count" ng-show="(tag.count !== 0)">{{tag.count}}</span>
+          </a>
+        </li>
+      </ul> 
       <div class="button-group">
         <a role="button" href="#/tool/checklist" rel="next">I'm Done</a>
       </div>
-    </div>
+    </div>  
     <div ng-switch-when="true">
       <h2>{{activeTag}}</h2>
       <div class="add-symptoms">
