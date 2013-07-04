@@ -10,17 +10,18 @@
 	    <div accordion="">
 	        <div accordion-group=""
 	            is-open="$first"
-	            ng-repeat="topic in topics"
-	            slug="{{topic.slug}}">
-	            <div accordion-heading><h2>{{topic.title}}</h2></div>
+	            opened="setTopic"
+	            ng-repeat="t in topics"
+	            slug="{{t.slug}}">
+	            <div accordion-heading><h2>{{t.title}}</h2></div>
 	            <div accordion="">
 	                <div accordion-group=""
-	                           is-open="$first"
-	                           ng-repeat="item in items | filter: { topic: topic.slug }"
+	                           is-open="i === item"
+	                           ng-repeat="i in items | filter: { topic: t.slug }"
 	                           opened="setItem"
-	                           slug="{{item.slug}}">
-	                    <div accordion-heading><h3>{{item.title}}</h3></div>
-	                    <div ng-bind-html="item.body"></div>
+	                           slug="{{i.slug}}">
+	                    <div accordion-heading><h3>{{i.title}}</h3></div>
+	                    <div ng-bind-html="i.body"></div>
 	                </div>
 	            </div>
 	        </div>

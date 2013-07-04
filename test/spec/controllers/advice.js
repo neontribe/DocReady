@@ -33,17 +33,6 @@ describe('Controller: AdviceCtrl', function () {
     expect(scope.items.length).toBe(4);
   });
 
-  it('should activate the first topic by default', function(){
-    $httpBackend.flush();
-    expect(scope.activeTopic).toEqual(scope.topics[0]);
-  });
-
-  it('should provide a methiod to set an active topic', function(){
-    $httpBackend.flush();
-    scope.setActiveTopic(scope.topics[2]);
-    expect(scope.activeTopic).toEqual(scope.topics[2]);
-  });
-
   it('should respect the active topic set in routeParams', function(){
     var routeParams = {topic: 'topic-2'};
     AdviceCtrl = controller('AdviceCtrl', {
@@ -51,7 +40,7 @@ describe('Controller: AdviceCtrl', function () {
       $routeParams: routeParams
     });
     $httpBackend.flush();
-    expect(scope.activeTopic.slug).toEqual('topic-2');
+    expect(scope.topic.slug).toEqual('topic-2');
   });
 
   it('should respect the active item set in routeParams', function(){
@@ -61,7 +50,7 @@ describe('Controller: AdviceCtrl', function () {
       $routeParams: routeParams
     });
     $httpBackend.flush();
-    expect(scope.activeItem.slug).toEqual('item-3');
+    expect(scope.item.slug).toEqual('item-3');
   });
 
   it('should elevate the active item set in routeParams to the front of the items array', function(){
@@ -89,5 +78,11 @@ describe('Controller: AdviceCtrl', function () {
     $httpBackend.flush();
     scope.setItem('test-slug');
     expect(location.search().item).toEqual('test-slug');
+  });
+
+  it('should provide a setTopic method which sets the topic in the location search', function(){
+    $httpBackend.flush();
+    scope.setTopic('test-slug');
+    expect(location.search().topic).toEqual('test-slug');
   });
 });
