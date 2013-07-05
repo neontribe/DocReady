@@ -14,6 +14,10 @@
 				<span>Enter your email address:</span>
 				<input type="email" name="recipient" ng-model="email.recipient" ng-required="true"/>
 			</label>
+			<label ng-show="mailer.recipient.$valid">
+				<span>Confirm:</span>
+				<input type="email" name="econf" ng-model="econf" ng-required="true" validate-equals="email.recipient"/>
+			</label>
 			<button ng-disabled="mailer.$invalid" 
 							ng-click="sendEmail()" 
 							ng-switch="email.state" 
