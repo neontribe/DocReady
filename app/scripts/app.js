@@ -1,4 +1,3 @@
-/* global devMode */
 'use strict';
 angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.directives','angular-google-analytics'])
   .config(function ($routeProvider) {
