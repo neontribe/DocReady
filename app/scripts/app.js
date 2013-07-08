@@ -1,5 +1,6 @@
+/* global devMode */
 'use strict';
-angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.directives'])
+angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.directives','angular-google-analytics'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/home', {
@@ -41,10 +42,18 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
   .value('settings', {
     userData: { symptoms: [] }
   })
-  .run(function(settings, $location){
+  .config(function(AnalyticsProvider) {
+    // initial analytics configuration
+    AnalyticsProvider.setAccount('UA-42308316-1');
+    if (devMode) {
+      AnalyticsProvider.setDomainName('none');
+    }
+    AnalyticsProvider.trackPages(true);
+  })
+  // Just injecting Analytics here performs its initialization
+  .run(function(Analytics, settings, $location){
     // Populate userData from any 'load' 
     var load = $location.search().load;
     angular.extend(settings.userData, (load) ? JSON.parse(load) : {});
-    settings.svg = Modernizr.inlinesvg && !/nosvg/.test($location.absUrl());
     settings.apiRoot = ($location.host() === 'localhost') ? 'http://docready-staging.herokuapp.com/api': '/api';
   });

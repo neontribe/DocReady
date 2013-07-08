@@ -18,6 +18,7 @@ files = [
   'app/components/lodash/dist/lodash.underscore.js',
   'app/components/angular-ui/common/module.js',
   'app/components/angular-ui/modules/directives/sortable/sortable.js',
+  'app/components/angular-google-analytics/src/angular-google-analytics.js',
   'app/scripts/*.js',
   'app/scripts/**/*.js',
   'test/mock/**/*.js',

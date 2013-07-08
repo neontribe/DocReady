@@ -40,6 +40,10 @@
       </ul>
     </nav>
     <div class="container" ng-view ng-animate="getTransition()" ng-controller="MainCtrl"></div>
+
+    <!-- devcode: !production -->
+    <script src="scripts/dev.js"></script>
+    <!-- enddevcode -->
     <!-- build:js scripts/scripts.js -->
     <script src="components/modernizr/modernizr.js"></script>
     <script src="components/jquery/jquery.js"></script>
@@ -55,6 +59,7 @@
     <script src="components/angular-ui/modules/directives/validate/validate.js"></script>
     <script src="components/angular-ui/modules/directives/sortable/sortable.js"></script>
     <script src="components/lodash/dist/lodash.underscore.js"></script>
+    <script src="components/angular-google-analytics/src/angular-google-analytics.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/services/symptomService.js"></script>
     <script src="scripts/services/adviceService.js"></script>
@@ -70,18 +75,9 @@
     <script src="scripts/directives/track-route.js"></script>
     <script src="scripts/directives/validate-equals.js"></script>
     <!-- endbuild -->
-
     <!-- devcode: !production -->
     <script src="components/angular-mocks-unstable/index.js"></script>
     <script src="../test/mock/mocks.js"></script>
     <!-- enddevcode -->
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.
-    <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>-->
   </body>
 </html>

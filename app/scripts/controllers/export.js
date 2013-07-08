@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('docready')
-  .controller('ExportCtrl', function ($scope, settings, symptomService, $window, $resource, $timeout) {
+  .controller('ExportCtrl', function ($scope, settings, symptomService, $window, $resource, $timeout, Analytics, $location) {
     var Email = $resource(settings.apiRoot + '/email');
     $scope.selections = symptomService.selections;
     $scope.showMailer = false;
@@ -39,4 +39,9 @@ angular.module('docready')
     $scope.print = function(){
       $window.print();
     };
+
+    $scope.track = function(type){
+      Analytics.trackPage($location.path() + '/' + type);
+    };
+
   });

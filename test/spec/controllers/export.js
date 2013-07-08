@@ -10,7 +10,8 @@ describe('Controller: ExportCtrl', function () {
     timeout,
     $window,
     scope,
-    sservice;
+    alocation,
+    analytics;
 
   beforeEach(module(function($provide) {
     $provide.factory('symptomService', function() {
@@ -22,13 +23,20 @@ describe('Controller: ExportCtrl', function () {
         }
       };
     });
+    $provide.factory('Analytics', function(){
+      return {
+        trackPage: function(){}
+      };
+    });
   }));
 
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, mocks, $timeout, _$window_, symptomService) {
+  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, mocks, $location, $timeout, _$window_, symptomService, Analytics) {
     $httpBackend = _$httpBackend_;
     timeout = $timeout;
+    alocation = $location;
+    analytics = Analytics;
     $window = _$window_;
     mocks.registerMocks($httpBackend);
     scope = $rootScope.$new();
@@ -83,5 +91,12 @@ describe('Controller: ExportCtrl', function () {
     spyOn($window, 'print');
     scope.print();
     expect($window.print).toHaveBeenCalled();
+  });
+
+  it('should have a track function which calls Analytics.trackPage with the current path + its argument', function () {
+    alocation.path('/foo/bar');
+    spyOn(analytics, 'trackPage');
+    scope.track('thing');
+    expect(analytics.trackPage).toHaveBeenCalledWith('/foo/bar/thing');
   });
 });
