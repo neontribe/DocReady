@@ -226,6 +226,22 @@ module.exports = function (grunt) {
         }]
       }
     },
+    release: {
+      options: {
+        bump: true, //default: true
+        files: 'package.json', //default: package.json
+        add: true, //default: true
+        commit: true, //default: true
+        tag: true, //default: true
+        push: true, //default: true
+        pushTags: true, //default: true
+        npm: false, //default: true
+        //folder: 'folder/to/publish/to/npm' //default project root
+        //tagName: 'some-tag-<%= version %>', //default: '<%= version %>'
+        //commitMessage: 'check out my release <%= version %>', //default: 'release <%= version %>'
+        //tagMessage: 'tagging version <%= version %>' //default: 'Version <%= version %>'
+      }
+    },
     devcode: {
       options: {
         html: true,        // html files parsing?

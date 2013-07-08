@@ -45,7 +45,7 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
   .config(function(AnalyticsProvider) {
     // initial analytics configuration
     AnalyticsProvider.setAccount('UA-42308316-1');
-    if (devMode) {
+    if (window.devMode) {
       AnalyticsProvider.setDomainName('none');
     }
     AnalyticsProvider.trackPages(true);
