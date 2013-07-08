@@ -15,10 +15,10 @@ angular.module('docready')
               ctrl.$setValidity('equal', false);
               return undefined;
             }
-        }
+          }
 
         scope.$watch(attrs.validateEquals, function(otherModelValue) {
-          validateEqual(ctrl.$viewValue, otherModelValue);               
+          validateEqual(ctrl.$viewValue, otherModelValue);
         });
 
         ctrl.$parsers.unshift(function(viewValue) {
