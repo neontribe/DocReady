@@ -1,6 +1,6 @@
 {
   "name": "docready",
-  "version": "0.2.2",
+  "version": "0.2.5",
   "dependencies": {
     "angular-unstable": "~1.1.5",
     "json3": "~3.2.4",
