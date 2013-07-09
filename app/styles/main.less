@@ -1,109 +1,5 @@
-/**
-* FONT-FACE
-----------------------------------------------------------------------
-*/
-
-@font-face {
-    font-family: 'Akashi';
-    src: url('fonts/akashi-webfont.eot');
-    src: url('fonts/akashi-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/akashi-webfont.woff') format('woff'),
-         url('fonts/akashi-webfont.ttf') format('truetype'),
-         url('fonts/akashi-webfont.svg#akashiregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Roboto';
-    src: url('fonts/roboto-bold-webfont.eot');
-    src: url('fonts/roboto-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/roboto-bold-webfont.woff') format('woff'),
-         url('fonts/roboto-bold-webfont.ttf') format('truetype'),
-         url('fonts/roboto-bold-webfont.svg#robotobold') format('svg');
-    font-weight: 700;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Roboto';
-    src: url('fonts/roboto-regular-webfont.eot');
-    src: url('fonts/roboto-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/roboto-regular-webfont.woff') format('woff'),
-         url('fonts/roboto-regular-webfont.ttf') format('truetype'),
-         url('fonts/roboto-regular-webfont.svg#robotoregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'Roboto';
-    src: url('fonts/roboto-mediumitalic-webfont.eot');
-    src: url('fonts/roboto-mediumitalic-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/roboto-mediumitalic-webfont.woff') format('woff'),
-         url('fonts/roboto-mediumitalic-webfont.ttf') format('truetype'),
-         url('fonts/roboto-mediumitalic-webfont.svg#robotomedium_italic') format('svg');
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'Sintony';
-    src: url('fonts/sintony-regular-webfont.eot');
-    src: url('fonts/sintony-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/sintony-regular-webfont.woff') format('woff'),
-         url('fonts/sintony-regular-webfont.ttf') format('truetype'),
-         url('fonts/sintony-regular-webfont.svg#sintonyregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'icons';
-    src: url('fonts/icons-webfont.eot');
-    src: url('fonts/icons-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/icons-webfont.woff') format('woff'),
-         url('fonts/icons-webfont.ttf') format('truetype'),
-         url('fonts/icons-webfont.svg#anchorageregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* ---- ICON STYLES ---- */
-
-a span[aria-hidden="true"], button span[aria-hidden="true"] {
-	font-family: 'icons';
-	font-weight: normal !important;
-	font-size: 1.25em;
-	line-height: 0;
-	display: inline-block !important;
-	height: auto !important;
-	width: auto !important;
-	overflow: visible !important;
-}
-
-#checklist button span[aria-hidden="true"] {
-	font-size: 1.5em;
-	position: relative;
-    top: 0.125em;
-}
-
-a[rel="next"]:after, a[rel="prev"]:before {
-	font-family: 'icons';
-	content: '\E009';
-	font-weight: normal !important;
-	padding-right: 0.5em;
-	line-height: 0;
-	font-size: 1.33em;
-}
-
-a[rel="next"]:after {
-	font-family: 'icons';
-	content: '\E00A';
-	padding: 0 0 0 0.5em;
-}
-
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700);
 /**
 * LESS CSS VARIABLES AND MIXINS
 ----------------------------------------------------------------------
@@ -115,42 +11,26 @@ a[rel="next"]:after {
 
 /* Colors */
 
-@font-color: #333;
-@font-color-light: #fefefe;
+@font-color: #463947;
+@font-color-light: #eee;
 
-@link-color: #167975;
-@link-color-darker: darken(@link-color, 10%);
-@link-color-lighter: #a3dbd9;
+@link-color: #265169;
+@link-color-darker: darken(@link-color, 20%);
+@link-color-lighter: lighten(@link-color, 40%);
 
-@primary-color: #d96342;
-@primary-color-darker: darken(@primary-color, 25%);
-@primary-color-lighter: lighten(@primary-color, 35%);
+@yellow-color: #F9D55F;
+@yellow-color-darker: darken(@yellow-color, 20%);
+@yellow-color-lighter: lighten(@yellow-color, 40%);
 
-@secondary-color: #8aa54b;
-@secondary-color-darker: darken(@secondary-color, 25%);
-@secondary-color-lighter: lighten(@secondary-color, 30%);
+@blue-color: #62C1C2;
+@blue-color-darker: darken(@blue-color, 20%);
+@blue-color-lighter: lighten(@blue-color, 40%);
 
-@tertiary-color: #167975;
-@tertiary-color-darker: darken(@tertiary-color, 15%);
-@tertiary-color-lighter: #a3dbd9;
-
-.primary-color { background: @primary-color }
-.secondary-color { background: @secondary-color }
-.tertiary-color { background: @tertiary-color }
-
-.primary-color-darker { background: @primary-color-darker }
-.secondary-color-darker { background: @secondary-color-darker }
-.tertiary-color-darker { background: @tertiary-color-darker }
-
-.primary-color-lighter { background: @primary-color-lighter }
-.secondary-color-lighter { background: @secondary-color-lighter }
-.tertiary-color-lighter { background: @tertiary-color-lighter }
+@red-color: #EC6D6F;
+@red-color-darker: darken(@red-color, 20%);
+@red-color-lighter: lighten(@red-color, 40%);
 
 /* Sizes */
-
-@font-size-base: 18px;
-@font-size-increased: @font-size-base * 1.25;
-@font-size-reduced: @font-size-base * 0.9;
 
 @base-space: @font-size-base;
 @slim-spacing: @base-space / 2;
@@ -166,9 +46,19 @@ a[rel="next"]:after {
 
 /* Font families */
 
-@family-main: 'Roboto';
-@family-headings: 'Sintony';
-@family-special: 'Akashi';
+@font-size-base: 20px;
+@family-main: 'Open Sans', sans-serif;
+@family-headings: 'Raleway', sans-serif;
+
+/* Layout */
+
+@content-max-width: 900px; /* overall width of contents, not wrappers */
+@right-column-width: 200px; /* fixed width of aside role="complementary" */
+@column-gutter: @h-space; /* space between columns */
+
+footer {
+	clear: both;
+}
 
 /* Helper mixins */
 
@@ -189,15 +79,19 @@ a[rel="next"]:after {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+	*behavior: url(js/boxsizing.htc);
 }
 
-.box-style-primary {
+.box-style-yellow {
+	border: @border-width solid @yellow-color;
+	padding: @base-space;
+	background: @yellow-color-lighter;
 }
 
 .border-radius {
-	-moz-border-radius: @base-space;
-	-webkit-border-radius: @base-space;
-	border-radius: @base-space;
+	-moz-border-radius: @base-space/2;
+	-webkit-border-radius: @base-space/2;
+	border-radius: @base-space/2;
 }
 
 .translucent {
@@ -217,9 +111,7 @@ a[rel="next"]:after {
 }
 
 .headings {
-	text-transform: capitalize;
-	color: @font-color;
-	font-weight: normal;
+	font-weight: bold;
 }
 
 /**
@@ -257,13 +149,13 @@ input, select { vertical-align: middle }
 
 body { 
 	font-size: @font-size-base;
-	background: url('../images/tiny_grid.png');
 	line-height: @v-space;
-	font-weight: normal;
+	font-weight: 400;
 	font-family: @family-main;
 	color: @font-color;
+	margin-top: 147px;
+	background: @font-color;
 }
-
 
 /**
 * Generic links
@@ -277,7 +169,7 @@ a, a:visited {
 }
 
 a:hover { 
-	color: @link-color-darker;
+	color: @link-color-lighter;
 	border-bottom: 2px solid;
 }
 
@@ -286,20 +178,7 @@ a:active {
 	border-bottom: 3px solid;
 }
 
-a:focus { outline: 1px dotted #999 }
-
-/* Icon provisions */
-
-#checklist li button span, #checklist li a[role="button"] span {
-	display: inline-block;
-	height: 0;
-	width: 0;
-	overflow: hidden;
-}
-
-i {
-	font-style: normal !important;
-}
+a:focus, button:focus, input[type="submit"]:focus { outline: 1px dotted #333 }
 
 /**
 * Flow
@@ -315,7 +194,7 @@ blockquote, figure {
 }
 
 blockquote p {
-	font-size: @font-size-increased;
+	font-size: 1.25em;
 	font-style: italic;
 }
 
@@ -351,20 +230,21 @@ img {
 
 p { 
 	text-align: justify;
+	.hyphens;
 }
 
 p:only-child {
 	text-align: left;
 }
 
-li, dt, dd { margin-top: 0 }
-
-p + p { margin-top: @v-space/2; }
+p + p, li, dt, dd { margin-top: 0 }
 
 p * { margin: 0 }
 
+p + p { margin-top: @v-space/2 }
+
 /* for introductory paragraphs belonging to major sections */
-h1 + p, header + p, hgroup + p { font-size: @font-size-increased; }
+h1 + p, header + p, hgroup + p { font-size: 1.25em }
 
 li { list-style: disc inside }
 
@@ -392,40 +272,75 @@ dt {
 }
 
 /**
+* <nav> sections
+----------------------------------------------------------------------
+*/
+
+nav ul {
+	text-align: center;
+	font-size: 0;
+}
+
+nav li, .tabs-nav li {
+	list-style: none;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1;
+	font-size: @font-size-base;
+}
+
+nav a, nav a:hover, nav a:active, nav a:visited, .tabs-nav a {
+	border: 0;
+	outline: none;
+	padding: @slim-spacing;
+	background: @link-color;
+	display: block;
+	text-align: center;
+	font-size: @font-size-base;
+	color: @font-color-light;
+}
+
+nav a:hover, nav a:active, nav a:focus {
+	background: @link-color-darker;
+}
+
+nav li + li a {
+	margin-left: @slim-spacing / 2;
+}
+
+/**
 * Headings
 ----------------------------------------------------------------------
 */
 
 h1, h2, h3, h4, hgroup {
 	font-family: @family-headings;
+    font-weight: 700;
 	line-height: 1;
-	.headings;
-	text-align: center;
+	letter-spacing: 1px;
 }
 
-h1 {
-	font-family: @family-special;
-}
-
-* + h1, * + h2, * + hgroup { margin-top: @v-space*1.5 }
-* + h4 { margin-top: @v-space; }
+* + h1, * + h2, * + h3, * + hgroup { margin-top: @heading-before-space }
+* + h4 { margin-top: 1.5rem }
 
 hgroup * {
 	margin: 0;
 }
 
-h3 { 
-	font-size: 1.5em;
-	text-align: left;
-}
-
 h4 { 
 	font-size: 1em; 
+	font-weight: bold;
+	font-family: @family-main;
 	text-align: left;
 }
 
-h2 { font-size: 2.125em }
-h1 { font-size: 3em }
+h3 { 
+	font-size: 1.25em;
+	text-align: left;
+}
+
+h2 { font-size: 1.75em }
+h1 { font-size: 2.25em }
 h1 span {
 	display: inline-block;
 	height: 0;
@@ -448,7 +363,7 @@ del { text-decoration: line-through }
 abbr[title], dfn[title] { cursor: help }
 
 small {
-	font-size: @font-size-reduced;
+	font-size: 0.9em;
 	.translucent;
 }
 
@@ -488,6 +403,121 @@ kbd {
 }
 
 /**
+* Forms
+----------------------------------------------------------------------
+*/
+
+fieldset {
+	padding: 1.5em;
+	border: @border-width solid @yellow-color;
+}
+
+legend {
+	font-size: 1.25rem;
+	font-style: italic;
+	padding: 0 0.5em;
+}
+
+form div {
+	font-size: 0;
+}
+
+legend + div {
+	margin-top: 0;
+}
+
+form div > * {
+	font-size: @font-size-base;
+	margin-top: 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+label {
+	width: 40%;
+	text-align: right;
+	padding-right: 0.5em;
+	line-height: 1;
+	font-weight: 700;
+}
+
+input, textarea, select {
+	font-size: inherit;
+	font-family: inherit;
+	margin: 0;
+	line-height: 1;
+	width: 50%;
+	padding: 0.25em;
+	border: 1px solid @font-color;
+	.box-sized;
+}
+
+form p {
+	padding: 0 0 0 40%;
+	margin: 0 0 0 0.5em;
+}
+
+form p + p {
+	margin-top: 0.5em;
+	text-indent: 0;
+}
+
+input:focus, textarea:focus, select:focus {
+	outline: 2px solid @font-color;
+}
+
+input[type="submit"]:focus {
+	outline: 1px dotted #999;
+}
+
+option {
+	margin-top: 0;
+}
+
+input[type="checkbox"], input[type="radio"] {
+	width: auto;
+	border: 0;
+}
+
+/**
+* Buttons
+----------------------------------------------------------------------
+*/
+
+button, a[role="button"], input[type="submit"], input[type="button"] {
+	background: @red-color;
+	color: @font-color-light;
+	padding: @slim-spacing/2 @slim-spacing*3;
+	border: 0;
+	cursor: pointer;
+	display: inline-block;
+	width: auto;
+	margin-right: @slim-spacing;
+	margin-top: 0;
+	font-family: inherit;
+	font-size: 1.25em;
+	.transition-basic(0.5s);
+	.border-radius;
+}
+
+button:active, a[role="button"]:active, input[type="submit"]:active {
+	background:@link-color;
+}
+
+/* use #disabled as the href value on links that you wish to display as disabled */
+*[disabled="disabled"], a[href="#disabled"] {
+	opacity: 0.5;
+	cursor: default;
+}
+
+/* reset active styles for disabled elements */
+*[disabled="disabled"]:active, a[href="#disabled"]:active {
+	top: 0;
+	background: #990000;
+	box-shadow: 1px 1px 0 @link-color-darker, 2px 2px 0 @link-color-darker, 3px 3px 0 @link-color-darker, 4px 4px 0 @link-color-darker;
+}
+
+/**
 * Boxes (divs and sections)
 ----------------------------------------------------------------------
 */
@@ -519,15 +549,9 @@ div[class^="group"] > * {
 	margin-top: 0;
 }
 
-.lt-ie8 div[class^="group"] > * {
-	display: inline;
-	zoom: 1;
-}
-
 /* adjacent boxes need gutters. We create this using margin on their direct children  */
 div[class^="group"] > * > * { 
 	margin: 0 @h-space-reduced 0 0;
-	.box-style-primary; /* import basic box styling */
 }
 div[class^="group"] > * + * > * { margin: 0 @h-space-reduced 0 } 
 div[class^="group"] > *:last-child > * { margin-right: 0 }
@@ -565,1054 +589,163 @@ div.group-bottom > * { vertical-align: baseline }
 
 */
 
+
 /**
-* Collapsable definition items
-* Uses the 5k collapse plugin (http://webcloud.se/jQuery-Collapse/)
+* Utilities
 ----------------------------------------------------------------------
 */
 
-@media screen {
-
-/* Layout */
-
-@content-max-width: 900px; /* overall width of contents, not wrappers */
-@right-column-width: 200px; /* fixed width of aside role="complementary" */
-@column-gutter: @h-space; /* space between columns */
-
-div[role="main"] {
-	float: left;
-	width: 100%;
-}
-
-.container {
-	margin: 0 auto;
-	max-width: 900px;
-	min-height: 800px;
-	overflow: hidden;
-	position: relative;
-}
-
-.container > div {
-	padding: @v-space;
-  margin-top:0;
-}
-
-
-div[role="main"] > div {
-	margin-right: @right-column-width + @column-gutter;
-}
-
-aside[role="complementary"] {
-	float: left;
-	width: @right-column-width;
-	margin-left: -@right-column-width;
-	margin-top: 0;
-}
-
-footer {
-	clear: both;
-}
-
-/**
-* Forms
-----------------------------------------------------------------------
-*/
-
-fieldset {
-	padding: 1.5em;
-	border: @border-width solid @primary-color;
-}
-
-legend {
-	font-size: 1.25rem;
-	font-style: italic;
-	padding: 0 0.5em;
-}
-
-form div {
-	font-size: 0;
-}
-
-legend + div {
-	margin-top: 0;
-}
-
-form div > * {
-	font-size: @font-size-base;
-	margin-top: 0;
+.a11y-hide {
 	display: inline-block;
-	vertical-align: middle;
-}
-
-label {
-	line-height: 1;
-	font-weight: 700;
-}
-
-input, textarea, select {
-	font-size: inherit;
-	font-family: inherit;
-	margin: 0;
-	line-height: 1;
-	width: 50%;
-	padding: 0.25em;
-	border: 1px solid @font-color;
-	.box-sized;
-	padding: 0.66em;
-	border: 2px solid @primary-color;
-	box-shadow: inset 3px 3px 0 @primary-color-lighter;
-}
-
-form p {
-	padding: 0 0 0 40%;
-	margin: 0 0 0 0.5em;
-}
-
-form p + p {
-	margin-top: 0.5em;
-	text-indent: 0;
-}
-
-input:focus, textarea:focus, select:focus {
-	outline: 2px solid @primary-color;
-}
-
-input[type="submit"]:focus {
-	outline: 1px dotted #999;
-}
-
-option {
-	margin-top: 0;
-}
-
-input[type="checkbox"], input[type="radio"] {
-	width: auto;
-	border: 0;
-}
-
-/**
-* <nav> sections
-----------------------------------------------------------------------
-*/
-
-nav ul {
-	text-align: center;
-	font-size: 0;
-}
-
-nav li, {
-	list-style: none;
-	display: inline-block;
-	vertical-align: middle;
-	line-height: 1;
-	font-size: @font-size-increased;
-	padding: 0;
-}
-
-.lt-ie8 nav li, .lt-ie8 {
-	display: inline;
-	zoom: 1;
-}
-
-nav a, nav a:hover, nav a:active, nav a:visited, .tabs-nav a {
-	border: 0;
-	outline: none;
-	display: inline-block;
-	margin-bottom: @slim-spacing/2;
-	text-align: center;
-	font-weight: 700;
-	color: @font-color-light;
-	padding: 0.25em 0.5em;
-}
-
-nav a:hover, nav a:active, nav a:focus {
-	color: @link-color;
-}
-
-nav li + li {
-	padding: 0 0 0 1.5em;
-}
-
-body > nav {
-	background: @font-color;
-	padding: @v-space/2 @v-space/2;
-	font-size: @font-size-base*2;
-	margin-top: 0;
-}
-
-body > nav img {
-	width: 200px;
-	height: auto;
-	position: absolute;
-	left: 0.5em;
-	top: 0.5em;
-}
-
-body > nav li {
-	font-size: @font-size-base*1.75;
-}
-
-body > nav ul {
-	text-align: right;
-	margin: 0;
-}
-
-body > nav a, body > nav a:hover, body > nav a:active, body > nav a:focus {
-	padding: @v-space/2 0;
-}
-
-body > nav a.active {
-	border-bottom: 4px solid #fff !important;
-}
-
-
-/**
-* Buttons
-----------------------------------------------------------------------
-*/
-
-button, a[role="button"], input[type="submit"] {
-	background: @font-color;
-	color: @font-color-light;
-	padding: @slim-spacing*1.5 @slim-spacing*4;
-	border: 0;
-	cursor: pointer;
-	display: inline-block;
-	width: auto;
-	margin-right: @slim-spacing;
-	margin-top: 0;
-	font-family: inherit;
-	font-size: @font-size-increased;
-	line-height: 1;
-}
-
-button:focus, a[role="button"]:focus, input[type="submit"]:focus {
-	outline: none;
-	background-color: #000;
-}
-
-button:active, a[role="button"]:active, input[type="submit"]:active {
-	box-shadow: inset 1px 1px 0 #000, inset 2px 2px 0 #000;
-	position: relative;
-	left: 0px;
-	top: 1px;
-}
-
-/* use #disabled as the href value on links that you wish to display as disabled */
-*[disabled="disabled"], a[href="#disabled"] {
-	opacity: 0.5;
-	cursor: default;
-}
-
-/* reset active styles for disabled elements */
-*[disabled="disabled"]:active, a[href="#disabled"]:active {
-	top: 0;
-	background: #990000;
-}
-
-.box dt, .box dd {
-	display: block;
-	text-align: left;
-	width: auto;
-	padding: 0;
-}
-
-.box dt  a {
-	padding: @v-space/2 @h-space/2;
-	background: @link-color;
-	display: block;
-	color: @font-color-light;
-	border: 0;
-	font-style: normal;
-}
-
-.box dt {
-	margin-bottom: @v-space/4;
-}
-
-.box dt a:before {
-	content:'\25B6';
-	padding-right: @h-space/2;
-}
-
-.box dt.open a:before {
-	content:'\25BC';
-}
-
-.box dt.open {
-	margin-bottom: 0;
-}
-
-.box dd {
-	padding: @v-space/2 0;
-	.transition-basic(0.3s);
-}
-
-.box dt  a:hover, .box a:active, .box a:focus {
-	background: @link-color-darker;
-}
-
-/**
-* Picker 
-----------------------------------------------------------------------
-*/
-
-ul.tags {
-	text-align: center;
-}
-
-ul.tags li {
-	list-style: none;
-	display: inline;
-	padding: 0.33em;
-	font-size: 1.125em;
-}
-
-span.count {
-	font-size: 0.6em;
-    letter-spacing: 0;
-	line-height: 1;
-	vertical-align: middle;
-	color: @secondary-color-darker;
-	background: @secondary-color-lighter;
-	padding: 0 0.4em;
-	border-radius: 50%;
-	position: relative;
-	left: -0.33em;
-}
-
-ul.tags a[role="button"] {
-	background: 0;
-	color: @link-color;
-	padding: 0;
-	font-size: 1.5em;
-	white-space: nowrap;
-}
-
-ul.tags a[role="button"]:hover, ul.tags a[role="button"]:active, ul.tags a[role="button"]:focus {
-	color: @link-color-darker;
-	box-shadow: none;
-}
-
-ul.tags a[role="button"]:hover span {
-	background: @link-color-darker;
-	color: @font-color-light;
-}
-
-ul.symptoms {
-	background: @font-color-light;
-	padding: 1.5em;
-	box-shadow: 3px 3px 0 @primary-color-lighter;
-}
-
-ul.symptoms li {
-	font-size: 1.25em;
-	list-style: none;
-	line-height: 1;
-	vertical-align: top;
-	font-size: 1.5em;
-}
-
-ul.symptoms li + li {
-	margin-top: 0.5em;
-}
-
-ul.symptoms li * {
-	vertical-align: middle;
-}
-
-ul.symptoms label span:before {
-	content: '\2610';
-	padding-right: 0.25em;
-}
-
-ul.symptoms label {
-	display: block;
-	.transition-basic(0.3s);
-	cursor: pointer;
-}
-
-ul.symptoms label.selected {
-	background: @secondary-color-lighter;
-	padding: 0.33em;
-}
-
-ul.symptoms label.selected span:before {
-	content: '\2611';
-	padding-right: 0.25em;
-}
-
-ul.symptoms input {
-	position: absolute;
-	top: -500px;
-}
-
-/**
-* Checklist
-----------------------------------------------------------------------
-*/
-
-#checklist ol {
-	list-style: none;
-	counter-reset: section;
-}
-
-#checklist li {
-	padding: @v-space/3 @v-space/2 @v-space/2;
-	background: @font-color-light;
-	border: 2px solid @primary-color;
-	list-style: none;
-	font-size: 1.25em;
-	cursor: s-resize !important;
-}
-
-#checklist li {
-	margin-top: @v-space/3;
-}
-
-#checklist li:before {
-	counter-increment: section;
-	content:counter(section);
-	font-family: 'Play', sans-serif;
-	background: @primary-color;
-	color: @font-color-light;
-	padding: @v-space/4 @v-space/2;
-	margin-right: @v-space/4;
-	display: inline-block;
-}
-
-#checklist li.ui-sortable-helper {
-	box-shadow: 2px 2px 5px #000;
-}
-
-.ui-sortable-helper:before, 
-#checklist li.ui-sortable-helper ~ li:before {
-	content:'?' !important;
-}
-
-#checklist li button {
-	padding: 0;
-	background: transparent;
-	color: @tertiary-color;
-	margin: 0;
-}
-
-.button-group {
-	text-align: center;
-}
-
-.button-group.small button,
-.button-group.small a {
-	font-size: 18px;
-	margin: 0 2px @v-space/2;
-}
-
-.button-group.small + div {
-	margin-top: 4px;
-}
-
-form[name="mailer"] {
-	text-align: center;
-	padding: @v-space/2;
-	background: @secondary-color-lighter;
-	position: relative;
-}
-
-
-form[name="mailer"]:before {
-    content: "▲";
-    font-size: 2em;
-    position: absolute;
-    right: 20%;
-    top: -0.7em;
-    color: @secondary-color-lighter;
-}
-
-form[name="mailer"] * {
-	vertical-align: top;
-}
-
-form[name="mailer"] input {
-	min-width: 200px;
-}
-
-form[name="mailer"] label span {
-	display: block;
-	padding-bottom: @v-space/3;
-}
-
-button.sent {
-	background: @secondary-color;
-}
-
-button.sending {
-	background: @primary-color;
-	text-decoration: blink;
-}
-
-button.sending:after {
-	content: '...';
-}
-
-button.sent:after {
-	content: '\2705';
-}
-
-.button-group button {
-	margin:0 @v-space/2 @v-space/2;
-}
-
-.button-group.small div {
-	display: inline-block;
-	margin-left: @v-space;
-}
-
-.add-symptoms input {
-	width: 100%;
-}
-
-.add-symptoms * {
-	margin: 0;
-}
-
-.add-symptoms > div {
-	position: relative;
-	margin-top: @v-space;
-}
-
-.add-symptoms label > span {
-	display: block;
-	font-size: 1.125em;
-	margin-bottom: @v-space/4;
-}
-
-.add-symptoms {
-
-button, button:active, button:focus  {
-    background: none repeat scroll 0 0 #D96342;
-    top: 100%;
-    box-shadow: none;
-    height: 51px;
-    left: 100%;
-    margin: -51px 0 0 -52px;
-    padding: 0 !important;
-    position: absolute;
-    display: block;
-    width: 51px;
-    font-size: 22.5px !important;
-}
-
-input {
-	padding-right: 3em;
-}
-
-button:active, button:focus {
-	background: @font-color;
-}
-
-}
-
-.lt-ie8  .add-symptoms button {
-	margin: -38px 0 0 0;
-	height:38px;
-}
-
-.lt-ie8 .add-symptoms button[disabled="disabled"] {
-	background: @primary-color-lighter;
-}
-
-/**
-* Accordians
-----------------------------------------------------------------------
-*/
-
-ul.accordion {
-	margin: 0 0 @v-space;
-}
-
-ul.accordion ul.accordion {
-	background: @font-color-light;
-	padding: @v-space;
-	box-shadow: 4px 4px 0 @primary-color-lighter;
-}
-.collapse {
-	position: relative;
 	height: 0;
+	width: 0;
 	overflow: hidden;
 	margin: 0;
-	.box-sized;
-	-webkit-transition: height 0.35s ease;
-	-moz-transition: height 0.35s ease;
-	-o-transition: height 0.35s ease;
-	transition: height 0.35s ease;
-}
-
-.accordion li > a + div > div {
-	margin: 0 @h-space/2 0 0;
-	padding: 0 0 @v-space;
-}
-
-.accordion li {
-	list-style: none;
-}
-
-.accordion li > a {
-	display: block;
-	background: transparent;
 	padding: 0;
+}
+
+/**
+* Doc header
+----------------------------------------------------------------------
+*/
+
+[role="banner"] {
+	background: @font-color; 
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+[role="banner"] h1, [role="banner"] nav {
+	display: inline-block;
+	width: 49%;
+	vertical-align: middle;
+	.box-sized;
+	padding: @v-space;
 	margin: 0;
 }
 
-.accordion li > a:active, .accordion li > a:focus {
-	background: transparent;
-	box-shadow: none;
+[role="banner"] nav ul {
+	text-align: right;
 }
 
-.accordion h2, .accordion h3 {
-	text-align: left;
+[role="banner"] h1 img {
+	max-width: 300px;
 }
 
-.accordion h2 {
-	padding: @v-space/2 @h-space/2;
-	background: @secondary-color-lighter;
-	margin-bottom: @v-space;
+[role="banner"] h1 a {
+	border: 0;
 }
 
-.accordion h2:before {
-	content: '+';
-	font-weight: bold;
+[role="navigation"] a {
+	text-align: center;
+	width: 80px;
+	height: 80px;
+	line-height: 80px;
+	border-radius: 50%;
+	margin-left: @h-space/2;
+	.transition-basic(0.5s);
+	margin-bottom: 0;
+	overflow: hidden;
+	padding: 0 !important;
+}
+
+[role="navigation"] a span {
+	width: 150px;
+	font-size: 1.5em;
+	text-align: right;
+	display: inline-block;
+	margin-left: 80px;
+	.box-sized;
 	padding-right: 0.5em;
 }
 
-.accordion a.active h2:before {
-	content: '-';
-}
-
-accordion-heading {
-	display: block;
-}
-
-.accordion h3 {
-	margin: @v-space/2 0;
-	font-size: 1.25em !important;
-	border-top: 2px dotted #999;
-	padding-top: @v-space;
-}
-
-.accordion h3:before {
-	content: '\25B6';
-	padding: 0 0.5em 0 0;
-	color: #999;
-}
-
-.accordion a.active h3:before {
-	content: '\25BC';
-}
-
-.accordion li:first-child h3 { 
-	border-top: 0;
-	padding-top: 0;
-}
-
-.accordion a:focus h2, .accordion a:active h2, .accordion a.active h2 {
-	background: @secondary-color;
-	color: #fff;
-}
-
-.accordion a:focus h3, .accordion a.active h3 {
-	font-weight: bold;
-}
-
-a[rel="prev"], a[rel="next"], ul.tags a {
-}
-
-a[rel="prev"]:active, a[rel="prev"]:focus, a[rel="next"]:active, a[rel="prev"]:focus {
-	box-shadow: none;
-	background-color: @tertiary-color;
-}
-
-a[aria-controls="info"] {
-	position: relative;
-	.transition-basic(0.7s);
-}
-
-a[aria-controls="info"] span {
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	padding: @v-space/2 15% @v-space/2 13%;
-	color: #fff;
-	margin: 0;
-	.box-sized;
-	font-family: @family-special;
-}
-
-a[aria-controls="info"]:focus, a[aria-controls="info"]:active, 
-a[aria-controls="info"]:hover {
-	background: transparent;
-	box-shadow: none;
-}
-
-a[aria-controls="info"]:focus span, a[aria-controls="info"]:active span, 
-a[aria-controls="info"]:hover span {
-	color: @link-color-lighter;
-}
-
-a[aria-controls="info"] img {
-	max-width: 80%;
-}
-
-a[aria-controls="info"][class*="active"] {
-	top: @v-space !important;
-}
-
-a[aria-controls="info"][class*="active"] img {
-	max-width: 100% !important;
-}
-
-a[aria-controls="info"][class*="active"] span {
-	padding: @v-space/2 5% @v-space/2 3%;
-}
-
-}
-
-@media screen and (max-width: 1000px) {
-
-body > nav img {
-	width: 150px;
-}
-
-}
-
-@media screen and (max-width: 800px) {
-
-.container > div {
-	padding: @v-space @v-space/2;
-}
-
-h1 + p {
-	font-size: 1.125em;
-}
-
-body > nav img {
-	width: 150px;
-}
-
-h1 {
-	font-size: 2em;
-}
-
-h2 {
-	font-size: 1.5em;
-}
-
-}
-
-@media screen and (max-width: 700px) {
-
-.button-group.small div {
-	display: block;
-	margin: 0;
-}
-
-.button-group.small button, .button-group.small a {
-	display: block !important;
-	margin: 0 0 @v-space/3;
-	width: 100%;
-	.box-sized;
-	padding: @v-space/2;
-}
-
-}
-
-@media screen and (max-width: 600px) {
-
-form[name="mailer"] button {
-	vertical-align: baseline;
-}
-
-body > nav {
-	background-position: center 18px;
-	background-size: auto 80px;
-	text-align: center;
-}
-
-body > nav ul {
-	text-align: center;
-	margin-top: @v-space/2;
-}
-
-body > nav img {
-	position: static;
-}
-
-body > nav ul a {
-	font-size: 0.8em;
-}
-
-ul[role="toolbar"] li {
-	width: 50%;
-}
-
-button, a[role="button"], 
-a[rel="prev"], a[rel="next"], label 
- {
-	font-size: 1em;
-}
-
-a[rel="prev"], a[rel="next"] {
-	padding: 0.5em 1em;
-}
-
-ul.symptoms li {
-	font-size: 1.125em;
-}
-
-a[aria-controls="info"][class*="active"] {
-	top: 0 !important;
-}
-
-a[aria-controls="info"][class*="active"] img {
-	max-width: 90% !important;
-}
-
-button, a[rel="prev"], a[rel="next"] {
-	margin-bottom:@v-space/2;
-}
-
-}
-
-
-#export {
-	background: #fff url(../images/preview.gif);
-	background-size: 200px auto;
-	box-shadow: 4px 4px 0 @primary-color-lighter;
-	padding: @v-space;
-}
-
-#export {
-
-h1, h2, h3, h4 {
-	font-family: 'trebuchet ms', trebuchet, sans-serif;
-	font-weight: bold;
-	text-align: left;
-	color: #111;
-}
-
-h1 { font-size: 2em; }
-h2 { font-size: 1.33em; }
-h3 { font-size: 1em; }
-
-nav[role="navigation"] {
-	background: transparent;
-	border-bottom: 4px solid #111;
-	padding: 0.5cm 0;
-}
-
-nav[role="navigation"] ul {
-	display: none;
-}
-
-nav[role="navigation"] img {
-	position: static;
-	width: 3cm;
-}
-
-.editable > div {
-	height: 2em;
-	border: 2px solid #111;
-	margin-top: @v-space/4;
-}
-
-h2 + p {
-	margin-top: @v-space/4;
-}
-
-* + h2 {
-	border-top: 2px dotted #666;
-	padding-top: @v-space;
-}
-
-.tall > div {
-	height: 8em;
-}
-
-}
-
-@media print {
-
-body {
-	font-family: 'trebuchet ms', trebuchet, sans-serif;
-	color: #111;
-}
-
-.button-group.small {
-	display: none;
-}
-
-.container {
-	padding: 0;
-}
-
-.no-print {
-	display: none;
-}
-
-#export {
-	padding: 0;
-	box-shadow: none;
-}
-
-h1, h2, h3, h4 {
-	font-family: 'trebuchet ms', trebuchet, sans-serif;
-	font-weight: bold;
-	text-align: left;
-	color: #111;
-}
-
-h1 { font-size: 2.125em; }
-h2 { font-size: 1.75em; }
-h3 { font-size: 1.25em; }
-
-nav[role="navigation"] {
-	background: transparent;
-	border-bottom: 4px solid #111;
-	padding: 0.5cm 0;
-}
-
-nav[role="navigation"] ul {
-	display: none;
-}
-
-nav[role="navigation"] img {
-	position: static;
-	width: 3cm;
-}
-
-.editable > div {
-	height: 2em;
-	border: 2px solid #111;
-	margin-top: @v-space/4;
-}
-
-h2 + p {
-	margin-top: @v-space/4;
-}
-
-* + h2 {
-	border-top: 2px dotted #666;
-	padding-top: @v-space;
-}
-
-.tall > div {
-	height: 8em;
-}
-
-ul[role="toolbar"] {
-	display: none !important;
-}
-
-#info li {
-	list-style: none !important;
-}
-
-ul.accordion li div {
-	display: block !important;
-	height: auto !important;
-}
-
-.accordion h3 > a:before {
-	content:'';
-}
-
-.accordion h3 > a {
-	font-size: 1.25em;
-	color: #333;
-	border: 0;
-}
-
-#info li + li h2 {
-	border-top: 2px dotted #666;
-	margin-top: @v-space;
-	padding-top: @v-space;
-}
-
-#info li + li h3 {
-	margin-top: @v-space;
-}
-
-}
+[role="navigation"] a:hover {
+	width: 230px;
+	border-radius: 40px;
+}
+
+[role="banner"]:after {
+    top: 99%;
+    content: "\25bc";
+    display: block;
+    width: 300px;
+    position: absolute;
+    text-align: center;
+    text-indent: @h-space;
+    font-size: 2.5em;
+}
+
+[role="navigation"] .nav-advice { background: @yellow-color; }
+[role="navigation"] .nav-checklist { background: @blue-color; }
+[role="navigation"] .nav-symptoms { background: @red-color; }
 
 /**
-* Word Cloud
+* Structure
 ----------------------------------------------------------------------
 */
 
-.wordcloud {
-	text-align: center;
-	margin-bottom: -27px;
+.container {
+	margin-top: 0;
 }
 
-.wordcloud text { 
- 	cursor: pointer;
-	-webkit-transition: all .2s ease-in-out;
-	-moz-transition: all .2s ease-in-out;
-	-o-transition: all .2s ease-in-out;
-	transition: all .2s ease-in-out;
-}
-.wordcloud text:hover {
- 	opacity: 0.5;
+[role="main"] {
+	background: #fff;
+	padding-bottom: @v-space;
 }
 
-.svg-container {
-	text-align: center;
-	margin-top: -19px;
-	margin-bottom: -19px;
+.content {
+	max-width: 900px;
+	margin: @v-space auto 0;
 }
 
-.wordcloud svg {
-	width: 600px;
-	height: 300px;
+.intro {
+	background: @blue-color;
+	color: #fff;
+}
+
+.intro > div {
+	padding: @v-space*2 0;
+	max-width: 900px;
 	margin: 0 auto;
 }
 
-@media screen and (max-width: 700px) {
-
-.wordcloud svg {
-	width: 500px;
-	height: 300px;
+ol h3 {
+	display: inline;
 }
 
+[role="contentinfo"] {
+	color: #fff;
+	padding: @v-space;
+	margin: 0;
+	font-size: 0;
 }
 
-@media screen and (max-width: 500px) {
-
-.wordcloud svg {
-	width: 450px;
-	height: 350px;
+[role="contentinfo"] li {
+	list-style: none;
 }
 
+[role="contentinfo"] a {
+	border: 0;
+	color: #fff;
 }
 
-@media screen and (max-width: 400px) {
-
-.wordcloud svg {
-	width: 300px;
-	height: 300px;
+[role="contentinfo"] a:hover, [role="contentinfo"] a:active {
+	color: @link-color-lighter;
 }
 
+[role="contentinfo"] ul, [role="contentinfo"] p {
+	display: inline-block;
+	width: 50%;
+	font-size: 18px;
+	vertical-align: top;
+	margin-top: 0;
 }
 
-@media screen and (max-width: 300px) {
-
-.wordcloud svg {
-	width: 220px;
-	height: 220px;
+[role="contentinfo"] p {
+	text-align: right;
 }
 
+[role="header"] a:focus, [role="contentinfo"] a:focus {
+	outline-color: #fff;
 }
-
-
-

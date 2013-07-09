@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Docready</title>
+    <title>DocReady</title>
     <script type='text/javascript'>
         window.Muscula = { settings:{
             logId:"c4bHrZC-fD4Gg", suppressErrors: false, googleAnalyticsEvents: 'none', branding: 'none'
@@ -45,16 +45,27 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <nav role="navigation">
-        <a track-route="home" ng-href="#/home"><img src="images/logo.png" alt="" aria-hidden="true" /></a>
-      <ul>
-        <li><a route-contains="advice" track-route="advice" ng-href="#/advice" ng-class="{active: $routeContains}"><span aria-hidden="true">&#xE005;</span> advice</a></li>
-        <li><a route-contains="picker" track-route="picker" ng-href="#/picker" ng-class="{active: $routeContains}"><span aria-hidden="true">&#xE004;</span> edit</a></li>
-        <li><a route-contains="checklist" track-route="checklist" ng-href="#/checklist" ng-class="{active: $routeContains}"><span aria-hidden="true">&#xE004;</span> checklist</a></li>
-      </ul>
-    </nav>
+    <header role="banner">
+        <h1>
+            <a track-route="home" ng-href="#/home"><img src="images/logo.png" alt="" /> <span class="a11y-hide">DocReady Home</span></a>
+        </h1>
+        <nav role="navigation">
+          <ul>
+            <li><a class="nav-advice" title="advice" route-contains="advice" track-route="advice" ng-href="#/advice" ng-class="{active: $routeContains}"><span>advice</span></a></li>
+            <li><a class="nav-symptoms" title="symptoms" route-contains="picker" track-route="picker" ng-href="#/picker" ng-class="{active: $routeContains}"><span>edit</span></a></li>
+            <li><a class="nav-checklist" title="checklist" route-contains="checklist" track-route="checklist" ng-href="#/checklist" ng-class="{active: $routeContains}"><span>checklist</span></a></li>
+          </ul>
+        </nav>
+    </header>
     <div class="container" ng-view ng-animate="getTransition()" ng-controller="MainCtrl"></div>
-
+    <footer role="contentinfo">
+        <ul>
+            <li><a href="#">about</a></li>
+            <li><a href="#">contact</a></li>
+            <li><a href="#">press</a></li>
+        </ul>
+        <p>DocReady &copy; 2013. All rights reserved.</p>
+    </footer>
     <!-- devcode: !production -->
     <script src="scripts/dev.js"></script>
     <!-- enddevcode -->
