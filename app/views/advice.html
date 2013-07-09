@@ -1,7 +1,7 @@
 <div>
-	<h1>Info</h1>
+	<h1>Info &amp; Advice</h1>
 	<p>Doc Ready is here to help you get ready to make a visit to the doctor.</p>
-	<p>Use our <a track-route="tool" ng-href="#/tool">checklist</a> to prepare a list of things you'd like to talk to a doctor about so you can take it with you.</p>
+	<p>Use our <a track-route="picker" ng-href="#/picker">checklist</a> to prepare a list of things you'd like to talk to a doctor about so you can take it with you.</p>
 	<div id="info">
 	    <div accordion="">
 	        <div accordion-group=""
@@ -12,8 +12,8 @@
 	            <div accordion-heading><h2>{{t.title}}</h2></div>
 	            <div accordion="">
 	                <div accordion-group=""
-	                           is-open="i === item"
 	                           ng-repeat="i in items | filter: { topic: t.slug }"
+	                           is-open="$first && $parent.$first"
 	                           opened="setItem"
 	                           slug="{{i.slug}}">
 	                    <div accordion-heading><h3>{{i.title}}</h3></div>

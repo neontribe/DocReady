@@ -4,17 +4,15 @@
     <div ng-switch-when="false">
       <ul class="tags">
         <li ng-repeat="tag in tags">
-          <a role="button" href="#/tool/picker/{{tag.text}}" style="font-size:{{tag.count + 1}}em">
-          {{tag.text}} <span class="count" ng-show="(tag.count !== 0)">{{tag.count}}</span>
-          </a>
+          <a role="button" href="#/picker/{{tag.text}}">{{tag.text}}</a>
         </li>
       </ul> 
-      <div class="button-group">
-        <a role="button" href="#/tool/checklist" rel="next">I'm Done</a>
-      </div>
     </div>  
     <div ng-switch-when="true">
       <h2>{{activeTag}}</h2>
+      <div class="button-group">
+        <a role="button" rel="prev" href="#/picker">Keep Building</a>
+      </div>
       <div class="add-symptoms">
         <div add-symptom tag="{{activeTag}}" mode="prepend" placeholder="What are you experiencing?"></div>
       </div>
@@ -23,9 +21,7 @@
           <label ng-class="{selected: symptom.selected}"><input type="checkbox" checked="{symptom.selected}" ng-click="symptomService.toggle(symptom, activeTag)"/> <span>{{symptom.title}}</span></label>
         </li>
       </ul>
-      <div class="button-group">
-        <a role="button" rel="prev" href="#/tool/picker">Done</a>
-      </div>
+      
     </div>
   </div>
 </div>

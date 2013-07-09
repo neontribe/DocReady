@@ -1,21 +1,23 @@
 <div id="checklist">
 	<h1>Checklist</h1>
+    <div class="button-group">
+        <a role="button" href="#/picker">Keep Building</a> 
+    </div>
 	<p ng-switch="selections.length > 0">
-        <span ng-switch-when="true">Drag and drop checklist items to prioritize&hellip;</span>
-        <span ng-switch-when="false">Your checklist is empty&hellip;</span>
+        <span ng-switch-when="true">Drag &amp; drop your checklist items to prioritize</span>
+        <span ng-switch-when="false">Your checklist is empty</span>
     </p>
     <ol ui-sortable="{axis:'y', 'cursor':'move'}" ng-model="selections">
         <li ng-repeat="symptom in selections" ng-animate="{enter:'animated fadeInUp', leave:'animated fadeOutDown'}">
           {{symptom.title}} <button title="delete item" ng-click="deselect(symptom)"><span aria-hidden="true">&#xE002;</span> <span>delete</span></button>
         </li>
     </ol>
-    <h2>Add items&hellip;</h2>
+    <h2>Add items</h2>
     <div class="add-symptoms">
-        <div add-symptom mode="last" tag="significant events">Any significant events?</div>
-        <div add-symptom mode="last" tag="other">Anything else you want to talk about?</div>
+        <div add-symptom mode="last" tag="significant events" placeholder="Any significant events?"></div>
+        <div add-symptom mode="last" tag="other" placeholder="Anything else you want to talk about?"></div>
     </div>
     <div class="button-group">
-    	<a role="button" rel="prev" href="#/tool/picker">Edit/More</a> 
-    	<a role="button" rel="next" href="#/tool/export">I'm Done</a>
+    	<a role="button" href="#/checklist/export">Preview</a>
     </div>
 </div>

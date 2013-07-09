@@ -46,10 +46,4 @@ describe('Controller: PickerCtrl', function () {
     });
   });
 
-  it('should provide a showTag method which adjusts the location', function(){
-    httpBackend.flush();
-    scope.showTag('test');
-    expect(location.path()).toEqual('/tool/picker/test');
-  });
-
 });

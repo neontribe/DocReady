@@ -20,11 +20,6 @@ angular.module('docready')
         return _.contains(symptom.tags, $scope.activeTag);
       };
 
-    $scope.showTag = function(tag) {
-      $location.path('/tool/picker/' + tag);
-      $scope.$apply();
-    };
-
     $scope.countForTag = function(tag){
       return _.size(_.filter($scope.symptoms, function(symptom){
         return _.contains(symptom.tags, tag) && symptom.selected;

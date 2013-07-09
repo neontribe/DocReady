@@ -63,55 +63,65 @@ angular.module('docready')
     }];
     items = [
         {
-            title: 'Item 1',
-            slug: 'item-1',
-            body: 'Blah',
-            topic: 'topic-1',
+            title: 'Intro',
+            slug: 'intro',
+            body: '<p>Doc Ready is here to help you get ready to make a visit to the doctor.</p><p>Use our <a track-route="picker" ng-href="#/picker">checklist</a> to prepare a list of things you\'d like to talk to a doctor about so you can take it with you.</p>',
+            topic: 'what-can-a-gp-help-with',
             weight: 1.0
           },
           {
             title: 'Item 2',
             slug: 'item-2',
             body: '<strong>Blah</strong>',
-            topic: 'topic-2',
+            topic: 'know-your-rights',
             weight: 2.0
           },
           {
             title: 'Item 3',
             slug: 'item-3',
             body: 'Blah blah',
-            topic: 'topic-2',
+            topic: 'know-your-rights',
             weight: 3.0
           },
           {
             title: 'Item 4',
             slug: 'item-4',
             body: 'Blah blah',
-            topic: 'topic-2',
+            topic: 'know-your-rights',
             weight: 4.0
           }
         ];
 
     topics = [
         {
-            title: 'Topic 1',
-            slug: 'topic-1',
+            title: 'What can a GP help with?',
+            slug: 'what-can-a-gp-help-with',
             weight: 1.0
           },
           {
-            title: 'Topic 2',
-            slug: 'topic-2',
+            title: 'Know your rights',
+            slug: 'know-your-rights',
             weight: 2.0
           },
           {
-            title: 'Topic 3',
-            slug: 'topic-3',
+            title: 'Confidentiality',
+            slug: 'confidentiality',
             weight: 3.0
           },
           {
-            title: 'Topic 4',
-            slug: 'topic-4',
+            title: 'Getting the most out of your appointment',
+            slug: 'getting-the-most-out-of-your-appointment',
             weight: 4.0
+          },
+          {
+            title: 'How to give feedback',
+            slug: 'how-to-give-feedback',
+            weight: 5.0
+          },
+          {
+            title: 'How to find a GP',
+            slug: 'how-to-find-a-gp',
+            weight: 6.0
           }
         ];
     mailer = {};
@@ -120,7 +130,7 @@ angular.module('docready')
       $httpBackend.whenGET(settings.apiRoot + '/advice_topic').respond(topics);
       $httpBackend.whenGET(settings.apiRoot + '/advice_item').respond(items);
       $httpBackend.whenGET(settings.apiRoot + '/symptom').respond(symptoms);
-      $httpBackend.whenPOST(settings.apiRoot + '/email').respond(function(method, url, data){
+      $httpBackend.whenPOST(settings.apiRoot + '/email').respond(function(){
         return [200];
       });
     }

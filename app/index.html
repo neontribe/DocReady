@@ -46,11 +46,11 @@
 
     <!-- Add your site or application content here -->
     <nav role="navigation">
-      <img src="images/logo.png" alt="" aria-hidden="true" />
+        <a track-route="home" ng-href="#/home"><img src="images/logo.png" alt="" aria-hidden="true" /></a>
       <ul>
-        <li><a route-contains="home" track-route="home" ng-href="#/home" ng-class="{active: $routeContains}"><span aria-hidden="true">&#xE005;</span> home</a></li>
-        <li><a route-contains="advice" track-route="advice" ng-href="#/advice" ng-class="{active: $routeContains}"><span aria-hidden="true">&#xE005;</span> info</a></li>
-        <li><a route-contains="tool" track-route="tool" ng-href="#/tool" ng-class="{active: $routeContains}"><span aria-hidden="true">&#xE004;</span> checklist</a></li>
+        <li><a route-contains="advice" track-route="advice" ng-href="#/advice" ng-class="{active: $routeContains}"><span aria-hidden="true">&#xE005;</span> advice</a></li>
+        <li><a route-contains="picker" track-route="picker" ng-href="#/picker" ng-class="{active: $routeContains}"><span aria-hidden="true">&#xE004;</span> edit</a></li>
+        <li><a route-contains="checklist" track-route="checklist" ng-href="#/checklist" ng-class="{active: $routeContains}"><span aria-hidden="true">&#xE004;</span> checklist</a></li>
       </ul>
     </nav>
     <div class="container" ng-view ng-animate="getTransition()" ng-controller="MainCtrl"></div>
@@ -80,14 +80,17 @@
     <script src="scripts/directives/route-contains.js"></script>
     <script src="scripts/directives/accordion.js"></script>
     <script src="scripts/directives/add-symptom.js"></script>
+    <script src="scripts/directives/validate-equals.js"></script>
+    <script src="scripts/directives/track-route.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/advice.js"></script>
     <script src="scripts/controllers/picker.js"></script>
     <script src="scripts/controllers/checklist.js"></script>
     <script src="scripts/controllers/export.js"></script>
     <script src="scripts/controllers/home.js"></script>
-    <script src="scripts/directives/track-route.js"></script>
-    <script src="scripts/directives/validate-equals.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/contact.js"></script>
+    <script src="scripts/controllers/press.js"></script>
     <!-- endbuild -->
     <!-- devcode: !production -->
     <script src="components/angular-mocks-unstable/index.js"></script>

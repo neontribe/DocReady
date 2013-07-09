@@ -25,7 +25,7 @@ describe('Controller: AdviceCtrl', function () {
 
   it('should attatch a list of topics to the scope', function () {
     $httpBackend.flush();
-    expect(scope.topics.length).toBe(4);
+    expect(scope.topics.length).toBe(6);
   });
 
   it('should attatch a list of items to the scope', function () {
@@ -34,13 +34,13 @@ describe('Controller: AdviceCtrl', function () {
   });
 
   it('should respect the active topic set in routeParams', function(){
-    var routeParams = {topic: 'topic-2'};
+    var routeParams = {topic: 'confidentiality'};
     AdviceCtrl = controller('AdviceCtrl', {
       $scope: scope,
       $routeParams: routeParams
     });
     $httpBackend.flush();
-    expect(scope.topic.slug).toEqual('topic-2');
+    expect(scope.topic.slug).toEqual('confidentiality');
   });
 
   it('should respect the active item set in routeParams', function(){
@@ -70,9 +70,8 @@ describe('Controller: AdviceCtrl', function () {
       $routeParams: routeParams
     });
     $httpBackend.flush();
-    expect(scope.items[0].slug).toEqual('item-1');
+    expect(scope.items[0].slug).toEqual('intro');
   });
-
 
   it('should provide a setItem method which sets the item in the location search', function(){
     $httpBackend.flush();

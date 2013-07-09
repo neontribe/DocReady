@@ -13,26 +13,35 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
         reloadOnSearch: false,
         animateFrom: 'Left'
       })
-      .when('/tool', {
+      .when('/picker', {
         templateUrl: 'views/picker.html',
         controller: 'PickerCtrl',
         animateFrom: 'Right'
       })
-      .when('/tool/picker', {
+      .when('/picker/:tag', {
         templateUrl: 'views/picker.html',
         controller: 'PickerCtrl'
       })
-      .when('/tool/picker/:tag', {
-        templateUrl: 'views/picker.html',
-        controller: 'PickerCtrl'
-      })
-      .when('/tool/checklist', {
+      .when('/checklist', {
         templateUrl: 'views/checklist.html',
-        controller: 'ChecklistCtrl'
+        controller: 'ChecklistCtrl',
+        animateFrom: 'Right'
       })
-      .when('/tool/export', {
+      .when('/checklist/export', {
         templateUrl: 'views/export.html',
         controller: 'ExportCtrl'
+      })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl'
+      })
+      .when('/contact', {
+        templateUrl: 'views/contact.html',
+        controller: 'ContactCtrl'
+      })
+      .when('/press', {
+        templateUrl: 'views/press.html',
+        controller: 'PressCtrl'
       })
       .otherwise({
         redirectTo: '/home'
