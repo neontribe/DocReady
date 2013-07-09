@@ -50,7 +50,7 @@
       <ul>
         <li><a route-contains="advice" track-route="advice" ng-href="#/advice" ng-class="{active: $routeContains}"><span aria-hidden="true">&#xE005;</span> advice</a></li>
         <li><a route-contains="picker" track-route="picker" ng-href="#/picker" ng-class="{active: $routeContains}"><span aria-hidden="true">&#xE004;</span> edit</a></li>
-        <li><a route-contains="checklist" track-route="checklist" ng-href="#/checklist" ng-class="{active: $routeContains}"><span aria-hidden="true">&#xE004;</span> checklist</a></li>
+        <li><a route-contains="checklist" track-route="checklist" ng-href="#/checklist" ng-class="{active: $routeContains}"><span aria-hidden="true">&#xE004;</span> checklist<figure checklist-widget count-only></figure></a></li>
       </ul>
     </nav>
     <div class="container" ng-view ng-animate="getTransition()" ng-controller="MainCtrl"></div>
@@ -82,6 +82,7 @@
     <script src="scripts/directives/add-symptom.js"></script>
     <script src="scripts/directives/validate-equals.js"></script>
     <script src="scripts/directives/track-route.js"></script>
+    <script src="scripts/directives/checklist-widget.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/advice.js"></script>
     <script src="scripts/controllers/picker.js"></script>

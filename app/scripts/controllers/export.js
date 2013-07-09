@@ -33,7 +33,7 @@ angular.module('docready')
       var persist = JSON.stringify({
         symptoms: symptomService.exportSymptoms()
       });
-      return '/#/tool/checklist?load=' + encodeURIComponent(persist);
+      return '/#/checklist?load=' + encodeURIComponent(persist);
     };
 
     $scope.print = function(){
