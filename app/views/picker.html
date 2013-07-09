@@ -1,27 +1,28 @@
-<div role="main">  
-  <h2>Recently I have noticed changes in my...</h2>
-  <div id="picker" ng-switch="!!activeTag">
-    <div ng-switch-when="false">
-      <ul class="tags">
-        <li ng-repeat="tag in tags">
-          <a role="button" href="#/picker/{{tag.text}}">{{tag.text}}</a>
-        </li>
-      </ul> 
-    </div>  
-    <div ng-switch-when="true">
-      <h2>{{activeTag}}</h2>
-      <div class="button-group">
-        <a role="button" rel="prev" href="#/picker">Keep Building</a>
+<div role="main"> 
+  <div class="content">
+    <h2>Recently I have noticed changes in my...</h2>
+    <div id="picker" ng-switch="!!activeTag">
+      <div ng-switch-when="false">
+        <ul class="tags">
+          <li ng-repeat="tag in tags">
+            <a role="button" href="#/picker/{{tag.text}}">{{tag.text}}</a>
+          </li>
+        </ul> 
+      </div>  
+      <div ng-switch-when="true">
+        <h2>{{activeTag}}</h2>
+        <div class="button-group">
+          <a role="button" rel="prev" href="#/picker">Keep Building</a>
+        </div>
+        <div class="add-symptoms">
+          <div add-symptom tag="{{activeTag}}" mode="prepend" placeholder="What are you experiencing?"></div>
+        </div>
+        <ul class="symptoms">
+          <li ng-repeat="symptom in symptoms | filter:hasActiveTag" ng-animate="{enter:'animated fadeInDown', leave:'animated fadeOutUp'}">
+            <label ng-class="{selected: symptom.selected}"><input type="checkbox" checked="{symptom.selected}" ng-click="symptomService.toggle(symptom, activeTag)"/> <span>{{symptom.title}}</span></label>
+          </li>
+        </ul>
       </div>
-      <div class="add-symptoms">
-        <div add-symptom tag="{{activeTag}}" mode="prepend" placeholder="What are you experiencing?"></div>
-      </div>
-      <ul class="symptoms">
-        <li ng-repeat="symptom in symptoms | filter:hasActiveTag" ng-animate="{enter:'animated fadeInDown', leave:'animated fadeOutUp'}">
-          <label ng-class="{selected: symptom.selected}"><input type="checkbox" checked="{symptom.selected}" ng-click="symptomService.toggle(symptom, activeTag)"/> <span>{{symptom.title}}</span></label>
-        </li>
-      </ul>
-      
     </div>
   </div>
 </div>
