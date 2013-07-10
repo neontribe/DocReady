@@ -630,6 +630,7 @@ div.group-bottom > * { vertical-align: baseline }
 }
 
 [role="banner"] h1 img {
+	width: 100%;
 	max-width: 300px;
 }
 
@@ -749,4 +750,93 @@ ol h3 {
 
 [role="header"] a:focus, [role="contentinfo"] a:focus {
 	outline-color: #fff;
+}
+
+
+/**
+* Breakpoints
+----------------------------------------------------------------------
+*/
+
+@media all and (max-width: 1025px) {
+
+[role="banner"] h1 {
+	width: 40%;
+}
+
+[role="banner"] nav {
+	width: 59%;
+}
+
+}
+
+@media all and (max-width: 910px) {
+
+body {
+	margin-top: 0;
+}
+
+.intro, .content {
+	padding-left: @v-space/2;
+	padding-right: @v-space/2;
+}
+
+[role="banner"] {
+	position: static;
+}
+
+[role="banner"] h1 {
+	padding-bottom: 0;
+}
+
+[role="banner"] h1, [role="banner"] nav, [role="banner"] nav ul {
+	display: block;
+	width: auto;
+	text-align: center;
+}
+
+[role="navigation"] {
+	padding-top: @v-space/2 !important;
+}
+
+[role="navigation"] li {
+	width: 30%;
+}
+
+[role="navigation"] a, [role="navigation"] a:hover {
+	margin: 0 @v-space/4;
+	display: block;
+	width: auto;
+	height: 60px;
+	line-height: 60px;
+	border-radius: 40px;
+	font-size: 0.9em;
+}
+
+[role="navigation"] a span {
+    display: block;
+    width: 100%;
+    font-size: 1.5em;
+    text-align: right;
+    padding-right: 0.5em;
+    padding-left: 60px;
+    margin: 0;
+}
+
+}
+
+@media all and (max-width: 710px) {
+
+body {
+	font-size: 16px;
+}
+
+[role="navigation"] li {
+	width: 100%;
+}
+
+[role="navigation"] li + li {
+	margin-top: @v-space/2;
+}
+
 }
