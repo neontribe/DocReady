@@ -59,7 +59,7 @@ angular.module('docready')
   function add(title, tag, selected, mode) {
     var symptom = {
       title: title,
-      tags: [tag],
+      tags: tag ? [tag] : [],
       selected: false
     },
     insertMode = mode || 'last',
