@@ -1,5 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700);
+/*@import url(http://fonts.googleapis.com/css?family=Raleway);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700);*/
 /**
 * LESS CSS VARIABLES AND MIXINS
 ----------------------------------------------------------------------
@@ -108,6 +108,14 @@ footer {
 	-o-transition: @time linear all;
 	-ms-transition: @time linear all;
 	transition: @time linear all;
+}
+
+.transition-padding(@time) {
+	-webkit-transition: @time linear padding;
+	-moz-transition: @time linear padding;
+	-o-transition: @time linear padding;
+	-ms-transition: @time linear padding;
+	transition: @time linear padding;
 }
 
 .headings {
@@ -339,7 +347,7 @@ h3 {
 	text-align: left;
 }
 
-h2 { font-size: 1.75em }
+h2 { font-size: 1.75em; }
 h1 { font-size: 2.25em }
 h1 span {
 	display: inline-block;
@@ -699,6 +707,7 @@ div.group-bottom > * { vertical-align: baseline }
 [role="main"] {
 	background: #fff;
 	padding-bottom: @v-space;
+	min-height: 800px;
 }
 
 .content {
@@ -845,4 +854,64 @@ body {
 	margin-top: @v-space/2;
 }
 
+}
+
+/**
+* Picker
+----------------------------------------------------------------------
+*/
+
+.tags {
+	text-align: center;
+	padding: 0 10%;
+}
+
+.tags li {
+	display: inline;
+	vertical-align: top;
+	padding: 3px;
+	.transition-padding(0.5s);
+	break-after: always;
+}
+
+.tags li:nth-child(1):after, .tags li:nth-child(3):after {
+	content:'\A';
+	white-space: pre;
+}
+
+.tags li:last-child:before {
+	content:'\A';
+	white-space: pre;	
+}
+
+li.animated:nth-child(even) {
+	padding: @v-space*2 0;
+}
+
+.tags a {
+	background: @blue-color;
+	border-radius: 40px;
+	padding: @v-space/2 @v-space;
+	margin: 6px 0;
+	display: inline-block;
+	color: #fff;
+
+}
+
+.tags a:hover {
+	background: @blue-color-darker;
+}
+
+figure {
+	border: 1px solid @red-color;
+}
+
+figure span {
+	display: block;
+	margin: 0;
+}
+
+figure span:first-of-type {
+	font-size:1.25em;
+	color: @red-color;
 }
