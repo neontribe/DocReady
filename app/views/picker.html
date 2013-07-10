@@ -1,11 +1,17 @@
 <div role="main">  
   <div class="content">
-    <h2>Recently I have noticed changes in my...</h2>
-    <figure checklist-widget></figure>
+    <div class="group-middle">
+      <div style="width: 60%">
+        <h2>Recently I have noticed changes in my...</h2>
+      </div>
+      <div style="width: 40%">
+        <figure checklist-widget></figure>
+      </div>
+    </div>
     <div id="picker" ng-switch="!!activeTag">
       <div ng-switch-when="false">
         <ul class="tags">
-          <li ng-repeat="tag in tags">
+          <li ng-repeat="tag in tags" ng-animate="{enter:'animated', leave:'animated'}">
             <a role="button" href="#/picker/{{tag.text}}">{{tag.text}}</a>
           </li>
         </ul> 
