@@ -1,3 +1,3 @@
 #!/bin/sh
 grunt jshint
-grunt test
+karma start --port 8088 --runnerPort 9122 --single-run
