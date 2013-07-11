@@ -13,8 +13,8 @@
 		            is-open="$first"
 		            opened="setTopic"
 		            ng-repeat="t in topics"
-		            slug="{{t.slug}}">
-		            <div accordion-heading><h3>{{t.title}}</h3></div>
+		            slug="{{t.slug}}" class="{{t.slug}}">
+		            <div accordion-heading><h3><span class="icon-{{t.slug}}"></span> <span>{{t.title}}</span></h3></div>
 		            <div accordion="">
 		                <div accordion-group=""
 		                           ng-repeat="i in items | filter: { topic: t.slug }"

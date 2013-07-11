@@ -981,7 +981,6 @@ ul.accordion ul.accordion {
 
 .accordion li > a + div > div {
 	margin: 0 @h-space/2 0 @h-space;
-	padding: 0 0 @v-space;
 }
 
 .accordion li {
@@ -1010,14 +1009,22 @@ ul.accordion ul.accordion {
 	margin-bottom: @v-space/2;
 }
 
-.accordion h3:before {
-	content: '+';
-	font-weight: bold;
-	padding-right: 0.5em;
+.accordion h3 span {
+	margin: 0;
 }
 
-.accordion a.active h3:before {
-	content: '-';
+.accordion h3 span[class^="icon-"] {
+	background: @red-color;
+	width: 2em;
+	height: 2em;
+	margin-right: 0.25em;
+	vertical-align: middle;
+	border-radius: 50px;
+	display: inline-block;
+}
+
+li:nth-child(odd) h3 span[class^="icon-"] {
+	background: @blue-color;
 }
 
 [accordion-heading] {
