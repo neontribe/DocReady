@@ -675,7 +675,7 @@ div.group-bottom > * { vertical-align: baseline }
 }
 
 [role="banner"]:after {
-    top: 99%;
+    top: 95%;
     content: "\25bc";
     display: block;
     width: 300px;
@@ -700,7 +700,6 @@ div.group-bottom > * { vertical-align: baseline }
 }
 
 .container > div > div {
-  padding: @v-space;
   margin-top:0;
 }
 
@@ -733,13 +732,24 @@ ol h3 {
 
 [role="contentinfo"] {
 	color: #fff;
-	padding: @v-space;
+	padding: @v-space/2 @v-space;
 	margin: 0;
 	font-size: 0;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: 2;
+	background: @font-color;
+	.box-sized;
 }
 
 [role="contentinfo"] li {
-	list-style: none;
+	list-style: none; 
+	display: inline-block;
+}
+
+[role="contentinfo"] li + li:before {
+	content: '\00B7\0020';
 }
 
 [role="contentinfo"] a {
@@ -797,7 +807,13 @@ body {
 }
 
 [role="banner"] {
-	position: static;
+	position: relative;
+}
+
+[role="banner"]:after {
+    width: 100%;
+    text-align: center;
+    text-indent: -0.5em;
 }
 
 [role="banner"] h1 {
