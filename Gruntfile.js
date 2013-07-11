@@ -137,6 +137,14 @@ module.exports = function (grunt) {
         }]
       }
     },
+    grunticon: {
+      icons: {
+        options: {
+          src: '<%= yeoman.app %>/images/src/icons/',
+          dest: '<%= yeoman.app %>/images/icons/'
+        }
+      }
+    },
     cssmin: {
       dist: {
         files: {
