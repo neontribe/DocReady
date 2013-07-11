@@ -229,6 +229,7 @@ module.exports = function (grunt) {
             '.htaccess',
             'components/**/*',
             'images/{,*/}*.{gif,webp,svg}',
+            'images/icons/{,*/}*.{css,png,svg}',
             'styles/fonts/*'
           ]
         }]
@@ -300,6 +301,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'lesscompile',
     'jshint',
+    'grunticon',
     'test',
     'useminPrepare',
     'imagemin',
