@@ -1,27 +1,33 @@
 <div role="main">
-	<h1>Info &amp; Advice</h1>
-	<p>Doc Ready is here to help you get ready to make a visit to the doctor.</p>
-	<p>Use our <a track-route="picker" ng-href="#/picker">checklist</a> to prepare a list of things you'd like to talk to a doctor about so you can take it with you.</p>
-	<div id="info">
-	    <div accordion="">
-	        <div accordion-group=""
-	            is-open="$first"
-	            opened="setTopic"
-	            ng-repeat="t in topics"
-	            slug="{{t.slug}}">
-	            <div accordion-heading><h2>{{t.title}}</h2></div>
-	            <div accordion="">
-	                <div accordion-group=""
-	                           ng-repeat="i in items | filter: { topic: t.slug }"
-	                           is-open="$first && $parent.$first"
-	                           opened="setItem"
-	                           slug="{{i.slug}}">
-	                    <div accordion-heading><h3>{{i.title}}</h3></div>
-	                    <div ng-bind-html="i.body"></div>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
+	<div class="intro">
+		<div>
+			<h2>Info &amp; Advice</h2>
+			<p>Doc Ready is here to help you get ready to make a visit to the doctor.</p>
+			<p>Use our <a track-route="picker" ng-href="#/picker">checklist</a> to prepare a list of things you'd like to talk to a doctor about so you can take it with you.</p>
+		</div>
+	</div>
+	<div class="content">
+		<div id="info">
+		    <div accordion="">
+		        <div accordion-group=""
+		            is-open="$first"
+		            opened="setTopic"
+		            ng-repeat="t in topics"
+		            slug="{{t.slug}}">
+		            <div accordion-heading><h3>{{t.title}}</h3></div>
+		            <div accordion="">
+		                <div accordion-group=""
+		                           ng-repeat="i in items | filter: { topic: t.slug }"
+		                           is-open="$first && $parent.$first"
+		                           opened="setItem"
+		                           slug="{{i.slug}}">
+		                    <div accordion-heading><h4>{{i.title}}</h4></div>
+		                    <div ng-bind-html="i.body"></div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
 	</div>
 </div>
  
