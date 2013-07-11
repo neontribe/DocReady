@@ -162,7 +162,7 @@ body {
 	font-family: @family-main;
 	color: @font-color;
 	margin-top: 147px;
-	background: @font-color;
+	background: #ffffff;
 }
 
 /**
@@ -301,7 +301,8 @@ nav a, nav a:hover, nav a:active, nav a:visited, .tabs-nav a {
 	border: 0;
 	outline: none;
 	padding: @slim-spacing;
-	background: @link-color;
+	background-color: @link-color;
+	background-size: 80px auto;
 	display: block;
 	text-align: center;
 	font-size: @font-size-base;
@@ -309,7 +310,7 @@ nav a, nav a:hover, nav a:active, nav a:visited, .tabs-nav a {
 }
 
 nav a:hover, nav a:active, nav a:focus {
-	background: @link-color-darker;
+	background-color: @link-color-darker;
 }
 
 nav li + li a {
@@ -686,9 +687,9 @@ div.group-bottom > * { vertical-align: baseline }
     font-size: 2.5em;
 }
 
-[role="navigation"] .nav-advice { background: @yellow-color; }
-[role="navigation"] .nav-checklist { background: @blue-color; }
-[role="navigation"] .nav-symptoms { background: @red-color; }
+[role="navigation"] .nav-advice { background-color: @yellow-color; }
+[role="navigation"] .nav-checklist { background-color: @blue-color; }
+[role="navigation"] .nav-symptoms { background-color: @red-color; }
 
 /**
 * Structure
