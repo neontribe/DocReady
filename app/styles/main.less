@@ -162,7 +162,7 @@ body {
 	font-family: @family-main;
 	color: @font-color;
 	margin-top: 117px;
-	background: @font-color;
+	margin-bottom: @v-space*3;
 }
 
 /**
@@ -687,8 +687,8 @@ div.group-bottom > * { vertical-align: baseline }
 }
 
 [role="navigation"] .nav-advice { background: @yellow-color; }
-[role="navigation"] .nav-checklist { background: @blue-color; }
-[role="navigation"] .nav-symptoms { background: @red-color; }
+[role="navigation"] .nav-symptoms { background: @blue-color; }
+[role="navigation"] .nav-checklist { background: @red-color; }
 
 /**
 * Structure
@@ -867,12 +867,29 @@ body {
 	font-size: 16px;
 }
 
+[class^="group-"] * {
+	display: block !important; 
+	width: auto !important;
+	margin: 0 !important;
+}
+
+[class^="group-"] * + * {
+	margin-top: @v-space/2 !important;
+}
+
 [role="navigation"] li {
 	width: 100%;
 }
 
 [role="navigation"] li + li {
 	margin-top: @v-space/2;
+}
+
+[role="contentinfo"] ul, [role="contentinfo"] p {
+	display: block; 
+	width: auto;
+	text-align: left; 
+	font-size: 14px;
 }
 
 }
@@ -942,6 +959,7 @@ ul.accordion {
 
 ul.accordion ul.accordion {
 	padding: 0;
+	margin-left: @v-space*2;
 }
 .collapse {
 	position: relative;
@@ -956,7 +974,7 @@ ul.accordion ul.accordion {
 }
 
 .accordion li > a + div > div {
-	margin: 0 @h-space/2 0 0;
+	margin: 0 @h-space/2 0 @h-space;
 	padding: 0 0 @v-space;
 }
 
@@ -983,7 +1001,7 @@ ul.accordion ul.accordion {
 .accordion h3 {
 	padding: 0;
 	color: @font-color;
-	margin-bottom: @v-space;
+	margin-bottom: @v-space/2;
 }
 
 .accordion h3:before {
@@ -1002,26 +1020,29 @@ ul.accordion ul.accordion {
 
 .accordion h4 {
 	margin: @v-space/2 0;
-	font-size: 1.25em !important;
-	border-top: 2px dotted #999;
-	padding-top: @v-space;
+	color: @font-color;
+	font-weight: normal;
 }
 
 .accordion h4:before {
-	content: '\25B6';
-	padding: 0 0.5em 0 0;
-	color: #999;
+	display: inline-block;
+	background: @font-color;
+    border-radius: 50%;
+    color: #FFFFFF;
+    content: "+";
+    height: 1em;
+    line-height: 1;
+    padding: 0 0.25em;
+    text-align: center;
+    width: 0.5em;
+    margin-right: 0.5em;
 }
 
 .accordion a.active h4:before {
-	content: '\25BC';
+	content: '-';
 }
 
 .accordion li:first-child h4 { 
 	border-top: 0;
 	padding-top: 0;
-}
-
-.accordion a:focus h4, .accordion a.active h4 {
-	font-weight: bold;
 }
