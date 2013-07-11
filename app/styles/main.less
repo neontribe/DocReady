@@ -12,7 +12,7 @@
 /* Colors */
 
 @font-color: #463947;
-@font-color-light: #eee;
+@font-color-light: #fff;
 
 @link-color: #265169;
 @link-color-darker: darken(@link-color, 20%);
@@ -654,23 +654,25 @@ div.group-bottom > * { vertical-align: baseline }
 	width: 80px;
 	height: 80px;
 	line-height: 80px;
-	border-radius: 50%;
+	border-radius: 50px;
 	margin-left: @h-space/2;
 	.transition-basic(0.5s);
 	margin-bottom: 0;
 	overflow: hidden;
 	padding: 0 !important;
+	background-position: right center;
 }
 
 [role="navigation"] a span {
 	width: 150px;
 	font-size: 1.5em;
-	text-align: right;
+	text-align: left;
 	display: inline-block;
-	margin-left: 80px;
-	.box-sized;
-	padding-right: 0.5em;
+	margin-right: 80px;
+	text-indent: 0.5em;
+	float: right;
 }
+
 
 header [role="navigation"] a:hover {
 	width: 230px;
@@ -688,15 +690,10 @@ header [role="navigation"] a:hover {
     font-size: 2.5em;
 }
 
-<<<<<<< HEAD
-[role="navigation"] .nav-advice { background: @yellow-color; }
-[role="navigation"] .nav-symptoms { background: @blue-color; }
-[role="navigation"] .nav-checklist { background: @red-color; }
-=======
+
 [role="navigation"] .nav-advice { background-color: @yellow-color; }
 [role="navigation"] .nav-symptoms { background-color: @blue-color; }
 [role="navigation"] .nav-checklist { background-color: @red-color; }
->>>>>>> e93a2b5bf99830482d6b13634647dfd6f974dfb7
 
 /**
 * Structure
@@ -850,20 +847,21 @@ body {
 [role="navigation"] a, [role="navigation"] a:hover {
 	margin: 0 @v-space/4;
 	display: block;
-	width: auto;
+	width: auto !important;
 	height: 60px;
 	line-height: 60px;
 	border-radius: 40px;
 	font-size: 0.9em;
+	background-size: 60px auto;
 }
 
-[role="navigation"] a span {
+[role="navigation"] a span, [role="navigation"] a:hover span {
     display: block;
-    width: 100%;
+    width: auto;
+    float: none;
     font-size: 1.5em;
-    text-align: right;
-    padding-right: 0.5em;
-    padding-left: 60px;
+    text-align: left;
+    padding-right: 60px;
     margin: 0;
 }
 
