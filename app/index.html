@@ -58,7 +58,7 @@
         </nav>
     </header>
     <div class="container">
-        <div ng-view ng-animate="getTransition()" ng-controller="MainCtrl"></div>
+        <div ng-view ng-animate="{enter: 'animated fadeInDownBig', leave:'animated fadeOutDownBig'}" ng-controller="MainCtrl"></div>
     </div>
     <footer role="contentinfo">
         <ul>

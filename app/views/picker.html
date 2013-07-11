@@ -11,7 +11,7 @@
     <div id="picker" ng-switch="!!activeTag">
       <div ng-switch-when="false">
         <ul class="tags">
-          <li ng-repeat="tag in tags" ng-animate="{enter:'animated', leave:'animated'}">
+          <li ng-repeat="tag in tags" ng-animate="{enter:'tagEnter'}">
             <a role="button" href="#/picker/{{tag.text}}">{{tag.text}}</a>
           </li>
         </ul> 
