@@ -8,11 +8,13 @@ describe('Controller: PickerCtrl', function () {
   var PickerCtrl,
     httpBackend,
     location,
+    timeout,
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, $httpBackend, mocks, $location) {
+  beforeEach(inject(function ($controller, $rootScope, $httpBackend, mocks, $location, $timeout) {
     httpBackend = $httpBackend;
+    timeout = $timeout;
     location = $location;
     mocks.registerMocks(httpBackend);
     scope = $rootScope.$new();
@@ -29,6 +31,7 @@ describe('Controller: PickerCtrl', function () {
 
   it('should attach an array of tags to the scope', function () {
     httpBackend.flush();
+    timeout.flush();
     expect(scope.tags.length).toBeGreaterThan(3);
   });
 

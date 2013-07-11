@@ -622,6 +622,7 @@ div.group-bottom > * { vertical-align: baseline }
 	position: fixed;
 	top: 0;
 	width: 100%;
+	z-index: 2;
 }
 
 [role="banner"] h1, [role="banner"] nav {
@@ -886,7 +887,6 @@ body {
 	display: inline;
 	vertical-align: top;
 	padding: 3px;
-	.transition-padding(0.5s);
 	break-after: always;
 }
 
@@ -900,10 +900,6 @@ body {
 	white-space: pre;	
 }
 
-li.animated:nth-child(even) {
-	padding: @v-space*2 0;
-}
-
 .tags a {
 	background: @blue-color;
 	border-radius: 40px;
@@ -911,7 +907,6 @@ li.animated:nth-child(even) {
 	margin: 6px 0;
 	display: inline-block;
 	color: #fff;
-
 }
 
 .tags a:hover {
