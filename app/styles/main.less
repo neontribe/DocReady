@@ -163,6 +163,7 @@ body {
 	color: @font-color;
 	margin-top: 117px;
 	margin-bottom: @v-space*3;
+	background: #fff;
 }
 
 /**
@@ -301,7 +302,8 @@ nav a, nav a:hover, nav a:active, nav a:visited, .tabs-nav a {
 	border: 0;
 	outline: none;
 	padding: @slim-spacing;
-	background: @link-color;
+	background-color: @link-color;
+	background-size: 80px auto;
 	display: block;
 	text-align: center;
 	font-size: @font-size-base;
@@ -309,7 +311,7 @@ nav a, nav a:hover, nav a:active, nav a:visited, .tabs-nav a {
 }
 
 nav a:hover, nav a:active, nav a:focus {
-	background: @link-color-darker;
+	background-color: @link-color-darker;
 }
 
 nav li + li a {
@@ -686,9 +688,15 @@ div.group-bottom > * { vertical-align: baseline }
     font-size: 2.5em;
 }
 
+<<<<<<< HEAD
 [role="navigation"] .nav-advice { background: @yellow-color; }
 [role="navigation"] .nav-symptoms { background: @blue-color; }
 [role="navigation"] .nav-checklist { background: @red-color; }
+=======
+[role="navigation"] .nav-advice { background-color: @yellow-color; }
+[role="navigation"] .nav-symptoms { background-color: @blue-color; }
+[role="navigation"] .nav-checklist { background-color: @red-color; }
+>>>>>>> e93a2b5bf99830482d6b13634647dfd6f974dfb7
 
 /**
 * Structure

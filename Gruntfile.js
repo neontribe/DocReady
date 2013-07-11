@@ -137,6 +137,14 @@ module.exports = function (grunt) {
         }]
       }
     },
+    grunticon: {
+      icons: {
+        options: {
+          src: '<%= yeoman.app %>/images/src/icons/',
+          dest: '<%= yeoman.app %>/images/icons/'
+        }
+      }
+    },
     cssmin: {
       dist: {
         files: {
@@ -221,6 +229,7 @@ module.exports = function (grunt) {
             '.htaccess',
             'components/**/*',
             'images/{,*/}*.{gif,webp,svg}',
+            'images/icons/{,*/}*.{css,png,svg}',
             'styles/fonts/*'
           ]
         }]
@@ -292,6 +301,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'lesscompile',
     'jshint',
+    'grunticon',
     'test',
     'useminPrepare',
     'imagemin',
