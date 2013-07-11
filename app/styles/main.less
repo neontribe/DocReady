@@ -1,5 +1,5 @@
-/*@import url(http://fonts.googleapis.com/css?family=Raleway);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700);*/
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700);
 /**
 * LESS CSS VARIABLES AND MIXINS
 ----------------------------------------------------------------------
@@ -161,7 +161,7 @@ body {
 	font-weight: 400;
 	font-family: @family-main;
 	color: @font-color;
-	margin-top: 147px;
+	margin-top: 117px;
 	background: #ffffff;
 }
 
@@ -631,7 +631,7 @@ div.group-bottom > * { vertical-align: baseline }
 	width: 49%;
 	vertical-align: middle;
 	.box-sized;
-	padding: @v-space;
+	padding: @v-space/2 @v-space;
 	margin: 0;
 }
 
@@ -719,6 +719,10 @@ div.group-bottom > * { vertical-align: baseline }
 
 .intro {
 	background: @blue-color;
+	color: #fff;
+}
+
+.intro a:hover, .intro a:active {
 	color: #fff;
 }
 
@@ -926,4 +930,99 @@ figure span {
 figure span:first-of-type {
 	font-size:1.25em;
 	color: @red-color;
+}
+
+/**
+* Accordions
+----------------------------------------------------------------------
+*/
+
+ul.accordion {
+	margin: 0 0 @v-space;
+}
+
+ul.accordion ul.accordion {
+	padding: 0;
+}
+.collapse {
+	position: relative;
+	height: 0;
+	overflow: hidden;
+	margin: 0;
+	.box-sized;
+	-webkit-transition: height 0.35s ease;
+	-moz-transition: height 0.35s ease;
+	-o-transition: height 0.35s ease;
+	transition: height 0.35s ease;
+}
+
+.accordion li > a + div > div {
+	margin: 0 @h-space/2 0 0;
+	padding: 0 0 @v-space;
+}
+
+.accordion li {
+	list-style: none;
+}
+
+.accordion li > a {
+	display: block;
+	background: transparent;
+	padding: 0;
+	margin: 0;
+}
+
+.accordion li > a:active, .accordion li > a:focus {
+	background: transparent;
+	box-shadow: none;
+}
+
+.accordion h3, .accordion h4 {
+	text-align: left;
+}
+
+.accordion h3 {
+	padding: 0;
+	color: @font-color;
+	margin-bottom: @v-space;
+}
+
+.accordion h3:before {
+	content: '+';
+	font-weight: bold;
+	padding-right: 0.5em;
+}
+
+.accordion a.active h3:before {
+	content: '-';
+}
+
+[accordion-heading] {
+	padding: 0 !important;
+}
+
+.accordion h4 {
+	margin: @v-space/2 0;
+	font-size: 1.25em !important;
+	border-top: 2px dotted #999;
+	padding-top: @v-space;
+}
+
+.accordion h4:before {
+	content: '\25B6';
+	padding: 0 0.5em 0 0;
+	color: #999;
+}
+
+.accordion a.active h4:before {
+	content: '\25BC';
+}
+
+.accordion li:first-child h4 { 
+	border-top: 0;
+	padding-top: 0;
+}
+
+.accordion a:focus h4, .accordion a.active h4 {
+	font-weight: bold;
 }
