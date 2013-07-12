@@ -39,7 +39,7 @@
 
 
   </head>
-  <body id="ng-app" ng-app="docready">
+  <body id="ng-app" data-ng-app="docready">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -56,18 +56,18 @@
     <!-- Add your site or application content here -->
     <header role="banner">
         <h1>
-            <a track-route="home" ng-href="#/home"><img src="images/logo.png" alt="" /> <span class="a11y-hide">DocReady Home</span></a>
+            <a data-track-route="home" data-ng-href="#/home"><img src="images/logo.png" alt="" /> <span class="a11y-hide">DocReady Home</span></a>
         </h1>
         <nav role="navigation">
           <ul>
-            <li><a class="nav-advice icon-info" title="advice" route-contains="advice" track-route="advice" ng-href="#/advice" ng-class="{active: $routeContains}"><span>advice</span></a></li>
-            <li><a class="nav-symptoms icon-pencil" title="symptoms" route-contains="picker" track-route="picker" ng-href="#/picker" ng-class="{active: $routeContains}"><span>edit</span></a></li>
-            <li><a class="nav-checklist icon-eye" title="checklist" route-contains="checklist" track-route="checklist" ng-href="#/checklist" ng-class="{active: $routeContains}"><span>checklist</span></a></li>
+            <li><a class="nav-advice icon-info" title="advice" data-route-contains="advice" data-track-route="advice" href="#/advice" data-ng-class="{active: $routeContains}"><span>advice</span></a></li>
+            <li><a class="nav-symptoms icon-pencil" title="symptoms" data-route-contains="picker" data-track-route="picker" href="#/picker" data-ng-class="{active: $routeContains}"><span>edit</span></a></li>
+            <li><a class="nav-checklist icon-eye" title="checklist" data-route-contains="checklist" data-track-route="checklist" href="#/checklist" data-ng-class="{active: $routeContains}"><span>checklist</span></a></li>
           </ul>
         </nav>
     </header>
     <div class="container">
-        <div ng-view ng-animate="{enter: 'animated fadeInDownBig', leave:'animated fadeOutDownBig'}" ng-controller="MainCtrl"></div>
+        <div data-ng-view data-ng-animate="{enter: 'animated fadeInDownBig', leave:'animated fadeOutDownBig'}" data-ng-controller="MainCtrl"></div>
     </div>
     <footer role="contentinfo">
         <ul>
