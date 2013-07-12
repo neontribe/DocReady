@@ -1,3 +1,4 @@
+/* jshint -W106 */
 'use strict';
 var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
 var mountFolder = function (connect, dir) {
@@ -40,7 +41,7 @@ module.exports = function (grunt) {
       options: {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost'
+        hostname: '0.0.0.0'
       },
       livereload: {
         options: {
@@ -121,7 +122,7 @@ module.exports = function (grunt) {
     },
     usemin: {
       html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+      css: ['<%= yeoman.dist %>/styles/{,*/}*.css', '<%= yeoman.dist %>/images/icons/*.css'],
       options: {
         basedir: '<%= yeoman.dist %>',
         dirs: ['<%= yeoman.dist %>']
@@ -141,8 +142,29 @@ module.exports = function (grunt) {
       icons: {
         options: {
           src: '<%= yeoman.app %>/images/src/icons/',
-          dest: '<%= yeoman.app %>/images/icons/'
+          dest: '<%= yeoman.app %>/images/icons/',
+          defaultWidth: '80px',
+          defaultHeight: '80px'
         }
+      }
+    },
+    image_resize: {
+      options: {
+        overwrite: true
+      },
+      icons: {
+        options: {
+          width: 80,
+          height: 80
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>',
+          dest: '<%= yeoman.app %>',
+          src: [
+            'images/icons/png/*.png'
+          ]
+        }]
       }
     },
     cssmin: {
@@ -297,11 +319,13 @@ module.exports = function (grunt) {
 
   grunt.registerTask('lesscompile', ['less:app']);
 
+  grunt.registerTask('icons', ['grunticon:icons', 'image_resize:icons']);
+
   grunt.registerTask('build', [
     'clean:dist',
     'lesscompile',
     'jshint',
-    'grunticon',
+    'icons',
     'test',
     'useminPrepare',
     'imagemin',
