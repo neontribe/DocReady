@@ -1,8 +1,10 @@
 <figure data-ng-switch on="countOnly">
-  <span data-ng-switch-when="false">My Checklist</span>
-  <span data-ng-switch-when="false">{{checklist.length}} item{{checklist.length !== 1 && 's' || ''}}</span>
-  <span data-ng-switch-when="true">{{checklist.length > 0 && checklist.length || ''}}</span>
-  <nav role="navigation" data-ng-switch-when="false">
-  <a class="nav-checklist icon-eye" title="checklist" data-route-contains="checklist" data-track-route="checklist" href="#/checklist" data-ng-class="{active: $routeContains}"></a>
-  </nav>
+  <p>
+	  <span data-ng-switch-when="false">My Checklist</span>
+	  <span data-ng-switch-when="false">{{checklist.length}} item{{checklist.length !== 1 && 's' || ''}}</span>
+	  <span data-ng-switch-when="true">{{checklist.length > 0 && checklist.length || ''}}</span>
+  </p>
+  <p>
+      <a class="nav-checklist my-checklist icon-eye" title="checklist" data-route-contains="checklist" data-track-route="checklist" href="#/checklist" data-ng-class="{active: $routeContains}"></a>
+  </p>
 </figure>
