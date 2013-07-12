@@ -3,28 +3,28 @@
 	<div class="button-group small">
 		<a role="button" rel="prev" href="#/checklist">Review</a> 
 		<div>
-			<button ng-click="track('print');print()"><span aria-hidden="true">&#xE00B</span> Print</button>
-			<a role="button" target="_blank" ng-click="track('download')" ng-href="{{getpdf()}}"><span aria-hidden="true">&#xE001</span> Download</a>
-			<button ng-click="prepareMail()"><span aria-hidden="true">&#xE003</span> Email</button>
+			<button data-ng-click="track('print');print()"><span aria-hidden="true">&#xE00B</span> Print</button>
+			<a role="button" target="_blank" data-ng-click="track('download')" data-ng-href="{{getpdf()}}"><span aria-hidden="true">&#xE001</span> Download</a>
+			<button data-ng-click="prepareMail()"><span aria-hidden="true">&#xE003</span> Email</button>
 		</div>
 	</div>
-	<div ng-show="showMailer"  style="display:none" ng-animate="{show:'animated fadeInDown', hide:'animated fadeOutUp'}">
+	<div data-ng-show="showMailer"  style="display:none" data-ng-animate="{show:'animated fadeInDown', hide:'animated fadeOutUp'}">
 		<form name="mailer">
 			<label>
 				<span>Enter your email address:</span>
-				<input type="email" name="recipient" ng-model="email.recipient" ng-required="true"/>
+				<input type="email" name="recipient" data-ng-model="email.recipient" data-ng-required="true"/>
 			</label>
-			<label ng-show="mailer.recipient.$valid">
+			<label data-ng-show="mailer.recipient.$valid">
 				<span>Confirm:</span>
-				<input type="email" name="econf" ng-model="econf" ng-required="true" validate-equals="email.recipient"/>
+				<input type="email" name="econf" data-ng-model="econf" data-ng-required="true" data-validate-equals="email.recipient"/>
 			</label>
-			<button ng-disabled="mailer.$invalid" 
-							ng-click="track('email');sendEmail()" 
-							ng-switch="email.state" 
-							ng-class="email.state">
-				<span ng-switch-when="sending">Sending</span>
-				<span ng-switch-when="sent">Sent</span>
-				<span ng-switch-default>Send</span>
+			<button data-ng-disabled="mailer.$invalid" 
+							data-ng-click="track('email');sendEmail()" 
+							data-ng-switch="email.state" 
+							data-ng-class="email.state">
+				<span data-ng-switch-when="sending">Sending</span>
+				<span data-ng-switch-when="sent">Sent</span>
+				<span data-ng-switch-default>Send</span>
 			</button>
 		</form>
 	</div>
@@ -62,7 +62,7 @@
 		</div>
 		<h2>My symptoms</h2>
 	    <ol>
-	        <li ng-repeat="symptom in selections">{{symptom.title}}</li>
+	        <li data-ng-repeat="symptom in selections">{{symptom.title}}</li>
 	    </ol>
 		<h2>Notes</h2>
 		<p>(Place any additional notes in the box below)</p>
@@ -70,5 +70,5 @@
 			<div></div>
 		</div>
 	</div>
-	<a class="permalink" ng-href="{{permalink()}}" target="_blank">(permalink)</a>
+	<a class="permalink" data-ng-href="{{permalink()}}" target="_blank">(permalink)</a>
 </div>

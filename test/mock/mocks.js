@@ -170,4 +170,4 @@ angular.module('docreadyTest', ['docready', 'ngMockE2E'])
   $httpBackend.whenGET().passThrough();
 });
 
-angular.element(document).find('body').attr('ng-app', 'docreadyTest');
+angular.element(document).find('body').attr('data-ng-app', 'docreadyTest');

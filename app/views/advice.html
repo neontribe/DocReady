@@ -3,26 +3,26 @@
 		<div>
 			<h2>Info &amp; Advice</h2>
 			<p>Doc Ready is here to help you get ready to make a visit to the doctor.</p>
-			<p>Use our <a track-route="picker" ng-href="#/picker">checklist</a> to prepare a list of things you'd like to talk to a doctor about so you can take it with you.</p>
+			<p>Use our <a data-track-route="picker" href="#/picker">checklist</a> to prepare a list of things you'd like to talk to a doctor about so you can take it with you.</p>
 		</div>
 	</div>
 	<div class="content">
 		<div id="info">
-		    <div accordion="">
-		        <div accordion-group=""
-		            is-open="$first"
-		            opened="setTopic"
-		            ng-repeat="t in topics"
-		            slug="{{t.slug}}" class="{{t.slug}}">
-		            <div accordion-heading><h3><span class="icon-{{t.slug}}"></span> <span>{{t.title}}</span></h3></div>
-		            <div accordion="">
-		                <div accordion-group=""
-		                           ng-repeat="i in items | filter: { topic: t.slug }"
-		                           is-open="$first && $parent.$first"
-		                           opened="setItem"
-		                           slug="{{i.slug}}">
-		                    <div accordion-heading><h4>{{i.title}}</h4></div>
-		                    <div ng-bind-html="i.body"></div>
+		    <div data-accordion="">
+		        <div data-accordion-group=""
+		            data-is-open="$first"
+		            data-opened="setTopic"
+		            data-ng-repeat="t in topics"
+		            data-slug="{{t.slug}}" class="{{t.slug}}">
+		            <div class="hide" data-accordion-heading><h3><span class="icon-{{t.slug}}"></span> <span>{{t.title}}</span></h3></div>
+		            <div data-accordion="">
+		                <div data-accordion-group=""
+		                           data-ng-repeat="i in items | filter: { topic: t.slug }"
+		                           data-is-open="$first && $parent.$first"
+		                           data-opened="setItem"
+		                           data-slug="{{i.slug}}">
+		                    <div class="hide" data-accordion-heading><h4>{{i.title}}</h4></div>
+		                    <div data-ng-bind-html="i.body"></div>
 		                </div>
 		            </div>
 		        </div>
