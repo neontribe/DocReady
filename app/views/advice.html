@@ -14,14 +14,14 @@
 		            data-opened="setTopic"
 		            data-ng-repeat="t in topics"
 		            data-slug="{{t.slug}}" class="{{t.slug}}">
-		            <div data-accordion-heading><h3><span class="icon-{{t.slug}}"></span> <span>{{t.title}}</span></h3></div>
+		            <div class="hide" data-accordion-heading><h3><span class="icon-{{t.slug}}"></span> <span>{{t.title}}</span></h3></div>
 		            <div data-accordion="">
 		                <div data-accordion-group=""
 		                           data-ng-repeat="i in items | filter: { topic: t.slug }"
 		                           data-is-open="$first && $parent.$first"
 		                           data-opened="setItem"
 		                           data-slug="{{i.slug}}">
-		                    <div data-accordion-heading><h4>{{i.title}}</h4></div>
+		                    <div class="hide" data-accordion-heading><h4>{{i.title}}</h4></div>
 		                    <div data-ng-bind-html="i.body"></div>
 		                </div>
 		            </div>
