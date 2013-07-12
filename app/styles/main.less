@@ -649,7 +649,7 @@ div.group-bottom > * { vertical-align: baseline }
 	border: 0;
 }
 
-[role="navigation"] a {
+[role="navigation"] a, a.my-checklist {
 	text-align: center;
 	width: 80px;
 	height: 80px;
@@ -694,6 +694,16 @@ header [role="navigation"] a:hover {
 [role="navigation"] .nav-advice { background-color: @yellow-color; }
 [role="navigation"] .nav-symptoms { background-color: @blue-color; }
 [role="navigation"] .nav-checklist { background-color: @red-color; }
+.my-checklist.nav-checklist { 
+	display: inline-block;
+	background-color: @red-color;
+	position: static;
+	border: 0;
+	width: 60px;
+	height: 60px;
+	background-size: 60px auto;
+	margin: 0;
+}
 
 /**
 * Structure
@@ -898,6 +908,14 @@ body {
 	font-size: 14px;
 }
 
+div[class^="group"] figure {
+	display: none !important;
+}
+
+h2 {
+	text-align: center;
+}
+
 }
 
 /**
@@ -944,9 +962,21 @@ figure {
 	border: 1px solid @red-color;
 }
 
+figure p {
+	display: inline-block;
+	width: 69%;
+	vertical-align: top;
+	margin: 0;
+}
+
+figure p + p {
+	width: 28%;
+	text-align: right;
+}
+
 figure span {
 	display: block;
-	margin: 0;
+	margin: @v-space/4 0;
 }
 
 figure span:first-of-type {
@@ -1039,7 +1069,7 @@ li:nth-child(odd) h3 span[class^="icon-"] {
 
 .accordion h4:before {
 	display: inline-block;
-	background: @font-color;
+	background: @red-color;
     border-radius: 50%;
     color: #FFFFFF;
     content: "+";
@@ -1049,6 +1079,10 @@ li:nth-child(odd) h3 span[class^="icon-"] {
     text-align: center;
     width: 0.5em;
     margin-right: 0.5em;
+}
+
+.accordion li:nth-child(odd) li h4:before {
+	background: @blue-color;
 }
 
 .accordion a.active h4:before {
