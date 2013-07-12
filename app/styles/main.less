@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway);
+@import url(http://fonts.googleapis.com/css?family=Muli:300);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700);
 /**
 * LESS CSS VARIABLES AND MIXINS
@@ -48,7 +48,7 @@
 
 @font-size-base: 20px;
 @family-main: 'Open Sans', sans-serif;
-@family-headings: 'Raleway', sans-serif;
+@family-headings: 'Muli', sans-serif;
 
 /* Layout */
 
@@ -158,7 +158,7 @@ input, select { vertical-align: middle }
 body { 
 	font-size: @font-size-base;
 	line-height: @v-space;
-	font-weight: 400;
+	font-weight: 300;
 	font-family: @family-main;
 	color: @font-color;
 	margin-top: 117px;
@@ -797,6 +797,188 @@ ol h3 {
 	outline-color: #fff;
 }
 
+/**
+* Picker
+----------------------------------------------------------------------
+*/
+
+.tags {
+	text-align: center;
+	padding: 0 10%;
+}
+
+.tags li {
+	display: inline;
+	vertical-align: top;
+	padding: 3px;
+	break-after: always;
+}
+
+.tags li:nth-child(1):after, .tags li:nth-child(3):after {
+	content:'\A';
+	white-space: pre;
+}
+
+.tags li:last-child:before {
+	content:'\A';
+	white-space: pre;	
+}
+
+.tags a {
+	background: @blue-color;
+	border-radius: 40px;
+	padding: @v-space/2 @v-space;
+	margin: 6px 0;
+	display: inline-block;
+	color: #fff;
+}
+
+.tags a:hover {
+	background: @blue-color-darker;
+}
+
+figure {
+	border: 1px solid @red-color;
+}
+
+figure p {
+	display: inline-block;
+	width: 69%;
+	vertical-align: top;
+	margin: 0;
+}
+
+figure p + p {
+	width: 28%;
+	text-align: right;
+}
+
+figure span {
+	display: block;
+	margin: @v-space/4 0;
+}
+
+figure span:first-of-type {
+	font-size:1.25em;
+	color: @red-color;
+}
+
+/**
+* Accordions
+----------------------------------------------------------------------
+*/
+
+ul.accordion {
+	margin: 0 0 @v-space;
+}
+
+ul.accordion ul.accordion {
+	padding: 0;
+	margin-left: @v-space*1.5;
+}
+.collapse {
+	position: relative;
+	height: 0;
+	overflow: hidden;
+	margin: 0;
+	.box-sized;
+	-webkit-transition: height 0.35s ease;
+	-moz-transition: height 0.35s ease;
+	-o-transition: height 0.35s ease;
+	transition: height 0.35s ease;
+}
+
+.accordion li > a + div > div {
+	margin: 0 @h-space/2 @h-space/2 @h-space;
+}
+
+.accordion li {
+	list-style: none;
+}
+
+.accordion li > a {
+	display: block;
+	background: transparent;
+	padding: 0;
+	margin: 0;
+}
+
+.accordion li > a:active, .accordion li > a:focus {
+	background: transparent;
+	box-shadow: none;
+}
+
+.accordion h3, .accordion h4 {
+	text-align: left;
+}
+
+.accordion h3 {
+	padding: 0;
+	color: @font-color;
+	margin-bottom: @v-space/2;
+}
+
+.accordion h3 span {
+	margin: 0;
+	vertical-align: top;
+	display: inline-block;
+}
+
+.accordion h3 span[class^="icon-"] {
+	background: @red-color;
+	width: 70px;
+	height: 70px;
+	margin-right: -2.3em;
+	vertical-align: middle;
+	border-radius: 50px;
+	display: inline-block;
+}
+
+li:nth-child(odd) h3 span[class^="icon-"] {
+	background: @blue-color;
+}
+
+h3 span[class^="icon-"] + span {
+	padding-left: 2.25em;
+	padding-top: 0.5em;
+}
+
+[accordion-heading] {
+	padding: 0 !important;
+}
+
+.accordion h4 {
+	margin: @v-space/2 0;
+	color: @font-color;
+	font-weight: normal;
+}
+
+.accordion h4:before {
+	display: inline-block;
+	background: @red-color;
+    border-radius: 50%;
+    color: #FFFFFF;
+    content: "+";
+    height: 1em;
+    line-height: 1;
+    padding: 0 0.25em;
+    text-align: center;
+    width: 0.5em;
+    margin-right: 0.5em;
+}
+
+.accordion li:nth-child(odd) li h4:before {
+	background: @blue-color;
+}
+
+.accordion a.active h4:before {
+	content: '-';
+}
+
+.accordion li:first-child h4 { 
+	border-top: 0;
+	padding-top: 0;
+}
 
 /**
 * Breakpoints
@@ -916,180 +1098,8 @@ h2 {
 	text-align: center;
 }
 
-}
-
-/**
-* Picker
-----------------------------------------------------------------------
-*/
-
-.tags {
-	text-align: center;
-	padding: 0 10%;
-}
-
-.tags li {
-	display: inline;
-	vertical-align: top;
-	padding: 3px;
-	break-after: always;
-}
-
-.tags li:nth-child(1):after, .tags li:nth-child(3):after {
-	content:'\A';
-	white-space: pre;
-}
-
-.tags li:last-child:before {
-	content:'\A';
-	white-space: pre;	
-}
-
-.tags a {
-	background: @blue-color;
-	border-radius: 40px;
-	padding: @v-space/2 @v-space;
-	margin: 6px 0;
-	display: inline-block;
-	color: #fff;
-}
-
-.tags a:hover {
-	background: @blue-color-darker;
-}
-
-figure {
-	border: 1px solid @red-color;
-}
-
-figure p {
-	display: inline-block;
-	width: 69%;
-	vertical-align: top;
-	margin: 0;
-}
-
-figure p + p {
-	width: 28%;
-	text-align: right;
-}
-
-figure span {
-	display: block;
-	margin: @v-space/4 0;
-}
-
-figure span:first-of-type {
-	font-size:1.25em;
-	color: @red-color;
-}
-
-/**
-* Accordions
-----------------------------------------------------------------------
-*/
-
-ul.accordion {
-	margin: 0 0 @v-space;
-}
-
-ul.accordion ul.accordion {
-	padding: 0;
-	margin-left: @v-space*2;
-}
-.collapse {
-	position: relative;
-	height: 0;
-	overflow: hidden;
-	margin: 0;
-	.box-sized;
-	-webkit-transition: height 0.35s ease;
-	-moz-transition: height 0.35s ease;
-	-o-transition: height 0.35s ease;
-	transition: height 0.35s ease;
-}
-
 .accordion li > a + div > div {
-	margin: 0 @h-space/2 0 @h-space;
+	margin-left: 0;
 }
 
-.accordion li {
-	list-style: none;
-}
-
-.accordion li > a {
-	display: block;
-	background: transparent;
-	padding: 0;
-	margin: 0;
-}
-
-.accordion li > a:active, .accordion li > a:focus {
-	background: transparent;
-	box-shadow: none;
-}
-
-.accordion h3, .accordion h4 {
-	text-align: left;
-}
-
-.accordion h3 {
-	padding: 0;
-	color: @font-color;
-	margin-bottom: @v-space/2;
-}
-
-.accordion h3 span {
-	margin: 0;
-}
-
-.accordion h3 span[class^="icon-"] {
-	background: @red-color;
-	width: 2em;
-	height: 2em;
-	margin-right: 0.25em;
-	vertical-align: middle;
-	border-radius: 50px;
-	display: inline-block;
-}
-
-li:nth-child(odd) h3 span[class^="icon-"] {
-	background: @blue-color;
-}
-
-[accordion-heading] {
-	padding: 0 !important;
-}
-
-.accordion h4 {
-	margin: @v-space/2 0;
-	color: @font-color;
-	font-weight: normal;
-}
-
-.accordion h4:before {
-	display: inline-block;
-	background: @red-color;
-    border-radius: 50%;
-    color: #FFFFFF;
-    content: "+";
-    height: 1em;
-    line-height: 1;
-    padding: 0 0.25em;
-    text-align: center;
-    width: 0.5em;
-    margin-right: 0.5em;
-}
-
-.accordion li:nth-child(odd) li h4:before {
-	background: @blue-color;
-}
-
-.accordion a.active h4:before {
-	content: '-';
-}
-
-.accordion li:first-child h4 { 
-	border-top: 0;
-	padding-top: 0;
 }
