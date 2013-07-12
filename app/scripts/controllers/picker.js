@@ -19,7 +19,7 @@ angular.module('docready')
           });
         });
       }, 1100);
-    }, true);
+    });
 
     $scope.hasActiveTag = function(symptom){
         return _.contains(symptom.tags, $scope.activeTag);
