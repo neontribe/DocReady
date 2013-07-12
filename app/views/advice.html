@@ -13,8 +13,8 @@
 		            data-is-open="$first"
 		            data-opened="setTopic"
 		            data-ng-repeat="t in topics"
-		            data-slug="{{t.slug}}" data-ng-class="{{t.slug}}">
-		            <div data-accordion-heading><h3><span data-ng-class="icon-{{t.slug}}"></span> <span>{{t.title}}</span></h3></div>
+		            data-slug="{{t.slug}}" class="{{t.slug}}">
+		            <div data-accordion-heading><h3><span class="icon-{{t.slug}}"></span> <span>{{t.title}}</span></h3></div>
 		            <div data-accordion="">
 		                <div data-accordion-group=""
 		                           data-ng-repeat="i in items | filter: { topic: t.slug }"
