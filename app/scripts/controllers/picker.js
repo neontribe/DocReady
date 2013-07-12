@@ -15,19 +15,13 @@ angular.module('docready')
         $scope.$apply(function(){
           var rawTags = _.uniq(_.union.apply(null, _.pluck(newVal, 'tags')));
           $scope.tags = _.map(rawTags, function(tag){
-            return { text: tag, count: $scope.countForTag(tag) };
+            return { text: tag };
           });
         });
       }, 1100);
     });
 
     $scope.hasActiveTag = function(symptom){
-        return _.contains(symptom.tags, $scope.activeTag);
-      };
-
-    $scope.countForTag = function(tag){
-      return _.size(_.filter($scope.symptoms, function(symptom){
-        return _.contains(symptom.tags, tag) && symptom.selected;
-      }));
+      return _.contains(symptom.tags, $scope.activeTag);
     };
   });

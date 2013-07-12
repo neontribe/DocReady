@@ -41,12 +41,4 @@ describe('Controller: PickerCtrl', function () {
     expect(_.filter(scope.symptoms, scope.hasActiveTag).length).toEqual(3);
   });
 
-  it('should provide a method which counts the selected symptoms for a tag', function(){
-    httpBackend.flush();
-    scope.symptoms[0].selected = true;
-    _.each(scope.symptoms[0].tags, function(tag){
-      expect(scope.countForTag(tag)).toEqual(1);
-    });
-  });
-
 });
