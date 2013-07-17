@@ -1,16 +1,24 @@
 <div role="main" id="checklist">
     <div class="content">
-    	<h2>Checklist</h2>
-        <div class="button-group">
-            <a role="button" href="#/picker">Keep Building</a> 
-        </div>
-    	<p data-ng-switch="selections.length > 0">
-            <span data-ng-switch-when="true">Drag &amp; drop your checklist items to prioritize</span>
-            <span data-ng-switch-when="false">Your checklist is empty</span>
-        </p>
+		<div class="group-middle">
+			<div style="width: 50%">
+				<div>
+					<h2>Checklist</h2>
+					<p class="status" data-ng-switch="selections.length > 0">
+						<span data-ng-switch-when="true">Drag &amp; drop your checklist items to prioritize</span>
+						<span data-ng-switch-when="false">Your checklist is empty</span>
+					</p>
+				</div>
+			</div>
+			<div style="width: 50%">
+				<div class="button-group right">
+				  <a rel="prev" class="with-icon" href="#/picker"><span>choose more symptoms -></span> <span class="icon-cloud round-icon"></span></a>
+				</div>
+			</div>
+		</div>
         <ol data-ui-sortable="{axis:'y', 'cursor':'move'}" data-ng-model="selections">
             <li data-ng-repeat="symptom in selections" data-ng-animate="{enter:'animated fadeInUp', leave:'animated fadeOutDown'}">
-              {{symptom.title}} <button title="delete item" data-ng-click="deselect(symptom)"><span aria-hidden="true">&#xE002;</span> <span>delete</span></button>
+              {{symptom.title}} <button title="delete item" aria-label="delete" data-ng-click="deselect(symptom)">&#x274c;</button>
             </li>
         </ol>
         <h2>Add items</h2>
@@ -18,8 +26,8 @@
             <div data-add-symptom data-mode="last" placeholder="Any significant events?"></div>
             <div data-add-symptom data-mode="last" placeholder="Anything else you want to talk about?"></div>
         </div>
-        <div class="button-group">
-        	<a role="button" href="#/checklist/export">Preview</a>
+        <div class="button-group right">
+        	<a rel="next" class="with-icon" href="#/checklist/export"><span>preview here -></span> <span class="icon-eye round-icon"></span></a>
         </div>
     </div>
 </div>

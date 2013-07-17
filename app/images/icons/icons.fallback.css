@@ -1,5 +1,19 @@
+.icon-cloud { background-image: url(png/cloud.png); background-repeat: no-repeat; }
+
+.icon-confidentiality { background-image: url(png/confidentiality.png); background-repeat: no-repeat; }
+
 .icon-eye { background-image: url(png/eye.png); background-repeat: no-repeat; }
+
+.icon-getting-the-most-out-of-your-appointment { background-image: url(png/getting-the-most-out-of-your-appointment.png); background-repeat: no-repeat; }
+
+.icon-how-to-find-a-gp { background-image: url(png/how-to-find-a-gp.png); background-repeat: no-repeat; }
+
+.icon-how-to-give-feedback { background-image: url(png/how-to-give-feedback.png); background-repeat: no-repeat; }
 
 .icon-info { background-image: url(png/info.png); background-repeat: no-repeat; }
 
+.icon-know-your-rights { background-image: url(png/know-your-rights.png); background-repeat: no-repeat; }
+
 .icon-pencil { background-image: url(png/pencil.png); background-repeat: no-repeat; }
+
+.icon-what-can-a-gp-help-with { background-image: url(png/what-can-a-gp-help-with.png); background-repeat: no-repeat; }

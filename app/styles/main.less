@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Muli:300);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700);
+@import url(http://fonts.googleapis.com/css?family=Indie+Flower&text=abcdefghijklmnopqrstuvwxyz<->);
 /**
 * LESS CSS VARIABLES AND MIXINS
 ----------------------------------------------------------------------
@@ -451,15 +452,60 @@ label {
 	font-weight: 700;
 }
 
-input, textarea, select {
-	font-size: inherit;
+.label-and-button {
+	position: relative;
+}
+
+.label-and-button label {
+	padding: 0;
+}
+
+.label-and-button button, .symptoms label:after, #checklist ol button {
+	background-color: @blue-color;
+	border-radius: 50px;
+	font-size: 1.25em;
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	right: 0;
+	margin: 0;
+	width: 2.25em;
+	padding: 0.33em;
+	font-weight: bold;
+	color: #fff;
+}
+
+.symptoms {
+	margin-top: 0;
+}
+
+.symptoms label:after {
+	content: '+';
+	width: 1.125em; 
+	text-align: center;
+	cursor: pointer;
+}
+
+.symptoms label.selected:after {
+	content: '\2013';
+}
+
+input, textarea, select, .symptoms label, #checklist ol li {
+	font-size: 1.25em;
 	font-family: inherit;
 	margin: 0;
 	line-height: 1;
 	width: 50%;
-	padding: 0.25em;
-	border: 1px solid @font-color;
+	padding: 0.33em 2em 0.33em 0.33em;
 	.box-sized;
+	vertical-align: middle;
+	border: 2px solid @blue-color;
+	border-radius: 30px;
+	width: 100%;
+}
+
+#checklist ol li {
+	padding: 0.5em 2em 0.5em 0.33em;
 }
 
 form p {
@@ -473,7 +519,7 @@ form p + p {
 }
 
 input:focus, textarea:focus, select:focus {
-	outline: 2px solid @font-color;
+	background: #fefefe;
 }
 
 input[type="submit"]:focus {
@@ -487,6 +533,53 @@ option {
 input[type="checkbox"], input[type="radio"] {
 	width: auto;
 	border: 0;
+}
+
+.symptoms li {
+	list-style: none;
+	position: relative;
+}
+
+.symptoms label {
+	display: block;
+	margin-top: @v-space/2;
+	text-align: left;
+	padding: 0.5em 0.33em;
+}
+
+.symptoms input {
+	position: absolute;
+	visibility: hidden;
+}
+
+.symptoms span {
+	font-weight: normal;
+}
+
+.add-symptoms * + div {
+	margin-top: @v-space/2;
+}
+
+#checklist ol li {
+	position: relative;
+	.box-sized;
+	cursor: move;
+	list-style: none;
+	background: #fff;
+}
+
+#checklist ol li:after {
+	content: '\0020\2195';
+} 
+
+#checklist li button {
+    font-size: 1em;
+    right: -2px;
+    top: -2px;
+}
+	
+#checklist ol li + li {
+	margin-top: @v-space/2;
 }
 
 /**
@@ -508,6 +601,7 @@ button, a[role="button"], input[type="submit"], input[type="button"] {
 	font-size: 1.25em;
 	.transition-basic(0.5s);
 	.border-radius;
+	vertical-align: middle;
 }
 
 button:active, a[role="button"]:active, input[type="submit"]:active {
@@ -522,9 +616,7 @@ button:active, a[role="button"]:active, input[type="submit"]:active {
 
 /* reset active styles for disabled elements */
 *[disabled="disabled"]:active, a[href="#disabled"]:active {
-	top: 0;
 	background: #990000;
-	box-shadow: 1px 1px 0 @link-color-darker, 2px 2px 0 @link-color-darker, 3px 3px 0 @link-color-darker, 4px 4px 0 @link-color-darker;
 }
 
 /**
@@ -614,6 +706,26 @@ div.group-bottom > * { vertical-align: baseline }
 	padding: 0;
 }
 
+.right {
+	text-align: right;
+}
+
+.with-icon, .with-icon:hover {
+	border: 0;
+	font-family: 'Indie FLower', sans-serif;
+	text-transform: lowercase;
+	font-size: 1.25em;
+}
+
+.with-icon span {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.with-icon span + span {
+    margin-left: 0.25em;
+}
+
 /**
 * Doc header
 ----------------------------------------------------------------------
@@ -643,18 +755,31 @@ div.group-bottom > * { vertical-align: baseline }
 [role="banner"] h1 img {
 	width: 100%;
 	max-width: 300px;
+	height: auto;
+	max-height: 80px;
 }
 
 [role="banner"] h1 a {
 	border: 0;
 }
 
-[role="navigation"] a, a.my-checklist {
+[role="navigation"] a, .round-icon, .round-icon:hover, .round-icon:active {
+	width: 60px;
+	height: 60px;
+	border-radius: 50px;
+	border: 0;
+	box-shadow: none;
+}
+
+a.round-icon:hover, a:hover .round-icon {
+	background-color: @link-color;
+}
+
+[role="navigation"] a {
 	text-align: center;
 	width: 80px;
 	height: 80px;
 	line-height: 80px;
-	border-radius: 50px;
 	margin-left: @h-space/2;
 	.transition-basic(0.5s);
 	margin-bottom: 0;
@@ -694,7 +819,7 @@ header [role="navigation"] a:hover {
 [role="navigation"] .nav-advice { background-color: @yellow-color; }
 [role="navigation"] .nav-symptoms { background-color: @blue-color; }
 [role="navigation"] .nav-checklist { background-color: @red-color; }
-.my-checklist.nav-checklist { 
+.round-icon { 
 	display: inline-block;
 	background-color: @red-color;
 	position: static;
@@ -703,6 +828,10 @@ header [role="navigation"] a:hover {
 	height: 60px;
 	background-size: 60px auto;
 	margin: 0;
+}
+
+.icon-cloud {
+	background-color: @blue-color;
 }
 
 /**
@@ -821,16 +950,21 @@ ol h3 {
 
 .tags li:last-child:before {
 	content:'\A';
-	white-space: pre;	
+	white-space: pre;
 }
 
-.tags a {
+.tags a, .symptom-highlighted {
 	background: @blue-color;
 	border-radius: 40px;
 	padding: @v-space/2 @v-space;
 	margin: 6px 0;
-	display: inline-block;
 	color: #fff;
+	font-style: normal;
+}
+
+.symptom-highlighted {
+	font-size: 0.66em; 
+	padding: 0.25em 0.5em;
 }
 
 .tags a:hover {
@@ -853,13 +987,23 @@ figure p + p {
 	text-align: right;
 }
 
-figure span {
+figure > span {
 	display: block;
 	margin: @v-space/4 0;
 }
 
-figure span:first-of-type {
-	font-size:1.25em;
+figure a {
+    display: block;
+	font-size: 1.25em;
+	border: 0;
+}
+
+figure a:hover {
+	border: 0;
+	color: @link-color;
+}
+
+figure a span {
 	color: @red-color;
 }
 
@@ -894,6 +1038,7 @@ ul.accordion ul.accordion {
 
 .accordion li {
 	list-style: none;
+	position: relative;
 }
 
 .accordion li > a {
@@ -925,22 +1070,35 @@ ul.accordion ul.accordion {
 }
 
 .accordion h3 span[class^="icon-"] {
-	background: @red-color;
+	background-color: @red-color;
 	width: 70px;
 	height: 70px;
 	margin-right: -2.3em;
 	vertical-align: middle;
 	border-radius: 50px;
 	display: inline-block;
+	background-size: 70px auto;
+	position: absolute;
+}
+
+.accordion h3 span.icon-confidentiality, 
+.accordion h3 span.icon-getting-the-most-out-of-your-appointment {
+	background-color: @yellow-color;
+}
+
+.accordion h3:hover  span[class^="icon-"]{
+	background-color: @link-color;
 }
 
 li:nth-child(odd) h3 span[class^="icon-"] {
-	background: @blue-color;
+	background-color: @blue-color;
 }
 
 h3 span[class^="icon-"] + span {
-	padding-left: 2.25em;
-	padding-top: 0.5em;
+    margin-top: 0;
+    min-height: 2em;
+    padding-left: 80px;
+    padding-top: 0.66em;
 }
 
 [accordion-heading] {
@@ -1072,6 +1230,10 @@ body {
 }
 
 [class^="group-"] * + * {
+	margin-top: @v-space/2;
+}
+
+.symptom-highlighted {
 	margin-top: @v-space/2 !important;
 }
 

@@ -1,5 +1,7 @@
-<label>
-  <span data-ng-transclude></span>
-  <input type="text" data-ng-model="sympt" placeholder="{{placeholder}}"/>
-</label>
-<button type="button" data-ng-click="add()" data-ng-disabled="sympt.length === 0">{{buttonT}}</button>
+<div class="label-and-button">
+	<label>
+	  <span data-ng-transclude></span>
+	  <input type="text" data-ng-model="sympt" placeholder="{{placeholder}}"/>
+	</label>
+	<button type="button" data-ng-click="add()" data-ng-disabled="sympt.length === 0">{{buttonT}}</button>
+</div>
