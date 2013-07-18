@@ -3,7 +3,7 @@
 		<div class="group-middle">
 			<div style="width: 50%">
 				<div>
-					<h2>Checklist</h2>
+					<h2>My Checklist</h2>
 					<p class="status" data-ng-switch="selections.length > 0">
 						<span data-ng-switch-when="true">Drag &amp; drop your checklist items to prioritize</span>
 						<span data-ng-switch-when="false">Your checklist is empty</span>
@@ -21,8 +21,8 @@
               {{symptom.title}} <button title="delete item" aria-label="delete" data-ng-click="deselect(symptom)">&#x274c;</button>
             </li>
         </ol>
-        <h2>Add items</h2>
         <div class="add-symptoms">
+			<h2>Add items</h2>
             <div data-add-symptom data-mode="last" placeholder="Any significant events?"></div>
             <div data-add-symptom data-mode="last" placeholder="Anything else you want to talk about?"></div>
         </div>

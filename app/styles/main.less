@@ -25,7 +25,7 @@
 
 @blue-color: #62C1C2;
 @blue-color-darker: darken(@blue-color, 20%);
-@blue-color-lighter: lighten(@blue-color, 40%);
+@blue-color-lighter: lighten(@blue-color, 37%);
 
 @red-color: #EC6D6F;
 @red-color-darker: darken(@red-color, 20%);
@@ -560,6 +560,11 @@ input[type="checkbox"], input[type="radio"] {
 	margin-top: @v-space/2;
 }
 
+#checklist ol {
+	list-style: none;
+	counter-reset: section;
+}
+
 #checklist ol li {
 	position: relative;
 	.box-sized;
@@ -568,9 +573,22 @@ input[type="checkbox"], input[type="radio"] {
 	background: #fff;
 }
 
-#checklist ol li:after {
-	content: '\0020\2195';
-} 
+#checklist li:before {
+	counter-increment: section;
+	content: counter(section);
+	padding: 0 0.4em;
+	background: @blue-color-lighter;
+	border-radius: 30px;
+}
+
+.ui-sortable-helper {
+	box-shadow: 3px 3px 5px #ccc;
+}
+
+.ui-sortable-helper:before, 
+#checklist li.ui-sortable-helper ~ li:before {
+	content:'?' !important;
+}
 
 #checklist li button {
     font-size: 1em;
@@ -580,6 +598,31 @@ input[type="checkbox"], input[type="radio"] {
 	
 #checklist ol li + li {
 	margin-top: @v-space/2;
+}
+
+#checklist .add-symptoms {
+	position: relative;
+	padding: @v-space;
+	background: @blue-color-lighter;
+	border-radius: 50px;
+	margin-top: @v-space*1.5;
+}
+
+#checklist .add-symptoms:before {
+	display: block;
+	width: 100%;
+	position: absolute;
+	top: -0.75em;
+	font-size: 2em;
+	content: '\25B2';
+	text-align: center;
+	color: @blue-color-lighter;
+}
+
+.add-symptoms h2 {
+	font-size: 1.5em;
+	color: @blue-color-darker;
+	text-indent: 0.5em;
 }
 
 /**
@@ -710,6 +753,10 @@ div.group-bottom > * { vertical-align: baseline }
 	text-align: right;
 }
 
+.center {
+	text-align: center;
+}
+
 .with-icon, .with-icon:hover {
 	border: 0;
 	font-family: 'Indie FLower', sans-serif;
@@ -720,6 +767,7 @@ div.group-bottom > * { vertical-align: baseline }
 .with-icon span {
 	display: inline-block;
 	vertical-align: middle;
+	margin-top: 0;
 }
 
 .with-icon span + span {
@@ -830,7 +878,7 @@ header [role="navigation"] a:hover {
 	margin: 0;
 }
 
-.icon-cloud {
+.icon-cloud, .icon-pencil {
 	background-color: @blue-color;
 }
 
@@ -1139,6 +1187,34 @@ h3 span[class^="icon-"] + span {
 }
 
 /**
+* Export
+----------------------------------------------------------------------
+*/
+
+.editable > div {
+	border: 2px solid @font-color;
+	height: 2em;
+	margin-top: @v-space/2;
+}
+
+.tall > div {
+	height: 5em;
+}
+
+#export {
+	padding: @v-space;
+	border: 4px solid @blue-color;
+}
+
+#export h2 {
+	text-align: left;
+}
+
+#export h2 + p, #checklist h2 + p {
+	margin-top: 3px;
+}
+
+/**
 * Breakpoints
 ----------------------------------------------------------------------
 */
@@ -1223,10 +1299,12 @@ body {
 	font-size: 16px;
 }
 
-[class^="group-"] * {
+[class^="group-"] > * {
 	display: block !important; 
 	width: auto !important;
-	margin: 0 !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	margin-top: @v-space/2;
 }
 
 [class^="group-"] * + * {
@@ -1260,8 +1338,16 @@ h2 {
 	text-align: center;
 }
 
+#export h2 + p, #checklist h2 + p {
+	text-align: center;
+}
+
 .accordion li > a + div > div {
 	margin-left: 0;
+}
+
+.right {
+	text-align: center;
 }
 
 }
