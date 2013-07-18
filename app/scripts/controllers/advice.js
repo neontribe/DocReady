@@ -30,6 +30,17 @@ angular.module('docready')
     $scope.setTopic = function(slug) {
       $location.search('topic', slug);
     };
+	
+	if ($routeParams.quail) {		
+		$('body').quail({ jsonPath : 'components/quail/src/resources',
+				// accessibilityTests : accessibilityTests,
+				testFailed : function(event) {
+				event.element.addClass('quail-result')
+					 .addClass(event.severity)
+					 .before('<span class="quail-message"><span>WRONG</span></span>');
+				}});
+	}
+	
   });
 
 
