@@ -784,7 +784,6 @@ div.group-bottom > * { vertical-align: baseline }
 	background: pink;
 	padding: 0.25em;
 	font-family: 'comic sans ms', cursive;
-	font-size: 14px;
 }
 
 /**
@@ -860,7 +859,7 @@ a.round-icon:hover, a:hover .round-icon {
 }
 
 
-header [role="navigation"] a:hover {
+header [role="navigation"] a:hover, header [role="navigation"] a:focus {
 	width: 230px;
 	border-radius: 40px;
 }
@@ -1363,4 +1362,17 @@ h2 {
 	text-align: center;
 }
 
+}
+
+@media print {
+
+	#export {
+		padding: 0;
+		border: 0;
+	}
+	
+	[role="banner"], .button-group, [role="contentinfo"], .print-hide, .permalink  {
+		display: none;
+	}
+	
 }
