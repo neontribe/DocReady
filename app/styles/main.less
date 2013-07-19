@@ -254,7 +254,7 @@ p * { margin: 0 }
 p + p { margin-top: @v-space/2 }
 
 /* for introductory paragraphs belonging to major sections */
-h1 + p, header + p, hgroup + p { font-size: 1.25em }
+h1 ~ p, header + p, hgroup + p { font-size: 1.125em }
 
 li { list-style: disc inside }
 
@@ -490,6 +490,10 @@ label {
 	content: '\2013';
 }
 
+.symptoms label.selected:before {
+	content: '\2713';
+}
+
 input, textarea, select, .symptoms label, #checklist ol li {
 	font-size: 1.25em;
 	font-family: inherit;
@@ -519,7 +523,7 @@ form p + p {
 }
 
 input:focus, textarea:focus, select:focus {
-	background: #fefefe;
+	background: @blue-color-lighter;
 }
 
 input[type="submit"]:focus {
@@ -545,6 +549,11 @@ input[type="checkbox"], input[type="radio"] {
 	margin-top: @v-space/2;
 	text-align: left;
 	padding: 0.5em 0.33em;
+	cursor: pointer;
+}
+
+label.selected span:before {
+	
 }
 
 .symptoms input {
@@ -786,6 +795,10 @@ div.group-bottom > * { vertical-align: baseline }
 	font-family: 'comic sans ms', cursive;
 }
 
+.blue { background: @blue-color !important; }
+.red { background: @red-color !important; }
+.yellow { background: @yellow-color !important; }
+
 /**
 * Doc header
 ----------------------------------------------------------------------
@@ -911,7 +924,6 @@ header [role="navigation"] a:hover, header [role="navigation"] a:focus {
 [role="main"] {
 	background: #fff;
 	padding-bottom: @v-space;
-	min-height: 800px;
 }
 
 .content {
@@ -1065,6 +1077,10 @@ figure a:hover {
 
 figure a span {
 	color: @red-color;
+}
+
+figure a:hover span {
+	color: @link-color;
 }
 
 /**
@@ -1309,6 +1325,26 @@ body {
 
 body {
 	font-size: 16px;
+	margin-bottom: 0;
+}
+
+.container {
+	min-height: 500px;
+}
+
+.intro > div {
+	padding: @v-space @v-space/2;
+	text-align: center;
+}
+
+.with-icon, .with-icon:hover {
+	font-size: 16px;
+}
+
+.round-icon {
+	width: 45px;
+	height: 45px;
+	background-size: 100% 100%;
 }
 
 [class^="group-"] > * {
@@ -1327,12 +1363,23 @@ body {
 	margin-top: @v-space/2 !important;
 }
 
+[role="navigation"] {
+	padding-top: 0 !important;
+}
+
 [role="navigation"] li {
 	width: 100%;
 }
 
+[role="navigation"] a, [role="navigation"] a:hover, [role="navigation"] a:active {
+	font-size: 0.8em;
+	height: 45px;
+	line-height: 45px;
+	background-size: 45px auto;
+}
+
 [role="navigation"] li + li {
-	margin-top: @v-space/2;
+	margin-top: @v-space/4;
 }
 
 [role="contentinfo"] ul, [role="contentinfo"] p {
@@ -1360,6 +1407,10 @@ h2 {
 
 .right {
 	text-align: center;
+}
+
+[role="contentinfo"] {
+	position: static;
 }
 
 }
