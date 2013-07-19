@@ -307,6 +307,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
+    'jshint',
     'connect:test',
     'karma:unit'
   ]);
