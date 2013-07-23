@@ -447,3 +447,59 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
   -o-animation-name: fadeOutDownBig;
   animation-name: fadeOutDownBig;
 }
+
+@-webkit-keyframes pulseUp {
+  0% { -webkit-transform: scale(1); } 
+  50% { -webkit-transform: scale(1.1); }
+  100% { -webkit-transform: scale(1); }
+}
+@-moz-keyframes pulseUp {
+  0% { -moz-transform: scale(1); }  
+  50% { -moz-transform: scale(1.1); }
+  100% { -moz-transform: scale(1); }
+}
+@-o-keyframes pulseUp {
+  0% { -o-transform: scale(1); }  
+  50% { -o-transform: scale(1.1); }
+  100% { -o-transform: scale(1); }
+}
+@keyframes pulseUp {
+  0% { transform: scale(1); } 
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.animated.pulseUp {
+  -webkit-animation-name: pulseUp;
+  -moz-animation-name: pulseUp;
+  -o-animation-name: pulseUp;
+  animation-name: pulseUp;
+}
+
+@-webkit-keyframes pulseDown {
+  0% { -webkit-transform: scale(1); } 
+  50% { -webkit-transform: scale(0.9); }
+  100% { -webkit-transform: scale(1); }
+}
+@-moz-keyframes pulseDown {
+  0% { -moz-transform: scale(1); }  
+  50% { -moz-transform: scale(0.9); }
+  100% { -moz-transform: scale(1); }
+}
+@-o-keyframes pulseDown {
+  0% { -o-transform: scale(1); }  
+  50% { -o-transform: scale(0.9); }
+  100% { -o-transform: scale(1); }
+}
+@keyframes pulseDown {
+  0% { transform: scale(1); } 
+  50% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+.animated.pulseDown {
+  -webkit-animation-name: pulseDown;
+  -moz-animation-name: pulseDown;
+  -o-animation-name: pulseDown;
+  animation-name: pulseDown;
+}
