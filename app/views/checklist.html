@@ -10,10 +10,9 @@
 			<span data-ng-switch-when="true">Drag &amp; drop your checklist items to prioritize</span>
 			<span data-ng-switch-when="false">Your checklist is empty</span>
 		</p>
-
-        <ol data-ui-sortable="{axis:'y', 'cursor':'move'}" data-ng-model="selections">
+        <ol data-ui-sortable="{axis:'y', 'cursor':'move', 'handle': (touch && '.handle' || null)}" data-ng-model="selections">
             <li data-ng-repeat="symptom in selections" data-ng-animate="{enter:'animated fadeInUp', leave:'animated fadeOutDown'}">
-              {{symptom.title}} <button title="delete item" aria-label="delete" data-ng-click="deselect(symptom)">&#x274c;</button>
+              {{symptom.title}} <span data-ng-show="touch" class="handle">Grabme</span><button title="delete item" aria-label="delete" data-ng-click="deselect(symptom)">&#x274c;</button>
             </li>
         </ol>
         <div class="add-symptoms">
