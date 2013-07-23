@@ -1,0 +1,77 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>DocReady Generator</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="shortcut icon" href="images/fav.png" type="image/png">
+    <!-- build:css styles/generator.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/generator.css">
+    <!-- endbuild -->
+
+  </head>
+  <body id="ng-app" data-ng-app="generator" class="generator">
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+      <script src="components/es5-shim/es5-shim.js"></script>
+      <script src="components/json3/lib/json3.min.js"></script>
+      <script src="components/html5shiv/dist/html5shiv.js"></script>
+      <script>
+        document.createElement('ng-href');
+      </script>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <header role="banner">
+        <h1>
+            <a href="generator.html"><img src="images/logo.png" alt="" /> <span class="a11y-hide">DocReady</span> Generator</a>
+        </h1>
+        <nav role="navigation" aria-label="main navigation">
+        </nav>
+    </header>
+    <div class="container" data-ng-controller="genCtrl">
+        <p>To generate a DocReady widget for you site use the form below, you can see a demonstration at any time using the "Demo" button.</p>
+        <p>When you're happy copy the script code from the textarea and paste it into your site where you want it.</p>
+        <textarea class="embed">
+            <script id="docready-loader">
+                (function() {
+                    var script = document.createElement("script");
+                    script.src = "{{settings.scriptUrl}}{{settings.sizeParams}}";
+                    script.async = true;
+                    var entry = document.getElementById("docready-loader");
+                    entry.parentNode.insertBefore(script, entry);
+                })();
+            </script>
+        </textarea>
+        <select data-ng-model="settings.sizeParams" data-ng-options="size.value as size.label for size in settings.sizes"></select>
+        <button data-ng-click="gen()">Demo</button>
+        <div class="demo"></div>
+
+    </div>
+    <footer role="contentinfo">
+        <p>DocReady &copy; 2013. All Rights Reserved.</p>
+    </footer>
+    <!-- devcode: !production -->
+    <script src="scripts/dev.js"></script>
+    <!-- enddevcode -->
+    <!-- build:js scripts/drgenerator.js -->
+    <script src="components/modernizr/modernizr.js"></script>
+    <script src="components/jquery/jquery.js"></script>
+    <script src="components/angular-unstable/angular.js"></script>
+    <script src="components/lodash/dist/lodash.underscore.js"></script>
+    <script src="components/angular-google-analytics/src/angular-google-analytics.js"></script>
+    <script src="scripts/generator.js"></script>
+    <!-- endbuild -->
+
+  </body>
+</html>

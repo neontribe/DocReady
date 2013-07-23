@@ -115,7 +115,7 @@ module.exports = function (grunt) {
       }
     },
     useminPrepare: {
-      html: '<%= yeoman.app %>/index.html',
+      html: ['<%= yeoman.app %>/index.html', '<%= yeoman.app %>/generator.html'],
       options: {
         dest: '<%= yeoman.dist %>'
       }
@@ -170,7 +170,7 @@ module.exports = function (grunt) {
     cssmin: {
       dist: {
         files: {
-          '<%= yeoman.dist %>/styles/main.css': [
+          '<%= yeoman.dist %>/styles/docready.css': [
             '.tmp/styles/{,*/}*.css',
             '<%= yeoman.app %>/styles/{,*/}*.css'
           ]
@@ -213,6 +213,12 @@ module.exports = function (grunt) {
         files: {
           '<%= yeoman.dist %>/scripts/scripts.js': [
             '<%= yeoman.dist %>/scripts/scripts.js'
+          ],
+          '<%= yeoman.dist %>/scripts/drgenerator.js': [
+            '<%= yeoman.dist %>/scripts/drgenerator.js'
+          ],
+          '<%= yeoman.dist %>/docready.js': [
+            '<%= yeoman.dist %>/docready.js'
           ]
         }
       }
@@ -235,6 +241,7 @@ module.exports = function (grunt) {
         },
         files: {
           '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/styles/main.less',
+          '<%= yeoman.app %>/styles/generator.css': '<%= yeoman.app %>/styles/generator.less',
           '<%= yeoman.app %>/styles/animations.css': '<%= yeoman.app %>/styles/animations.less'
         }
       }
@@ -249,6 +256,7 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,txt}',
             '.htaccess',
+            'docready.js',
             'components/**/*',
             'images/{,*/}*.{gif,webp,svg}',
             'images/icons/{,*/}*.{css,png,svg}',
