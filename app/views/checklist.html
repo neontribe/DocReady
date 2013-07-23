@@ -5,22 +5,11 @@
 		</div>
 	</div>
     <div class="content">
-		<div class="group-middle">
-			<div style="width: 50%">
-				<div>
-					<h2>My Checklist</h2>
-					<p class="status" data-ng-switch="selections.length > 0">
-						<span data-ng-switch-when="true">Drag &amp; drop your checklist items to prioritize</span>
-						<span data-ng-switch-when="false">Your checklist is empty</span>
-					</p>
-				</div>
-			</div>
-			<div style="width: 50%">
-				<div class="button-group right">
-				  <a rel="prev" class="with-icon" href="#/picker"><span>choose more symptoms -&gt;</span> <span class="icon-cloud round-icon"></span></a>
-				</div>
-			</div>
-		</div>
+		<h2>My Checklist</h2>
+		<p class="status" data-ng-switch="selections.length > 0">
+			<span data-ng-switch-when="true">Drag &amp; drop your checklist items to prioritize</span>
+			<span data-ng-switch-when="false">Your checklist is empty</span>
+		</p>
         <ol data-ui-sortable="{axis:'y', 'cursor':'move', 'handle': (touch && '.handle' || null)}" data-ng-model="selections">
             <li data-ng-repeat="symptom in selections" data-ng-animate="{enter:'animated fadeInUp', leave:'animated fadeOutDown'}">
               {{symptom.title}} <span data-ng-show="touch" class="handle">Grabme</span><button title="delete item" aria-label="delete" data-ng-click="deselect(symptom)">&#x274c;</button>
@@ -31,8 +20,13 @@
             <div data-add-symptom data-mode="last" placeholder="Any significant events?"></div>
             <div data-add-symptom data-mode="last" placeholder="Anything else you want to talk about?"></div>
         </div>
-        <div class="button-group right">
-        	<a rel="next" class="with-icon" href="#/checklist/export"><span>preview here -&gt;</span> <span class="icon-eye round-icon"></span></a>
-        </div>
+		<div class="group-middle">
+			<div style="width: 50%" class="button-group">
+				 <a rel="prev" class="with-icon" href="#/picker"><span class="icon-cloud round-icon"></span> <span><i aria-hidden="true">&lt;-</i></span> choose more symptoms</a>
+			</div>
+			<div style="width: 50%" class="button-group right">
+				<a rel="next" class="with-icon" href="#/checklist/export"><span>preview here <i aria-hidden="true">-&gt;</i></span> <span class="icon-eye round-icon"></span></a>
+			</div>
+		</div>
     </div>
 </div>
