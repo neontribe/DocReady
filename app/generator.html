@@ -13,7 +13,6 @@
     <link rel="shortcut icon" href="images/fav.png" type="image/png">
     <!-- build:css styles/generator.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/generator.css">
     <!-- endbuild -->
 
   </head>
@@ -34,29 +33,24 @@
     <!-- Add your site or application content here -->
     <header role="banner">
         <h1>
-            <a href="generator.html"><img src="images/logo.png" alt="" /> <span class="a11y-hide">DocReady</span> Generator</a>
+            <a href="generator.html"><img src="images/logo.png" alt="" /> <span class="a11y-hide">DocReady</span></a>
         </h1>
-        <nav role="navigation" aria-label="main navigation">
-        </nav>
     </header>
     <div class="container" data-ng-controller="genCtrl">
-        <p>To generate a DocReady widget for you site use the form below, you can see a demonstration at any time using the "Demo" button.</p>
-        <p>When you're happy copy the script code from the textarea and paste it into your site where you want it.</p>
-        <textarea class="embed">
-            <script id="docready-loader">
-                (function() {
-                    var script = document.createElement("script");
-                    script.src = "{{settings.scriptUrl}}{{settings.sizeParams}}";
-                    script.async = true;
-                    var entry = document.getElementById("docready-loader");
-                    entry.parentNode.insertBefore(script, entry);
-                })();
-            </script>
-        </textarea>
-        <select data-ng-model="settings.sizeParams" data-ng-options="size.value as size.label for size in settings.sizes"></select>
-        <button data-ng-click="gen()">Demo</button>
-        <div class="demo"></div>
-
+		<div role="main">
+			<div class="content generator">
+				<h1>DocReady&trade; &nbsp;Generator</h1>
+				<p>To generate a DocReady widget for you site use the form below. You can see a demonstration at any time using the "Demo" button.</p>
+				<p>When you're happy, copy the script code from the text box and paste it into your site where you want it.</p>
+				<select data-ng-model="settings.sizeParams" data-ng-options="size.value as size.label for size in settings.sizes"></select>
+				<div class="embed-container">
+					<textarea onclick="this.focus();this.select()" class="embed"><script id="docready-loader" columns="20" rows="20">(function() { var script = document.createElement("script"); script.src = "{{settings.scriptUrl}}{{settings.sizeParams}}"; script.async = true; var entry = document.getElementById("docready-loader"); entry.parentNode.insertBefore(script, entry); })();</script></textarea>
+					
+				</div>
+				<button data-ng-click="gen()">Demo</button>
+				<div class="demo"></div>
+			</div>
+		</div>
     </div>
     <footer role="contentinfo">
         <p>DocReady &copy; 2013. All Rights Reserved.</p>
