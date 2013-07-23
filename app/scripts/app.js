@@ -48,6 +48,7 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
       });
   })
   .value('settings', {
+    touch: Modernizr.touch,
     userData: { symptoms: [] }
   })
   .config(function(AnalyticsProvider) {
