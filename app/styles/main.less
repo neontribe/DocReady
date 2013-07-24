@@ -309,7 +309,6 @@ nav a, nav a:hover, nav a:active, nav a:visited, .tabs-nav a {
 	outline: none;
 	padding: @slim-spacing;
 	background-color: @link-color;
-	background-size: 80px auto;
 	display: block;
 	text-align: center;
 	font-size: @font-size-base;
@@ -894,11 +893,15 @@ div.group-bottom > * { vertical-align: baseline }
 
 [role="banner"] h1, [role="banner"] nav {
 	display: inline-block;
-	width: 49%;
+	width: 49.5%;
 	vertical-align: middle;
 	.box-sized;
-	padding: @v-space/2 @v-space;
+	padding: @v-space/2 @v-space @v-space/4;
 	margin: 0;
+}
+
+[role="banner"] nav {
+	padding-top: @v-space/4;
 }
 
 [role="banner"] nav ul {
@@ -906,10 +909,10 @@ div.group-bottom > * { vertical-align: baseline }
 }
 
 [role="banner"] h1 img {
-	width: 100%;
-	max-width: 300px;
-	height: auto;
-	max-height: 80px;
+    height: auto;
+    max-height: 88px;
+    max-width: 200px;
+    width: 100%;
 }
 
 [role="banner"] h1 a {
@@ -930,42 +933,32 @@ a.round-icon:hover, a:hover .round-icon {
 
 [role="navigation"] a {
 	text-align: center;
-	width: 80px;
-	height: 80px;
-	line-height: 80px;
+	width: 66px;
+	height: 66px;
+	line-height: 66px;
 	margin-left: @h-space/2;
 	.transition-basic(0.5s);
 	margin-bottom: 0;
 	overflow: hidden;
 	padding: 0 !important;
 	background-position: right center;
+	background-size: 66px auto;
 }
 
 [role="navigation"] a span {
-	width: 150px;
-	font-size: 1.5em;
+	width: 130px;
+	font-size: 1.25em;
 	text-align: left;
 	display: inline-block;
-	margin-right: 80px;
+	margin-right: 66px;
 	text-indent: 0.5em;
 	float: right;
 }
 
 
 header [role="navigation"] a:hover, header [role="navigation"] a:focus {
-	width: 230px;
+	width: 196px;
 	border-radius: 40px;
-}
-
-[role="banner"]:after {
-    top: 95%;
-    content: "\25bc";
-    display: block;
-    width: 300px;
-    position: absolute;
-    text-align: center;
-    text-indent: @h-space;
-    font-size: 2.5em;
 }
 
 
@@ -1383,12 +1376,6 @@ body {
 	position: relative;
 }
 
-[role="banner"]:after {
-    width: 100%;
-    text-align: center;
-    text-indent: -0.5em;
-}
-
 [role="banner"] h1 {
 	padding-bottom: 0;
 }
@@ -1400,7 +1387,7 @@ body {
 }
 
 [role="navigation"] {
-	padding-top: @v-space/2 !important;
+	padding: @v-space/2 0 !important;
 }
 
 [role="navigation"] li {
