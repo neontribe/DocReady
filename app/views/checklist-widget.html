@@ -1,7 +1,7 @@
 <figure data-ng-switch on="countOnly">
   <p>
-	<span data-ng-switch-when="false">{{checklist.length}} item{{checklist.length !== 1 && 's' || ''}} in</span>
-	<span data-ng-switch-when="true">{{checklist.length > 0 && checklist.length || ''}} in</span>
+	<span data-ng-switch-when="false">{{checklist.length}} thing{{checklist.length !== 1 && 's' || ''}} I want to talk about in</span>
+	<span data-ng-switch-when="true">{{checklist.length > 0 && checklist.length || ''}} I want to talk about in</span>
 	<a data-route-contains="checklist" data-track-route="checklist" href="#/checklist" data-ng-class="{active: $routeContains}">
 	  <span data-ng-switch-when="false">My Checklist</span>
 	</a>
