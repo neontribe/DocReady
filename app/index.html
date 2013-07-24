@@ -7,7 +7,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>DocReady</title>
-    <noscript><link href="images/icons/icons.fallback.css" rel="stylesheet"></noscript>
     <!-- Muscular error reporting -->
     <script type='text/javascript'>
         window.Muscula = { settings:{
@@ -67,6 +66,13 @@
         </nav>
     </header>
     <div class="container">
+		<noscript>
+		<div role="main">
+			<div class="content">
+				<p>Javascript is not currently turned on so no content can be displayed. Please enable javascript if you are able. Otherwise, we are very sorry.</p>
+			</div>
+		</div>
+		</noscript>
         <div data-ng-view data-ng-animate="{enter: 'animated fadeInDownBig', leave:'animated fadeOutDownBig'}" data-ng-controller="MainCtrl"></div>
     </div>
     <footer role="contentinfo">
