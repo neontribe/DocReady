@@ -1219,24 +1219,72 @@ figure a:hover span {
 */
 
 .introduction li {
-	padding: 0 230px 0 0;
-	background-size: 200px auto;
-	background-position: 100% top;
+	list-style: none;
+}
+
+.introduction div, .introduction img {
+	display: inline-block;
+	.box-sized;
+	vertical-align: middle;
+	margin-top: 0;
+}
+
+.introduction div {
+	width: 68%;
+	padding-right: 4em;
+	
+}
+
+.introduction img {
+	width: 31%;
+}
+
+.introduction h3 {
+	font-size: 2.5em;
+}
+
+.introduction li {
 	min-height: 200px;
 }
 
-.introduction li p {
-	text-align: left;
-}
-
 .introduction li + li {
-	margin-top: 1.5em;
+	margin-top: 3em;
 }
 
-.introduction .icon-howitworks_2 {
-	padding: 0 0 0 180px;
-	background-position: 0 top;
-	background-size: 150px auto;
+.introduction li:nth-child(even) div {
+	padding: 0 0 0 4em;
+	width: 76%; 
+}
+
+.introduction li:nth-child(even) img {
+	width: 23%;
+}
+
+.introduction a {
+	border: 0 !important;
+	color: @font-color;
+	display: block;
+}
+
+.introduction a:hover {
+	background: @blue-color-lighter;
+	outline: 10px solid @blue-color-lighter;
+}
+
+.introduction a:after {
+	content: '.';
+	display: block;
+	clear: both;
+	height: 0; 
+	overflow: hidden;
+}
+
+.introduction li:last-child div {
+	width: 65%;
+}
+
+.introduction li:last-child img {
+	width: 34%;
 }
 
 /**
@@ -1574,11 +1622,30 @@ h2 {
 	text-align: center;
 }
 
-.introduction li {
-    min-height: 0;
-	padding: 0 0 160px !important; 
-	background-position: left bottom !important;
-	background-size: auto 140px !important;
+.introduction h3 {
+	font-size: 1.5em;
+	text-decoration:underline;
+}
+
+.introduction strong {
+	text-decoration:underline;
+}
+
+.introduction li + li {
+    margin-top: @v-space;
+}
+
+.introduction a > * {
+	width: 49% !important;
+	vertical-align: top;
+}
+
+.introduction a div {
+	padding-right: 1em;
+}
+
+.introduction li:nth-child(even) a div {
+	padding-left: 1em;
 }
 
 [role="navigation"] {
