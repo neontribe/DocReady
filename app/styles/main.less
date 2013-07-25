@@ -47,7 +47,7 @@
 
 /* Font families */
 
-@font-size-base: 20px;
+@font-size-base: 18px;
 @family-main: 'Open Sans', sans-serif;
 @family-headings: 'Muli', sans-serif;
 
@@ -162,7 +162,7 @@ body {
 	font-weight: 300;
 	font-family: @family-main;
 	color: @font-color;
-	margin-top: 117px;
+	margin-top: 113px;
 	margin-bottom: @v-space*3;
 	background: #fff; 
 	overflow-y: scroll;
@@ -242,11 +242,6 @@ img {
 * Paragraphs and lists
 ----------------------------------------------------------------------
 */
-
-p { 
-	text-align: justify;
-	.hyphens;
-}
 
 p:only-child {
 	text-align: left;
@@ -790,6 +785,11 @@ div.group-bottom > * { vertical-align: baseline }
 	float: left;
 }
 
+.reverse > div > * {
+	margin: 0 @h-space 0 0 !important; 
+	text-align: left;
+}
+
 .reverse:after {
 	content: '.';
 	display: block;
@@ -838,6 +838,14 @@ div.group-bottom > * { vertical-align: baseline }
 
 .right {
 	text-align: right;
+}
+
+.right span {
+	text-align: right;
+}
+
+.left span {
+	text-align: left;
 }
 
 .center {
@@ -920,8 +928,8 @@ div.group-bottom > * { vertical-align: baseline }
 }
 
 [role="navigation"] a, .round-icon, .round-icon:hover, .round-icon:active {
-	width: 60px;
-	height: 60px;
+	width: 66px;
+	height: 66px;
 	border-radius: 50px;
 	border: 0;
 	box-shadow: none;
@@ -933,8 +941,6 @@ a.round-icon:hover, a:hover .round-icon {
 
 [role="navigation"] a {
 	text-align: center;
-	width: 66px;
-	height: 66px;
 	line-height: 66px;
 	margin-left: @h-space/2;
 	.transition-basic(0.5s);
@@ -970,10 +976,11 @@ header [role="navigation"] a:hover, header [role="navigation"] a:focus {
 	background-color: @red-color;
 	position: static;
 	border: 0;
-	width: 60px;
-	height: 60px;
-	background-size: 60px auto;
 	margin: 0;
+}
+
+.round-icon {
+	background-position: center center;
 }
 
 .icon-cloud, .icon-pencil {
@@ -1010,12 +1017,16 @@ header [role="navigation"] a:hover, header [role="navigation"] a:focus {
 	color: #fff;
 }
 
+.yellow {
+	color: @font-color;
+}
+
 .intro a:hover, .intro a:active {
 	color: #fff;
 }
 
 .intro > div {
-	padding: @v-space*2 0;
+	padding: @v-space*1.25 0;
 	max-width: 900px;
 	margin: 0 auto;
 }
@@ -1126,7 +1137,6 @@ figure p {
 	width: 69%;
 	vertical-align: top;
 	margin: 0;
-	line-height: 1.1;
 }
 
 
@@ -1145,6 +1155,7 @@ figure a {
     display: block;
 	font-size: 1.25em;
 	border: 0;
+	margin-top: @v-space/4;
 }
 
 figure a:hover {
@@ -1249,7 +1260,7 @@ ul.accordion ul.accordion {
 }
 
 .accordion h3 span[class^="icon-"] {
-	background-color: @red-color;
+	background-color: @blue-color;
 	width: 70px;
 	height: 70px;
 	margin-right: -2.3em;
@@ -1265,7 +1276,7 @@ ul.accordion ul.accordion {
 }
 
 li:nth-child(odd) h3 span[class^="icon-"] {
-	background-color: @blue-color;
+	background-color: @red-color;
 }
 
 li:nth-child(3n + 1) h3 span[class^="icon-"] {
@@ -1291,7 +1302,7 @@ h3 span[class^="icon-"] + span {
 
 .accordion h4:before {
 	display: inline-block;
-	background: @red-color;
+	background: @blue-color;
     border-radius: 50%;
     color: #FFFFFF;
     content: "+";
@@ -1304,11 +1315,18 @@ h3 span[class^="icon-"] + span {
 }
 
 .accordion li:nth-child(odd) li h4:before {
-	background: @blue-color;
+	background: @red-color;
+}
+
+.accordion li:nth-child(3n + 1) li h4:before {
+	background: @yellow-color;
 }
 
 .accordion a.active h4:before {
 	content: '-';
+    line-height: 0.8;
+    position: relative;
+    top: -0.1em;
 }
 
 .accordion li:first-child h4 { 
