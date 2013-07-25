@@ -1,0 +1,23 @@
+<div role="main">
+  <h1>GP Finder</h1>
+  <form name="pcsearch">
+    <input name="postcode" data-ng-model="params.postcode" placeholder="search by postcode"data-ng-required="true" data-ng-pattern="/^[a-z]{2}\d{1,2}\s*\d[a-z]{2}$|^[a-z]{2}\d{1,2}/i"></input>
+    <button data-ng-disabled="pcsearch.postcode.$invalid" data-ng-click="search()">Search by Postcode</button>
+  </form>
+  <button ng-click="search(true)" data-ng-show="settings.geo">Use my location</button>
+  <ul>
+    <li data-ng-repeat="surgery in surgeries">
+        <h2>{{surgery.title}}</h2>
+        <address>
+            {{surgery['a10:content']['s:organisationSummary']['s:address']['s:addressLine'] | join}}
+            {{surgery['a10:content']['s:organisationSummary']['s:address']['s:postcode']}}
+        </address>
+        <a target="_blank" data-ng-href="http://maps.google.co.uk?q={{surgery['a10:content']['s:organisationSummary']['s:geographicCoordinates']['s:latitude']}},{{surgery['a10:content']['s:organisationSummary']['s:geographicCoordinates']['s:longitude']}}">
+          <img data-ng-src="http://maps.googleapis.com/maps/api/staticmap?size=200x200&markers=color:blue%7C{{surgery['a10:content']['s:organisationSummary']['s:geographicCoordinates']['s:latitude']}},{{surgery['a10:content']['s:organisationSummary']['s:geographicCoordinates']['s:longitude']}}&sensor=false"/>
+        </a>
+        Phone: {{surgery['a10:content']['s:organisationSummary']['s:contact']['s:telephone']}}
+        <a target="_blank" data-ng-href="{{surgery.link}}">website</a>
+        <button data-ng-click="select(surgery)">Keep these details with your checklist</button>
+    </li>
+  </ul>
+</div>
