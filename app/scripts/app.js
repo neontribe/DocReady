@@ -43,13 +43,24 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
         templateUrl: 'views/press.html',
         controller: 'PressCtrl'
       })
+      .when('/gpfinder', {
+        templateUrl: 'views/gpfinder.html',
+        controller: 'GpfinderCtrl'
+      })
       .otherwise({
         redirectTo: '/home'
       });
   })
   .value('settings', {
     touch: Modernizr.touch,
+    geo: Modernizr.geolocation,
     userData: { symptoms: [] }
+  })
+  .filter('join', function() {
+    return function(input, joiner) {
+      var jstring = joiner || ', ';
+      return input.join(jstring);
+    };
   })
   .config(function(AnalyticsProvider) {
     // initial analytics configuration
