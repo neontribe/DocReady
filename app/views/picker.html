@@ -12,11 +12,15 @@
 	  <div style="width: 60%">
 		<h2>What I want to talk about&hellip; <em class="symptom-highlighted" ng-show="activeTag">{{activeTag}}</em></h2>
 		<p>Choose a symptom below to start building your checklist.</p>
+		<div class="toolbar" aria-hidden="true">
+			<button class="round-icon icon-grid" data-ng-click="grid = !grid"><span data-ng-class="{'icon-cloud round-icon': grid }"></span></button> 
+			<span class="hint"> <- change the layout?</span>
+		</div>
 	  </div>
 	</div>
 	<div id="picker" data-ng-switch="!!activeTag">
 	  <div data-ng-switch-when="false">
-		<ul class="tags">
+		<ul class="tags" data-ng-class="{grid: grid}">
 		  <li data-ng-repeat="tag in tags" data-ng-animate="{enter:'tagEnter'}">
 			<a role="button" href="#/picker/{{tag.text}}">{{tag.text}}</a>
 		  </li>

@@ -712,7 +712,7 @@ button, a[role="button"], input[type="submit"], input[type="button"] {
 }
 
 button:active, a[role="button"]:active, input[type="submit"]:active {
-	background:@link-color;
+	background-color:@link-color;
 }
 
 /* use #disabled as the href value on links that you wish to display as disabled */
@@ -852,7 +852,7 @@ div.group-bottom > * { vertical-align: baseline }
 	text-align: center;
 }
 
-.with-icon, .with-icon:hover {
+.with-icon, .hint, .with-icon:hover {
 	border: 0;
 	font-family: 'Indie FLower', sans-serif;
 	text-transform: lowercase;
@@ -977,14 +977,43 @@ header [role="navigation"] a:hover, header [role="navigation"] a:focus {
 	position: static;
 	border: 0;
 	margin: 0;
+	padding: 0;
 }
 
 .round-icon {
 	background-position: center center;
 }
 
-.icon-cloud, .icon-pencil {
+.icon-cloud, .icon-pencil, .icon-grid {
 	background-color: @blue-color;
+}
+
+.toolbar {
+	padding-top: 0.5em;
+}
+
+.toolbar * {
+	margin-top: 0 !important;
+}
+
+.toolbar button {
+	position: relative;
+}
+
+.toolbar button:hover, .toolbar button:hover span {
+	background-color: @link-color;
+}
+
+.toolbar button span {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.toolbar .round-icon {
+	width: 50px;
+	height: 50px;
+	background-size: 100% 100%;
 }
 
 /**
@@ -1128,6 +1157,21 @@ ol h3 {
 	background: @blue-color-darker;
 }
 
+.tags.grid li {
+	display: inline-block;
+	width: 32%;
+}
+
+.tags.grid li:after, 
+.tags.grid li:before {
+	content: '';
+	white-space: normal;
+}
+
+.tags.grid li a {
+	display: block;
+}
+
 figure {
 	border: 1px solid @red-color;
 }
@@ -1138,8 +1182,6 @@ figure p {
 	vertical-align: top;
 	margin: 0;
 }
-
-
 
 figure p + p {
 	width: 28%;
@@ -1437,6 +1479,10 @@ body {
 	position: static;
 }
 
+.tags {
+	padding: 0 @v-space/2;
+}
+
 }
 
 @media all and (max-width: 710px) {
@@ -1470,8 +1516,8 @@ body {
 }
 
 .round-icon, .round-icon:hover {
-	width: 45px;
-	height: 45px;
+	width: 50px;
+	height: 50px;
 	background-size: 100% 100%;
 }
 
@@ -1482,6 +1528,15 @@ body {
 	margin-right: 0 !important;
 	margin-top: @v-space/2;
 	text-align: center;
+}
+
+.tags {
+	padding: 0;
+}
+
+.tags.grid li {
+	display: block;
+	width: auto;
 }
 
 [class^="group-"] * + * {

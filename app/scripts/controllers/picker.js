@@ -24,4 +24,7 @@ angular.module('docready')
     $scope.hasActiveTag = function(symptom){
       return _.contains(symptom.tags, $scope.activeTag);
     };
+	
+	$scope.grid = false;
+	
   });
