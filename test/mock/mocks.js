@@ -132,7 +132,7 @@ angular.module('docready')
       $httpBackend.whenGET(settings.apiRoot + '/advice_topic').respond(topics);
       $httpBackend.whenGET(settings.apiRoot + '/advice_item').respond(items);
       $httpBackend.whenGET(settings.apiRoot + '/symptom').respond(symptoms);
-      $httpBackend.whenGET(settings.apiRoot + '/gps').respond(gps);
+      $httpBackend.whenGET(/gps/).respond(gps);
       $httpBackend.whenPOST(settings.apiRoot + '/email').respond(function(){
         return [200];
       });

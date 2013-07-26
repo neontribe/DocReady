@@ -6,10 +6,10 @@ angular.module('docready')
     $scope.settings = settings;
     $scope.surgeries = [];
     $scope.params = {
-        postcode: null,
-        latitude: null,
-        longitude: null
-      };
+      postcode: null,
+      latitude: null,
+      longitude: null
+    };
 
     $scope.search = function(locate){
       if (locate) {
@@ -17,8 +17,8 @@ angular.module('docready')
           $scope.$apply(function () {
             $scope.params.longitude = position.coords.longitude;
             $scope.params.latitude = position.coords.latitude;
+            $scope.surgeries = Surgery.query($scope.params);
           });
-          $scope.surgeries = Surgery.query($scope.params);
         });
       } else {
         $scope.surgeries = Surgery.query($scope.params);
