@@ -159,7 +159,7 @@ angular.module('docreadyTest', ['docready', 'ngMockE2E'])
                     _arguments = arguments;
                 setTimeout(function() {
                     callback.apply(_this, _arguments);
-                  }, (method === 'POST') ? 1500 : 0);
+                  }, (method === 'POST') ? 1500 : 700);
               };
             return $delegate.call(this, method, url, data, interceptor, headers);
           };

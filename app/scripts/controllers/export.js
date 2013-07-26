@@ -4,6 +4,7 @@ angular.module('docready')
   .controller('ExportCtrl', function ($scope, settings, symptomService, $window, $resource, $timeout, Analytics, $location) {
     var Email = $resource(settings.apiRoot + '/email');
     $scope.selections = symptomService.selections;
+    $scope.settings = settings;
     $scope.showMailer = false;
     $scope.prepareMail = function(){
       $scope.showMailer = !$scope.showMailer;

@@ -6,7 +6,7 @@
   </form>
   <button ng-click="search(true)" data-ng-show="settings.geo">Use my location</button>
   <ul>
-    <li data-ng-repeat="surgery in surgeries">
+    <li data-ng-repeat="surgery in surgeries" data-ng-class="{selected: settings.surgery.title === surgery.title}">
         <h2>{{surgery.title}}</h2>
         <address>
             {{surgery['a10:content']['s:organisationSummary']['s:address']['s:addressLine'] | join}}
@@ -17,7 +17,7 @@
         </a>
         Phone: {{surgery['a10:content']['s:organisationSummary']['s:contact']['s:telephone']}}
         <a target="_blank" data-ng-href="{{surgery.link}}">website</a>
-        <button data-ng-click="select(surgery)">Keep these details with your checklist</button>
+        <button data-ng-hide="settings.surgery.title === surgery.title" data-ng-animate="{show: 'animated fadeIn', hide: 'animated fadeOut'}" data-ng-click="select(surgery)">Keep these details with your checklist</button>
     </li>
   </ul>
 </div>
