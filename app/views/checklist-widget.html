@@ -1,12 +1,4 @@
-<figure data-ng-switch on="countOnly">
-  <p>
-	<span data-ng-switch-when="false">{{checklist.length}} thing{{checklist.length !== 1 && 's' || ''}} I want to talk about in</span>
-	<span data-ng-switch-when="true">{{checklist.length > 0 && checklist.length || ''}} I want to talk about in</span>
-	<a data-route-contains="checklist" data-track-route="checklist" href="#/checklist" data-ng-class="{active: $routeContains}">
-	  <span data-ng-switch-when="false">My Checklist</span>
-	</a>
-  </p>
-  <p>
-      <a aria-hidden="true" class="nav-checklist my-checklist icon-eye round-icon" title="checklist" data-route-contains="checklist" data-track-route="checklist" href="#/checklist" data-ng-class="{active: $routeContains}"></a>
-  </p>
-</figure>
+<li>
+	<a class="nav-checklist icon-eye" title="review your checklist" data-route-contains="checklist" data-track-route="checklist" href="#/checklist" data-ng-class="{active: $routeContains}"><span>checklist</span></a>
+	<em class="tally" data-ng-show="checklist.length > 0">{{checklist.length}}</em>
+</li>

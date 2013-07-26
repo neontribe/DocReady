@@ -9,7 +9,7 @@
     <title>DocReady</title>
     <!-- Muscular error reporting -->
     <script type='text/javascript'>
-        window.Muscula = { settings:{
+        /*window.Muscula = { settings:{
             logId:"c4bHrZC-fD4Gg", suppressErrors: false, googleAnalyticsEvents: 'none', branding: 'none'
         }};
         (function () {
@@ -20,7 +20,7 @@
             window.Muscula.run=function(c){eval(c);window.Muscula.run=function(){};};
             window.Muscula.errors=[];window.onerror=function(){window.Muscula.errors.push(arguments);
             return window.Muscula.settings.suppressErrors===undefined;}
-        })();
+        })();*/
     </script>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
@@ -61,7 +61,7 @@
           <ul>
             <li><a class="nav-advice icon-info" title="get advice on your visits to the doctors" data-route-contains="advice" data-track-route="advice" href="#/advice" data-ng-class="{active: $routeContains}"><span>advice</span></a></li>
             <li><a class="nav-symptoms icon-pencil" title="build your checklist" data-route-contains="picker" href="#/picker" data-ng-class="{active: $routeContains}"><span>build</span></a></li>
-            <li><a class="nav-checklist icon-eye" title="review your checklist" data-route-contains="checklist" data-track-route="checklist" href="#/checklist" data-ng-class="{active: $routeContains}"><span>checklist</span></a></li>
+            <li aria-label="checklist item count" data-checklist-widget data-ng-animate="{'itemAdded': 'animated winkOnce', 'itemRemoved': 'animated winkOnce'}"></li>
           </ul>
         </nav>
     </header>

@@ -503,3 +503,54 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
   -o-animation-name: pulseDown;
   animation-name: pulseDown;
 }
+
+@-webkit-keyframes winkOnce {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+@-moz-keyframes winkOnce {
+  0% {
+    -moz-transform: scale(1);
+  }
+  50% {
+    -moz-transform: scale(0.9);
+  }
+  100% {
+    -moz-transform: scale(1);
+  }
+}
+@-o-keyframes winkOnce {
+  0% {
+    -o-transform: scale(1);
+  }
+  50% {
+    -o-transform: scale(0.9);
+  }
+  100% {
+    -o-transform: scale(1);
+  }
+}
+@keyframes winkOnce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.animated.winkOnce {
+  -webkit-animation-name: winkOnce;
+  -moz-animation-name: winkOnce;
+  -o-animation-name: winkOnce;
+  animation-name: winkOnce;
+}

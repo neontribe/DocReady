@@ -1,23 +1,39 @@
 <div role="main">
-  <h1>GP Finder</h1>
-  <form name="pcsearch">
-    <input name="postcode" data-ng-model="params.postcode" placeholder="search by postcode"data-ng-required="true" data-ng-pattern="/^[a-z]{2}\d{1,2}\s*\d[a-z]{2}$|^[a-z]{2}\d{1,2}/i"></input>
-    <button data-ng-disabled="pcsearch.postcode.$invalid" data-ng-click="search()">Search by Postcode</button>
-  </form>
-  <button ng-click="search(true)" data-ng-show="settings.geo">Use my location</button>
-  <ul>
-    <li data-ng-repeat="surgery in surgeries" data-ng-class="{selected: settings.surgery.title === surgery.title}">
-        <h2>{{surgery.title}}</h2>
-        <address>
-            {{surgery['a10:content']['s:organisationSummary']['s:address']['s:addressLine'] | join}}
-            {{surgery['a10:content']['s:organisationSummary']['s:address']['s:postcode']}}
-        </address>
-        <a target="_blank" data-ng-href="http://maps.google.co.uk?q={{surgery['a10:content']['s:organisationSummary']['s:geographicCoordinates']['s:latitude']}},{{surgery['a10:content']['s:organisationSummary']['s:geographicCoordinates']['s:longitude']}}">
-          <img data-ng-src="http://maps.googleapis.com/maps/api/staticmap?size=200x200&markers=color:blue%7C{{surgery['a10:content']['s:organisationSummary']['s:geographicCoordinates']['s:latitude']}},{{surgery['a10:content']['s:organisationSummary']['s:geographicCoordinates']['s:longitude']}}&sensor=false"/>
-        </a>
-        Phone: {{surgery['a10:content']['s:organisationSummary']['s:contact']['s:telephone']}}
-        <a target="_blank" data-ng-href="{{surgery.link}}">website</a>
-        <button data-ng-hide="settings.surgery.title === surgery.title" data-ng-animate="{show: 'animated fadeIn', hide: 'animated fadeOut'}" data-ng-click="select(surgery)">Keep these details with your checklist</button>
-    </li>
-  </ul>
+  <div class="content">
+	  <h1>GP Finder</h1>
+	  <form name="pcsearch">
+		<input name="postcode" data-ng-model="params.postcode" placeholder="search by postcode"data-ng-required="true" data-ng-pattern="/^[a-z]{2}\d{1,2}\s*\d[a-z]{2}$|^[a-z]{2}\d{1,2}/i"></input>
+		<div class="button-group right">
+			<button class="postcode" data-ng-disabled="pcsearch.postcode.$invalid" data-ng-click="search()">Search by Postcode</button> <strong>or</strong> 
+			<button type="button" ng-click="search(true)" data-ng-show="settings.geo">Use my location</button>
+		</div>
+	  </form>
+	  <ul class="surgeries">
+		<li data-ng-repeat="surgery in surgeries" data-ng-class="{selected: settings.surgery.title === surgery.title}">
+			<div class="group-top">
+				<div style="width: 50%">
+					<div>
+						<h2>{{surgery.title}}</h2>
+						<address>
+							<div>{{surgery['a10:content']['s:organisationSummary']['s:address']['s:addressLine'] | join}}</div> 
+							<div>{{surgery['a10:content']['s:organisationSummary']['s:address']['s:postcode']}}</div> 
+							<div>Phone: {{surgery['a10:content']['s:organisationSummary']['s:contact']['s:telephone']}}</div>
+							<div><a target="_blank" data-ng-href="{{surgery.link}}">website</a></div>
+						</address>
+						<div class="button-group">
+							<button data-ng-hide="settings.surgery.title === surgery.title" data-ng-animate="{show: 'animated fadeIn', hide: 'animated fadeOut'}" data-ng-click="select(surgery)">Attach to checklist</button>
+						</div>
+					</div>
+				</div>
+				<div style="width: 50%">
+					<div class="right">
+						<a target="_blank" data-ng-href="http://maps.google.co.uk?q={{surgery['a10:content']['s:organisationSummary']['s:geographicCoordinates']['s:latitude']}},{{surgery['a10:content']['s:organisationSummary']['s:geographicCoordinates']['s:longitude']}}">
+						  <img data-ng-src="http://maps.googleapis.com/maps/api/staticmap?size=200x200&markers=color:blue%7C{{surgery['a10:content']['s:organisationSummary']['s:geographicCoordinates']['s:latitude']}},{{surgery['a10:content']['s:organisationSummary']['s:geographicCoordinates']['s:longitude']}}&sensor=false"/>
+						</a>
+					</div>
+				</div>
+			</div>
+		</li>
+	  </ul>
+  </div>
 </div>
