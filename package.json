@@ -37,6 +37,6 @@
     "node": ">=0.10.12"
   },
   "scripts": {
-    "test": "./node_modules/grunt-cli/bin/grunt test && ./node_modules/grunt-cli/bin/grunt e2e"
+    "test": "./node_modules/grunt-cli/bin/grunt build"
   }
 }
