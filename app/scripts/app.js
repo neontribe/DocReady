@@ -75,5 +75,19 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
     // Populate userData from any 'load' 
     var load = $location.search().load;
     angular.extend(settings.userData, (load) ? JSON.parse(load) : {});
+
+    // Prepopulate surgery details if supplied
+    settings.surgery = {
+      'title': $location.search().stitle,
+      'a10:content': {
+        's:organisationSummary': {
+          's:contact': {
+            's:telephone': $location.search().snumber
+          }
+        }
+      }
+    };
+
+    // Direct dev requests to the staging api
     settings.apiRoot = ($location.host() === 'localhost') ? 'http://docready-staging.herokuapp.com/api': '/api';
   });

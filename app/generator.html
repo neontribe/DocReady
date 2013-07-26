@@ -42,9 +42,25 @@
 				<h1>DocReady&trade; &nbsp;Generator</h1>
 				<p>To generate a DocReady widget for you site use the form below. You can see a demonstration at any time using the "Demo" button.</p>
 				<p>When you're happy, copy the script code from the text box and paste it into your site where you want it.</p>
-				<select data-ng-model="settings.sizeParams" data-ng-options="size.value as size.label for size in settings.sizes"></select>
+        <fieldset>
+          <legend>Surgery Details</legend>
+          <p>DocReady can be customised to show the name and appointment numer of a specific Doctor's surgery.</p>
+          <input name="surgeryName" data-ng-model="settings.params.stitle" placeholder="Surgery Name"/>
+          <input name="surgeryNumber" data-ng-model="settings.params.snumber" placeholder="Appointments Number"/>
+        </fieldset>
+        <fieldset>
+          <legend>Appearance</legend>
+          <label>
+            Width
+            <input type="number" name="widgetWidth" data-ng-model="settings.params.width" placeholder="Width in pixels"/>
+          </label>
+          <label>
+            Height
+            <input type="number" name="widgetHeight" data-ng-model="settings.params.height" placeholder="Height in pixels"/>
+        </label>
+        </fieldset>
 				<div class="embed-container">
-					<textarea onclick="this.focus();this.select()" class="embed"><script id="docready-loader" columns="20" rows="20">(function() { var script = document.createElement("script"); script.src = "{{settings.scriptUrl}}{{settings.sizeParams}}"; script.async = true; var entry = document.getElementById("docready-loader"); entry.parentNode.insertBefore(script, entry); })();</script></textarea>
+					<textarea onclick="this.focus();this.select()" class="embed"><script id="docready-loader" columns="20" rows="20">(function() { var script = document.createElement("script"); script.src = "{{settings.scriptUrl}}{{query}}"; script.async = true; var entry = document.getElementById("docready-loader"); entry.parentNode.insertBefore(script, entry); })();</script></textarea>
 					
 				</div>
 				<button data-ng-click="gen()">Demo</button>

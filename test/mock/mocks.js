@@ -132,7 +132,7 @@ angular.module('docready')
       $httpBackend.whenGET(settings.apiRoot + '/advice_topic').respond(topics);
       $httpBackend.whenGET(settings.apiRoot + '/advice_item').respond(items);
       $httpBackend.whenGET(settings.apiRoot + '/symptom').respond(symptoms);
-      $httpBackend.whenGET(settings.apiRoot + '/gps').respond(gps);
+      $httpBackend.whenGET(/gps/).respond(gps);
       $httpBackend.whenPOST(settings.apiRoot + '/email').respond(function(){
         return [200];
       });
@@ -159,7 +159,7 @@ angular.module('docreadyTest', ['docready', 'ngMockE2E'])
                     _arguments = arguments;
                 setTimeout(function() {
                     callback.apply(_this, _arguments);
-                  }, (method === 'POST') ? 1500 : 0);
+                  }, (method === 'POST') ? 1500 : 700);
               };
             return $delegate.call(this, method, url, data, interceptor, headers);
           };

@@ -10,16 +10,28 @@ angular.module('generator', ['angular-google-analytics'])
   })
   .value('settings', {
     scriptName: 'docready.js',
-    sizeParams: '?width=350px&height=450px',
-    sizes: [
-      { label: 'auto', value: ''},
-      { label: '350x450', value: '?width=350px&height=450px'},
-      { label: '750x1200', value: '?width=750px&height=1200px'}
-    ]
+    params: {
+      width: null,
+      height: null,
+      stitle: null,
+      snumber: null
+    }
   })
   .controller('genCtrl', function ($scope, settings){
     $scope.settings = settings;
     $scope.settings.scriptUrl = settings.scriptPath + settings.scriptName;
+    $scope.query = '';
+    $scope.$watch('settings.params', function(obj){
+      var str = [];
+      for(var p in obj){
+        if (obj.hasOwnProperty(p)) {
+          if (obj[p]) {
+            str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
+          }
+        }
+      }
+      $scope.query = '?' + str.join('&');
+    }, true);
     $scope.gen = function(){
       angular.element('.demo').html(angular.element('.embed').val());
     };

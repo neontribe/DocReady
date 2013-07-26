@@ -1,6 +1,6 @@
 {
   "name": "docready",
-  "version": "0.6.0",
+  "version": "0.8.2",
   "dependencies": {},
   "devDependencies": {
     "underscore.string": "~2.3.2",
@@ -37,6 +37,6 @@
     "node": ">=0.10.12"
   },
   "scripts": {
-    "test": "./node_modules/grunt-cli/bin/grunt test && ./node_modules/grunt-cli/bin/grunt e2e"
+    "test": "./node_modules/grunt-cli/bin/grunt build"
   }
 }
