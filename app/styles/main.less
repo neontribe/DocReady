@@ -21,7 +21,7 @@
 
 @yellow-color: #F9D55F;
 @yellow-color-darker: darken(@yellow-color, 20%);
-@yellow-color-lighter: lighten(@yellow-color, 40%);
+@yellow-color-lighter: lighten(@yellow-color, 25%);
 
 @blue-color: #62C1C2;
 @blue-color-darker: darken(@blue-color, 20%);
@@ -428,26 +428,11 @@ legend {
 	padding: 0 0.5em;
 }
 
-form div {
-	font-size: 0;
-}
-
 legend + div {
 	margin-top: 0;
 }
 
-form div > * {
-	font-size: @font-size-base;
-	margin-top: 0;
-	display: inline-block;
-	vertical-align: middle;
-}
-
 label {
-	width: 40%;
-	text-align: right;
-	padding-right: 0.5em;
-	line-height: 1;
 	font-weight: 700;
 }
 
@@ -499,13 +484,20 @@ input, textarea, .symptoms label, #checklist ol li {
 	margin: 0;
 	line-height: 1;
 	width: 50%;
-	padding: 0.33em 2em 0.33em 0.33em;
+	padding: 0.33em 2.5em 0.33em 0.33em;
 	.box-sized;
 	vertical-align: middle;
 	border: 2px solid @blue-color;
 	border-radius: 30px;
 	width: 100%;
 	resize: none;
+	overflow: hidden;
+	box-shadow: none;
+}
+
+#checklist ol li {
+	word-break: break-all;
+	.hyphens;
 }
 
 select {
@@ -577,7 +569,7 @@ form p + p {
 }
 
 input:focus, textarea:focus, select:focus {
-	background: @blue-color-lighter;
+	background: @yellow-color-lighter;
 }
 
 input[type="submit"]:focus {
@@ -626,6 +618,7 @@ label.selected span:before {
 #checklist ol {
 	list-style: none;
 	counter-reset: section;
+	position: relative;
 }
 
 #checklist ol li {
@@ -655,8 +648,28 @@ label.selected span:before {
 
 #checklist li button {
     font-size: 1em;
-    right: -2px;
-    top: -2px;
+    right: -1px;
+    top: -1px;
+	padding: 0.33em;
+}
+
+.handle {
+	background: @blue-color;
+    color: #FFFFFF;
+    font-size: 1.5em;
+    font-weight: bold;
+    height: 100%;
+    line-height: 1.25;
+    padding: 0 0.33em;
+    position: absolute;
+    right: 2em;
+    top: 0;
+}
+
+.handle.key {
+	position: static;
+	height: auto;
+	font-size: inherit;
 }
 	
 #checklist ol li + li {
@@ -863,7 +876,7 @@ div.group-bottom > * { vertical-align: baseline }
 	display: inline-block;
 	vertical-align: middle;
 	margin-top: 0;
-	max-width: 250px;
+	max-width: 240px;
 }
 
 .with-icon span + span {
@@ -1151,6 +1164,7 @@ ol h3 {
 .symptom-highlighted {
 	font-size: 0.66em; 
 	padding: 0.25em 0.5em;
+	display: inline-block;
 }
 
 .tags a:hover {
@@ -1452,6 +1466,26 @@ h3 span[class^="icon-"] + span {
 	margin-top: 3px;
 }
 
+form[name="mailer"] {
+	background-color: @blue-color-lighter;
+	padding: @v-space/2; 
+	border-radius: 30px;
+}
+
+form[name="mailer"] label {
+	display: block;
+}
+
+form[name="mailer"] label > span {
+	display: block;
+	padding: 0 0 @v-space/1.5 10px;
+	text-align: left;
+}
+
+form[name="mailer"] input {
+	font-size: inherit;
+}
+
 /**
 * Breakpoints
 ----------------------------------------------------------------------
@@ -1575,7 +1609,6 @@ body {
 	margin-left: 0 !important;
 	margin-right: 0 !important;
 	margin-top: @v-space/2;
-	text-align: center;
 }
 
 .tags {
@@ -1607,10 +1640,6 @@ div[class^="group"] figure {
 }
 
 h2 {
-	text-align: center;
-}
-
-#export h2 + p, #checklist h2 + p {
 	text-align: center;
 }
 
@@ -1666,6 +1695,26 @@ h2 {
 	padding: 0;
 	text-align: center;
 	text-indent: 0;
+}
+
+.button-group {
+	text-align: center;
+}
+
+.with-icon span {
+	max-width: 100px;
+}
+
+form[name="mailer"] label > span {
+	padding: 0;
+}
+
+div[class^="group"] [style] {
+	margin-top: @v-space/2;
+}
+
+div[class^="group"] [style] > div {
+	margin: 0;
 }
 
 }

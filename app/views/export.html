@@ -19,22 +19,34 @@
 		</div>
 		<div data-ng-show="showMailer"  style="display:none" data-ng-animate="{show:'animated fadeInDown', hide:'animated fadeOutUp'}">
 			<form name="mailer">
-				<label>
-					<span>Enter your email address:</span>
-					<input type="email" name="recipient" data-ng-model="email.recipient" data-ng-required="true"/>
-				</label>
-				<label>
-					<span>Confirm:</span>
-					<input type="email" name="econf" data-ng-model="econf" data-ng-required="true" data-validate-equals="email.recipient"/>
-				</label>
-				<button data-ng-disabled="mailer.$invalid" 
-								data-ng-click="track('email');sendEmail()" 
-								data-ng-switch="email.state" 
-								data-ng-class="email.state">
-					<span data-ng-switch-when="sending">Sending</span>
-					<span data-ng-switch-when="sent">Sent</span>
-					<span data-ng-switch-default>Send</span>
-				</button>
+				<div class="group-top">
+					<div style="width: 50%">
+						<div>
+							<label>
+								<span>Enter your email address:</span>
+								<input type="email" name="recipient" data-ng-model="email.recipient" data-ng-required="true"/>
+							</label>
+						</div>
+					</div>
+					<div style="width: 50%">
+						<div>
+							<label>
+								<span>Confirm:</span>
+								<input type="email" name="econf" data-ng-model="econf" data-ng-required="true" data-validate-equals="email.recipient"/>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="button-group center">
+					<button data-ng-disabled="mailer.$invalid" 
+									data-ng-click="track('email');sendEmail()" 
+									data-ng-switch="email.state" 
+									data-ng-class="email.state">
+						<span data-ng-switch-when="sending">Sending</span>
+						<span data-ng-switch-when="sent">Sent</span>
+						<span data-ng-switch-default>Send</span>
+					</button>
+				</div>
 			</form>
 		</div>
 
