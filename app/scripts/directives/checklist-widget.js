@@ -11,7 +11,6 @@ angular.module('docready')
         scope.countOnly = (attrs.countOnly !== undefined);
         scope.checklist = symptomService.selections;
         scope.$watch('checklist.length', function(newVal, oldVal){
-		  console.log(element);
           animator.animate((newVal > oldVal ? 'itemAdded' : 'itemRemoved'), element);
           if(!scope.$$phase) {
             scope.$apply();

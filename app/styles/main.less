@@ -164,8 +164,7 @@ body {
 	color: @font-color;
 	margin-top: 113px;
 	margin-bottom: @v-space*3;
-	background: #fff; 
-	overflow-y: scroll;
+	background: #fff;
 }
 
 /**
@@ -446,36 +445,53 @@ label {
 
 .label-and-button button, .symptoms label:after, #checklist ol button {
 	background-color: @blue-color;
-	border-radius: 50px;
-	font-size: 1.25em;
+	color: @blue-color;
+	border-radius: 0 25px 25px 0;
+	font-size: 0;
 	position: absolute;
-	top: 1px;
-	right: 1px;
+	top: 0;
 	right: 0;
 	margin: 0;
-	width: 2.25em;
-	padding: 0.33em;
-	font-weight: bold;
-	color: #fff;
+	width: 40px;
+	height: 100%;
+	padding: 0;
+	.box-sized;
+	background-image: url(../images/add.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100% auto;
 }
 
 .symptoms {
 	margin-top: 0;
 }
 
+.symptoms li {
+	word-wrap: break-word;
+	.box-sized;
+}
+
+.symptoms label > span {
+	padding-right: 50px;
+}
+
 .symptoms label:after {
-	content: '+';
-	width: 1.125em; 
-	text-align: center;
-	cursor: pointer;
+    content: " ";
+    cursor: pointer;
+    height: 100%;
+    padding: 0;
+    text-align: center;
+    width: 50px;
 }
 
 .symptoms label.selected:after {
-	content: '\2013';
+	background-image: url(../images/subtract.png);
 }
 
-.symptoms label.selected:before {
+.symptoms label.selected span:before {
 	content: '\2713';
+	padding-right: 0.25em;
+	font-weight: bold;
 }
 
 input, textarea, .symptoms label, #checklist ol li {
@@ -598,10 +614,6 @@ input[type="checkbox"], input[type="radio"] {
 	cursor: pointer;
 }
 
-label.selected span:before {
-	
-}
-
 .symptoms input {
 	position: absolute;
 	visibility: hidden;
@@ -618,7 +630,6 @@ label.selected span:before {
 #checklist ol {
 	list-style: none;
 	counter-reset: section;
-	position: relative;
 }
 
 #checklist ol li {
@@ -647,10 +658,7 @@ label.selected span:before {
 }
 
 #checklist li button {
-    font-size: 1em;
-    right: -1px;
-    top: -1px;
-	padding: 0.33em;
+    background-image: url(../images/delete.png);
 }
 
 .handle {
@@ -1051,11 +1059,18 @@ a.round-icon:hover, a:hover .round-icon {
 }
 
 
-header [role="navigation"] a:hover, header [role="navigation"] a:focus {
+header [role="navigation"] a:hover, header [role="navigation"] a:focus, header [role="navigation"] a.active {
 	width: 196px;
 	border-radius: 40px;
 }
 
+header [role="navigation"]:hover a.active {
+	width: 66px !important;
+}
+
+header [role="navigation"]:hover a:hover {
+	width: 196px !important;
+}
 
 [role="navigation"] .nav-advice { background-color: @yellow-color; }
 [role="navigation"] .nav-symptoms { background-color: @blue-color; }
@@ -1771,6 +1786,13 @@ div[class^="group"] figure {
 
 .button-group {
 	text-align: center;
+}
+
+.reverse > * {
+	float: none; 
+	margin: 0 0 @v-space/4 0;
+	text-align: center;
+	width: 100% !important;
 }
 
 .with-icon span {
