@@ -53,26 +53,6 @@ describe('Controller: AdviceCtrl', function () {
     expect(scope.item.slug).toEqual('item-3');
   });
 
-  it('should elevate the active item set in routeParams to the front of the items array', function(){
-    var routeParams = {item: 'item-3'};
-    AdviceCtrl = controller('AdviceCtrl', {
-      $scope: scope,
-      $routeParams: routeParams
-    });
-    $httpBackend.flush();
-    expect(scope.items[0].slug).toEqual('item-3');
-  });
-
-  it('should ignore a missing item set in routeParams', function(){
-    var routeParams = {item: 'missing'};
-    AdviceCtrl = controller('AdviceCtrl', {
-      $scope: scope,
-      $routeParams: routeParams
-    });
-    $httpBackend.flush();
-    expect(scope.items[0].slug).toEqual('intro');
-  });
-
   it('should provide a setItem method which sets the item in the location search', function(){
     $httpBackend.flush();
     scope.setItem('test-slug');

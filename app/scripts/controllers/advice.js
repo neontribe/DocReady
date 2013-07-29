@@ -7,11 +7,6 @@ angular.module('docready')
       if ($routeParams[type]) {
         // Set the active entry, if any
         $scope[type] = _.findWhere(data, {slug: $routeParams[type]});
-        if ($scope[type]) {
-          // since we're directly addressing a topic/item we'll move it to the top of the list!
-          data.splice(_.indexOf(data, $scope[type]), 1);
-          data.unshift($scope[type]);
-        }
       }
       return data;
     }
