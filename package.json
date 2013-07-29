@@ -1,6 +1,6 @@
 {
   "name": "docready",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "dependencies": {},
   "devDependencies": {
     "underscore.string": "~2.3.2",
