@@ -37,7 +37,7 @@
   var iframe = document.createElement('iframe');
   var target = getScript();
 
-  iframe.src = './index.html?' + url.replace(/^.*\?/, '');
+  iframe.src = url.replace(/docready\.js/, 'index.html');
   iframe.style.width = (params.width + 'px') || '100%';
   iframe.style.height = (params.height + 'px') || '100%';
   iframe.style.border = '3px solid #222';
