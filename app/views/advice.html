@@ -10,15 +10,15 @@
 		<div id="info">
 		    <div data-accordion="">
 		        <div data-accordion-group=""
-		            data-is-open="$first"
 		            data-opened="setTopic"
+		            data-is-open="topic === t"
 		            data-ng-repeat="t in topics"
 		            data-slug="{{t.slug}}" class="{{t.slug}}">
 		            <div class="hide" data-accordion-heading><h3><span class="icon-{{t.slug}}"></span> <span>{{t.title}}</span></h3></div>
 		            <div data-accordion="">
 		                <div data-accordion-group=""
 		                           data-ng-repeat="i in items | filter: { topic: t.slug }"
-		                           data-is-open="$first && $parent.$first"
+		                           data-is-open="item === i"
 		                           data-opened="setItem"
 		                           data-slug="{{i.slug}}">
 		                    <div class="hide" data-accordion-heading><h4>{{i.title}}</h4></div>
