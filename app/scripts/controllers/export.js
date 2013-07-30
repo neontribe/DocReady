@@ -33,7 +33,7 @@ angular.module('docready')
         },
         url = settings.apiRoot + '/pdf';
       $http.post(url, data).success(function(res){
-        $location.url(url + '/' + res.key);
+        $window.location.href = url + '/' + res.key;
       });
     };
 
