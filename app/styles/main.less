@@ -29,7 +29,7 @@
 
 @red-color: #EC6D6F;
 @red-color-darker: darken(@red-color, 20%);
-@red-color-lighter: lighten(@red-color, 40%);
+@red-color-lighter: lighten(@red-color, 25%);
 
 /* Sizes */
 
@@ -151,6 +151,10 @@ table {
 
 input, select { vertical-align: middle }
 
+::-ms-clear {
+	display: none;
+}
+
 /**
 * Body
 ----------------------------------------------------------------------
@@ -235,10 +239,31 @@ blockquote p:after, q:after { content: '\201D' }
 img {
 	max-width: 100%;
 	height: auto;
+	border: 0;
 }
 
 .intro img {
 	max-height: 125px;
+}
+
+.mural {
+	background-image: url(../images/about.jpg); 
+	background-position: center center;
+	padding-top: 100px;
+	color: @font-color !important; 
+	text-shadow: 2px 2px 2px #fefefe, -2px 2px 2px #fefefe, -2px -2px 2px #fefefe, 3px -2px 2px #fefefe;
+}
+
+.thumbs {
+	text-align: center;
+}
+
+.thumbs a {
+	border: 0;
+	display: inline-block; 
+	vertical-align: baseline;
+	width: 24%;
+	text-align: center;
 }
 
 /**
@@ -336,10 +361,6 @@ h1, h2, h3, h4, hgroup {
 * + h1, * + h2, * + h3, * + hgroup { margin-top: @heading-before-space }
 * + h4 { margin-top: 1.5rem }
 
-hgroup * {
-	margin: 0;
-}
-
 h4 { 
 	font-size: 1em; 
 	font-weight: bold;
@@ -360,7 +381,10 @@ h1 span {
 	width: 0;
 	overflow: hidden;
 }
-hgroup h1 { font-size: 3.75em }
+
+h2 + p {
+	margin-top: @v-space/3;
+}
 
 /**
 * Phrasing
@@ -1149,7 +1173,7 @@ header [role="navigation"]:hover a:hover {
 }
 
 .intro {
-	background: @blue-color;
+	background-color: @blue-color;
 	color: #fff;
 }
 
@@ -1260,7 +1284,7 @@ ol h3 {
 }
 
 .symptom-highlighted {
-	font-size: 0.66em; 
+	font-size: 0.8em; 
 	padding: 0.25em 0.5em;
 	display: inline-block;
 }
@@ -1285,44 +1309,17 @@ ol h3 {
 }
 
 figure {
-	border: 1px solid @red-color;
+	background: @red-color-lighter;
+	padding: @v-space; 
+	text-align: center;
 }
 
-figure p {
-	display: inline-block;
-	width: 69%;
-	vertical-align: top;
-	margin: 0;
+figcaption {
+	margin-top: @v-space/2;
 }
 
-figure p + p {
-	width: 28%;
-	text-align: right;
-}
-
-figure > span {
-	display: block;
-	margin: @v-space/4 0;
-}
-
-figure a {
-    display: block;
-	font-size: 1.25em;
-	border: 0;
-	margin-top: @v-space/4;
-}
-
-figure a:hover {
-	border: 0;
-	color: @link-color;
-}
-
-figure a span {
-	color: @red-color;
-}
-
-figure a:hover span {
-	color: @link-color;
+iframe {
+	max-width: 100%;
 }
 
 /**
@@ -1741,10 +1738,6 @@ body {
 	font-size: 14px;
 }
 
-div[class^="group"] figure {
-	display: none !important;
-}
-
 .accordion li > a + div > div {
 	margin-left: 0;
 }
@@ -1842,6 +1835,10 @@ div[class^="group"] [style] > div {
 form[name="pcsearch"] strong {
 	display: block; 
 	text-align: center;
+}
+
+.thumbs a {
+	width: 49%;
 }
 
 }
