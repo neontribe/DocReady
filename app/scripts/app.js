@@ -62,6 +62,17 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
       return input.join(jstring);
     };
   })
+  .filter('first', function() {
+    return function(arr) {
+      return (arr && arr.length) ? arr[0] : undefined;
+    };
+  })
+  .filter('rest', function(){
+    return function(arr, start){
+      var s = start  || 1;
+      return (arr && arr.length) ? arr.slice(s) : [];
+    };
+  })
   .config(function(AnalyticsProvider) {
     // initial analytics configuration
     AnalyticsProvider.setAccount('UA-42308316-1');

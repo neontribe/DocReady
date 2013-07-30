@@ -22,9 +22,10 @@
 		            data-ng-repeat="t in topics"
 		            data-slug="{{t.slug}}" class="{{t.slug}}">
 		            <div class="hide" data-accordion-heading><h3><span class="icon-{{t.slug}}"></span> <span>{{t.title}}</span></h3></div>
+		            <div data-ng-bind-html="(items | filter: { topic: t.slug } | first).body"></div>
 		            <div data-accordion="">
 		                <div data-accordion-group=""
-		                           data-ng-repeat="i in items | filter: { topic: t.slug }"
+		                           data-ng-repeat="i in items | filter: { topic: t.slug } | rest"
 		                           data-is-open="item === i"
 		                           data-opened="setItem"
 		                           data-slug="{{i.slug}}">
@@ -32,6 +33,7 @@
 		                    <div data-ng-bind-html="i.body"></div>
 		                </div>
 		            </div>
+
 		        </div>
 		    </div>
 		</div>
