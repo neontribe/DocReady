@@ -243,7 +243,16 @@ img {
 }
 
 .intro img {
-	max-height: 125px;
+	max-height: 160px;
+}
+
+.home-banner img {
+	max-height: 500px;
+}
+
+.home-banner p {
+	margin-top: -@v-space*1.75;
+	font-size: 1.5em;
 }
 
 .mural {
@@ -1099,7 +1108,7 @@ header [role="navigation"]:hover a:hover {
 	width: 196px;
 }
 
-[role="navigation"] .nav-advice { background-color: @yellow-color; }
+[role="navigation"] .nav-advice { background-color: @yellow-color; color: @font-color; }
 [role="navigation"] .nav-symptoms { background-color: @blue-color; }
 [role="navigation"] .nav-checklist { background-color: @red-color; }
 .round-icon { 
@@ -1167,7 +1176,7 @@ header [role="navigation"]:hover a:hover {
 }
 
 .content {
-	max-width: 900px;
+	max-width: 820px;
 	margin: 0 auto;
 	padding-top: @v-space;
 }
@@ -1187,7 +1196,7 @@ header [role="navigation"]:hover a:hover {
 
 .intro > div {
 	padding: @v-space*1.25 0;
-	max-width: 900px;
+	max-width: 820px;
 	margin: 0 auto;
 }
 
@@ -1349,7 +1358,7 @@ iframe {
 }
 
 .introduction h3 {
-	font-size: 2.5em;
+	font-size: 1.75em;
 }
 
 .introduction li {
@@ -1375,7 +1384,7 @@ iframe {
 	display: block;
 }
 
-.introduction a:hover {
+.introduction a:hover, .introduction a:focus {
 	background: @blue-color-lighter;
 	outline: 10px solid @blue-color-lighter;
 }
@@ -1470,7 +1479,7 @@ ul.accordion ul.accordion {
 	position: absolute;
 }
 
-.accordion h3:hover  span[class^="icon-"]{
+.accordion a:hover h3  span[class^="icon-"], .accordion a:focus h3 span[class^="icon-"] {
 	background-color: @link-color;
 }
 
@@ -1491,6 +1500,10 @@ h3 span[class^="icon-"] + span {
 
 [accordion-heading] {
 	padding: 0 !important;
+}
+
+.accordion li > a:focus {
+	outline: none;
 }
 
 .accordion h4 {
@@ -1526,6 +1539,11 @@ h3 span[class^="icon-"] + span {
     line-height: 0.8;
     position: relative;
     top: -0.1em;
+}
+
+.accordion a:hover h4:before, 
+.accordion a:focus h4:before {
+	background: @link-color !important;
 }
 
 .accordion li:first-child h4 { 
@@ -1667,6 +1685,10 @@ body {
 body {
 	font-size: 16px;
 	margin-bottom: 0;
+}
+
+.home-banner p {
+	margin-top: @v-space;
 }
 
 .into img {
