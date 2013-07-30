@@ -1,4 +1,4 @@
-/*@import url(http://fonts.googleapis.com/css?family=Muli:300);
+@import url(http://fonts.googleapis.com/css?family=Muli:300);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700);
 @import url(http://fonts.googleapis.com/css?family=Indie+Flower&text=abcdefghijklmnopqrstuvwxyz<->?);
 /**
@@ -235,6 +235,10 @@ blockquote p:after, q:after { content: '\201D' }
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+.intro img {
+	max-height: 125px;
 }
 
 /**
@@ -481,7 +485,6 @@ label {
     height: 100%;
     padding: 0;
     text-align: center;
-    width: 50px;
 }
 
 .symptoms label.selected:after {
@@ -938,7 +941,7 @@ address {
 	display: inline-block;
 	vertical-align: middle;
 	margin-top: 0;
-	max-width: 240px;
+	max-width: 180px;
 }
 
 .with-icon span + span {
@@ -1065,11 +1068,11 @@ header [role="navigation"] a:hover, header [role="navigation"] a:focus, header [
 }
 
 header [role="navigation"]:hover a.active {
-	width: 66px !important;
+	width: 66px;
 }
 
 header [role="navigation"]:hover a:hover {
-	width: 196px !important;
+	width: 196px;
 }
 
 [role="navigation"] .nav-advice { background-color: @yellow-color; }
@@ -1219,6 +1222,10 @@ ol h3 {
 * Picker
 ----------------------------------------------------------------------
 */
+
+#picker {
+	margin-top: @v-space/2;
+}
 
 .tags {
 	text-align: center;
@@ -1665,6 +1672,14 @@ body {
 	margin-bottom: 0;
 }
 
+.into img {
+	max-height: 80px;
+}
+
+.intro h1 {
+	font-size: 1.5em;
+}
+
 [role="banner"] h1 img {
 	max-width: 200px;
 }
@@ -1769,13 +1784,18 @@ div[class^="group"] figure {
 }
 
 [role="navigation"] li {
-	width: 33%;
+	width: 33% !important;
 }
 
 [role="navigation"] a, [role="navigation"] a:hover {
 	font-size: 14px;
 	background: none;
 	margin: 0 2px;
+	padding: 0.25em 0.5em;
+	display: block; 
+	width: auto !important;
+	height: 40px; 
+	line-height: 40px;
 }
 
 [role="navigation"] a span, [role="navigation"] a:hover span {
@@ -1803,7 +1823,7 @@ form[name="mailer"] label > span {
 	padding: 0;
 }
 
-div[class^="group"] [style] {
+div[class^="group"] [style] + [style] {
 	margin-top: @v-space/2;
 }
 
