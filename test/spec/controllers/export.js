@@ -82,11 +82,6 @@ describe('Controller: ExportCtrl', function () {
     $httpBackend.verifyNoOutstandingRequest();
   });
 
-  it('should have a getpdf function which returns a link to a pdf', function () {
-    scope.selections[0].selected = true;
-    expect(scope.getpdf().length).toEqual(463);
-  });
-
   it('should have a print function which calls $window.print', function () {
     spyOn($window, 'print');
     scope.print();

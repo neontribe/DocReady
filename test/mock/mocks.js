@@ -172,6 +172,7 @@ angular.module('docreadyTest', ['docready', 'ngMockE2E'])
 .run(function($httpBackend, mocks) {
   mocks.registerMocks($httpBackend);
   $httpBackend.whenGET().passThrough();
+  $httpBackend.whenPOST().passThrough();
 });
 
 angular.element(document).find('body').attr('data-ng-app', 'docreadyTest');
