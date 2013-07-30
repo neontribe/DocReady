@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('docready')
-  .controller('ExportCtrl', function ($scope, settings, symptomService, $window, $resource, $timeout, Analytics, $location) {
+  .controller('ExportCtrl', function ($scope, settings, symptomService, $window, $http, $resource, $timeout, Analytics, $location) {
     var Email = $resource(settings.apiRoot + '/email');
     $scope.selections = symptomService.selections;
     $scope.settings = settings;
     $scope.showMailer = false;
+
     $scope.prepareMail = function(){
       $scope.showMailer = !$scope.showMailer;
       $scope.email = new Email({
@@ -14,6 +15,7 @@ angular.module('docready')
         permalink: $scope.permalink()
       });
     };
+
     $scope.sendEmail = function(){
       $scope.email.state = 'sending';
       $scope.email.$save(function(){
@@ -22,12 +24,17 @@ angular.module('docready')
         $timeout(function(){ $scope.showMailer = false; }, 1000);
       });
     };
+
     $scope.getpdf = function(){
-      var data = JSON.stringify({
-        symptoms: _.chain(symptomService.exportSymptoms()).pluck('title').value(),
-        permalink: $scope.permalink()
+      var data = {
+          surgery: settings.surgery,
+          symptoms: _.chain(symptomService.exportSymptoms()).pluck('title').value(),
+          permalink: $scope.permalink()
+        },
+        url = settings.apiRoot + '/pdf';
+      $http.post(url, data).success(function(res){
+        $location.url(url + '/' + res.key);
       });
-      return settings.apiRoot + '/pdf?data=' + encodeURIComponent(data);
     };
 
     $scope.permalink = function(){
