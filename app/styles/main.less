@@ -1012,6 +1012,10 @@ address {
 	top:0;
 }
 
+.hide + *, .a11y-hide + * {
+	margin-top: 0;
+}
+
 .button-group > * {
 	margin:@v-space/2 @v-space/2 0 0;
 	display: inline-block;
@@ -1776,6 +1780,10 @@ body {
 	margin-bottom: 0;
 }
 
+body * + * {
+	margin-top: @v-space/2;
+}
+
 .home-banner p {
 	margin-top: @v-space;
 }
@@ -1855,6 +1863,11 @@ body {
 
 .right {
 	text-align: center;
+}
+
+.toolbar {
+	text-align: center;
+	font-size: 0.85em;
 }
 
 .introduction h3 {
