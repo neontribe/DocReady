@@ -8,7 +8,7 @@
 		</div>
 		<div class="center" style="width: 70%;">
 			<div>
-				<h1>Build Your Checklist</h1>
+				<h1>I want to talk to my GP about&hellip;</h1>
 			</div>
 		</div>
 	</div>
@@ -25,8 +25,8 @@
 		</div>
 	  </div>
 	  <div style="width: 60%">
-		<h2>What I want to talk about&hellip; <em class="symptom-highlighted" ng-show="activeTag">{{activeTag}}</em></h2>
-		<p>Choose a symptom below to start building your checklist.</p>
+		<h2><em class="symptom-highlighted" data-ng-show="activeTag">{{activeTag}}</em></h2>
+		<p data-ng-show="activeTag">Choose a symptom below to start building your checklist.</p>
 	  </div>
 	</div>
 	<div id="picker" data-ng-switch="!!activeTag">
