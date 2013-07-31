@@ -16,6 +16,7 @@
   <div class="content">
 	<h2><span data-ng-hide="activeTag">What do you want to talk about?</span> <em class="symptom-highlighted" data-ng-show="activeTag">{{activeTag}}</em></h2>
 	<p data-ng-hide="activeTag">Choose a topic below to start building your checklist.</p>
+	<p data-ng-show="activeTag">Choose symptoms within the topic below by pressing the '+' buttons.</p>
 	<div id="picker" data-ng-switch="!!activeTag">
 	  <div data-ng-switch-when="false">
 		<ul class="tags" data-ng-class="{grid: grid}">
