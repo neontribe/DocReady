@@ -260,7 +260,7 @@ module.exports = function (grunt) {
             'components/**/*',
             'images/{,*/}*.{gif,webp,svg}',
             'images/icons/{,*/}*.{css,png,svg}',
-            'styles/fonts/*'
+            'styles/*.{eot,svg,ttf,woff}'
           ]
         }]
       }
