@@ -1,5 +1,5 @@
 'use strict';
-angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.directives','angular-google-analytics'])
+angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.directives','angular-google-analytics', 'placeholderShim'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/home', {

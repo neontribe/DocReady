@@ -18,6 +18,8 @@ files = [
   'app/components/lodash/dist/lodash.underscore.js',
   'app/components/angular-ui/common/module.js',
   'app/components/angular-ui/modules/directives/sortable/sortable.js',
+  'app/components/jquery-html5-placeholder-shim/jquery.html5-placeholder-shim.js',
+  'app/components/angular-placeholder-shim/angular-placeholder-shim.js',
   'app/components/angular-google-analytics/src/angular-google-analytics.js',
   'app/scripts/*.js',
   'app/scripts/**/*.js',
