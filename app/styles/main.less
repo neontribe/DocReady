@@ -997,6 +997,10 @@ address {
 ----------------------------------------------------------------------
 */
 
+.hide {
+	display: none;
+}
+
 .a11y-hide {
 	display: inline-block;
 	height: 0;
@@ -1482,8 +1486,7 @@ ul.accordion {
 }
 
 ul.accordion ul.accordion {
-	padding: 0;
-	margin-left: @v-space*1.5;
+	margin-top: @v-space;
 }
 .collapse {
 	position: relative;
@@ -1498,7 +1501,7 @@ ul.accordion ul.accordion {
 }
 
 .accordion li > a + div > div {
-	margin: 0 @h-space/2 @h-space/2 @h-space;
+	margin: 0 @h-space/2 @h-space/2 @h-space*2;
 }
 
 .accordion li {
