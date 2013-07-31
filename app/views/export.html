@@ -12,10 +12,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="button-group center small">
-			<button data-ng-click="track('print');print()">Print</button>
-			<button data-ng-click="track('download');getpdf()">Download</button>
-			<button data-ng-click="prepareMail()">Email</button>
+		<div class="button-group actions center">
+			<button class="icon-print" data-ng-click="track('print');print()">Print</button> 
+			<button class="icon-download" data-ng-click="track('download');getpdf()">Download</button> 
+			<button class="icon-email" data-ng-click="prepareMail()">Email</button>
 		</div>
 		<div data-ng-show="showMailer"  style="display:none" data-ng-animate="{show:'animated fadeInDown', hide:'animated fadeOutUp'}">
 			<form name="mailer">
