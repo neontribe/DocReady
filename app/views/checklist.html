@@ -16,11 +16,11 @@
     <div class="content">
 		<h2>My Checklist</h2>
 		<p class="status" data-ng-switch="selections.length">
-			<span data-ng-switch-default>Put the things you want to talk about in order.<span data-ng-show="touch"> To reorder items, drag them using the <span class="handle key">&#x21d5;</span> handle.</span></span>
+			<span data-ng-switch-default>Put the things you want to talk about in order.<span data-ng-show="touch"> To reorder items, drag them using the <span class="handle key icon-drag"></span> handle.</span></span>
 			<span data-ng-switch-when="0">Your checklist is empty</span>
 		</p>
         <ol data-ui-sortable="{axis:'y', 'cursor':'move', 'handle': (touch && '.handle' || null)}" data-ng-model="selections">
-            <li data-ng-class="{handle: touch}" data-ng-repeat="symptom in selections" data-ng-animate="{enter:'animated fadeInUp', leave:'animated fadeOutDown'}">{{symptom.title}} <span data-ng-show="touch" class="handle">&#x21d5;</span><button title="delete item" aria-label="delete" data-ng-click="deselect(symptom)">&#x274c;</button>
+            <li data-ng-class="{handle: touch}" data-ng-repeat="symptom in selections" data-ng-animate="{enter:'animated fadeInUp', leave:'animated fadeOutDown'}">{{symptom.title}} <span data-ng-show="touch" class="handle icon-drag"></span> <button title="delete item" aria-label="delete this item" data-ng-click="deselect(symptom)">&#x274c;</button>
             </li>
         </ol>
         <div class="add-symptoms">

@@ -568,7 +568,6 @@ label {
 }
 
 .symptoms li {
-	word-wrap: break-word;
 	.box-sized;
 }
 
@@ -612,7 +611,6 @@ input, textarea, .symptoms label, #checklist ol li {
 }
 
 #checklist ol li {
-	word-break: break-all;
 	.hyphens;
 	color: @font-color;
 	font-weight: normal;
@@ -774,16 +772,18 @@ input[type="checkbox"], input[type="radio"] {
 }
 
 span.handle {
-	background: @blue-color;
-    color: #FFFFFF;
+	background-color: @blue-color;
+    color: #fff;
     font-size: 1.5em;
     font-weight: bold;
     height: 101%;
     line-height: 1.25;
-    padding: 0 0.33em;
     position: absolute;
     right: 1.5em;
     top: 0;
+	width: 40px;
+	background-position: center center;
+	background-size: 70% auto;
 }
 
 li.handle {
@@ -1048,6 +1048,11 @@ address {
 
 .icon-download {
 	background-color: @blue-color;
+}
+
+.lt-ie9 .actions button {
+	background-image: none;
+	padding: 0.33em;
 }
 
 .right {
@@ -1755,6 +1760,14 @@ form[name="mailer"] input {
 
 }
 
+@media all and (max-width: 1200px) {
+	
+[role="contentinfo"] {
+	position: static;
+}
+
+}
+
 @media all and (max-width: 910px) {
 
 body {
@@ -1809,8 +1822,8 @@ body {
     margin: 0;
 }
 
-[role="contentinfo"] {
-	position: static;
+[role="navigation"] a.active {
+	box-shadow: 3px 3px 0 #fff, -3px 3px 0 #fff, 3px -3px 0 #fff, -3px -3px 0 #fff;
 }
 
 .tags {
@@ -1952,7 +1965,7 @@ body * + * {
 
 [role="navigation"] a, [role="navigation"] a:hover {
 	font-size: 14px;
-	background: none;
+	background-image: none;
 	margin: 0 2px;
 	padding: 0.25em 0.5em;
 	display: block; 
