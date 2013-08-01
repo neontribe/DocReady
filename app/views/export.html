@@ -57,7 +57,7 @@
 				<p><em>Your checklist created on DocReady.com</em></p>
 				<div class="checklist-export">
 					<ol>
-						<li data-ng-repeat="symptom in selections">{{symptom.title}}</li>
+						<li data-ng-repeat="symptom in selections"><i>{{$index+1}}</i>{{symptom.title}}</li>
 					</ol>
 					<p><em>Anything else to discuss with your GP?</em></p>
 				</div>
