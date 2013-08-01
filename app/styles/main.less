@@ -737,7 +737,7 @@ input[type="checkbox"], input[type="radio"] {
 	margin-top: @v-space/2;
 }
 
-#checklist ol {
+#checklist ol, #export ol {
 	list-style: none;
 	counter-reset: section;
 }
@@ -746,16 +746,17 @@ input[type="checkbox"], input[type="radio"] {
 	position: relative;
 	.box-sized;
 	cursor: move;
-	list-style: none;
+	list-style: decimal;
 	background: #fff;
 }
 
-#checklist li:before {
+#checklist li:before, #export li:before {
 	counter-increment: section;
 	content: counter(section);
 	padding: 0 0.4em;
 	margin: 0 0.25em 0 0;
-	background: @blue-color-lighter;
+	background: @blue-color;
+	color: #fff;
 	border-radius: 30px;
 }
 
@@ -830,7 +831,7 @@ li.handle {
 ----------------------------------------------------------------------
 */
 
-button, a[role="button"], input[type="submit"], input[type="button"] {
+button, a[role="button"], input[type="submit"], input[type="button"], .button {
 	background: @red-color;
 	color: @font-color-light;
 	padding: @slim-spacing/2 @slim-spacing*3;
@@ -847,7 +848,7 @@ button, a[role="button"], input[type="submit"], input[type="button"] {
 	vertical-align: middle;
 }
 
-button:active, a[role="button"]:active, input[type="submit"]:active {
+button:active, a[role="button"]:active, input[type="submit"]:active, .button:active {
 	background-color:@link-color;
 }
 
@@ -869,10 +870,6 @@ button:active, a[role="button"]:active, input[type="submit"]:active {
 
 div { 
 	.box-sized;
-}
-
-* + section, * + article, * + aside {
-	margin-top: @v-space-increased;
 }
 
 /**
@@ -1661,19 +1658,56 @@ h3 span[class^="icon-"] + span {
 ----------------------------------------------------------------------
 */
 
-.editable > div {
-	border: 2px solid @font-color;
-	height: 2em;
+.editable > div, .checklist-export {
+	border: 2px solid @blue-color;
+	min-height: 4em;
+	padding-bottom: 1.5em;
+	border-radius: 50px;
 	margin-top: @v-space/2;
+	position: relative;
+}
+
+.checklist-export {
+	padding: @v-space @v-space @v-space*3;
+	height: auto;
+	min-height: 0;
+}
+
+#export li {
+	list-style: none;
+	margin-bottom: 3px;
+}
+
+.editable > div em {
+	position: absolute; 
+	bottom: 2px;
+	left: 1em;
+}
+
+.editable > div p {
+	padding-left: 1em;
+	font-weight: bold;
 }
 
 .tall > div {
-	height: 5em;
+	height: 7em;
 }
 
 #export {
 	padding: @v-space;
 	border: 4px solid @blue-color;
+}
+
+#export * + div {
+	margin-top: @v-space/2;
+}
+
+#export div[style] {
+	margin-top: 0;
+}
+
+.export-image {
+	max-width: 6cm;
 }
 
 #export h2 {
@@ -1991,8 +2025,16 @@ form[name="pcsearch"] strong {
 		border: 0;
 	}
 	
+	#export section {
+		page-break-inside: avoid;
+	}
+	
 	[role="banner"], .button-group, [role="contentinfo"], .print-hide, .permalink  {
 		display: none;
+	}
+	
+	@page {
+		margin: 0.5em;
 	}
 	
 }
