@@ -750,9 +750,7 @@ input[type="checkbox"], input[type="radio"] {
 	background: #fff;
 }
 
-#checklist li:before {
-	counter-increment: section;
-	content: counter(section);
+#checklist li i {
 	padding: 0 0.4em;
 	margin: 0 0.25em 0 0;
 	background: @blue-color-lighter;
@@ -763,9 +761,9 @@ input[type="checkbox"], input[type="radio"] {
 	box-shadow: 3px 3px 5px #ccc;
 }
 
-.ui-sortable-helper:before, 
-#checklist li.ui-sortable-helper ~ li:before {
-	content:'?' !important;
+.ui-sortable-helper i, 
+#checklist li.ui-sortable-helper ~ li i {
+	color: @blue-color-lighter;
 }
 
 #checklist li button {
