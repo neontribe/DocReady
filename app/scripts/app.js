@@ -39,10 +39,6 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl'
       })
-      .when('/press', {
-        templateUrl: 'views/press.html',
-        controller: 'PressCtrl'
-      })
       .when('/gpfinder', {
         templateUrl: 'views/gpfinder.html',
         controller: 'GpfinderCtrl'
