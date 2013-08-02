@@ -26,6 +26,7 @@ describe('Controller: PickerCtrl', function () {
 
   it('should attach a list of symptoms to the scope', function () {
     httpBackend.flush();
+    timeout.flush();
     expect(scope.symptoms.length).toBeGreaterThan(2);
   });
 
@@ -37,6 +38,7 @@ describe('Controller: PickerCtrl', function () {
 
   it('should provide a filter method hasActiveTag', function(){
     httpBackend.flush();
+    timeout.flush();
     expect(scope.hasActiveTag).toBeDefined();
     expect(_.filter(scope.symptoms, scope.hasActiveTag).length).toEqual(3);
   });

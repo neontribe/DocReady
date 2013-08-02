@@ -2,7 +2,7 @@
 
 angular.module('docready')
   .factory('mocks', function(settings){
-    var symptoms, items, topics, mailer, gps;
+    var symptoms, items, topics, mailer, tags, gps;
 
     symptoms = [{
       'url': 'http://docready-staging.herokuapp.com/api/symptom/1',
@@ -92,6 +92,38 @@ angular.module('docready')
           }
         ];
 
+    tags = [{
+        'title': 'sleep'
+      }, {
+        'title': 'appetite'
+      }, {
+        'title': 'worries'
+      }, {
+        'title': 'memories'
+      }, {
+        'title': 'self-harm'
+      }, {
+        'title': 'relationships'
+      }, {
+        'title': 'feelings'
+      }, {
+        'title': 'thoughts'
+      }, {
+        'title': 'experiences'
+      }, {
+        'title': 'actions'
+      }, {
+        'title': 'moods'
+      }, {
+        'title': 'fears'
+      }, {
+        'title': 'motivation'
+      }, {
+        'title': 'other'
+      }, {
+        'title': 'drink & drugs'
+      }];
+
     topics = [
         {
             title: 'What can a GP help with?',
@@ -132,6 +164,7 @@ angular.module('docready')
       $httpBackend.whenGET(settings.apiRoot + '/advice_topic').respond(topics);
       $httpBackend.whenGET(settings.apiRoot + '/advice_item').respond(items);
       $httpBackend.whenGET(settings.apiRoot + '/symptom').respond(symptoms);
+      $httpBackend.whenGET(settings.apiRoot + '/symptom_tag').respond(tags);
       $httpBackend.whenGET(/gps/).respond(gps);
       $httpBackend.whenPOST(settings.apiRoot + '/email').respond(function(){
         return [200];
@@ -144,6 +177,7 @@ angular.module('docready')
         symptoms: symptoms,
         topics: topics,
         items: items,
+        tags: tags,
         gps: gps
       }
     };
