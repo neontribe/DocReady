@@ -267,6 +267,10 @@ module.exports = function (grunt) {
       pdf_css: {
         src: '<%= yeoman.app %>/styles/main.css',
         dest: '<%= yeoman.dist %>/styles/pdf.css'
+      },
+      overwrite_png_icons: {
+        src: '<%= yeoman.app %>/images/icons/png/*.png',
+        dest: '<%= yeoman.dist %>/images/icons/png/'
       }
     },
     release: {
@@ -332,7 +336,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('lesscompile', ['less:app']);
 
-  grunt.registerTask('icons', ['grunticon:icons']);
+  grunt.registerTask('icons', ['grunticon:icons', 'copy:overwrite_png_icons']);
 
   grunt.registerTask('build', [
     'clean:dist',
