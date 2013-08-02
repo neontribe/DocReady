@@ -263,6 +263,10 @@ module.exports = function (grunt) {
             'styles/*.{eot,svg,ttf,woff}'
           ]
         }]
+      },
+      pdf_css: {
+        src: '<%= yeoman.app %>/styles/main.css',
+        dest: '<%= yeoman.dist %>/styles/pdf.css'
       }
     },
     release: {
@@ -346,7 +350,8 @@ module.exports = function (grunt) {
     'uglify',
     'rev',
     'usemin',
-    'devcode:dist'
+    'devcode:dist',
+    'copy:pdf_css'
   ]);
 
   grunt.registerTask('default', ['build']);
