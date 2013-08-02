@@ -575,7 +575,10 @@ label {
 }
 
 .symptoms label > span {
-	padding-right: 50px;
+    display: block;
+    margin-top: 0;
+    padding-right: 50px;
+    width: auto;
 }
 
 .symptoms label:after {
@@ -784,6 +787,7 @@ span.handle {
 	width: 40px;
 	background-position: center center;
 	background-size: 70% auto;
+	margin-top: 0;
 }
 
 li.handle {
@@ -1838,6 +1842,8 @@ body {
 	margin-bottom: 0;
 }
 
+
+
 body * + * {
 	margin-top: @v-space/2;
 }
@@ -1860,6 +1866,10 @@ body * + * {
 
 .container {
 	min-height: 500px;
+}
+
+.tags li {
+	margin-top: 0;
 }
 
 .tags a {
