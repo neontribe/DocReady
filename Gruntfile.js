@@ -328,7 +328,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('lesscompile', ['less:app']);
 
-  grunt.registerTask('icons', ['grunticon:icons', 'image_resize:icons']);
+  grunt.registerTask('icons', ['grunticon:icons']);
 
   grunt.registerTask('build', [
     'clean:dist',

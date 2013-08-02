@@ -4,7 +4,7 @@
 	  <form name="pcsearch">
 		<input name="postcode" data-ng-model="params.postcode" placeholder="search by postcode"data-ng-required="true" data-ng-pattern="/^[a-z]{2}\d{1,2}\s*\d[a-z]{2}$|^[a-z]{2}\d{1,2}/i"></input>
 		<div class="button-group right">
-			<button class="postcode" data-ng-disabled="pcsearch.postcode.$invalid" data-ng-click="search()">Search by Postcode</button> <strong>or</strong> 
+			<button class="postcode" data-ng-disabled="pcsearch.postcode.$invalid" data-ng-click="search()">Search by Postcode</button> <strong data-ng-show="settings.geo">or</strong> 
 			<button type="button" ng-click="search(true)" data-ng-show="settings.geo">Use my location</button>
 		</div>
 	  </form>
