@@ -37,14 +37,17 @@
 	   </div>
 		<div class="group-middle">
 			<div style="width: 50%">
-				<div class="toolbar" ng-hide="activeTag" aria-hidden="true">
+				<div class="toolbar" data-ng-hide="activeTag" aria-hidden="true">
 					<button class="round-icon icon-grid" data-ng-click="grid = !grid"><span data-ng-class="{'icon-cloud round-icon': grid }"></span></button> 
 					<span class="hint"> &lt;- change the layout?</span>
+				</div>
+				<div class="button-group" data-ng-show="activeTag" aria-hidden="true">
+					<a rel="next" class="with-icon" href="#/picker"><span class="icon-cloud round-icon"></span> <span><i aria-hidden="true">&lt;-</i> Choose more things to talk about? </span></a>					
 				</div>
 			</div>
 			<div style="width: 50%">
 				<div class="button-group right">
-					<a rel="next" class="with-icon" href="#/checklist"><span>see your checklist <i aria-hidden="true">-&gt;</i></span> <span class="icon-eye round-icon"></span></a>
+					<a rel="next" class="with-icon" href="#/checklist"><span>I'm done <i aria-hidden="true">-&gt;</i></span> <span class="icon-eye round-icon"></span></a>
 				</div>
 			</div>
 		</div>
