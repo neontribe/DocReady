@@ -78,7 +78,7 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
     AnalyticsProvider.trackPages(true);
   })
   // Just injecting Analytics here performs its initialization
-  .run(function(Analytics, settings, $location){
+  .run(function(Analytics, settings, $location, $rootScope, $timeout){
     // Populate userData from any 'load' 
     var load = $location.search().load;
     angular.extend(settings.userData, (load) ? JSON.parse(load) : {});
@@ -97,5 +97,9 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
 
     // Direct dev requests to the staging api
     settings.apiRoot = ($location.host() === 'localhost') ? 'http://docready-staging.herokuapp.com/api': '/api';
-
+	$rootScope.$on('$locationChangeSuccess', function() {
+			$timeout(function() { 
+				$('#page').focus();
+			}, 500);
+        });	
   });

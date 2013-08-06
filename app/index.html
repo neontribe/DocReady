@@ -57,7 +57,8 @@
         <h1>
             <a data-track-route="home" data-ng-href="#/home"><img aria-hidden="true" src="images/logo.png" alt="" /> <span class="a11y-hide">DocReady</span></a>
         </h1>
-        <nav role="navigation" aria-label="Main Navigation">
+        <nav role="navigation">
+		  <h2 class="a11y-hide">Main Navigation</h2>
           <ul>
             <li><a class="nav-advice icon-info" title="get advice on your visits to the doctors" data-route-contains="advice" data-track-route="advice" href="#/advice" data-ng-class="{active: $routeContains}"><span>advice</span></a></li>
             <li><a class="nav-symptoms icon-pencil" title="build your checklist" data-route-contains="picker" href="#/picker" data-ng-class="{active: $routeContains}"><span>build</span></a></li>
@@ -73,7 +74,7 @@
 			</div>
 		</div>
 		</noscript>
-        <div data-ng-view data-ng-animate="{enter: 'animated fadeInDownBig', leave:'animated fadeOutDownBig'}" data-ng-controller="MainCtrl"></div>
+        <div tabindex="-1" aria-live="assertive" data-ng-view data-ng-animate="{enter: 'animated fadeInDownBig', leave:'animated fadeOutDownBig'}" data-ng-controller="MainCtrl" id="page"></div>
     </div>
     <footer role="contentinfo">
         <ul>

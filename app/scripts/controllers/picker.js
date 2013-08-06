@@ -19,6 +19,13 @@ angular.module('docready')
     $scope.hasActiveTag = function(symptom){
       return _.contains(symptom.tags, $scope.activeTag);
     };
+	
+	$scope.focusTitle = function() {
+		$timeout(function() { 
+			$('#symptom-title').focus();
+			//console.log('title focus');
+		}, 2000);
+	}
 
 	  $scope.grid = true;
   });
