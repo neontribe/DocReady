@@ -24,7 +24,15 @@ angular.module('docready')
 		$timeout(function() { 
 			$('#symptom-title').focus();
 			//console.log('title focus');
-		}, 2000);
+		}, 1000);
+	}
+	
+	$scope.focusSymptoms = function() {
+		$timeout(function() { 
+			$('#symptom-title').attr('aria-live', 'assertive');
+			$('#symptom-title').focus();
+			//console.log('title focus');
+		}, 1000);
 	}
 
 	  $scope.grid = true;

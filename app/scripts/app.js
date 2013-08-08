@@ -96,10 +96,10 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
     };
 
     // Direct dev requests to the staging api
-    settings.apiRoot = ($location.host() === 'localhost') ? 'http://docready-staging.herokuapp.com/api': '/api';
-	$rootScope.$on('$locationChangeSuccess', function() {
+    settings.apiRoot = ($location.host() === "localhost") ? 'http://docready-staging.herokuapp.com/api': '/api';
+	$rootScope.$on("$locationChangeSuccess", function() {
 			$timeout(function() {
 				$('#page').focus();
-			}, 500);
+			}, 2000);
         });
   });
