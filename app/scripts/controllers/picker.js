@@ -21,18 +21,11 @@ angular.module('docready')
     };
 	
 	$scope.focusTitle = function() {
+		$('#picker-region').removeAttr('aria-live');
 		$timeout(function() { 
-			$('#symptom-title').focus();
-			//console.log('title focus');
-		}, 1000);
-	}
-	
-	$scope.focusSymptoms = function() {
-		$timeout(function() { 
-			$('#symptom-title').attr('aria-live', 'assertive');
-			$('#symptom-title').focus();
-			//console.log('title focus');
-		}, 1000);
+			$('#picker-region').focus();
+			$('#picker-region').attr('aria-live', 'assertive');
+		}, 500);
 	}
 
 	  $scope.grid = true;
