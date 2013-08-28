@@ -1,4 +1,4 @@
-DocReady
+DocReady [![Build Status](https://travis-ci.org/neontribe/DocReady.png?branch=develop)](https://travis-ci.org/neontribe/DocReady)
 ========
 
 An angularjs application for the [Docready Project](http://www.docready.org)
@@ -18,3 +18,5 @@ Building Releases:
 	git commit -a
 	git flow release finish x.x.x
 	git push origin develop && git checkout master && git push origin master --tags
+
+Coverage reports are available in /coverage after every test run.

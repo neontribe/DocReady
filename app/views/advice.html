@@ -1,24 +1,44 @@
-<ul aria-label="Topic Options" role="toolbar">
-	<li ng-repeat="topic in topics">
-		<a href="javascript:void(0)" 
-			ng-class="{ active: activeTopic === topic }"
-			ng-click="setActiveTopic(topic)" 
-			role="button" 
-			aria-controls="info">
-			<img src="images/circle.svg" alt="" />
-			<span>{{topic.title}}</span>
-		</a>
-	</li>
-</ul>
+<div role="main">
+	<div class="intro yellow printable-header">
+		<div class="group-middle">
+			<div style="width: 30%;">
+				<div>
+					<img src="images/intro_advice.png" alt="" />
+				</div>
+			</div>
+			<div class="center" style="width: 70%;">
+				<div>
+					<h1 id="page-title">Search Info &amp; Advice</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<div id="info">
+		    <div data-accordion="">
+		        <div data-accordion-group=""
+		            data-opened="setTopic"
+		            data-is-open="topic === t"
+		            data-ng-repeat="t in topics"
+		            data-slug="{{t.slug}}" class="{{t.slug}}">
+		            <div class="hide" data-accordion-heading><h3><span class="icon-{{t.slug}}"></span> <span>{{t.title}}</span></h3></div>
+		            <div data-ng-bind-html="(items | filter: { topic: t.slug } | first).body"></div>
+		            <div data-accordion="">
+		                <div data-accordion-group=""
+		                           data-ng-repeat="i in items | filter: { topic: t.slug } | rest"
+		                           data-is-open="item === i"
+		                           data-opened="setItem"
+		                           data-slug="{{i.slug}}">
+		                    <div class="hide" data-accordion-heading><h4>{{i.title}}</h4></div>
+		                    <div data-ng-bind-html="i.body"></div>
+		                </div>
+		            </div>
 
-<div id="info">
-	<h2>{{activeTopic.title}}</h2>
-	<accordion>
-		<accordion-group 
-			ng-repeat="item in items | filter: { topic: activeTopic.slug }"
-			heading="{{item.title}}"
-			slug="{{item.slug}}">
-			<div ng-bind-html="item.body"></div>
-		</accordion-group>
-	</accordion>
+		        </div>
+		    </div>
+		    <p><em>This information is based upon work completed by young people's mental health and wellbeing project <a target="_blank" href="http://right-here-brightonandhove.org.uk/">Right Here Brighton and Hove</a></em></p>
+		</div>
+	</div>
 </div>
+ 
+

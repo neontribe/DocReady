@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="66"
+   height="66"
+   id="svg9502"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="pencil.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1240"
+     inkscape:window-height="664"
+     id="namedview7"
+     showgrid="false"
+     inkscape:zoom="3.337544"
+     inkscape:cx="13.450585"
+     inkscape:cy="55.336614"
+     inkscape:window-x="0"
+     inkscape:window-y="295"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg9502" />
+  <defs
+     id="defs9504" />
+  <metadata
+     id="metadata9507">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="matrix(0.2857712,0,0,0.2857712,4.4228794,-238.87231)"
+     id="layer1"
+     style="fill:#ffffff">
+    <path
+       d="m 64.523234,882.04294 0,116.60083 37.158516,36.03763 33.79502,-36.03763 0,-116.60083 -70.953536,0 z m 17.137763,17.77876 6.887137,0 0,82.80556 -6.887137,0 0,-82.80556 z m 29.150203,0 6.88714,0 0,82.80556 -6.88714,0 0,-82.80556 z m -38.279669,99.46274 56.538609,0 -15.37594,14.89576 -26.907891,-0.6407 -14.254778,-14.25506 z"
+       id="rect8705"
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

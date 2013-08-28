@@ -1,20 +1,44 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en-GB"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en-GB"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en-GB"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-GB"> <!--<![endif]-->
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Doc Ready</title>
+    <!-- Muscular error reporting -->
+    <script type='text/javascript'>
+        /*window.Muscula = { settings:{
+            logId:"c4bHrZC-fD4Gg", suppressErrors: false, googleAnalyticsEvents: 'none', branding: 'none'
+        }};
+        (function () {
+            var m = document.createElement('script'); m.type = 'text/javascript'; m.async = true;
+            m.src = (window.location.protocol == 'https:' ? 'https:' : 'http:') +
+                '//musculahq.appspot.com/Muscula2beta.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(m, s);
+            window.Muscula.run=function(c){eval(c);window.Muscula.run=function(){};};
+            window.Muscula.errors=[];window.onerror=function(){window.Muscula.errors.push(arguments);
+            return window.Muscula.settings.suppressErrors===undefined;}
+        })();*/
+    </script>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css styles/main.css -->
+    <link rel="shortcut icon" href="images/fav.png" type="image/png">
+    <!-- build:css styles/docready.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="images/icons/icons.data.svg.css">
     <!-- endbuild -->
+
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="images/icons/icons.fallback.css">
+    <![endif]-->
+
+
   </head>
-  <body ng-app="docready">
+  <body id="ng-app" data-ng-app="docready">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -22,41 +46,84 @@
     <!--[if lt IE 9]>
       <script src="components/es5-shim/es5-shim.js"></script>
       <script src="components/json3/lib/json3.min.js"></script>
+      <script src="components/html5shiv/dist/html5shiv.js"></script>
+      <script>
+        document.createElement('ng-href');
+      </script>
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <nav role="navigation">
-      <ul>
-        <li><a href="#/info">info</a></li>
-        <li><a href="#/tool">checklist</a></li>
-      </ul>
-    </nav>
-    <div class="container" ng-view ng-animate="{enter: 'view-enter', leave: 'view-leave'}"></div>
+    <header role="banner">
+        <h1>
+            <a data-track-route="home" data-ng-href="#/home"><img aria-hidden="true" src="images/logo.png" alt="" /> <span class="a11y-hide">DocReady</span></a>
+        </h1>
+        <nav role="navigation">
+		  <h2 class="a11y-hide">Main Navigation</h2>
+          <ul>
+            <li><a class="nav-advice icon-info" title="get advice on your visits to the doctors" data-route-contains="advice" data-track-route="advice" href="#/advice" data-ng-class="{active: $routeContains}"><span>advice</span></a></li>
+            <li><a class="nav-symptoms icon-pencil" title="build your checklist" data-route-contains="picker" href="#/picker" data-ng-class="{active: $routeContains}"><span>build</span></a></li>
+            <li data-ng-animate="{'itemAdded': 'animated winkOnce', 'itemRemoved': 'animated winkOnce'}" aria-label="checklist item count" data-checklist-widget></li>
+          </ul>
+        </nav>
+    </header>
+    <div class="container">
+		<noscript>
+		<div role="main">
+			<div class="content">
+				<p>Javascript is not currently turned on so no content can be displayed. Please enable javascript if you are able. Otherwise, we are very sorry.</p>
+			</div>
+		</div>
+		</noscript>
+        <div tabindex="-1" data-ng-view data-ng-animate="{enter: 'animated fadeInDownBig', leave:'animated fadeOutDownBig'}" data-ng-controller="MainCtrl" id="page"></div>
+    </div>
+    <footer role="contentinfo">
+        <ul>
+            <li><a href="#/about">About</a></li>
+            <li><a href="#/contact">Contact</a></li>
+        </ul>
+        <p>DocReady &copy; 2013. All Rights Reserved.</p>
+    </footer>
+    <!-- devcode: !production -->
+    <script src="scripts/dev.js"></script>
+    <!-- enddevcode -->
     <!-- build:js scripts/scripts.js -->
+    <script src="components/modernizr/modernizr.js"></script>
+    <script src="components/jquery/jquery.js"></script>
+    <script src="components/jquery-ui/ui/jquery.ui.core.js"></script>
+    <script src="components/jquery-ui/ui/jquery.ui.widget.js"></script>
+    <script src="components/jquery-ui/ui/jquery.ui.mouse.js"></script>
+    <script src="components/jquery-ui/ui/jquery.ui.sortable.js"></script>
+    <script src="components/jqueryui-touch-punch/jquery.ui.touch-punch.js"></script>
     <script src="components/angular-unstable/angular.js"></script>
     <script src="components/angular-resource-unstable/angular-resource.js"></script>
     <script src="components/angular-sanitize-unstable/index.js"></script>
-    <script src="components/underscore/underscore.js"></script>
-
-    
+    <script src="components/angular-ui/common/module.js"></script>
+    <script src="components/angular-ui/modules/directives/validate/validate.js"></script>
+    <script src="components/angular-ui/modules/directives/sortable/sortable.js"></script>
+    <script src="components/lodash/dist/lodash.underscore.js"></script>
+    <script src="components/angular-google-analytics/src/angular-google-analytics.js"></script>
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/advice.js"></script>
-    <script src="scripts/directives/accordion.js"></script>
+    <script src="scripts/services/symptomService.js"></script>
     <script src="scripts/services/adviceService.js"></script>
-    <script src="scripts/controllers/tool.js"></script>
+    <script src="scripts/directives/route-contains.js"></script>
+    <script src="scripts/directives/accordion.js"></script>
+    <script src="scripts/directives/add-symptom.js"></script>
+    <script src="scripts/directives/validate-equals.js"></script>
+    <script src="scripts/directives/track-route.js"></script>
+    <script src="scripts/directives/checklist-widget.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/advice.js"></script>
+    <script src="scripts/controllers/picker.js"></script>
+    <script src="scripts/controllers/checklist.js"></script>
+    <script src="scripts/controllers/export.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/about.js"></script>
+    <script src="scripts/controllers/contact.js"></script>
+    <script src="scripts/controllers/gpfinder.js"></script>
     <!-- endbuild -->
-
     <!-- devcode: !production -->
     <script src="components/angular-mocks-unstable/index.js"></script>
-    <script src="../test/mock/mocks.js"></script>
+    <!--<script src="../test/mock/mocks.js"></script>-->
     <!-- enddevcode -->
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
   </body>
 </html>

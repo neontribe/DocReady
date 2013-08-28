@@ -1,11 +1,10 @@
 <li>
-  <h3>
   	<a role="button"
   	   href="javascript:void(0)"
-  	   aria-controls="{{slug}}"
-  	   ng-click="isOpen = !isOpen"
-  	   ng-class="{ active: isOpen }"
-  	   accordion-transclude="heading">{{heading}}</a>
-  </h3>
-  <div id="{{slug}}" collapse="!isOpen" aria-expanded="{{isOpen}}" ng-class="{ expanded: isOpen }"ng-transclude></div>
+  	   aria-controls="{{slug}}" 
+	   aria-haspopup="true" 
+  	   data-ng-click="isOpen = !isOpen"
+  	   data-ng-class="{ active: isOpen }"
+  	   data-accordion-transclude="heading">{{heading}}</a>
+  <div id="{{slug}}" role="region" data-collapse="!isOpen" aria-expanded="{{isOpen}}" aria-hidden="{{!isOpen}}" data-ng-class="{ expanded: isOpen }" data-ng-transclude></div>
 </li>

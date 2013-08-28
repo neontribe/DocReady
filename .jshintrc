@@ -1,7 +1,6 @@
 {
   "node": true,
   "browser": true,
-  "es5": true,
   "esnext": true,
   "bitwise": true,
   "camelcase": true,
@@ -20,6 +19,16 @@
   "trailing": true,
   "smarttabs": true,
   "globals": {
-    "angular": false
+    "angular": false,
+    "_": false,
+    "describe": false,
+    "it": false,
+    "beforeEach": false,
+    "afterEach": false,
+    "inject": false,
+    "expect": false,
+    "spyOn": false,
+    "Modernizr": false,
+    "$": false
   }
 }

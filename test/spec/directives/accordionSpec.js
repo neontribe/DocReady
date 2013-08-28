@@ -1,4 +1,5 @@
 describe('accordion', function () {
+  'use strict';
   var $scope, $httpBackend;
 
   beforeEach(module('ui.bootstrap.accordion'));
@@ -21,11 +22,6 @@ describe('accordion', function () {
         '</li>'
         ].join(''));
     }));
-
-  //beforeEach(module('views/accordion/accordion.html'));
-  //beforeEach(module('views/accordion/accordion-group.html'));
-
-  
 
   describe('controller', function () {
 
@@ -278,7 +274,7 @@ describe('accordion', function () {
       it('should open the group with isOpen set to true', function () {
         expect(findGroupBody(0).scope().isOpen).toBe(false);
         expect(findGroupBody(1).scope().isOpen).toBe(true);
-       });
+      });
     });
 
     describe('is-open attribute with dynamic content', function() {
@@ -309,9 +305,38 @@ describe('accordion', function () {
       });
     });
 
+    describe('opened attribute', function() {
+      beforeEach(function () {
+        var tpl =
+          "<accordion>" +
+            "<accordion-group heading=\"title 1\" slug=\"test\" opened=\"openhandler\" is-open=\"open1\"><div ng-repeat='item in items'>{{item}}</div></accordion-group>" +
+            "<accordion-group heading=\"title 2\" slug=\"test-2\" opened=\"openhandler\" is-open=\"open2\">Static content</accordion-group>" +
+            "</accordion>";
+        element = angular.element(tpl);
+        scope.items = ['Item 1', 'Item 2', 'Item 3'];
+        scope.open1 = true;
+        scope.open2 = false;
+        scope.openhandler = function(){};
+        spyOn(scope, 'openhandler');
+        angular.element(document.body).append(element);
+        $compile(element)(scope);
+        $httpBackend.flush();
+        scope.$digest();
+        groups = element.find('li');
+      });
+
+      afterEach(function() {
+        element.remove();
+      });
+
+      it('an expression in opened should be called', function () {
+        expect(scope.openhandler).toHaveBeenCalledWith('test');
+      });
+    });
+
     describe('accordion-heading element', function() {
       beforeEach(function() {
-        var tpl = 
+        var tpl =
           '<accordion ng-init="a = [1,2,3]">' +
             '<accordion-group heading="I get overridden">' +
               '<accordion-heading>Heading Element <span ng-repeat="x in a">{{x}}</span> </accordion-heading>' +

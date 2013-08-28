@@ -7,13 +7,17 @@ describe('Controller: AdviceCtrl', function () {
 
   var AdviceCtrl,
     scope,
-    $httpBackend;
+    controller,
+    $httpBackend,
+    location;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_) {
+  beforeEach(inject(function ($controller, $rootScope, _$httpBackend_, mocks, $location) {
     $httpBackend = _$httpBackend_;
-    registerMocks($httpBackend);
+    location = $location;
+    mocks.registerMocks($httpBackend);
     scope = $rootScope.$new();
+    controller = $controller;
     AdviceCtrl = $controller('AdviceCtrl', {
       $scope: scope
     });
@@ -21,11 +25,43 @@ describe('Controller: AdviceCtrl', function () {
 
   it('should attatch a list of topics to the scope', function () {
     $httpBackend.flush();
-    expect(scope.topics.length).toBe(4);
+    expect(scope.topics.length).toBe(6);
   });
 
   it('should attatch a list of items to the scope', function () {
     $httpBackend.flush();
     expect(scope.items.length).toBe(4);
+  });
+
+  it('should respect the active topic set in routeParams', function(){
+    var routeParams = {topic: 'confidentiality'};
+    AdviceCtrl = controller('AdviceCtrl', {
+      $scope: scope,
+      $routeParams: routeParams
+    });
+    $httpBackend.flush();
+    expect(scope.topic.slug).toEqual('confidentiality');
+  });
+
+  it('should respect the active item set in routeParams', function(){
+    var routeParams = {item: 'item-3'};
+    AdviceCtrl = controller('AdviceCtrl', {
+      $scope: scope,
+      $routeParams: routeParams
+    });
+    $httpBackend.flush();
+    expect(scope.item.slug).toEqual('item-3');
+  });
+
+  it('should provide a setItem method which sets the item in the location search', function(){
+    $httpBackend.flush();
+    scope.setItem('test-slug');
+    expect(location.search().item).toEqual('test-slug');
+  });
+
+  it('should provide a setTopic method which sets the topic in the location search', function(){
+    $httpBackend.flush();
+    scope.setTopic('test-slug');
+    expect(location.search().topic).toEqual('test-slug');
   });
 });

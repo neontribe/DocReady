@@ -1,0 +1,58 @@
+<div role="main">  
+  <div class="intro blue">
+	<div class="group-middle">
+		<div style="width: 30%;">
+			<div>
+				<img src="images/intro_build.png" alt="" />
+			</div>
+		</div>
+		<div class="center" style="width: 70%;">
+			<div>
+				<h1 id="page-title">Build Your Checklist</h1>
+			</div>
+		</div>
+	</div>
+  </div>
+  <div id="picker-region" aria-live="assertive" tabindex="-1" class="content">
+	<h2 id="symptom-title"><span data-ng-hide="activeTag">What do you want to talk about?</span> <em class="symptom-highlighted" data-ng-show="activeTag"><span class="a11y-hide">Your chosen topic is&hellip;</span> {{activeTag}}</em></h2>
+	<p data-ng-hide="activeTag" id="symptoms">Choose a topic below to start building your checklist.</p>
+	<p data-ng-show="activeTag">Choose subtopics below by pressing the '+<span class="a11y-hide">add</span>' button.</p>
+	<div id="picker" data-ng-switch="!!activeTag">
+	  <div data-ng-switch-when="false">
+		<ul class="tags" data-ng-class="{grid: grid}">
+		  <li data-ng-repeat="tag in tags" data-ng-animate="{enter:'tagEnter'}">
+			<a role="button" href="#/picker/{{tag.title}}" data-ng-click="focusTitle()">{{tag.title}}</a>
+		  </li>
+		</ul> 
+	  </div>  
+	  <div data-ng-switch-when="true">
+		<form action="" aria-label="add new subtopics or select existing subtopics from the list">
+		<div class="add-symptoms">
+		  <div data-add-symptom tag="{{activeTag}}" data-mode="prepend" placeholder="What do you want to talk about?"></div>
+		</div>
+		<ul class="symptoms">
+		  <li data-ng-repeat="symptom in symptoms | filter:hasActiveTag" data-ng-animate="{enter:'animated fadeInDown', leave:'animated fadeOutUp'}">
+			<label for="checkbox-{{$index + 1}}" data-ng-class="{selected: symptom.selected}"><span>{{symptom.title}}</span> <input id="checkbox-{{$index + 1}}" type="checkbox" data-ng-checked="symptom.selected" data-ng-click="symptomService.toggle(symptom, activeTag)"/></label>
+		  </li>
+		</ul>
+		</form>
+	   </div>
+		<div class="group-middle">
+			<div style="width: 50%">
+				<div class="toolbar" data-ng-hide="activeTag" aria-hidden="true">
+					<button class="round-icon icon-grid" data-ng-click="grid = !grid"><span data-ng-class="{'icon-cloud round-icon': grid }"></span></button> 
+					<span class="hint"> &lt;- change the layout?</span>
+				</div>
+				<div class="button-group" data-ng-show="activeTag">
+					<a rel="prev" class="with-icon" data-ng-click="focusTitle()" href="#/picker"><span class="icon-pencil round-icon"></span> <span><i aria-hidden="true">&lt;-</i> Choose more things to talk about? </span></a>					
+				</div>
+			</div>
+			<div style="width: 50%">
+				<div class="button-group right">
+					<a rel="next" class="with-icon" href="#/checklist"><span>I'm done <i aria-hidden="true">-&gt;</i></span> <span class="icon-eye round-icon"></span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>

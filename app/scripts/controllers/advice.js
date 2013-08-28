@@ -1,15 +1,29 @@
 'use strict';
 
 angular.module('docready')
-  .controller('AdviceCtrl', function ($scope, adviceService) {
-    $scope.activeTopic = null;
-    $scope.topics = adviceService.Topic.query(function(topics){
-      $scope.setActiveTopic(topics[0]);
-    });
-    $scope.items = adviceService.Item.query();
+  .controller('AdviceCtrl', function ($scope, adviceService, $routeParams, $location) {
+    // Process income advice item/topic data
+    function initData(data, type) {
+      if ($routeParams[type]) {
+        // Set the active entry, if any
+        $scope[type] = _.findWhere(data, {slug: $routeParams[type]});
+      }
+      return data;
+    }
 
-    $scope.setActiveTopic = function(topic) {
-      $scope.activeTopic = topic;
+    adviceService.topics.$then(function(data){
+      $scope.topics = initData(data.resource, 'topic');
+    });
+    adviceService.items.$then(function(data){
+      $scope.items = initData(data.resource, 'item');
+    });
+
+    $scope.setItem = function(slug) {
+      $location.search('item', slug);
+    };
+
+    $scope.setTopic = function(slug) {
+      $location.search('topic', slug);
     };
 
   });
