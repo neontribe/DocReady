@@ -282,7 +282,7 @@ module.exports = function (grunt) {
         tag: true, //default: true
         push: true, //default: true
         pushTags: true, //default: true
-        npm: false, //default: true
+        npm: false //default: true
         //folder: 'folder/to/publish/to/npm' //default project root
         //tagName: 'some-tag-<%= version %>', //default: '<%= version %>'
         //commitMessage: 'check out my release <%= version %>', //default: 'release <%= version %>'

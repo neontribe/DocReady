@@ -19,14 +19,14 @@ angular.module('docready')
     $scope.hasActiveTag = function(symptom){
       return _.contains(symptom.tags, $scope.activeTag);
     };
-	
-	$scope.focusTitle = function() {
-		$('#picker-region').removeAttr('aria-live');
-		$timeout(function() { 
-			$('#picker-region').focus();
-			$('#picker-region').attr('aria-live', 'assertive');
-		}, 500);
-	}
+
+    $scope.focusTitle = function() {
+      $('#picker-region').removeAttr('aria-live');
+      $timeout(function() {
+        $('#picker-region').focus();
+        $('#picker-region').attr('aria-live', 'assertive');
+      }, 500);
+    };
 
 	  $scope.grid = true;
   });
