@@ -70,8 +70,8 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
     };
   })
   .config(function(AnalyticsProvider) {
-    // initial analytics configuration
-    AnalyticsProvider.setAccount('UA-42308316-1');
+    // initial analytics configuration staging vs production
+    AnalyticsProvider.setAccount((/docready.org/.test(window.location.host)) ? 'UA-42308316-2' : 'UA-42308316-1');
     if (window.devMode) {
       AnalyticsProvider.setDomainName('none');
     }
