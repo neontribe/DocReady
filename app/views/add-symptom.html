@@ -1,7 +1,7 @@
 <div class="label-and-button">
 	<label>
 	  <span class="a11y-hide" data-ng-transclude>Add new items here.</span>
-	  <input type="text" data-ng-model="sympt" placeholder="{{placeholder}}"/>
+	  <input ui-keypress="{13: 'add($event)'}" type="text" data-ng-model="sympt" placeholder="{{placeholder}}"/>
 	</label>
 	<button type="button" data-ng-click="add()" data-ng-disabled="sympt.length === 0" aria-label="add symptom"><span class="a11y-hide">add</span> {{buttonT}}</button>
 </div>
