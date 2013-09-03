@@ -8,7 +8,6 @@
     "es5-shim": "2.0.12",
     "angular-resource-unstable": "johannestroeger/bower-angular-resource-unstable",
     "angular-sanitize-unstable": "https://raw.github.com/angular/bower-angular-sanitize/unstable/angular-sanitize.js",
-    "underscore": "1.4.4",
     "angular-ui": "0.4.0",
     "jquery": "1.10.2",
     "jquery-ui": "1.10.3",
@@ -23,5 +22,10 @@
     "angular-mocks": "1.0.7",
     "angular-mocks-unstable": "https://raw.github.com/angular/bower-angular-mocks/unstable/angular-mocks.js",
     "angular-scenario": "1.0.7"
+  },
+  "resolutions": {
+    "angular-mocks": "1.0.7",
+    "angular-scenario": "1.0.7",
+    "angular": "1.0.7"
   }
 }
