@@ -5,17 +5,18 @@
 */
 angular.module('ui.directives').directive('uiSortable', [
   'ui.config', function(uiConfig) {
+    'use strict';
     return {
       require: '?ngModel',
       link: function(scope, element, attrs, ngModel) {
-        var onReceive, onRemove, onStart, onUpdate, opts, _receive, _remove, _start, _update;
+        var onReceive, onRemove, onStart, onStop, onUpdate, opts, _receive, _remove, _start, _stop, _update;
 
         opts = angular.extend({}, uiConfig.sortable, scope.$eval(attrs.uiSortable));
 
         if (ngModel) {
 
           ngModel.$render = function() {
-            element.sortable( "refresh" );
+            element.sortable( 'refresh' );
           };
 
           onStart = function(e, ui) {
@@ -69,40 +70,45 @@ angular.module('ui.directives').directive('uiSortable', [
           _start = opts.start;
           opts.start = function(e, ui) {
             onStart(e, ui);
-            if (typeof _start === "function")
+            if (typeof _start === 'function') {
               _start(e, ui);
+            }
           };
 
           // If user provided 'start' callback compose it with onStart function
           _stop = opts.stop;
           opts.stop = function(e, ui) {
             onStop(e, ui);
-            if (typeof _stop === "function")
+            if (typeof _stop === 'function') {
               _stop(e, ui);
+            }
           };
 
           // If user provided 'update' callback compose it with onUpdate function
           _update = opts.update;
           opts.update = function(e, ui) {
             onUpdate(e, ui);
-            if (typeof _update === "function")
+            if (typeof _update === 'function') {
               _update(e, ui);
+            }
           };
 
           // If user provided 'receive' callback compose it with onReceive function
           _receive = opts.receive;
           opts.receive = function(e, ui) {
             onReceive(e, ui);
-            if (typeof _receive === "function")
+            if (typeof _receive === 'function') {
               _receive(e, ui);
+            }
           };
 
           // If user provided 'remove' callback compose it with onRemove function
           _remove = opts.remove;
           opts.remove = function(e, ui) {
             onRemove(e, ui);
-            if (typeof _remove === "function")
+            if (typeof _remove === 'function') {
               _remove(e, ui);
+            }
           };
         }
 
