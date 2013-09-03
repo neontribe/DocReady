@@ -2,6 +2,7 @@
   "name": "docready",
   "version": "0.2.5",
   "dependencies": {
+    "angular": "1.0.7",
     "angular-unstable": "1.1.5",
     "json3": "3.2.5",
     "es5-shim": "2.0.12",
