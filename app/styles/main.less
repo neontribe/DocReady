@@ -1500,7 +1500,6 @@ iframe {
 }
 
 .introduction a:hover, .introduction a:focus {
-	background: @blue-color-lighter;
 	outline: 10px solid @blue-color-lighter;
 }
 
@@ -1942,32 +1941,6 @@ body * + * {
 	font-size: 0.85em;
 }
 
-.introduction h3 {
-	font-size: 1.5em;
-	text-decoration:underline;
-}
-
-.introduction strong {
-	text-decoration:underline;
-}
-
-.introduction li + li {
-    margin-top: @v-space;
-}
-
-.introduction a > * {
-	width: 100% !important;
-	vertical-align: top;
-}
-
-.introduction a div {
-	padding-right: 1em;
-}
-
-.introduction li:nth-child(even) a div {
-	padding-left: 1em;
-}
-
 [role="navigation"] {
 	padding: 0 0.25em 1em !important;
 }
@@ -2040,6 +2013,40 @@ form[name="pcsearch"] strong {
 .actions button {
 	margin: @v-space/4 0;
 	width: 100%;
+}
+
+}
+
+@media screen and (max-width: 450px) {
+
+.introduction h3 {
+	font-size: 1.5em;
+	text-decoration:underline;
+}
+
+.introduction strong {
+	text-decoration:underline;
+}
+
+.introduction li + li {
+    margin-top: @v-space;
+}
+
+.introduction li img {
+	display: none;
+}
+
+.introduction a > * {
+	width: 100% !important;
+	vertical-align: top;
+}
+
+.introduction a div {
+	padding-right: 1em;
+}
+
+.introduction li:nth-child(even) a div {
+	padding-left: 0;
 }
 
 }
