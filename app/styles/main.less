@@ -1173,6 +1173,10 @@ address {
 	border: 0;
 }
 
+[role="banner"] h1 a:focus img, [role="navigation"] a:focus {
+	outline: 1px dotted #ccc;
+}
+
 [role="navigation"] li {
 	position: relative;
 }
@@ -1500,7 +1504,8 @@ iframe {
 }
 
 .introduction a:hover, .introduction a:focus {
-	outline: 10px solid @blue-color-lighter;
+	outline: 10px solid @blue-color;
+	box-shadow: 7px 7px 0 #fff, -7px 7px 0 #fff, 7px -7px 0 #fff, -7px -7px 0 #fff;
 }
 
 .introduction a:after {
