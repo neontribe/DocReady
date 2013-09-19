@@ -31,12 +31,12 @@ angular.module('docready')
 
 	  $scope.grid = true;
   });
-  
-  // SOme jQuery to make it more accessible. Define "ugly" :-P
-  
-  $('body').on('focus', 'input[type="checkbox"]', function() {
-	$(this).parents('label').css('background', '#FEF5DA');
-  });
-  $('body').on('blur', 'input[type="checkbox"]', function() {
-	$(this).parents('label').css('background', '#fff');
-  });  
+
+// SOme jQuery to make it more accessible. Define "ugly" :-P
+
+$('body').on('focus', 'input[type="checkbox"]', function() {
+$(this).parents('label').css('background', '#FEF5DA');
+});
+$('body').on('blur', 'input[type="checkbox"]', function() {
+$(this).parents('label').css('background', '#fff');
+});
