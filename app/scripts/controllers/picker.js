@@ -27,6 +27,16 @@ angular.module('docready')
         $('#picker-region').attr('aria-live', 'assertive');
       }, 500);
     };
+	
 
 	  $scope.grid = true;
   });
+  
+  // SOme jQuery to make it more accessible. Define "ugly" :-P
+  
+  $('body').on('focus', 'input[type="checkbox"]', function() {
+	$(this).parents('label').css('background', '#FEF5DA');
+  });
+  $('body').on('blur', 'input[type="checkbox"]', function() {
+	$(this).parents('label').css('background', '#fff');
+  });  
