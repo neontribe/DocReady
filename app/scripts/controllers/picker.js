@@ -28,5 +28,5 @@ angular.module('docready')
       }, 500);
     };
 
-	$scope.grid = true;
+    $scope.grid = true;
   });
