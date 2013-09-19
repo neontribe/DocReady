@@ -97,11 +97,20 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
 
     // Direct dev requests to the staging api
     settings.apiRoot = ($location.host() === 'localhost') ? 'http://docready-staging.herokuapp.com/api': '/api';
+	
+    // a11y hacks
     $rootScope.$on('$locationChangeSuccess', function() {
       $('#page').removeAttr('aria-live');
       $timeout(function() {
         $('#page').focus();
         $('#page').attr('aria-live', 'assertive');
       }, 1000);
+    });
+    // SOme jQuery to make it more accessible. Define "ugly" :-P
+    $('body').on('focus', 'input[type="checkbox"]', function() {
+      $(this).parents('label').css('background', '#FEF5DA');
+    });
+    $('body').on('blur', 'input[type="checkbox"]', function() {
+      $(this).parents('label').css('background', '#fff');
     });
   });
