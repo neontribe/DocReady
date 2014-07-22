@@ -22,10 +22,5 @@
     "angular-mocks": "1.0.7",
     "angular-mocks-unstable": "https://raw.github.com/angular/bower-angular-mocks/unstable/angular-mocks.js",
     "angular-scenario": "1.0.7"
-  },
-  "resolutions": {
-    "angular-mocks": "1.0.7",
-    "angular-scenario": "1.0.7",
-    "angular": "1.0.7"
   }
 }
