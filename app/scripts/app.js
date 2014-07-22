@@ -43,6 +43,10 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
         templateUrl: 'views/gpfinder.html',
         controller: 'GpfinderCtrl'
       })
+      .when('/survey', {
+        templateUrl: 'views/survey.html',
+        controller: 'SurveryCtrl'
+      })
       .otherwise({
         redirectTo: '/home'
       });
