@@ -8,3 +8,5 @@ app/styles/animations.css
 coverage
 DocReady.sublime*
 libpeerconnection*
+.bower-cache
+.bower-registry
