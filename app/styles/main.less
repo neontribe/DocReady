@@ -286,9 +286,42 @@ blockquote p:before, q:before { content: '\201C' }
 blockquote p:after, q:after { content: '\201D' }
 
 /**
+* Survey banner
+----------------------------------------------------------------------
+*/
+
+.survey p {
+  background: #EC6D6F;
+  padding: 0.75em;
+  font-size: 1.25em;
+  text-align: center !important;
+}
+
+.survey p:before, .survey p:after {
+  content: '\2605';
+  color: #F9D55F;
+  padding: 0.25em;
+}
+
+.survey, .survey a {
+  color: #fff !important;
+}
+
+.survey + * {
+	margin-top: 0;
+}
+
+
+.survey {
+    position: relative;
+    z-index: 2;
+}
+
+/**
 * Media
 ----------------------------------------------------------------------
 */
+
 
 img {
 	max-width: 100%;
