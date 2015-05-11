@@ -38,7 +38,7 @@
     "node": ">=0.10.12"
   },
   "scripts": {
-    "test": "./node_modules/grunt-cli/bin/grunt build",
+    "test": "grunt test",
     "build": "grunt build",
     "postinstall": "bower install && npm run test && npm run build"
   }
