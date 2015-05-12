@@ -2,9 +2,7 @@
   "name": "docready",
   "version": "2.0.0",
   "dependencies": {
-    "express": "^4.12.3"
-  },
-  "devDependencies": {
+    "express": "^4.12.3",
     "bower": "^0.x.x",
     "grunt": "~0.4.1",
     "grunt-cli": "^0.1.13",
@@ -36,7 +34,7 @@
   },
   "scripts": {
     "test": "grunt test",
-    "build": "bower install && grunt build",
+    "postinstall": "bower install && grunt build",
     "start": "node index.js"
   }
 }
