@@ -1,6 +1,6 @@
 /* jshint -W106 */
 'use strict';
-var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
+
 var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
@@ -22,38 +22,11 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     yeoman: yeomanConfig,
-    watch: {
-      less: {
-        files: ['{.tmp,<%= yeoman.app %>}/styles/{,*/}*.less'],
-        tasks: ['less']
-      },
-      livereload: {
-        files: [
-          '<%= yeoman.app %>/{,*/}*.html',
-          '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
-          '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ],
-        tasks: ['livereload']
-      }
-    },
     connect: {
       options: {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: '0.0.0.0'
-      },
-      livereload: {
-        options: {
-          middleware: function (connect) {
-            return [
-              lrSnippet,
-              mountFolder(connect, '.tmp'),
-              mountFolder(connect, yeomanConfig.app),
-              mountFolder(connect, '.')
-            ];
-          }
-        }
       },
       test: {
         options: {
@@ -65,11 +38,6 @@ module.exports = function (grunt) {
             ];
           }
         }
-      }
-    },
-    open: {
-      server: {
-        url: 'http://localhost:<%= connect.options.port %>'
       }
     },
     clean: {
@@ -274,22 +242,6 @@ module.exports = function (grunt) {
         dest: '<%= yeoman.dist %>/images/icons/png/'
       }
     },
-    release: {
-      options: {
-        bump: true, //default: true
-        files: 'package.json', //default: package.json
-        add: true, //default: true
-        commit: true, //default: true
-        tag: true, //default: true
-        push: true, //default: true
-        pushTags: true, //default: true
-        npm: false //default: true
-        //folder: 'folder/to/publish/to/npm' //default project root
-        //tagName: 'some-tag-<%= version %>', //default: '<%= version %>'
-        //commitMessage: 'check out my release <%= version %>', //default: 'release <%= version %>'
-        //tagMessage: 'tagging version <%= version %>' //default: 'Version <%= version %>'
-      }
-    },
     devcode: {
       options: {
         html: true,        // html files parsing?
@@ -311,16 +263,6 @@ module.exports = function (grunt) {
         }
       }
     });
-
-  grunt.renameTask('regarde', 'watch');
-
-  grunt.registerTask('server', [
-    'clean:server',
-    'livereload-start',
-    'connect:livereload',
-    'open',
-    'watch'
-  ]);
 
   grunt.registerTask('test', [
     'clean:server',
