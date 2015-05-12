@@ -257,7 +257,7 @@ module.exports = function (grunt) {
             '*.{ico,txt}',
             '.htaccess',
             'docready.js',
-            'api',
+            'api/*',
             'components/**/*',
             'images/{,*/}*.{gif,webp,svg}',
             'images/icons/{,*/}*.{css,png,svg}',
