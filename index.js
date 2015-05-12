@@ -5,7 +5,7 @@ var app = express();
 //   res.send('h');
 // });
 
-app.use(express.static('dist'));
+app.use(express.static(app.get('env') === 'development' ? 'app' :'dist'));
 
 var server = app.listen(process.env.PORT || 3000, function () {
 

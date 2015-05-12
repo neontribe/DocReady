@@ -1,19 +1,19 @@
 'use strict';
 
 angular.module('docready')
-  .controller('PickerCtrl', function ($scope, symptomService, $resource, $routeParams, $timeout, settings) {
+  .controller('PickerCtrl', function ($scope, symptomService, symptomTagService, $routeParams, $timeout, settings) {
     $scope.activeTag = $routeParams.tag;
     $scope.symptomService = symptomService;
     $scope.symptoms = symptomService.symptoms;
+    $scope.tags = []
 
-    $scope.tags = [];
-    $resource(settings.apiRoot + '/symptom_tag').query({}, function(data){
-      $timeout(function(){
-        $scope.$apply(function(){
-          $scope.tags = data;
-        });
-      }, 1100);
-    });
+    // Apply the data late to get fade-in anims
+    $timeout(function(){
+      $scope.$apply(function(){
+        $scope.tags = symptomTagService.symptomTags;
+      })
+    }, 1100);
+    
     $scope.settings = settings;
 
     $scope.hasActiveTag = function(symptom){
