@@ -1,10 +1,10 @@
 language: node_js
 node_js:
-- 'iojs'
+- iojs
 deploy:
   provider: heroku
   api_key:
-    secure: PEHwBVlANBR4goE6j5MBNs3xs5XXNnLxYOhgrjaJBhlXCNKOZv2Lx/UTdu4URD51eLhBOO+LXclFdVVp3fDGRRSDQnKsAUwcpFgE8TIBCL3eLRXgfaVYxTLp9DFli7pP69gmgMhJe/6xxlKJMMD2KajSRjRDPOE4FgyFDAU4HdQ=
-  app: 
+    secure: OhkuPQcCYdaDMCWyMt6CiwIwX8+/qGx2OvFA3yvXVuHNlCdyurYHdcrBNcxfqd+IM65eQrHkSz+OUadjO87ZCrNMN5xWCzRH9a0lxffDouqkXZU2m4aTtbpYCoW89ZPqeVv4JUK8oHjmMFACJ5GkWQALA6BcJFi/cVgIkavS/LU=
+  app:
     master: docready-staging
     develop: docready-staging
