@@ -5,15 +5,15 @@ angular.module('docready')
     $scope.activeTag = $routeParams.tag;
     $scope.symptomService = symptomService;
     $scope.symptoms = symptomService.symptoms;
-    $scope.tags = []
+    $scope.tags = [];
 
     // Apply the data late to get fade-in anims
     $timeout(function(){
       $scope.$apply(function(){
         $scope.tags = symptomTagService.symptomTags;
-      })
+      });
     }, 1100);
-    
+
     $scope.settings = settings;
 
     $scope.hasActiveTag = function(symptom){
