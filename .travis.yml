@@ -1,6 +1,7 @@
 language: node_js
 node_js:
 - iojs
+before_deploy: npm run build
 deploy:
   provider: heroku
   api_key:
@@ -8,3 +9,4 @@ deploy:
   app:
     master: docready-staging
     develop: docready-staging
+  skip_cleanup: true

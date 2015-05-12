@@ -36,8 +36,7 @@
   },
   "scripts": {
     "test": "grunt test",
-    "build": "grunt build",
-    "postinstall": "bower install && npm run test && npm run build",
+    "build": "bower install && grunt build",
     "start": "node index.js"
   }
 }
