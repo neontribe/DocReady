@@ -9,3 +9,4 @@ DocReady.sublime*
 libpeerconnection*
 .bower-cache
 .bower-registry
+npm-debug.log
