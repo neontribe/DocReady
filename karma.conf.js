@@ -19,7 +19,12 @@ files = [
   'app/components/angular-ui/common/module.js',
   'app/components/angular-ui/modules/directives/sortable/sortable.js',
   'app/components/angular-google-analytics/src/angular-google-analytics.js',
-  'app/scripts/*.js',
+  'app/scripts/app.js',
+  'app/data/config.js',
+  'app/data/content.js',
+  'app/scripts/filters.js',
+  'app/scripts/run.js',
+  'app/scripts/analytics.js',
   'app/scripts/**/*.js',
   'test/mock/**/*.js',
   'test/spec/**/*.js'

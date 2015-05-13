@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Doc Ready</title>
+    <title></title>
     
     <meta name="description" content="Doc Ready helps you get ready for the first time you visit a doctor to discuss your mental health.">
     <meta name="viewport" content="width=device-width">
@@ -41,7 +41,7 @@
     <!-- Add your site or application content here -->
     <header role="banner">
         <h1>
-            <a data-track-route="home" data-ng-href="#/home"><img aria-hidden="true" src="images/logo.png" alt="" /> <span class="a11y-hide">DocReady</span></a>
+            <a data-track-route="home" data-ng-href="#/home"><img aria-hidden="true" src="images/logo.png" alt="" /> <span class="a11y-hide">home</span></a>
         </h1>
         <nav role="navigation">
 		  <h2 class="a11y-hide">Main Navigation</h2>
@@ -70,9 +70,6 @@
             <li><a href="#/contact">Contact</a></li>
         </ul>
     </footer>
-    <!-- devcode: !production -->
-    <script src="scripts/dev.js"></script>
-    <!-- enddevcode -->
     <!-- build:js scripts/scripts.js -->
     <script src="components/modernizr/modernizr.js"></script>
     <script src="components/jquery/jquery.js"></script>
@@ -91,7 +88,12 @@
     <script src="components/lodash/dist/lodash.underscore.js"></script>
     <script src="components/angular-google-analytics/src/angular-google-analytics.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="data/config.js"></script>
     <script src="data/content.js"></script>
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/filters.js"></script>
+    <script src="scripts/run.js"></script>
+    <script src="scripts/analytics.js"></script>
     <script src="scripts/services/symptomTagService.js"></script>
     <script src="scripts/services/symptomService.js"></script>
     <script src="scripts/services/adviceService.js"></script>
@@ -112,7 +114,6 @@
     <!-- endbuild -->
     <!-- devcode: !production -->
     <script src="components/angular-mocks-unstable/index.js"></script>
-    <!--<script src="../test/mock/mocks.js"></script>-->
     <!-- enddevcode -->
   </body>
 </html>
