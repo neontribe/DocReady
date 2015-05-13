@@ -220,8 +220,7 @@ body {
 	font-weight: 300;
 	font-family: @family-main;
 	color: @font-color;
-	margin-top: 113px;
-	margin-bottom: @v-space*3;
+	margin-top: 82px;
 	background: #fff;
 }
 
@@ -286,6 +285,42 @@ blockquote p:before, q:before { content: '\201C' }
 blockquote p:after, q:after { content: '\201D' }
 
 /**
+* Header nav
+----------------------------------------------------------------------
+*/
+
+header nav li {
+	display: inline-block;
+}
+
+header nav li + li {
+	margin-left: 1em;
+}
+
+header nav a, header nav a:visited {
+	color: @link-color-lighter;
+	border: 0;
+	font-size: 1.125em;
+	padding-left: 1.5em;
+	background-position: left center;
+	background-size: auto 100%;
+}
+
+header nav a.active {
+	color: #fff;
+	border-bottom: 2px solid;
+}
+
+header nav .icon-pencil {
+	background-color: transparent;
+}
+
+header nav a:focus {
+	outline: none !important;
+	border-bottom: 2px solid;
+}
+
+/**
 * Survey banner
 ----------------------------------------------------------------------
 */
@@ -332,10 +367,6 @@ img {
 img.center-image {
 	display: block;
 	margin: auto;
-}
-
-.intro img {
-	max-height: 160px;
 }
 
 .home-banner img {
@@ -416,47 +447,6 @@ dt {
 	font-style: italic;
 	padding-right: 1.5em;
 	.hyphens;
-}
-
-/**
-* <nav> sections
-----------------------------------------------------------------------
-*/
-
-nav ul {
-	text-align: center;
-	font-size: 0;
-}
-
-nav li, .tabs-nav li {
-	list-style: none;
-	display: inline-block;
-	vertical-align: middle;
-	line-height: 1;
-	font-size: @font-size-base;
-}
-
-nav a, nav a:hover, nav a:active, nav a:visited, .tabs-nav a {
-	border: 0;
-	outline: none;
-	padding: @slim-spacing;
-	background-color: @link-color;
-	display: block;
-	text-align: center;
-	font-size: @font-size-base;
-	color: @font-color-light;
-}
-
-nav a:hover, nav a:active, nav a:focus {
-	background-color: @link-color-darker;
-}
-
-nav li {
-	margin-top: 0;
-}
-
-nav li + li a {
-	margin-left: @slim-spacing / 2;
 }
 
 /**
@@ -925,12 +915,12 @@ div {
 */
 
 /* to remove inline-block white space separating children */
-div[class^="group"] { 
+[class^="group"] { 
 	font-size: 0; 
 	text-align: left;
 } 
 
-div[class^="group"] > * {
+[class^="group"] > * {
 	font-size: @font-size-base; /* override reset in above rule */
 	display: inline-block; /* floats are for losers */
 	vertical-align: top;
@@ -938,23 +928,23 @@ div[class^="group"] > * {
 }
 
 /* adjacent boxes need gutters. We create this using margin on their direct children  */
-div[class^="group"] > * > * { 
+[class^="group"] > * > * { 
 	margin: 0 @h-space-reduced 0 0;
 }
-div[class^="group"] > * + * > * { margin: 0 @h-space-reduced 0 } 
-div[class^="group"] > *:last-child > * { margin-right: 0 }
+[class^="group"] > * + * > * { margin: 0 @h-space-reduced 0 } 
+[class^="group"] > *:last-child > * { margin-right: 0 }
 
 /* One from each of the following sets of three to be placed on the containing div element */ 
 
 /* Set 1: Horizontal alignment of boxes */
-div.group-left { text-align: left }
-div.group-center { text-align: center }
-div.group-right { text-align: right }
+.group-left { text-align: left }
+.group-center { text-align: center }
+.group-right { text-align: right }
 
 /* Set 2: Vertical alignment of boxes */
-div.group-top > * { vertical-align: top }
-div.group-middle > * { vertical-align: middle }
-div.group-bottom > * { vertical-align: baseline }
+.group-top > * { vertical-align: top }
+.group-middle > * { vertical-align: middle }
+.group-bottom > * { vertical-align: baseline }
 
 .reverse > div {
 	float: right;
@@ -1202,8 +1192,8 @@ address {
 
 [role="banner"] h1 img {
     height: auto;
-    max-height: 88px;
-    max-width: 200px;
+    max-height: 60px;
+    max-width: 140px;
     width: 100%;
 }
 
@@ -1211,72 +1201,9 @@ address {
 	border: 0;
 }
 
-[role="banner"] h1 a:focus img, [role="navigation"] a:focus {
-	outline: 1px dotted #ccc;
-}
-
-[role="navigation"] li {
-	position: relative;
-}
-
-[role="navigation"] a, .round-icon, .round-icon:hover, .round-icon:active {
-	width: 66px;
-	height: 66px;
-	border-radius: 50px;
-	border: 0;
-	box-shadow: none;
-}
-
-a.round-icon:hover, a:hover .round-icon {
-	background-color: @link-color;
-}
-
-[role="navigation"] a {
-	text-align: center;
-	line-height: 66px;
-	margin-left: @h-space/2;
-	.transition-basic(0.5s);
-	margin-bottom: 0;
-	overflow: hidden;
-	padding: 0 !important;
-	background-position: right center;
-	background-size: 66px auto;
-}
-
-[role="navigation"] a span {
-	width: 130px;
-	font-size: 1.25em;
-	text-align: left;
-	display: inline-block;
-	margin-right: 66px;
-	text-indent: 0.5em;
-	float: right;
-}
-
-
-header [role="navigation"] a:hover, header [role="navigation"] a:focus, header [role="navigation"] a.active {
-	width: 196px;
-	border-radius: 40px;
-}
-
-header [role="navigation"]:hover a.active {
-	width: 66px;
-}
-
-header [role="navigation"]:hover a:hover {
-	width: 196px;
-}
-
-[role="navigation"] .nav-advice { background-color: @yellow-color; color: @font-color; }
-[role="navigation"] .nav-symptoms { background-color: @blue-color; }
-[role="navigation"] .nav-checklist { background-color: @red-color; }
-.round-icon { 
-	display: inline-block;
-	background-color: @red-color;
-	position: static;
-	border: 0;
-	margin: 0;
-	padding: 0;
+[role="banner"] h1 a:focus img {
+	outline: thin solid;
+	outline-offset: 0.25em;
 }
 
 .round-icon {
@@ -1334,23 +1261,8 @@ header [role="navigation"]:hover a:hover {
 	padding-top: @v-space;
 }
 
-.intro {
-	background-color: @blue-color;
-	color: #fff;
-}
-
 .yellow {
 	color: @font-color;
-}
-
-.intro a:hover, .intro a:active {
-	color: #fff;
-}
-
-.intro > div {
-	padding: @v-space*1.25 0;
-	max-width: 820px;
-	margin: 0 auto;
 }
 
 ol h3 {
@@ -1362,10 +1274,6 @@ ol h3 {
 	padding: @v-space/2 @v-space;
 	margin: 0;
 	font-size: 0;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	z-index: 2;
 	background: @font-color;
 	.box-sized;
 }
@@ -1493,73 +1401,35 @@ iframe {
 ----------------------------------------------------------------------
 */
 
-.introduction li {
-	list-style: none;
+.intro {
+	text-align: center;
+	padding: 1.5em;
 }
 
-.introduction div, .introduction img {
+.intro > h1, .intro > img {
 	display: inline-block;
-	.box-sized;
+	color: #fff;
 	vertical-align: middle;
+	text-align: left;
 	margin-top: 0;
 }
 
-.introduction div {
-	width: 68%;
-	padding-right: 4em;
-	
+.intro > img {
+	max-height: 100px;
+	padding: 0 1em;
+}
+
+.intro.yellow > h1 {
+	color: #463947;
 }
 
 .introduction img {
-	width: 31%;
-}
-
-.introduction h3 {
-	font-size: 1.75em;
+	width: 70%;
 }
 
 .introduction li {
-	min-height: 200px;
-}
-
-.introduction li + li {
-	margin-top: 3em;
-}
-
-.introduction li:nth-child(even) div {
-	padding: 0 0 0 4em;
-	width: 76%; 
-}
-
-.introduction li:nth-child(even) img {
-	width: 23%;
-}
-
-.introduction a {
-	border: 0 !important;
-	color: @font-color;
-	display: block;
-}
-
-.introduction a:hover, .introduction a:focus {
-	outline: 10px solid @blue-color;
-	box-shadow: 7px 7px 0 #fff, -7px 7px 0 #fff, 7px -7px 0 #fff, -7px -7px 0 #fff;
-}
-
-.introduction a:after {
-	content: '.';
-	display: block;
-	clear: both;
-	height: 0; 
-	overflow: hidden;
-}
-
-.introduction li:last-child div {
-	width: 65%;
-}
-
-.introduction li:last-child img {
-	width: 34%;
+	padding: 0 1em;
+	.box-sized;
 }
 
 /**
@@ -1847,39 +1717,6 @@ body {
 	text-align: center;
 }
 
-[role="navigation"] {
-	padding: @v-space/2 0 !important;
-}
-
-[role="navigation"] li {
-	width: 30%;
-}
-
-[role="navigation"] a, [role="navigation"] a:hover {
-	margin: 0 @v-space/4;
-	display: block;
-	width: auto !important;
-	height: 60px;
-	line-height: 60px;
-	border-radius: 40px;
-	font-size: 0.9em;
-	background-size: 60px auto;
-}
-
-[role="navigation"] a span, [role="navigation"] a:hover span {
-    display: block;
-    width: auto;
-    float: none;
-    font-size: 1.5em;
-    text-align: left;
-    padding-right: 60px;
-    margin: 0;
-}
-
-[role="navigation"] a.active {
-	box-shadow: 3px 3px 0 #fff, -3px 3px 0 #fff, 3px -3px 0 #fff, -3px -3px 0 #fff;
-}
-
 .tags {
 	padding: 0 @v-space/2;
 }
@@ -1893,7 +1730,9 @@ body {
 	margin-bottom: 0;
 }
 
-
+[role="banner"] h1 img {
+	max-height: 80px;
+}
 
 body * + * {
 	margin-top: @v-space/2;
@@ -1903,7 +1742,7 @@ body * + * {
 	margin-top: @v-space;
 }
 
-.into img {
+.intro img {
 	max-height: 80px;
 }
 
@@ -1926,11 +1765,6 @@ body * + * {
 .tags a {
 	font-size: 1.125em;
 	padding: 0.25em 0.5em;
-}
-
-.intro > div {
-	padding: @v-space @v-space/2;
-	text-align: center;
 }
 
 .with-icon, .with-icon:hover {
@@ -1989,31 +1823,6 @@ body * + * {
 	font-size: 0.85em;
 }
 
-[role="navigation"] {
-	padding: 0 0.25em 1em !important;
-}
-
-[role="navigation"] li {
-	width: 33% !important;
-}
-
-[role="navigation"] a, [role="navigation"] a:hover {
-	font-size: 14px;
-	background-image: none;
-	margin: 0 2px;
-	padding: 0.25em 0.5em;
-	display: block; 
-	width: auto !important;
-	height: 40px; 
-	line-height: 40px;
-}
-
-[role="navigation"] a span, [role="navigation"] a:hover span {
-	padding: 0;
-	text-align: center;
-	text-indent: 0;
-}
-
 .button-group {
 	text-align: center;
 }
@@ -2061,52 +1870,6 @@ form[name="pcsearch"] strong {
 .actions button {
 	margin: @v-space/4 0;
 	width: 100%;
-}
-
-}
-
-@media screen and (max-width: 450px) {
-
-.introduction h3 {
-	font-size: 1.5em;
-	text-decoration:underline;
-}
-
-.introduction strong {
-	text-decoration:underline;
-}
-
-.introduction li + li {
-    margin-top: @v-space;
-}
-
-.introduction li {
-	min-height: none;
-}
-
-.introduction li img {
-	display: none;
-}
-
-.introduction a > * {
-	width: 100% !important;
-	vertical-align: top;
-}
-
-.introduction a div {
-	padding-right: 1em;
-}
-
-.introduction li:nth-child(even) a div {
-	padding-left: 0;
-}
-
-.survey-banner h1 {
-	font-size: 1em;
-}
-
-.survey-banner h2 {
-	font-size: 1em;
 }
 
 }
