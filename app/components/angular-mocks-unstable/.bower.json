@@ -1,0 +1,13 @@
+{
+  "name": "angular-mocks-unstable",
+  "_cacheHeaders": {
+    "ETag": "\"a79ba73e62f244ff94a8c4c17cafd0dd56f440a2\"",
+    "Content-Length": "58425",
+    "Content-Type": "text/plain; charset=utf-8"
+  },
+  "_release": "e-tag:a79ba73e6",
+  "main": "index.js",
+  "_source": "https://raw.github.com/angular/bower-angular-mocks/unstable/angular-mocks.js",
+  "_target": "*",
+  "_originalSource": "https://raw.github.com/angular/bower-angular-mocks/unstable/angular-mocks.js"
+}
