@@ -359,7 +359,7 @@ angular.module('docready').value('symptoms_content', [
       "worries"
     ]
   }
-])angular.module('docready').value('advice_content', [
+]);angular.module('docready').value('advice_content', [
   {
     "title": "Feeding back",
     "slug": "feeding-back",
@@ -409,7 +409,7 @@ angular.module('docready').value('symptoms_content', [
     "topic": "confidentiality"
   }
 ]
-)angular.module('docready').value('advice_topics_content', [
+);angular.module('docready').value('advice_topics_content', [
   {
     "title": "What can a GP help with?",
     "slug": "what-can-a-gp-help-with"
@@ -438,4 +438,4 @@ angular.module('docready').value('symptoms_content', [
     "title": "How to give feedback",
     "slug": "how-to-give-feedback"
   }
-])
+]);
