@@ -1,3 +1,2 @@
 #!/bin/sh
-grunt jshint
-karma start --port 8088 --runnerPort 9122 --single-run
+npm test

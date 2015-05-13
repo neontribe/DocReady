@@ -1,19 +1,16 @@
 'use strict';
 
 angular.module('docready')
-  .factory('symptomTagService', function ($resource, settings) {
-  var symptomTags = $resource(settings.apiRoot + '/symptom_tag', {}, {
-    shuffle: {
-      method: 'GET',
-      isArray: true,
-      transformResponse: function(data) {
-        return _.shuffle(angular.fromJson(data));
-      }
-    }
-  }).shuffle({});
-
+  .factory('symptomTagService', function (symptoms_content) {
+  var tags = _.chain(symptoms_content)
+    .pluck('tags')
+    .flatten()
+    .unique()
+    .push('other')
+    .shuffle()
+    .value();
   // Public API here
   return {
-    symptomTags: symptomTags
+    symptomTags: tags
   };
 });

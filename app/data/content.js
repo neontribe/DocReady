@@ -1,4 +1,365 @@
-[
+angular.module('docready').value('symptoms_content', [
+  {
+    "title": "I have hurt myself",
+    "tags": [
+      "self-harm"
+    ]
+  },
+  {
+    "title": "Sometimes what I eat disgusts me",
+    "tags": [
+      "appetite"
+    ]
+  },
+  {
+    "title": "I can't sleep",
+    "tags": [
+      "sleep"
+    ]
+  },
+  {
+    "title": "I feel angry all the time",
+    "tags": [
+      "moods"
+    ]
+  },
+  {
+    "title": "My thoughts feel unmanageable",
+    "tags": [
+      "thoughts"
+    ]
+  },
+  {
+    "title": "I feel like my life is getting out of control",
+    "tags": [
+      "fears"
+    ]
+  },
+  {
+    "title": "I keep taking too many drugs",
+    "tags": [
+      "drink & drugs"
+    ]
+  },
+  {
+    "title": "I don't think anyone understands me",
+    "tags": [
+      "relationships"
+    ]
+  },
+  {
+    "title": "I get ideas in my head that are frightening",
+    "tags": [
+      "fears"
+    ]
+  },
+  {
+    "title": "People keep telling me I need to slow down and rest",
+    "tags": [
+      "motivation"
+    ]
+  },
+  {
+    "title": "I feel tired all the time",
+    "tags": [
+      "sleep",
+      "motivation"
+    ]
+  },
+  {
+    "title": "I've been thinking of hurting myself",
+    "tags": [
+      "self-harm"
+    ]
+  },
+  {
+    "title": "I worry that if I don't do something a certain way, bad things will happen",
+    "tags": [
+      "fears"
+    ]
+  },
+  {
+    "title": "I keep spending money I don't have",
+    "tags": [
+      "actions"
+    ]
+  },
+  {
+    "title": "I find it really hard to talk about how I'm feeling",
+    "tags": [
+      "relationships",
+      "feelings"
+    ]
+  },
+  {
+    "title": "I keep taking risks that get me into trouble",
+    "tags": [
+      "actions",
+      "drink & drugs"
+    ]
+  },
+  {
+    "title": "I can't face seeing people",
+    "tags": [
+      "relationships"
+    ]
+  },
+  {
+    "title": "I worry all the time",
+    "tags": [
+      "feelings"
+    ]
+  },
+  {
+    "title": "I get so worried I think I'm going to die",
+    "tags": [
+      "fears"
+    ]
+  },
+  {
+    "title": "Sometimes I get really confused by my thoughts",
+    "tags": [
+      "thoughts"
+    ]
+  },
+  {
+    "title": "I get so angry sometimes and can't calm down",
+    "tags": [
+      "thoughts"
+    ]
+  },
+  {
+    "title": "Sometimes I act in ways that get me into trouble",
+    "tags": [
+      "actions"
+    ]
+  },
+  {
+    "title": "I can't see the point of anything",
+    "tags": [
+      "motivation"
+    ]
+  },
+  {
+    "title": "Sometimes the world around me doesn't feel real",
+    "tags": [
+      "thoughts"
+    ]
+  },
+  {
+    "title": "I hate my body",
+    "tags": [
+      "feelings"
+    ]
+  },
+  {
+    "title": "I can't stop worrying",
+    "tags": [
+      "fears"
+    ]
+  },
+  {
+    "title": "Things keep going wrong for me",
+    "tags": [
+      "experiences"
+    ]
+  },
+  {
+    "title": "No one understands me",
+    "tags": [
+      "feelings"
+    ]
+  },
+  {
+    "title": "I have thoughts that upset me that I can't stop thinking about",
+    "tags": [
+      "moods"
+    ]
+  },
+  {
+    "title": "No one understands how worried I get",
+    "tags": [
+      "worries"
+    ]
+  },
+  {
+    "title": "I find it really hard to wake up",
+    "tags": [
+      "sleep"
+    ]
+  },
+  {
+    "title": "I think I am too fat",
+    "tags": [
+      "appetite"
+    ]
+  },
+  {
+    "title": "I feel really empty inside",
+    "tags": [
+      "feelings"
+    ]
+  },
+  {
+    "title": "I get so anxious it stops me doing things",
+    "tags": [
+      "worries"
+    ]
+  },
+  {
+    "title": "I keep starting things I can't finish",
+    "tags": [
+      "motivation"
+    ]
+  },
+  {
+    "title": "Everything feels boring and pointless",
+    "tags": [
+      "motivation"
+    ]
+  },
+  {
+    "title": "I keep arguing with my friends and family",
+    "tags": [
+      "relationships"
+    ]
+  },
+  {
+    "title": "I can't concentrate",
+    "tags": [
+      "thoughts"
+    ]
+  },
+  {
+    "title": "Sometimes my thoughts scare me",
+    "tags": [
+      "thoughts",
+      "fears"
+    ]
+  },
+  {
+    "title": "I hurt myself sometimes on purpose",
+    "tags": [
+      "self-harm"
+    ]
+  },
+  {
+    "title": "I can't cope with life",
+    "tags": [
+      "experiences"
+    ]
+  },
+  {
+    "title": "I just want someone to talk to about my problems",
+    "tags": [
+      "experiences"
+    ]
+  },
+  {
+    "title": "I can't stop thinking about sad things",
+    "tags": [
+      "moods"
+    ]
+  },
+  {
+    "title": "I think I am too thin",
+    "tags": [
+      "appetite"
+    ]
+  },
+  {
+    "title": "I can't stop eating",
+    "tags": [
+      "appetite"
+    ]
+  },
+  {
+    "title": "I can't stop dieting",
+    "tags": [
+      "appetite"
+    ]
+  },
+  {
+    "title": "I keep drinking too much",
+    "tags": [
+      "drink & drugs"
+    ]
+  },
+  {
+    "title": "I keep crying all the time",
+    "tags": [
+      "moods"
+    ]
+  },
+  {
+    "title": "I worry about my college/school/university work",
+    "tags": [
+      "worries"
+    ]
+  },
+  {
+    "title": "I worry about losing my job",
+    "tags": [
+      "worries"
+    ]
+  },
+  {
+    "title": "Sometimes I want to die",
+    "tags": [
+      "self-harm",
+      "moods"
+    ]
+  },
+  {
+    "title": "I don't know how to change my life",
+    "tags": [
+      "experiences"
+    ]
+  },
+  {
+    "title": "I have experienced things that make me upset",
+    "tags": [
+      "experiences"
+    ]
+  },
+  {
+    "title": "I don't always remember things",
+    "tags": [
+      "memories"
+    ]
+  },
+  {
+    "title": "I keep remembering bad things",
+    "tags": [
+      "memories"
+    ]
+  },
+  {
+    "title": "I have seen upsetting things",
+    "tags": [
+      "memories"
+    ]
+  },
+  {
+    "title": "I have nightmares",
+    "tags": [
+      "sleep"
+    ]
+  },
+  {
+    "title": "I don't know how to deal with my feelings",
+    "tags": [
+      "feelings",
+      "moods"
+    ]
+  },
+  {
+    "title": "My money worries affect my health",
+    "tags": [
+      "worries"
+    ]
+  }
+]);angular.module('docready').value('advice_content', [
   {
     "title": "Feeding back",
     "slug": "feeding-back",
@@ -48,3 +409,33 @@
     "topic": "confidentiality"
   }
 ]
+);angular.module('docready').value('advice_topics_content', [
+  {
+    "title": "What can a GP help with?",
+    "slug": "what-can-a-gp-help-with"
+  },
+  {
+    "title": "How to find a GP",
+    "slug": "how-to-find-a-gp"
+  },
+  {
+    "title": "What will happen when I visit the GP?",
+    "slug": "what-will-happen-when-i-visit-the-gp"
+  },
+  {
+    "title": "Know your rights",
+    "slug": "know-your-rights"
+  },
+  {
+    "title": "Confidentiality",
+    "slug": "confidentiality"
+  },
+  {
+    "title": "Getting the most out of your appointment",
+    "slug": "getting-the-most-out-of-your-appointment"
+  },
+  {
+    "title": "How to give feedback",
+    "slug": "how-to-give-feedback"
+  }
+]);

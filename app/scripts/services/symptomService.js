@@ -1,14 +1,9 @@
 'use strict';
 
 angular.module('docready')
-  .factory('symptomService', function ($resource, settings) {
-  var symptoms = [],
+  .factory('symptomService', function (settings, symptoms_content) {
+  var symptoms = symptoms_content,
     selections = [];
-
-  symptoms = $resource(settings.apiRoot + '/symptom').query({}, function(data){
-    // Restore any saved symptoms
-    restore(settings.userData.symptoms, data);
-  });
 
   /**
    * Collect any user symptom data from settings and merge it with the symptoms from the API
@@ -82,6 +77,9 @@ angular.module('docready')
       toggle(symptom);
     }
   }
+
+  // Restore any saved symptoms
+  restore(settings.userData.symptoms, symptoms);
 
   // Public API here
   return {

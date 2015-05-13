@@ -62,7 +62,7 @@ module.exports = function(grunt) {
     jshint: {
       files: ['Gruntfile.js', 'src/*.js', 'test/unit/*.js'],
       options: {
-        curly: true,
+        curly: false,
         browser: true,
         eqeqeq: true,
         immed: true,
@@ -75,7 +75,6 @@ module.exports = function(grunt) {
         eqnull: true,
         expr: true,
         node: true,
-        '-W018': true,
         globals: {
           exports: true,
           angular: false,

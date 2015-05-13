@@ -6,63 +6,52 @@ describe('Service: adviceService', function () {
   beforeEach(module('docready'));
 
   // instantiate service
-  var adviceService, $httpBackend;
+  var adviceService;
   
-
-  beforeEach(inject(function(_$httpBackend_, _adviceService_){
-    $httpBackend = _$httpBackend_;
-    adviceService = _adviceService_;
-    $httpBackend.whenGET('/api/advice_topic').respond([
+  beforeEach(module(function($provide){
+     $provide.value('advice_content', [
       {
-          title: 'Topic 1',
-          slug: 'topic-1',
-          weight: 1.0
+          title: 'Item 1',
+          slug: 'item-1',
+          body: 'Blah',
+          topic: 'topic-1'
         },
         {
-          title: 'Topic 2',
-          slug: 'topic-2',
-          weight: 2.0
+          title: 'Item 2',
+          slug: 'item-2',
+          body: 'Blah',
+          topic: 'topic-2'
         }
-    ]);
-    $httpBackend.whenGET('/api/advice_item').respond([
+      ]);
+    $provide.value('advice_topics_content', [
         {
-            title: 'Item 1',
-            slug: 'item-1',
-            body: 'Blah',
-            topic: 'topic-1',
+            title: 'Topic 1',
+            slug: 'topic-1',
             weight: 1.0
           },
           {
-            title: 'Item 2',
-            slug: 'item-2',
-            body: 'Blah',
-            topic: 'topic-2',
+            title: 'Topic 2',
+            slug: 'topic-2',
             weight: 2.0
           }
-        ]);
+      ]);
   }));
 
-  afterEach(function() {
-    $httpBackend.verifyNoOutstandingExpectation();
-    $httpBackend.verifyNoOutstandingRequest();
-  });
+  beforeEach(inject(function(_adviceService_){
+    adviceService = _adviceService_;
+  }));
+
 
   describe('Service: adviceService.topics', function(){
     it('should resolve to an array of topic objects', function(){
-      var topics = null;
-      $httpBackend.expectGET('/api/advice_topic');
-      topics = adviceService.topics;
-      $httpBackend.flush();
+      var topics = adviceService.topics;
       expect(topics.length).toEqual(2);
     });
   });
 
   describe('Service: adviceService.items', function(){
     it('should resolve to an array of topic objects', function(){
-      var items;
-      $httpBackend.expectGET('/api/advice_item');
-      items = adviceService.items;
-      $httpBackend.flush();
+      var items = adviceService.items;
       expect(items.length).toEqual(2);
     });
   });
