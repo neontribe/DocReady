@@ -1076,18 +1076,6 @@ address {
 	font-size: 1.25em;
 }
 
-.icon-print {
-	background-color: @yellow-color;
-}
-
-.icon-email {
-	background-color: @red-color;
-}
-
-.icon-download {
-	background-color: @blue-color;
-}
-
 .lt-ie9 .actions button {
 	background-image: none;
 	padding: 0.33em;
@@ -1109,23 +1097,15 @@ address {
 	text-align: center;
 }
 
-.with-icon, .hint, .with-icon:hover {
-	border: 0;
-	font-family: 'Indie FLower','comic sans ms', cursive;
-	text-transform: lowercase;
-	font-size: 1.25em;
-	line-height: 0.9;
-}
-
 .with-icon span {
 	display: inline-block;
 	vertical-align: middle;
-	margin-top: 0;
-	max-width: 180px;
+	margin: 0;
 }
 
 .with-icon span + span {
-    margin-left: 0.25em;
+    width: 60px;
+    height: 60px;
 }
 
 .quail-message {
@@ -1215,10 +1195,6 @@ address {
 
 .round-icon {
 	background-position: center center;
-}
-
-.icon-cloud, .icon-pencil, .icon-grid {
-	background-color: @blue-color;
 }
 
 .toolbar {
@@ -1719,18 +1695,36 @@ body {
 	position: relative;
 }
 
+.tags {
+	padding: 0 @v-space/2;
+}
+
+}
+
+@media (max-width: 750px) {
+	
 [role="banner"] h1 {
 	padding-bottom: 0;
 }
 
-[role="banner"] h1, [role="banner"] nav, [role="banner"] nav ul {
+.intro h1 {
+	text-align: center;
+	padding: 0.5em;
+}
+
+[role="banner"] h1, [role="banner"] nav, [role="banner"] nav ul, [role="banner"] nav li {
 	display: block;
 	width: auto;
 	text-align: center;
 }
 
-.tags {
-	padding: 0 @v-space/2;
+[role="banner"] nav {
+	padding: 0.5em;
+	padding-top: 0;
+}
+
+header nav li {
+	margin: 0.5em;
 }
 
 }
