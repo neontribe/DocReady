@@ -1,13 +1,19 @@
 var st = require('st')
 var express = require('express');
 var app = express();
+var dev = app.get('env') === 'development';
 
-app.use(st({
-  path: app.get('env') === 'development' ? 'app' :'dist',
+var st_conf = {
+  path: dev ? 'app' :'dist',
   url: '/',
   index: 'index.html',
-  passthrough: true
-}));
+  passthrough: true,
+};
+if (dev) {
+  st_conf.cache = false;
+}
+
+app.use(st(st_conf));
 
 //Support old style docready links
 app.get('/static/client/index.html', function(req, res){
