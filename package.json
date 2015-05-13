@@ -1,6 +1,11 @@
 {
   "name": "docready",
+  "description": "Doc Ready helps you get ready for the first time you visit a doctor to discuss your mental health.",
   "version": "2.0.0",
+  "author": "Rupert Redington <rupert@neontribe.co.uk>",
+  "bugs": {
+    "url": "https://github.com/neontribe/DocReady/issues"
+  },
   "dependencies": {
     "express": "^4.12.3",
     "grunt": "~0.4.1",
@@ -33,9 +38,18 @@
     "iojs": "2.0.x",
     "npm": "2.1.x"
   },
+  "homepage": "http://www.docready.org",
+  "keywords": [
+    "Mental Health"
+  ],
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neontribe/DocReady.git"
+  },
   "scripts": {
-    "test": "grunt test",
     "postinstall": "grunt build",
-    "start": "node index.js"
+    "start": "node server.js",
+    "test": "grunt test"
   }
 }
