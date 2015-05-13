@@ -11,12 +11,8 @@ angular.module('docready')
       return data;
     }
 
-    adviceService.topics.$then(function(data){
-      $scope.topics = initData(data.resource, 'topic');
-    });
-    adviceService.items.$then(function(data){
-      $scope.items = initData(data.resource, 'item');
-    });
+    $scope.topics = initData(adviceService.topics, 'topic');
+    $scope.items = initData(adviceService.items, 'item');
 
     $scope.setItem = function(slug) {
       $location.search('item', slug);

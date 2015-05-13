@@ -261,6 +261,18 @@ module.exports = function (grunt) {
             env: 'production'
           }
         }
+      },
+      json_wrapper: {
+        content: {
+          options: {
+            raw: true,
+            wrapper: 'angular.module(\'docready\').value(\'{filePrefix}_content\', {content});',
+            minify: false
+          },
+          files: {
+            '<%= yeoman.app %>/data/content.js': ['data/symptoms.json', 'data/advice.json', 'data/advice_topics.json']
+          }
+        }
       }
     });
 
@@ -283,6 +295,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'json_wrapper:content',
     'lesscompile',
     'jshint',
     'icons',

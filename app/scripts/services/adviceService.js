@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('docready')
-  .factory('adviceService', function ($resource, settings) {
-    var topics, items;
-    topics = $resource(settings.apiRoot + '/advice_topic/').query();
-    items = $resource(settings.apiRoot + '/advice_item/').query();
+  .factory('adviceService', function (settings, advice_content, advice_topics_content) {
+    var topics = advice_topics_content,
+     items = advice_content;
+
     // Public API here
     return {
       topics: topics,
