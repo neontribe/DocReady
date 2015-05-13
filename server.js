@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var dev = app.get('env') === 'development';
 var postmark = require('postmark');
-var mailer = new postmark.Client(process.env.POSTMARK_API_KEY);
+var mailer = new postmark.Client(process.env.POSTMARK_API_KEY || 'dev');
 var bodyParser = require('body-parser');
 
 var st_conf = {
@@ -11,10 +11,12 @@ var st_conf = {
   url: '/',
   index: 'index.html',
   passthrough: true,
+  cache: dev ? false : {
+    content: {
+      cacheControl: 'public, max-age=3600'
+    }
+  }
 };
-if (dev) {
-  st_conf.cache = false;
-}
 
 app.use(st(st_conf));
 
@@ -39,11 +41,8 @@ app.get('/static/client/index.html', function(req, res){
 });
 
 var server = app.listen(process.env.PORT || 3000, function () {
-
   var host = server.address().address;
   var port = server.address().port;
-
   console.log('Listening at http://%s:%s', host, port);
   console.log('App env is ' + app.get('env'));
-
 });
