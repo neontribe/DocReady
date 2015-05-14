@@ -5,6 +5,7 @@ var dev = app.get('env') === 'development';
 var postmark = require('postmark');
 var mailer = new postmark.Client(process.env.POSTMARK_API_KEY || 'dev');
 var bodyParser = require('body-parser');
+var conversion = require("phantom-html-to-pdf")();
 
 var st_conf = {
   path: dev ? 'app' :'dist',
@@ -32,6 +33,13 @@ app.post('/api/email', function(req, res){
       res.status(500).send(error.message);
     }
     res.sendStatus(200);
+  });
+});
+
+app.get('/api/pdf', function(req, res){
+  conversion({ html: "<h1>Hello World</h1>" }, function(err, pdf) {
+    console.log(pdf.numberOfPages);
+    pdf.stream.pipe(res);
   });
 });
 
