@@ -486,6 +486,10 @@ h2 + p {
 	margin-top: @v-space/3;
 }
 
+#page {
+	width: 100% !important;
+}
+
 /**
 * Phrasing
 ----------------------------------------------------------------------
@@ -782,7 +786,7 @@ input[type="checkbox"], input[type="radio"] {
 	background: #fff;
 }
 
-#checklist li i, #export li i {
+#checklist li i {
 	padding: 0 0.4em;
 	margin: 0 0.25em 0 0;
 	background: @blue-color;
@@ -1246,7 +1250,7 @@ address {
 .content {
 	max-width: 820px;
 	margin: 0 auto;
-	padding-top: @v-space * 2;
+	padding-top: @v-space * 1.5;
 }
 
 .yellow {
@@ -1575,25 +1579,20 @@ h3 span[class^="icon-"] + span {
 ----------------------------------------------------------------------
 */
 
-.editable > div, .checklist-export {
-	border: 2px solid @blue-color;
-	min-height: 8em;
-	padding: 0.25em;
-	padding-bottom: 1.5em;
-	border-radius: 50px;
-	margin-top: @v-space/2;
-	position: relative;
-}
-
-.checklist-export {
-	padding: @v-space @v-space @v-space*3;
-	height: auto;
-	min-height: 0;
-}
-
 #export li {
 	list-style: none;
-	margin-bottom: 3px;
+	margin-bottom: 0.5em;
+	border: 2px solid;
+	border-radius: 0.5em;
+	padding: 0.5em;
+}
+
+#export section {
+	margin-top: 3em;
+}
+
+#export .group-left section {
+	margin-top: 0;
 }
 
 .editable > div em {
@@ -1610,8 +1609,16 @@ h3 span[class^="icon-"] + span {
 	line-height: 1.125;
 }
 
-.tall > div {
-	height: 7em;
+.tall {
+	height: 6em;
+	padding: 1em;
+	border: 1px solid;
+	border-radius: 0.25em;
+	font-weight: bold;
+}
+
+.tall:focus {
+	border: 2px solid;
 }
 
 #export {
@@ -1658,6 +1665,32 @@ form[name="mailer"] label > span {
 
 form[name="mailer"] input {
 	font-size: inherit;
+}
+
+#export h1 + p {
+	margin-top: 0;
+}
+
+dl.contenteditable {
+	margin-top: 0;
+}
+
+.contenteditable dt {
+	padding-right: 0.25em;
+	text-align: left;
+}
+
+.contenteditable dd {
+	min-height: 2.25em;
+	font-weight: bold;
+}
+
+.contenteditable [contenteditable] {
+	border-bottom: 1px solid;
+}
+
+.contenteditable [contenteditable]:focus {
+	border-bottom: 2px solid;
 }
 
 /**
@@ -1886,6 +1919,10 @@ form[name="pcsearch"] strong {
 }
 
 @media print {
+
+	.no-print {
+		display: none;
+	}
 
 	#export {
 		padding: 0;
