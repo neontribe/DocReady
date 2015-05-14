@@ -3,18 +3,21 @@ var express = require('express');
 var app = express();
 var dev = app.get('env') === 'development';
 var postmark = require('postmark');
-var mailer = new postmark.Client(process.env.POSTMARK_API_KEY);
+var mailer = new postmark.Client(process.env.POSTMARK_API_KEY || 'dev');
 var bodyParser = require('body-parser');
+var conversion = require("phantom-html-to-pdf")();
 
 var st_conf = {
   path: dev ? 'app' :'dist',
   url: '/',
   index: 'index.html',
   passthrough: true,
+  cache: dev ? false : {
+    content: {
+      cacheControl: 'public, max-age=3600'
+    }
+  }
 };
-if (dev) {
-  st_conf.cache = false;
-}
 
 app.use(st(st_conf));
 
@@ -33,17 +36,21 @@ app.post('/api/email', function(req, res){
   });
 });
 
+app.get('/api/pdf', function(req, res){
+  conversion({ html: "<h1>Hello World</h1>" }, function(err, pdf) {
+    console.log(pdf.numberOfPages);
+    pdf.stream.pipe(res);
+  });
+});
+
 //Support old style docready links
 app.get('/static/client/index.html', function(req, res){
   res.redirect('/');
 });
 
 var server = app.listen(process.env.PORT || 3000, function () {
-
   var host = server.address().address;
   var port = server.address().port;
-
   console.log('Listening at http://%s:%s', host, port);
   console.log('App env is ' + app.get('env'));
-
 });
