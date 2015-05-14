@@ -30,11 +30,13 @@ angular.module('docready')
           surgery: settings.surgery,
           symptoms: _.chain(symptomService.exportSymptoms()).pluck('title').value(),
           permalink: $scope.permalink()
-        },
-        url = settings.apiRoot + '/pdf';
-      $http.post(url, data).success(function(res){
-        $window.location.href = url + '/' + res.key;
-      });
+        };
+      var checklistPdfLink = settings.apiRoot + '/pdf?data=' + encodeURIComponent(JSON.stringify(data));
+      var checklistDownloadLink = document.getElementById('checklistDownloadLink');
+      checklistDownloadLink.target = '_blank';
+      checklistDownloadLink.href = checklistPdfLink;
+      console.log(checklistDownloadLink.href);
+      checklistDownloadLink.click();
     };
 
     $scope.permalink = function(){
