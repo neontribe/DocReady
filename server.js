@@ -1,5 +1,6 @@
 var st = require('st')
 var express = require('express');
+var fs = require('fs');
 var cons = require('consolidate');
 var app = express();
 var dev = app.get('env') === 'development';
@@ -60,16 +61,22 @@ app.post('/api/email', function(req, res){
 app.get('/api/pdf', function(req, res){
   var data = JSON.parse(req.query.data);
   data.permalink = config.baseUrl + data.permalink;
-  app.render('pdf', data, function(err, html){
-    console.log(html);
-    conversion({ html: html }, function(err, pdf) {
+  fs.readFile('./app/styles/main.css', function(err, styles){
+    data.styles = styles.toString();
+    app.render('pdf', data, function(err, html){
       if (err) {
-        res.status(500).send(err.message);
+        return res.status(500).send(err.message);
       }
-      //res.attachment('checklist.pdf');
-      pdf.stream.pipe(res);
+      conversion({ html: html }, function(err, pdf) {
+        if (err) {
+          res.status(500).send(err.message);
+        }
+        res.attachment('checklist.pdf');
+        pdf.stream.pipe(res);
+      });
     });
   });
+  
 });
 
 /**
