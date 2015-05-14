@@ -4,19 +4,16 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
     $routeProvider
       .when('/home', {
         templateUrl: 'views/home.html',
-        controller: 'HomeCtrl',
-        animateFrom: 'Left'
+        controller: 'HomeCtrl'
       })
       .when('/advice', {
         templateUrl: 'views/advice.html',
         controller: 'AdviceCtrl',
-        reloadOnSearch: false,
-        animateFrom: 'Left'
+        reloadOnSearch: false
       })
       .when('/picker', {
         templateUrl: 'views/picker.html',
-        controller: 'PickerCtrl',
-        animateFrom: 'Right'
+        controller: 'PickerCtrl'
       })
       .when('/picker/:tag', {
         templateUrl: 'views/picker.html',
@@ -24,8 +21,7 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
       })
       .when('/checklist', {
         templateUrl: 'views/checklist.html',
-        controller: 'ChecklistCtrl',
-        animateFrom: 'Right'
+        controller: 'ChecklistCtrl'
       })
       .when('/checklist/export', {
         templateUrl: 'views/export.html',
@@ -38,10 +34,6 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
       .when('/contact', {
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl'
-      })
-      .when('/gpfinder', {
-        templateUrl: 'views/gpfinder.html',
-        controller: 'GpfinderCtrl'
       })
       .otherwise({
         redirectTo: '/home'
