@@ -6,7 +6,8 @@
 	<div class="content">
 		<div class="button-group actions center no-print">
 			<button class="icon-print" data-ng-click="track('print');print()">Print</button> 
-			<button class="icon-download" data-ng-click="track('download');getpdf()">Download</button> 
+			<button class="icon-download" data-ng-click="track('download');getpdf()">Download</button>
+			<a id="checklistDownloadLink" aria-hidden="true" ng-hide="true"></a>
 			<button class="icon-email" data-ng-click="prepareMail()">Email</button>
 		</div>
 		<img tabindex="0" class="a11y-hide" src="images/howitworks_2.png" alt="Preview image of your checklist export file" />
