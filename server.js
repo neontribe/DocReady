@@ -75,9 +75,10 @@ app.post('/api/email', function(req, res){
 app.get('/api/pdf', function(req, res){
   var data = JSON.parse(req.query.data);
   data.permalink = config.baseUrl + data.permalink;
-  fs.readFile('./app/styles/main.css', function(err, styles){
+  fs.readFile('./app/styles/main.css', function(err, styles) {
     data.styles = styles.toString();
-    app.render('pdf', data, function(err, html){
+    app.render('pdf', data, function(err, html) {
+      console.log(html);
       if (err) {
         return res.status(500).send(err.message);
       }
