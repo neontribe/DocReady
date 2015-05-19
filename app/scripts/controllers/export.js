@@ -28,8 +28,7 @@ angular.module('docready')
     $scope.getpdf = function(){
       var data = {
           surgery: settings.surgery,
-          symptoms: _.chain(symptomService.exportSymptoms()).pluck('title').value(),
-          permalink: $scope.permalink()
+          symptoms: _.chain(symptomService.exportSymptoms()).pluck('title').value()
         };
       var checklistPdfLink = settings.apiRoot + '/pdf?data=' + encodeURIComponent(JSON.stringify(data));
       var checklistDownloadLink = document.getElementById('checklistDownloadLink');
