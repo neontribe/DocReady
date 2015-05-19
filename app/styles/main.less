@@ -430,12 +430,13 @@ dl {
 }
 
 dt, dd {
-	font-size: @font-size-base;
-	display: inline-block;
-	vertical-align: top;
-	width: 75%;
-	.box-sized;
-	padding-top: @v-space-reduced;
+    .box-sized;
+    display: inline-block;
+    font-size: @font-size-base;
+    width: 75%;
+    line-height: 1.125;
+    margin-top: 0.5em;
+    vertical-align: baseline;
 }
 
 dt {
@@ -1682,7 +1683,6 @@ dl.contenteditable {
 }
 
 .contenteditable dd {
-	min-height: 2.25em;
 	font-weight: bold;
 }
 
