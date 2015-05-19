@@ -1,10 +1,10 @@
 {
-  "name": "docready",
-  "description": "Doc Ready helps you get ready for the first time you visit a doctor to discuss your mental health.",
+  "name": "camhsready",
+  "description": "CAMHS Ready helps you get ready for the first time you visit a doctor to discuss your mental health.",
   "version": "2.0.0",
   "author": "Rupert Redington <rupert@neontribe.co.uk>",
   "bugs": {
-    "url": "https://github.com/neontribe/DocReady/issues"
+    "url": "https://github.com/marxian/CAMHSReady/issues"
   },
   "dependencies": {
     "body-parser": "^1.12.4",
@@ -50,7 +50,7 @@
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/neontribe/DocReady.git"
+    "url": "https://github.com/marxian/CAMHSReady.git"
   },
   "scripts": {
     "postinstall": "grunt build",
