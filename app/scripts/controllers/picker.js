@@ -21,10 +21,8 @@ angular.module('docready')
     };
 
     $scope.focusTitle = function() {
-      $('#picker-region').removeAttr('aria-live');
       $timeout(function() {
         $('#picker-region').focus();
-        $('#picker-region').attr('aria-live', 'assertive');
       }, 500);
     };
 

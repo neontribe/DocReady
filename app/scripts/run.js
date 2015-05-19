@@ -24,11 +24,12 @@ angular.module('docready')
 
     // a11y hacks
     $rootScope.$on('$locationChangeSuccess', function() {
-      $('#page').removeAttr('aria-live');
       $timeout(function() {
-        $('#page').focus();
-        $('#page').attr('aria-live', 'assertive');
-      }, 1000);
+        var focusTitle = $('#page').find('h1');
+        focusTitle
+          .attr('tabindex', '-1')
+          .focus();
+      }, 500);
     });
     // SOme jQuery to make it more accessible. Define "ugly" :-P
     $('body').on('focus', 'input[type="checkbox"]', function() {
