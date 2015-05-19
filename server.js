@@ -2,6 +2,7 @@ var st = require('st')
 var express = require('express');
 var fs = require('fs');
 var cons = require('consolidate');
+var hbs = require('handlebars');
 var app = express();
 var dev = app.get('env') === 'development';
 var config = require('./data/config.json');
@@ -29,6 +30,19 @@ app.use(st(st_conf));
 /**
  * Templating
  */
+cons.requires.handlebars = hbs;
+cons.requires.handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
+    lvalue = parseFloat(lvalue);
+    rvalue = parseFloat(rvalue);
+        
+    return {
+        "+": lvalue + rvalue,
+        "-": lvalue - rvalue,
+        "*": lvalue * rvalue,
+        "/": lvalue / rvalue,
+        "%": lvalue % rvalue
+    }[operator];
+});
 app.set('views', './views');
 app.engine('hbs', cons.handlebars)
 app.set('view engine', 'hbs');

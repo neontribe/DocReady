@@ -38,7 +38,7 @@
           <div class="checklist-export">
             <ol>
               {{#each symptoms}}
-              <li><i>{{@index}}</i> {{this}}</li>
+              <li><i>{{math @index "+" 1}}</i> {{{this}}}</li>
               {{/each}}
             </ol>
           </div>
