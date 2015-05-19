@@ -361,81 +361,223 @@ angular.module('docready').value('symptoms_content', [
   }
 ]);angular.module('docready').value('advice_content', [
   {
-    "title": "Feeding back",
-    "slug": "feeding-back",
-    "body": "<P>With a bit of preparation a visit to the GP should be a positive step towards feeling better and sorting stuff out.</P>  \r\n\r\n<P>Your first visit to the GP should be the start of a relationship.  As with all relationships, sometimes it just doesn’t work out.</P>\r\n\r\n<P>Reasons people give for feeling unhappy with GP visits include: feeling their GP is not listening to them; feeling that the GP didn’t know enough about mental health; feeling patronised, being dismissed or not being taken seriously; and feeling like the GP didn’t explain things well or used too much confusing language.</P>\r\n\r\n<P>If you aren’t happy with how your first visit went, it’s best to raise this with the GP so that they can change things for future visits.  You could bring it up the next time you see them, or even send them a letter setting out the bits of the consultation that didn’t work for you.</P>\r\n\r\n<P>If you want to, you can always request to see a different GP the next time you make an appointment, or ask if there is anyone working at the practice who specialises in mental health. Remember that you can ask to speak to a receptionist at a practice in private if you need to.</P>  \r\n\r\n<P>If you wish to make a formal complaint against a GP or another member of staff in a GP practice, these are the steps to take:</P>\r\n\r\n<ul>\r\n\r\n<li>All GP Practices should have a written complaints procedure, which reception staff should give to you if you ask for it.  The complaints procedure might also be available on the practice website.</li>\r\n\r\n<li>If you feel that you need to you can ask at reception for a meeting with the Practice Manager.  You can also write a letter to the Practice Manager listing the things you are unhappy about.</li>\r\n\r\n<li>If you don’t feel that your complaint is being dealt with you could speak to your local Healthwatch.  Local Healthwatch organisations have been set up to be ‘consumer champions’ for people who use health and social care services, of which GPs surgeries are one.  You can find your local Healthwatch here: <a target='_blank' href='http://www.healthwatch.co.uk/find-local-healthwatch'>Healthwatch.co.uk</a>.  Local Healthwatch organisations vary in what level of support and advice they give.</li>\r\n\r\n</ul>\r\n\r\n<P>The body that regulates doctors is the General Medical Council.  Here is their guide to what you should expect from a doctor: <a target='_blank' href='http://www.gmc-uk.org/guidance/patients.asp'>GMC Guidance</a> </P>\r\n\r\n<P>This is The General Medical Council’s guide to complaining about a doctor: <a target='_blank' href='http://www.gmc-uk.org/concerns/making_a_complaint/a_patients_guide.asp'>GMC-Complaints</a> </P>\r\n\r\n<P>You can change GP practice at any time to another practice that is accepting new patients.</P>",
-    "topic": "how-to-give-feedback"
+    "title": "What is CAMHS?",
+    "slug": "what-is-camhs",
+    "body": "<p>CAMHS is an NHS run service that provides specialist support to young people who are experiencing emotional, behavioural or mental health difficulties.</p><p>The service is made up of highly trained people with lots of different skills. They will work with you to understand your difficulties and together you’ll decide on the best type of treatment to suit your needs.</p><p>The name CAMHS stands for Child and Adolescent Mental Health Service. The North Staffordshire CAMHS service supports young people from pre-school age up to 18 years old.</p>",
+    "topic": "what-is-camhs"
   },
   {
-    "title": "Your GP",
-    "slug": "your-gp",
-    "body": "<P> A general practitioner or GP is a doctor who can help out with all sorts of things.  They are usually based at centres in the community called practices.  Most practices have more than one doctor.  Their job is to look after your general health and wellbeing. <P>\r\n\r\n<P> GPs aren’t usually specialists in particular bits of medicine.  They give advice, prescribe medicines and treatments and can refer you on to more specialist care.  It’s their job to try to get you the help you need to be as well as you can be. <P>\r\n\r\n<P> GPs help with physical health issues, but also help with mental health issues, too.  You take them the health problem that’s causing you trouble.  They ask you questions about the problem and, if it’s something physical, try to take a look at it or get more information.  They will then explain what they think might be causing the health problem you’re having and suggest treatments or steps you might take to help it to either cure it or make it less of a problem.<P>\r\n\r\n<P>GPs are there to look out for your whole health.  Feeling sad, confused, angry, anxious or having disruptions to your thoughts, and your sleep has an effect on your health that can be just as large as an easier-to-see problem.<P>\r\n\r\n<P>GPs work best when they can get to know you a bit, so it’s often better to go and see a GP before any problems you’re having get more serious.<P>\r\n\r\nGPs don’t just give prescriptions for medicines.  They can also give advice, help you to find other sources of help and also refer you to other medical professionals with more specialist knowledge.",
-    "topic": "what-can-a-gp-help-with"
+    "title": "How can CAMHS help?",
+    "slug": "how-can-camhs-help",
+    "body": "<p>CAMHS staff see lots of people who are having difficulties with their emotions, behaviour or mental health.</p><p>CAMHS can help with lots of different types of issues, including fears and phobias, feeling anxious, low mood, behaviour, self-harm and eating issues among many others.</p><p>CAMHS staff won’t judge you for finding things difficult. They also understand that it can be scary and difficult to talk about yourself in an unfamiliar place. It’s important you know that you are not alone in the difficulties you are having and there is support available to help you.</p>",
+    "topic": "how-can-camhs-help"
   },
   {
-    "title": "What are my rights?",
-    "slug": "what-are-my-rights",
-    "body": "<P><b>When you are making your appointment:<b><P>\r\n\r\n<P><li>When you make your first appointment at a GP you have a right to ask to see either a female doctor or a male doctor.<li> <P> \r\n\r\n<P>If you already have a GP whom you like and trust, you can always request to see him or her when you make an appointment.<P>\r\n\r\n<P>You should also be able to book appointments in advance.  This might help you to see a doctor that you like and trust.<P>\r\n\r\n<P>You have a right to book a double appointment (20 minutes rather than the usual 10) if you feel like you need it.<P>\r\n\r\n<P>You also have the right to speak to the receptionist at the GP practice in private if you need to.  You don’t have to tell the receptionist details about why you are booking an appointment, but it might help them to make sure you get an appointment with the right person.<P>\r\n\r\n<P><b>Once you have made your appointment<b>:<P>\r\n\r\n<P><li>Your doctor cannot tell your family anything about your health without your permission.<P>\r\n\r\n<P>If you’re over 16 you can provide consent for you own treatment.  This means that you can take the decisions over what treatments you do and don’t have.  A doctor is not allowed to tell your parents, carers or family members unless you agree.<P>\r\n \r\n<P>If you are under 16 you can make the same decisions if you can fully understand what the options are and what a particular treatment involves.  This means you can also refuse a treatment if it doesn’t feel right for you and ask about alternatives.<P>",
-    "topic": "know-your-rights"
+    "title": "How can I get help?",
+    "slug": "how-can-i-get-help",
+    "body": "",
+    "topic": "how-can-i-get-help"
   },
   {
-    "title": "What should I expect?",
-    "slug": "what-should-i-expect",
-    "body": "<P>The usual length of a consultation with a GP is 10 minutes.  In that time a GP will try to find out what is wrong, get an idea of your overall health and also try to work out what the next steps will be for your treatment.<P>\r\n\r\n<P>Once you tell the GP what is on your mind they will probably ask you some questions.  This is because they are trying to get a better idea of what is going on for you and what might help.<P>\r\n\r\n<P>GPs can seem in a bit of a hurry sometimes.  They often have to be very focused to fit in all of their patients in the day.  If they ask you lots of questions this means they are trying to work out what might be wrong, don’t be put off.<P>\r\n\r\n<P>Don’t be worried about being honest about what’s happening in your head and telling them how you’re feeling.  They are there to help.  While GPs aren’t usually specialists in mental health, they are used to listening to people’s problems.<P>\r\n\r\n<P>The way to think about your first visit to the GP is that it’s the start of a journey to getting stuff sorted out, not the end destination.<P>\r\n\r\n<P>Depending on what’s happening for you and at what point in your life you’re at, your GP might do a number of things.  They may refer you to a specialist, which will probably take some time to arrange; they might prescribe you some form of treatment or they might give you some advice, guidance or other suggestions for help. They will also probably suggest that you come back to see them again to see how you are getting on.<P>\r\n\r\n<P>They will probably take some notes or enter some details into their computer system while you are with them.<P>",
-    "topic": "what-will-happen-when-i-visit-the-gp"
+    "title": "Who should I talk to?",
+    "slug": "who-should-i-talk-to",
+    "body": "<p>Start by speaking to one of the following people about the difficulties you are experiencing:</p><ul><li>school nurse, counsellor or liaison worker</li><li>teacher</li><li>doctor</li><li>health worker</li><li>social worker</li></ul><p>You can do this together with the help of your parents, carer or a friend if you would find that easier. Speaking to one of these people is an important first step towards finding help. They can provide support and advice about your worries.</p>",
+    "topic": "how-can-i-get-help"
   },
   {
-    "title": "Finding a GP",
-    "slug": "finding-a-gp",
-    "body": "<!--<P>The simplest way to find a GP near you is to use our <a href=\"#/gpfinder\" class=\"button\">Find a GP</a> button.</P>-->\r\n\r\n<P>You can use the ‘Services near you’ tool on the front page of the NHS Choices to find a GP practice near you: <a target='_blank'   href='http://www.nhs.uk/Pages/HomePage.aspx'>NHS Choices</a> </P>\r\n\r\n<P>Remember, you can choose to change GPs if you wish to, even if your parents or other carer have previously registered you with a GP.</P>\r\n\r\n<P>GP practices are also listed in local telephone directories.</P>",
-    "topic": "how-to-find-a-gp"
+    "title": "Preparing to talk to someone",
+    "slug": "preparing-to-talk-to-someone",
+    "body": "<p>It’s normal to feel nervous, vulnerable or scared about talking to someone else about what’s happening in your life.</p><p><a ng-href=\"/#/picker\" class=\"build\">Creating a checklist</a> can help you prepare what you want to say when you talk to someone for the first time. Another useful tool called Doc Ready can help you to prepare for a GP appointment.</p><p>If the person you speak to feels that you’d benefit from the the help of someone with specialist experience of helping young people with their mental health, then they may make what’s called a referral, which is where they contact CAMHS to ask them to make an appointment with you.</p>",
+    "topic": "how-can-i-get-help"
   },
   {
-    "title": "How do I make GP my appointment work for me?",
-    "slug": "how-do-i-make-gp-my-appointment-work-for-me",
-    "body": "<P>Getting prepared for your appointment is a good idea.  Use our checklist to work out the things you want to talk to your GP about.  GPs use what you tell them as a way to work out what might  best help.  If you don’t tell them enough, they won’t have enough information to suggest anything useful.<P>\r\n\r\n<P>If it’s your first time talking to your GP about your mental health or problems that you’re having, you might want to book a double appointment. You do not have to tell any reception staff why you want a double appointment.<P>\r\n\r\n<P>Right at the start of your appointment try to tell the GP what you want to talk about.  When the GP asks you questions be as honest as you can.  They’ll use what you say to work out what’s wrong or what might help, so it really helps to be open.<P>\r\n\r\n<P>Your appointment should be a two-way conversation.  It’s your appointment and your health so don’t be afraid to ask questions, especially if the doctor says something you don’t understand or which doesn’t sound right to you.<P> \r\n\r\n<P>If you are really worried about the appointment you can take a friend or family member with you.  This might give you more confidence to talk to the doctor.  They could even tell the doctor about the problems or challenges that you’re having if you don’t feel confident enough.<P>\r\n\r\n<P>Write down things that you have to remember about what was said.  Ask the doctor if they have more information you can take away with you.<P>\r\n\r\n<P>A good way to make sure you’ve understood what the GP has said to you is repeating it back to them, asking if you’ve got it right.<P>  ",
-    "topic": "getting-the-most-out-of-your-appointment"
+    "title": "How long does it take to see CAMHS?",
+    "slug": "how-long-does-it-take-to-see-camhs",
+    "body": "<p>CAMHS always tries to see people as quickly as possible once they have been given their details. However, because lots of people are finding they need help or support it can sometimes take up to six months for an appointment. The CAMHS team are always working to keep waiting times as short as possible.</p><p>Please don’t let the potential waiting time stop you from speaking to someone about your what’s going on in your life.</p><p>There are plenty of other sources of help which can support you. See the ‘Where can I go for more support?’ section below for more information.</p>",
+    "topic": "how-long-does-it-take-to-see-camhs"
   },
   {
-    "title": "What is confidentiality about?",
-    "slug": "what-is-confidentiality-about-1",
-    "body": "<P>Everything said in a consultation between you and a GP is confidential.  This means they are not allowed to tell other people that you have been to see them.  The same goes for reception staff.<P>\r\n\r\n<P>Your GP might suggest you talk to other people about your problem, or ask for your permission to contact them on your behalf in situations where they feel it will help you.  You do not have to say yes to this and they can’t contact anyone without your permission. <P>\r\n\r\n<P>The doctor will usually write or type some notes about what was said, so that she or he has a record of them, but you can even ask them not to do that.<P>\r\n\r\n<P>In the vast majority of situations, though, the GP can only contact others about your health with your permission.<P>\r\n\r\n<P>The only time that confidentiality might be broken is if the GP feels you or someone else might be at risk of harm.<P>",
-    "topic": "confidentiality"
+    "title": "Where can I go for more support?",
+    "slug": "where-can-i-go-for-more-support",
+    "body": "<p>There are lots of places you can go for help and support. The resources listed below all provide advice and support to young people who are experiencing difficulties with their emotions, behaviour or mental health. They are a mixture of websites, phone lines and face to face support.</p><p>It can also be helpful to speak to your teacher, doctor, parents or carers to find out how they could help whilst you wait for your appointment. You can <a href=\"/#/picker\" class=\"build\">create a checklist</a> to help you prepare to speak to any of these people.</p><ul><li><a href=\"\">Young Minds</a></li><li><a href=\"\">Childline</a> - Call 0800 1111 (free and confidential)</li><li><a href=\"\">ReThink</a></li><li><a href=\"\">Mind</a></li><li><a href=\"\">Changes Health and WellBeing</a> - A user-led mental health charity in Staffordshire</li></ul>",
+    "topic": "where-can-i-go-for-more-support"
   },
   {
-    "title": "Doc Ready and your privacy",
-    "slug": "doc-ready-and-your-privacy",
-    "body": "<p>Doc Ready doesn't store anything that we or anyone else can link to you.\r\nNothing stays on the server and nothing stays on your phone or computer.</p>\r\n\r\n<p>We do use Google Analytics to help us measure how we're doing and\r\nimprove the site, but that data isn't linked to you in any way.</p>\r\n\r\n<p>You can choose to email your checklist to yourself, or to download it,\r\nor to print it, and what you do with it then is up to you. We don't even\r\nstore items people add to their checklists, just the topics people look at.</p>\r\n\r\n<p>If you have any other questions or concerns about your privacy when\r\nusing Doc Ready, please <a href=\"#contact\">contact us</a>.</p>",
-    "topic": "confidentiality"
+    "title": "How will I find out if I'm able to see CAMHS?",
+    "slug": "how-will-i-find-out-if-im-able-to-see-camhs",
+    "body": "Once the CAMHS team have received your information the following things will happen:",
+    "topic": "how-will-i-find-out-if-im-able-to-see-camhs"
+  },
+  {
+    "title": "Receive a letter from CAMHS",
+    "slug": "receive-a-letter-from-camhs",
+    "body": "<p>You’ll receive a letter from the service within two weeks of them receiving your information which will ask you to confirm that you want to see CAMHS.</p><p>If you are under 16 years old then a letter may also be sent to your parents or carer. If you would prefer that they didn’t receive a letter then mention this to the person who is giving your information to CAMHS (e.g. your GP, School Nurse etc.)</p><p>This letter will give you information about how to arrange your appointment. You will be asked to arrange an appointment within two weeks of receiving this letter to confirm that you still want to see CAMHS.</p>",
+    "topic": "how-will-i-find-out-if-im-able-to-see-camhs"
+  },
+  {
+    "title": "Make an appointment",
+    "slug": "make-an-appointment",
+    "body": "Follow the instructions on your letter to arrange an appointment - you can do it online or over the phone. Don’t worry if you lose your letter for any reason; it this happens just call the CAMHS team on 0300 123 0984 and let them know that you don’t have your letter and they will help you.",
+    "topic": "how-will-i-find-out-if-im-able-to-see-camhs"
+  },
+  {
+    "title": "Receive details of your appointment",
+    "slug": "receive-details-of-your-appointment",
+    "body": "<p>Once you’ve chosen your appointment you and your parents or carer will receive another letter from CAMHS giving you more information about your visit. As well as the time and date of your appointment, this letter will also tell you where to go for your visit and who you will see on the day.</p><p>Many different types of staff are specially trained to deliver first appointments so the person you see could have one of several job titles. They are all expertly trained to help make your first visit as successful as possible. To learn more about the different staff who work at CAMHS click the <insert section title> heading below.</p>",
+    "topic": "how-will-i-find-out-if-im-able-to-see-camhs"
+  },
+  {
+    "title": "Complete the Questionnaire",
+    "slug": "complete-the-questionnaire",
+    "body": "<p>The letter containing your appointment details will also include a questionnaire for you and your parents to complete.</p><p>This questionnaire is used to help the person you will see at CAMHS better understand how you are currently feeling. It also helps the CAMHS service measure how well they are doing. It is not a test and there are no right or wrong answers so be as honest as you can.</p><p>It is good to fill this form out and bring it with you on your first visit as it will help the person you see at CAMHS get a quicker understanding of what matters to you. <a href=\"/#/picker\" class=\"build\">Creating a checklist</a> to describe what’s currently happening in your life can help you to fill out the questionnaire.</p>",
+    "topic": "how-will-i-find-out-if-im-able-to-see-camhs"
+  },
+  {
+    "title": "What should I do before my first visit?",
+    "slug": "what-should-i-do-before-my-first-visit",
+    "body": "<p><a href=\"/#/picker\" class=\"build\">Creating your own checklist</a> is a great way to prepare for your first visit. Doing this can help you identify and organise your thoughts, feelings and behaviours to make them easier to talk about during your first visit. Creating a checklist can also help you think about what changes you’d like to achieve by visiting CAMHS.</p><p>It’s a good idea to bring your checklist to your first appointment so that you don’t forget anything you want to talk about. It’s easy to download, print or email your checklist.</p>",
+    "topic": "what-should-i-do-before-my-first-visit"
+  },
+  {
+    "title": "CAMHSReady and your privacy",
+    "slug": "camhsready-and-your-privacy",
+    "body": "<p>CAMHSReady doesn't store anything that we or anyone else can link to you. Nothing stays on the server and nothing stays on your phone or computer.</p><p>We do use Google Analytics to help us measure how we're doing and improve the site, but that data isn't linked to you in any way.</p><p>You can choose to email your checklist to yourself, or to download it, or to print it, and what you do with it then is up to you. We don't even store items people add to their checklists, just the topics people look at.</p><p>If you have any other questions or concerns about your privacy when using CAMHSReady, please <a href=\"/#/contact\">contact us</a></p>",
+    "topic": "what-should-i-do-before-my-first-visit"
+  },
+  {
+    "title": "What happens at your first appointment?",
+    "slug": "what-happens-at-your-first-appointment",
+    "body": "",
+    "topic": "what-happens-at-your-first-appointment"
+  },
+  {
+    "title": "Does my parent or carer come with me?",
+    "slug": "does-my-parent-or-carer-come-with-me",
+    "body": "<p>If you are under 16 years old CAMHS will normally ask your parent or carer to come with you to the appointment. It can often help to have them there as some people can feel nervous about their visit and having a parent or carer can help provide reassurance and familiarity.</p><p>Depending on your situation, the the person you are seeing may also invite your parent or carer to join you in your appointment to help get a better understanding of your life. If you would prefer that they didn’t join your appointment then let the person you see at CAMHS know when you arrive.</p>",
+    "topic": "what-happens-at-your-first-appointment"
+  },
+  {
+    "title": "Meeting your CAMHS Worker",
+    "slug": "meeting-your-camhs-worker",
+    "body": "<p>When you arrive at the building you will be greeted by one of the receptionists. They will let the person you are seeing know that you have arrived and will explain to you where to go.</p><p>You will then be met by the person who you were told that you would be seeing in your appointment letter. They will introduce themselves and show you to a room where you will be able to have your appointment in privacy. They will then explain to you how the appointment works.</p>",
+    "topic": "what-happens-at-your-first-appointment"
+  },
+  {
+    "title": "How long does the appointment last?",
+    "slug": "how-long-does-the-appointment-last",
+    "body": "A first appointment usually lasts up to an hour but can last up to 90 minutes if there is a lot of information to cover.",
+    "topic": "what-happens-at-your-first-appointment"
+  },
+  {
+    "title": "What questions will they ask me?",
+    "slug": "what-questions-will-they-ask-me",
+    "body": "<p>The person you are seeing will ask you to describe what you are currently experiencing difficulties with and when these began. They will also ask you what you would ideally like to be different by visiting CAMHS.</p><p>They ask these questions to help get a better understanding of your situation and how best to help you. They’ll use what you say to work out what could be wrong or what might help, so it really helps to be open. Don't worry if you struggle to talk about your problems; they won’t judge you and they understand how difficult it can be to talk about yourself.</p><p>Creating a checklist can help you prepare what you’d like to talk about and remember it during the session. If you have brought your checklist with you to your visit then share it with the person you're seeing as it will really help them know what to begin talking to you about.</p>",
+    "topic": "what-happens-at-your-first-appointment"
+  },
+  {
+    "title": "Will they take notes?",
+    "slug": "will-they-take-notes",
+    "body": "<p>The person you are seeing will usually make some notes during your visit to help them remember later on what you discussed.</p>",
+    "topic": "what-happens-at-your-first-appointment"
+  },
+  {
+    "title": "Can I ask questions?",
+    "slug": "can-i-ask-questions",
+    "body": "<p>It's your appointment so don’t be afraid to ask any questions, especially if the person you are seeing says something you don’t understand or which doesn’t sound right to you. A good way to make sure you’ve understood what they have said to you is repeating it back to them, asking if you’ve got it right.</p>",
+    "topic": "what-happens-at-your-first-appointment"
+  },
+  {
+    "title": "What will happen at the end of the appointment?",
+    "slug": "what-will-happen-at-the-end-of-the-appointment",
+    "body": "<p>At the end of your appointment the person you are seeing will explain what they think the important factors for you are and what they think should happen next.</p><p>They will use their professional training and experience to understand the information you have shared with them and make recommendations that they think will help support you best. They may give you some leaflets and information to take with you to help you remember any of their advice.</p><p>It’s your appointment so ask them questions if you don’t understand anything they have said or would like to know more information.</p>",
+    "topic": "what-happens-at-your-first-appointment"
+  },
+  {
+    "title": "Can I change or cancel my appointment?",
+    "slug": "can-i-change-or-cancel-my-appointment",
+    "body": "<p>If for any reason you need to rearrange or cancel your appointment then please call the CAMHS Team on 0300 123 0984 to let them know and they will help you.</p><p>Letting the CAMHS Team know in advance that you won’t be able to attend your appointment can allow them to use your time slot to see another young person who needs their help.</p><p>If you are thinking about not attending your appointment because you are anxious or scared then please know that it is not unusual to feel this way. Try to think of your appointment as the next step to getting help with what you’re going through. If you don’t go, then the CAMHS team won’t be able to help you. Most people who attend CAMHS are pleasantly surprised to learn that their experience is much better than they originally expected.</p>",
+    "topic": "can-i-change-or-cancel-my-appointment"
+  },
+  {
+    "title": "What happens after my first appointment?",
+    "slug": "what-happens-after-my-first-appointment",
+    "body": "",
+    "topic": "what-happens-after-my-first-appointment"
+  },
+  {
+    "title": "Receive a follow up letter",
+    "slug": "receive-a-follow-up-letter",
+    "body": "<p>You and your parents or carer will receive a letter from the person you saw at CAMHS which will sum up what they learned from your visit and explain the next steps they recommend for you.</p><p>The letter will also explain how you can get started with the next steps they have reccomended. The person you met with will also send a copy of this letter to your doctor, as well as the person who referred you to CAMHS, to keep them updated on your progress.</p>",
+    "topic": "what-happens-after-my-first-appointment"
+  },
+  {
+    "title": "Next Steps",
+    "slug": "next-steps",
+    "body": "<p>The next steps for each person who visits CAMHS will be different as it depends on what you and the person you saw decided is the best type of support for you.</p><p>This can vary from deciding that you don't need any further support at the moment, through to seeing a specialist from CAMHS or another service for more appointments. The CAMHS Worker you see will explain everything to you about what they recommend, why they recommend it, and what you need to do.</p>",
+    "topic": "what-happens-after-my-first-appointment"
+  },
+  {
+    "title": "What happens if I’m recommended more CAMHS Appointments?",
+    "slug": "what-happens-if-im-recommended-more-camhs-appointments",
+    "body": "<p>You and your parents or carer will receive a letter with instructions on how to book your next appointment. Once you’ve made your booking, you’ll receive a letter confirming the details of your appointment, including who you’re going to see.</p><p>The person you are seeing may be different from the person you saw at your first appointment because the CAMHS team will match you with the person they think is best placed to help you based on the information they learned from your first visit. To learn more about the different roles at CAMHS see the ‘Who Works at CAMHS?’ section below.</p><p>At your next appointment your new CAMHS Worker will talk with you to decide together how often you will see each other. They will also explain how your therapy will work. Again, don’t be afraid to ask any questions as it’s your therapy and they won’t expect you to know what is going to happen. </p>",
+    "topic": "what-happens-after-my-first-appointment"
+  },
+  {
+    "title": "Who works at CAMHS?",
+    "slug": "who-works-at-camhs",
+    "body": "<p>CAMHS is made up of highly trained people with lots of different skills. They will work with you to understand your difficulties and together you’ll decide on the best type of treatment to suit your needs.</p><p>On your first visit to CAMHS the person you see could have any one of the following roles, as a mixture of staff have been specially trained to take first visits. In your appointment letter you will be told which person you will be seeing.</p><p>Click on a profile below to learn more about each role and the methods they use to help people. If you’d like to know more about these roles then just ask, staff are happy to tell you more about what they do and why.</p>",
+    "topic": "who-works-at-camhs"
+  },
+  {
+    "title": "Cognitive Behavioural Therapist (CBT)",
+    "slug": "cognitive-behavioural-therapist",
+    "body": "<p>Cognitive behavioural therapists work together with people to help them learn new skills and feel more in control of their lives. CBT is especially useful in lots of circumstances, especially when people are dealing with depression, anxiety, obsessive-compulsive disorder and phobias.</p>",
+    "topic": "who-works-at-camhs"
   }
 ]
 );angular.module('docready').value('advice_topics_content', [
   {
-    "title": "What can a GP help with?",
-    "slug": "what-can-a-gp-help-with"
+    "title": "What is CAMHS?",
+    "slug": "what-is-camhs"
   },
   {
-    "title": "How to find a GP",
-    "slug": "how-to-find-a-gp"
+    "title": "How can CAMHS help?",
+    "slug": "how-can-camhs-help"
   },
   {
-    "title": "What will happen when I visit the GP?",
-    "slug": "what-will-happen-when-i-visit-the-gp"
+    "title": "How can I get help?",
+    "slug": "how-can-i-get-help"
   },
   {
-    "title": "Know your rights",
-    "slug": "know-your-rights"
+    "title": "How long does it take to see CAMHS?",
+    "slug": "how-long-does-it-take-to-see-camhs"
   },
   {
-    "title": "Confidentiality",
-    "slug": "confidentiality"
+    "title": "Where can I go for more support?",
+    "slug": "where-can-i-go-for-more-support"
   },
   {
-    "title": "Getting the most out of your appointment",
-    "slug": "getting-the-most-out-of-your-appointment"
+    "title": "How will I find out if I'm able to see CAMHS?",
+    "slug": "how-will-i-find-out-if-im-able-to-see-camhs"
   },
   {
-    "title": "How to give feedback",
-    "slug": "how-to-give-feedback"
+    "title": "What should I do before my first visit?",
+    "slug": "what-should-i-do-before-my-first-visit"
+  },
+  {
+    "title": "What happens at your first appointment?",
+    "slug": "what-happens-at-your-first-appointment"
+  },
+  {
+    "title": "Can I change or cancel my appointment?",
+    "slug": "can-i-change-or-cancel-my-appointment"
+  },
+  {
+    "title": "What happens after my first appointment?",
+    "slug": "what-happens-after-my-first-appointment"
+  },
+  {
+    "title": "Who works at CAMHS?",
+    "slug": "who-works-at-camhs"
   }
 ]);

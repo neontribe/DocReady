@@ -1,30 +1,46 @@
 [
   {
-    "title": "What can a GP help with?",
-    "slug": "what-can-a-gp-help-with"
+    "title": "What is CAMHS?",
+    "slug": "what-is-camhs"
   },
   {
-    "title": "How to find a GP",
-    "slug": "how-to-find-a-gp"
+    "title": "How can CAMHS help?",
+    "slug": "how-can-camhs-help"
   },
   {
-    "title": "What will happen when I visit the GP?",
-    "slug": "what-will-happen-when-i-visit-the-gp"
+    "title": "How can I get help?",
+    "slug": "how-can-i-get-help"
   },
   {
-    "title": "Know your rights",
-    "slug": "know-your-rights"
+    "title": "How long does it take to see CAMHS?",
+    "slug": "how-long-does-it-take-to-see-camhs"
   },
   {
-    "title": "Confidentiality",
-    "slug": "confidentiality"
+    "title": "Where can I go for more support?",
+    "slug": "where-can-i-go-for-more-support"
   },
   {
-    "title": "Getting the most out of your appointment",
-    "slug": "getting-the-most-out-of-your-appointment"
+    "title": "How will I find out if I'm able to see CAMHS?",
+    "slug": "how-will-i-find-out-if-im-able-to-see-camhs"
   },
   {
-    "title": "How to give feedback",
-    "slug": "how-to-give-feedback"
+    "title": "What should I do before my first visit?",
+    "slug": "what-should-i-do-before-my-first-visit"
+  },
+  {
+    "title": "What happens at your first appointment?",
+    "slug": "what-happens-at-your-first-appointment"
+  },
+  {
+    "title": "Can I change or cancel my appointment?",
+    "slug": "can-i-change-or-cancel-my-appointment"
+  },
+  {
+    "title": "What happens after my first appointment?",
+    "slug": "what-happens-after-my-first-appointment"
+  },
+  {
+    "title": "Who works at CAMHS?",
+    "slug": "who-works-at-camhs"
   }
 ]
