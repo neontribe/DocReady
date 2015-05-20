@@ -1401,9 +1401,33 @@ iframe {
 ----------------------------------------------------------------------
 */
 
+@-webkit-keyframes enter {
+	0%, 100% {
+		-webkit-transform: scale(1);
+		        transform: scale(1);
+	}
+	50% {
+		-webkit-transform: scale(1.125);
+		        transform: scale(1.125);
+	}
+}
+
+@keyframes enter {
+	0%, 100% {
+		-webkit-transform: scale(1);
+		        transform: scale(1);
+	}
+	50% {
+		-webkit-transform: scale(1.125);
+		        transform: scale(1.125);
+	}
+}
+
 .intro {
 	text-align: center;
 	padding: 1.5em;
+	-webkit-animation: enter 0.75s ease-out 1;
+	        animation: enter 0.75s ease-out 1
 }
 
 .intro > h1, .intro > img {
