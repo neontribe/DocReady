@@ -2,9 +2,9 @@
   	<a role="button"
   	   href="javascript:void(0)"
   	   aria-controls="{{slug}}" 
-	   aria-haspopup="true" 
+	   aria-expanded="{{ isOpen }}" 
   	   data-ng-click="isOpen = !isOpen"
   	   data-ng-class="{ active: isOpen }"
   	   data-accordion-transclude="heading">{{heading}}</a>
-  <div id="{{slug}}" role="region" data-collapse="!isOpen" aria-expanded="{{isOpen}}" aria-hidden="{{!isOpen}}" data-ng-class="{ expanded: isOpen }" data-ng-transclude></div>
+  <div id="{{slug}}" data-collapse="!isOpen" aria-expanded="{{isOpen}}" aria-hidden="{{!isOpen}}" data-ng-class="{ expanded: isOpen }" data-ng-transclude></div>
 </li>
