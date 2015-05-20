@@ -580,4 +580,11 @@ angular.module('docready').value('symptoms_content', [
     "title": "Who works at CAMHS?",
     "slug": "who-works-at-camhs"
   }
+]);angular.module('docready').value('supplementary_content', [
+  {
+    "id": "reflections",
+    "title": "Reflections on my checklist",
+    "rubric": "Thinking about the things that you've added to your checklist, If you woke up tomorrow and things felt better, what would have changed",
+    "answer": ""
+  }
 ]);

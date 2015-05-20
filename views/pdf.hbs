@@ -49,11 +49,17 @@
             </ol>
           </div>
         </section>
-        <section>
-          <h2>Reflections on my checklist</h2>
-          <p><em>Thinking about the things that you&#x2019;ve added to your checklist, what do you think would have to change for you to feel better?</em></p>
-          <div class="tall" contenteditable="true" role="textbox" aria-multiline="true" aria-label="reflections on my checklist"></div>
+        {{#if supplementary}}
+        <section class="supplementary_questions">
+          {{#each supplementary}}
+            <div ng-repeat="s in supplementary">
+              <h2>{{this.title}}</h2>
+              <p><em>{{this.rubric}}</em></p>
+              <div class="tall notes">{{this.answer}}</div>
+            </div>
+          {{/each}}
         </section>
+        {{/if}}
         <section>
           <h2>My notes</h2>
           <p><em>A place to record notes of what you heard in your appointment.</em></p>

@@ -48,7 +48,7 @@
 			<div style="width: 40%">
 				<div>
 					<h1>My Checklist</h1>
-					<p><em>Created on <strong>docready.org</strong></em></p>
+					<p><em>Created on <strong>{{app_domain}}</strong></em></p>
 				</div>
 			</div>
 			<div style="width: 60%">
@@ -80,15 +80,15 @@
 					</p>
 				</div>
 			</section>
-			<section>
-				<h2>Reflections on my checklist</h2>
-				<p><em>Thinking about the things that you&#x2019;ve added to your checklist, what do you think would have to change for you to feel better?</em></p>
-				<div class="tall" contenteditable="true" role="textbox" aria-multiline="true" aria-label="reflections on my checklist"></div>
+			<section data-ng-repeat="s in supplementary">
+				<h2>{{s.title}}</h2>
+				<p><em>{{s.rubric}}</em></p>
+				<div class="tall notes">{{s.answer}}</div>
 			</section>
 			<section>
 				<h2>My notes</h2>
 				<p><em>A place to record notes of what you heard in your appointment.</em></p>
-				<div class="tall" contenteditable="true" role="textbox" aria-multiline="true" aria-label="reflections on my checklist"></div>
+				<div class="tall notes"></div>
 			</section>
 		</div>
 	</div>

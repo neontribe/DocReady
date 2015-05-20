@@ -269,7 +269,7 @@ module.exports = function (grunt) {
             minify: false
           },
           files: {
-            '<%= yeoman.app %>/data/content.js': ['data/symptoms.json', 'data/advice.json', 'data/advice_topics.json']
+            '<%= yeoman.app %>/data/content.js': ['data/symptoms.json', 'data/advice.json', 'data/advice_topics.json', 'data/supplementary.json']
           }
         },
         config: {
