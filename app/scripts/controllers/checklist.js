@@ -9,7 +9,7 @@ angular.module('docready')
       symptomService.toggle(symptom);
     };
 
-    $scope.track = function(type){
+    $scope.track = _.debounce(function(type){
       Analytics.trackPage($location.path() + '/' + type);
-    };
+    }, 3000);
   });
