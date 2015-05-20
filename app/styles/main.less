@@ -223,7 +223,7 @@ body {
 	font-weight: 300;
 	font-family: @family-main;
 	color: @font-color;
-	margin-top: 82px;
+	margin-top: 87px;
 	background: #fff;
 }
 
@@ -301,12 +301,12 @@ header nav a, header nav a:visited {
 	color: @dark-grey;
 	border: 0;
 	font-size: 1.125em;
-	padding-left: 1.5em;
+	padding-left: 1.66em;
 	background-position: left center;
 	background-size: auto 100%;
 }
 
-header nav a.active {
+header nav a.active span {
 	color: @dark-grey;
 	border-bottom: 2px solid;
 }
@@ -315,7 +315,11 @@ header nav .icon-pencil {
 	background-color: transparent;
 }
 
-header nav a:focus {
+header nav a:hover {
+	border: 0;
+}
+
+header nav a:focus span, header nav a:hover span {
 	outline: none !important;
 	border-bottom: 2px solid;
 }
@@ -584,7 +588,7 @@ label {
 .label-and-button button, .symptoms label:after, #checklist ol button {
 	background-color: @blue-color;
 	color: @blue-color;
-	border-radius: 0 25px 25px 0;
+	border-radius: 0 10px 10px 0;
 	font-size: 0;
 	position: absolute;
 	top: 0;
@@ -597,6 +601,15 @@ label {
 	background-image: url(../images/add.png);
 	background-repeat: no-repeat;
 	background-position: center center;
+}
+
+#checklist ol li {
+	border-color: @font-color;
+	border-radius: 0 5px 5px 0;
+}
+
+#checklist ol button {
+	background-color: @font-color;
 }
 
 .symptoms label.selected::after {
@@ -650,7 +663,7 @@ input, textarea, .symptoms label, #checklist ol li {
 	.box-sized;
 	vertical-align: middle;
 	border: 2px solid @blue-color;
-	border-radius: 30px;
+	border-radius: 10px;
 	width: 100%;
 	resize: none;
 	overflow: hidden;
@@ -799,11 +812,13 @@ input[type="checkbox"], input[type="radio"] {
 }
 
 #checklist li i {
-	padding: 0 0.4em;
+	padding: 0 0.25em;
 	margin: 0 0.25em 0 0;
-	background: @blue-color;
-	color: #fff;
-	border-radius: 30px;
+	font-size: 1.25em;
+}
+
+#checklist ol li {
+	border-color: @font-color;
 }
 
 .ui-sortable-helper {
@@ -847,26 +862,6 @@ li.handle {
 	
 #checklist ol li + li {
 	margin-top: @v-space/2;
-}
-
-#checklist .add-symptoms {
-	position: relative;
-	padding: @v-space;
-	background: @blue-color-lighter;
-	border-radius: 50px;
-	margin-top: @v-space*1.5;
-}
-
-#checklist .add-symptoms:before {
-	display: block;
-	width: 100%;
-	position: absolute;
-	left: 0;
-	top: -0.75em;
-	font-size: 2em;
-	content: '\25B2';
-	text-align: center;
-	color: @blue-color-lighter;
 }
 
 .add-symptoms h2 {
@@ -1086,7 +1081,7 @@ address {
 }
 
 .actions button {
-	border-radius: 30px;
+	border-radius: 10px;
 	background-size: auto 100%;
 	padding-left: 45px;
 	font-size: 1.25em;
@@ -1130,8 +1125,7 @@ address {
 }
 
 .with-icon span + span {
-    width: 60px;
-    height: 60px;
+    display: none;
 }
 
 .quail-message {
@@ -1152,8 +1146,8 @@ address {
 
 .tally {
 	display: inline-block;
-	background: #fff; 
-	color: @font-color;
+	background: @blue-color; 
+	color: #fff;
 	border-radius: 20px;
 	width: 20px;
 	height: 20px;
@@ -1162,7 +1156,6 @@ address {
 	font-weight: bold;
 	text-align: center;
 	margin: 0;
-	box-shadow: -2px 2px 0 @font-color;
 	position: relative;
 	top: -1em;
 	left: -0.25em;
@@ -1413,17 +1406,17 @@ iframe {
 */
 
 .intro {
-	text-align: center;
-	padding: 1.5em;
+	text-align: left;
+	padding: 2.25em 1.5em;
 	background: @font-color;
 }
 
 .intro > h1, .intro > img {
-	display: inline-block;
+	display: block;
 	color: #fff;
 	vertical-align: middle;
-	text-align: left;
-	margin-top: 0;
+	margin: 0 auto;
+    max-width: 820px;
 }
 
 .intro > img {
@@ -1518,8 +1511,8 @@ ul.accordion ul.accordion {
 	position: absolute;
 }
 
-.accordion a:hover h3  span[class^="icon-"], .accordion a:focus h3 span[class^="icon-"] {
-	background-color: @dark-grey;
+.accordion a:hover h3  span + span, .accordion a:focus h3 span + span {
+	text-decoration: underline;
 }
 
 li:nth-child(3n + 1) h3 span[class^="icon-"] {
@@ -1567,14 +1560,6 @@ h3 span[class^="icon-"] + span {
     text-align: center;
     width: 0.5em;
     margin-right: 0.5em;
-}
-
-.accordion li:nth-child(odd) li h4:before {
-	background: @red-color;
-}
-
-.accordion li:nth-child(3n + 1) li h4:before {
-	background: @yellow-color;
 }
 
 .accordion a.active h4:before {
