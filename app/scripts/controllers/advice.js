@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('docready')
-  .controller('AdviceCtrl', function ($scope, adviceService, $routeParams, $location) {
+  .controller('AdviceCtrl', function ($scope, adviceService, $routeParams, $location, Analytics) {
     // Process income advice item/topic data
     function initData(data, type) {
       if ($routeParams[type]) {
@@ -20,6 +20,10 @@ angular.module('docready')
 
     $scope.setTopic = function(slug) {
       $location.search('topic', slug);
+    };
+
+    $scope.track = function(type){
+      Analytics.trackPage($location.path() + '/' + type);
     };
 
   });
