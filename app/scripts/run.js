@@ -23,7 +23,7 @@ angular.module('docready')
     settings.apiRoot = '/api';
 
     // a11y hacks
-    $rootScope.$on('$locationChangeSuccess', function() {
+    $rootScope.$on('$routeChangeSuccess', function() {
       $timeout(function() {
         var focusTitle = $('#page').find('h1');
         focusTitle
