@@ -670,6 +670,10 @@ input, textarea, .symptoms label, #checklist ol li {
 	box-shadow: none;
 }
 
+textarea {
+	padding: 0.33em; 
+}
+
 #checklist ol li {
 	.hyphens;
 	color: @font-color;
@@ -866,8 +870,6 @@ li.handle {
 
 .add-symptoms h2 {
 	font-size: 1.5em;
-	color: @blue-color-darker;
-	text-indent: 0.5em;
 }
 
 /**
@@ -1083,7 +1085,6 @@ address {
 .actions button {
 	border-radius: 10px;
 	background-size: auto 100%;
-	padding-left: 45px;
 	font-size: 1.25em;
 }
 
@@ -1110,10 +1111,10 @@ address {
 }
 
 .center {
-	text-align: center;
+	text-align: center !important;
 }
 
-.with-icon.button, .introduction .button {
+.with-icon.button, .introduction .button, .actions button {
 	background: @yellow-color;
 	color: @font-color;
 }
@@ -1695,6 +1696,15 @@ dl.contenteditable {
 
 .contenteditable [contenteditable]:focus {
 	border-bottom: 2px solid;
+}
+
+.supplementary_questions {
+ 	background: #eee;
+ 	padding: 1.5em;
+}
+
+.supplementary_questions textarea {
+ 	margin-top: 1.5em;
 }
 
 /**
