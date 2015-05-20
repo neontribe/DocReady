@@ -95,6 +95,7 @@ app.post('/api/feedback', function(req, res){
 app.get('/api/pdf', function(req, res){
   var data = JSON.parse(req.query.data);
   data.permalink = config.baseUrl + data.permalink;
+  data.app_domain = config.app_domain;
   fs.readFile('./app/styles/main.css', function(err, styles) {
     data.styles = styles.toString();
     app.render('pdf', data, function(err, html) {
