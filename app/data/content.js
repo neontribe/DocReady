@@ -387,7 +387,7 @@ angular.module('docready').value('symptoms_content', [
   {
     "title": "Preparing to talk to someone",
     "slug": "preparing-to-talk-to-someone",
-    "body": "<p>It’s normal to feel nervous, vulnerable or scared about talking to someone else about what’s happening in your life.</p><p><a ng-href=\"/#/picker\" class=\"build\">Creating a checklist</a> can help you prepare what you want to say when you talk to someone for the first time. Another useful tool called Doc Ready can help you to prepare for a GP appointment.</p><p>If the person you speak to feels that you’d benefit from the the help of someone with specialist experience of helping young people with their mental health, then they may make what’s called a referral, which is where they contact CAMHS to ask them to make an appointment with you.</p>",
+    "body": "<p>It’s normal to feel nervous, vulnerable or scared about talking to someone else about what’s happening in your life.</p><p><a href=\"#/picker\" class=\"build\">Creating a checklist</a> can help you prepare what you want to say when you talk to someone for the first time. Another useful tool called Doc Ready can help you to prepare for a GP appointment.</p><p>If the person you speak to feels that you’d benefit from the the help of someone with specialist experience of helping young people with their mental health, then they may make what’s called a referral, which is where they contact CAMHS to ask them to make an appointment with you.</p>",
     "topic": "how-can-i-get-help"
   },
   {
@@ -399,7 +399,7 @@ angular.module('docready').value('symptoms_content', [
   {
     "title": "Where can I go for more support?",
     "slug": "where-can-i-go-for-more-support",
-    "body": "<p>There are lots of places you can go for help and support. The resources listed below all provide advice and support to young people who are experiencing difficulties with their emotions, behaviour or mental health. They are a mixture of websites, phone lines and face to face support.</p><p>It can also be helpful to speak to your teacher, doctor, parents or carers to find out how they could help whilst you wait for your appointment. You can <a href=\"/#/picker\" class=\"build\">create a checklist</a> to help you prepare to speak to any of these people.</p><ul><li><a href=\"\">Young Minds</a></li><li><a href=\"\">Childline</a> - Call 0800 1111 (free and confidential)</li><li><a href=\"\">ReThink</a></li><li><a href=\"\">Mind</a></li><li><a href=\"\">Changes Health and WellBeing</a> - A user-led mental health charity in Staffordshire</li></ul>",
+    "body": "<p>There are lots of places you can go for help and support. The resources listed below all provide advice and support to young people who are experiencing difficulties with their emotions, behaviour or mental health. They are a mixture of websites, phone lines and face to face support.</p><p>It can also be helpful to speak to your teacher, doctor, parents or carers to find out how they could help whilst you wait for your appointment. You can <a href=\"#/picker\" class=\"build\">create a checklist</a> to help you prepare to speak to any of these people.</p><ul><li><a href=\"\">Young Minds</a></li><li><a href=\"\">Childline</a> - Call 0800 1111 (free and confidential)</li><li><a href=\"\">ReThink</a></li><li><a href=\"\">Mind</a></li><li><a href=\"\">Changes Health and WellBeing</a> - A user-led mental health charity in Staffordshire</li></ul>",
     "topic": "where-can-i-go-for-more-support"
   },
   {
@@ -429,19 +429,19 @@ angular.module('docready').value('symptoms_content', [
   {
     "title": "Complete the Questionnaire",
     "slug": "complete-the-questionnaire",
-    "body": "<p>The letter containing your appointment details will also include a questionnaire for you and your parents to complete.</p><p>This questionnaire is used to help the person you will see at CAMHS better understand how you are currently feeling. It also helps the CAMHS service measure how well they are doing. It is not a test and there are no right or wrong answers so be as honest as you can.</p><p>It is good to fill this form out and bring it with you on your first visit as it will help the person you see at CAMHS get a quicker understanding of what matters to you. <a href=\"/#/picker\" class=\"build\">Creating a checklist</a> to describe what’s currently happening in your life can help you to fill out the questionnaire.</p>",
+    "body": "<p>The letter containing your appointment details will also include a questionnaire for you and your parents to complete.</p><p>This questionnaire is used to help the person you will see at CAMHS better understand how you are currently feeling. It also helps the CAMHS service measure how well they are doing. It is not a test and there are no right or wrong answers so be as honest as you can.</p><p>It is good to fill this form out and bring it with you on your first visit as it will help the person you see at CAMHS get a quicker understanding of what matters to you. <a href=\"#/picker\" class=\"build\">Creating a checklist</a> to describe what’s currently happening in your life can help you to fill out the questionnaire.</p>",
     "topic": "how-will-i-find-out-if-im-able-to-see-camhs"
   },
   {
     "title": "What should I do before my first visit?",
     "slug": "what-should-i-do-before-my-first-visit",
-    "body": "<p><a href=\"/#/picker\" class=\"build\">Creating your own checklist</a> is a great way to prepare for your first visit. Doing this can help you identify and organise your thoughts, feelings and behaviours to make them easier to talk about during your first visit. Creating a checklist can also help you think about what changes you’d like to achieve by visiting CAMHS.</p><p>It’s a good idea to bring your checklist to your first appointment so that you don’t forget anything you want to talk about. It’s easy to download, print or email your checklist.</p>",
+    "body": "<p><a href=\"#/picker\" class=\"build\">Creating your own checklist</a> is a great way to prepare for your first visit. Doing this can help you identify and organise your thoughts, feelings and behaviours to make them easier to talk about during your first visit. Creating a checklist can also help you think about what changes you’d like to achieve by visiting CAMHS.</p><p>It’s a good idea to bring your checklist to your first appointment so that you don’t forget anything you want to talk about. It’s easy to download, print or email your checklist.</p>",
     "topic": "what-should-i-do-before-my-first-visit"
   },
   {
     "title": "CAMHSReady and your privacy",
     "slug": "camhsready-and-your-privacy",
-    "body": "<p>CAMHSReady doesn't store anything that we or anyone else can link to you. Nothing stays on the server and nothing stays on your phone or computer.</p><p>We do use Google Analytics to help us measure how we're doing and improve the site, but that data isn't linked to you in any way.</p><p>You can choose to email your checklist to yourself, or to download it, or to print it, and what you do with it then is up to you. We don't even store items people add to their checklists, just the topics people look at.</p><p>If you have any other questions or concerns about your privacy when using CAMHSReady, please <a href=\"/#/contact\">contact us</a></p>",
+    "body": "<p>CAMHSReady doesn't store anything that we or anyone else can link to you. Nothing stays on the server and nothing stays on your phone or computer.</p><p>We do use Google Analytics to help us measure how we're doing and improve the site, but that data isn't linked to you in any way.</p><p>You can choose to email your checklist to yourself, or to download it, or to print it, and what you do with it then is up to you. We don't even store items people add to their checklists, just the topics people look at.</p><p>If you have any other questions or concerns about your privacy when using CAMHSReady, please <a href=\"#/contact\">contact us</a></p>",
     "topic": "what-should-i-do-before-my-first-visit"
   },
   {
