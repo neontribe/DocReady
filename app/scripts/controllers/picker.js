@@ -8,11 +8,7 @@ angular.module('docready')
     $scope.tags = [];
 
     // Apply the data late to get fade-in anims
-    $timeout(function(){
-      $scope.$apply(function(){
-        $scope.tags = symptomTagService.symptomTags;
-      });
-    }, 1100);
+    $scope.tags = symptomTagService.symptomTags;
 
     $scope.settings = settings;
 

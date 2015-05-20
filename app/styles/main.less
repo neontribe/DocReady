@@ -1113,9 +1113,17 @@ address {
 	margin: 0;
 }
 
+.button.with-icon, .introduction a.button {
+	background: @red-color;
+}
+
+.button.with-icon:hover, .introduction a.button:hover,
+.button.with-icon:focus, .introduction a.button:focus {
+	background: @font-color;
+}
+
 .with-icon span + span {
-    width: 60px;
-    height: 60px;
+    display: none;
 }
 
 .quail-message {
@@ -1268,7 +1276,6 @@ ol h3 {
 	margin: 0;
 	margin-top: @v-space * 2;
 	font-size: 0;
-	background: @font-color;
 	.box-sized;
 }
 
@@ -1287,7 +1294,6 @@ ol h3 {
 
 [role="contentinfo"] a {
 	border: 0;
-	color: #fff;
 }
 
 [role="contentinfo"] a:hover, [role="contentinfo"] a:active {

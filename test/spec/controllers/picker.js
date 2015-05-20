@@ -7,7 +7,6 @@ describe('Controller: PickerCtrl', function () {
 
   var PickerCtrl,
     location,
-    timeout,
     scope;
 
   beforeEach(module(function($provide){
@@ -60,7 +59,6 @@ describe('Controller: PickerCtrl', function () {
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope, $location, $timeout) {
-    timeout = $timeout;
     location = $location;
     scope = $rootScope.$new();
     PickerCtrl = $controller('PickerCtrl', {
@@ -70,17 +68,14 @@ describe('Controller: PickerCtrl', function () {
   }));
 
   it('should attach a list of symptoms to the scope', function () {
-    timeout.flush();
     expect(scope.symptoms.length).toBeGreaterThan(2);
   });
 
   it('should attach an array of tags to the scope', function () {
-    timeout.flush();
     expect(scope.tags.length).toBeGreaterThan(3);
   });
 
   it('should provide a filter method hasActiveTag', function(){
-    timeout.flush();
     expect(scope.hasActiveTag).toBeDefined();
     expect(_.filter(scope.symptoms, scope.hasActiveTag).length).toEqual(3);
   });
