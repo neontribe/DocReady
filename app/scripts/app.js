@@ -35,6 +35,10 @@ angular.module('docready', ['ngResource','ui.bootstrap', 'ngSanitize', 'ui.direc
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl'
       })
+      .when('/feedback', {
+        templateUrl: 'views/feedback.html',
+        controller: 'FeedbackCtrl'
+      })
       .otherwise({
         redirectTo: '/home'
       });

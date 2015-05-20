@@ -4,5 +4,7 @@ angular.module('docready').constant('custom_config', {
   "app_domain": "CAMHSReady.org",
   "baseUrl": "http://camhsready.herokuapp.com",
   "mailer_from":  "hello@camhsready.org",
-  "mailer_subject": "CAMHSReady Checklist"
+  "mailer_subject": "CAMHSReady Checklist",
+  "feedback_to": "rupert@neontribe.co.uk",
+  "feedback_subject": "CAMHSReady Feedback"
 });

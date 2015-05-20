@@ -1,0 +1,41 @@
+<div role="main">
+  <div class="intro">
+  <div>
+    <h1>Feedback</h1>
+  </div>
+  </div>
+  <div class="content">
+    <h2>Let us know what you think</h2>
+    <form name="feedbackform" data-ng-submit="sendFeedback()">
+      
+      <label for="referral">How did you hear about CAMHSReady?</label>
+      <input type="text" id="referral" data-ng-model="feedback.referral" />
+
+      <label for="appointment">Do you have an appointment with Stoke CAMHS?</label>
+      <input type="checkbox" id="appointment" data-ng-model="feedback.appointment" />
+      <br/>
+      <label for="usefulness">How useful did you find CAMHSReady?</label>
+      <select id="usefulness" data-ng-model="feedback.usefulness">
+        <option value="very">Very</option>
+        <option value="not at all">Not at all</option>
+      </select>
+
+      <label for="comments">Any other comments?</label>
+      <input type="text" id="comments" data-ng-model="feedback.comments" />
+
+      <div class="button-group center">
+          <button 
+            type="submit"
+            data-ng-disabled="feedbackform.$invalid" 
+                  data-ng-click="track('feedbackSent')" 
+                  data-ng-switch="feedback.state" 
+                  data-ng-class="feedback.state">
+            <span data-ng-switch-when="sending">Sending</span>
+            <span data-ng-switch-when="sent">Sent</span>
+            <span data-ng-switch-default>Send</span>
+          </button>
+        </div>
+    </form>
+
+  </div>
+</div>

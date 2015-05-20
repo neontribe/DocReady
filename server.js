@@ -69,7 +69,27 @@ app.post('/api/email', function(req, res){
       res.sendStatus(200);
     });
   });
-  
+});
+
+app.post('/api/feedback', function(req, res){
+  req.body.version = process.env.npm_package_version;
+  req.body.timestamp = new Date().toISOString();
+  app.render('feedback', req.body, function(err, text){
+    if (err) {
+      return res.status(500).send(error.message);
+    }
+    mailer.sendEmail({
+      'From': config.mailer_from,
+      'To': config.feedback_to,
+      'Subject': config.feedback_subject,
+      'TextBody': text
+    }, function(error, success){
+      if (error) {
+        res.status(500).send(error.message);
+      }
+      res.sendStatus(200);
+    });
+  });
 });
 
 app.get('/api/pdf', function(req, res){
@@ -90,7 +110,6 @@ app.get('/api/pdf', function(req, res){
       });
     });
   });
-  
 });
 
 /**
