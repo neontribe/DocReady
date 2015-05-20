@@ -1,14 +1,20 @@
 <html>
 <head>
   <style>
-    {{styles}}
+    {{{styles}}}
+    body, h1, h2 {
+      font-family: sans-serif !important;
+    }
+    .export-header > * + * > * {
+      margin-left: 2em !important;
+    }
   </style>
 </head>
 <body>
   <div role="main">
     <div class="content">
       <div id="export" aria-hidden="true">
-      <div class="group-left group-top">
+      <div class="group-left group-top export-header">
         <div style="width: 40%">
           <div>
             <h1>My Checklist</h1>

@@ -430,12 +430,13 @@ dl {
 }
 
 dt, dd {
-	font-size: @font-size-base;
-	display: inline-block;
-	vertical-align: top;
-	width: 75%;
-	.box-sized;
-	padding-top: @v-space-reduced;
+    .box-sized;
+    display: inline-block;
+    font-size: @font-size-base;
+    width: 75%;
+    line-height: 1.125;
+    margin-top: 0.5em;
+    vertical-align: baseline;
 }
 
 dt {
@@ -1418,6 +1419,7 @@ iframe {
 
 .introduction img {
 	width: 60%;
+	max-width: 220px;
 }
 
 .introduction li {
@@ -1681,7 +1683,6 @@ dl.contenteditable {
 }
 
 .contenteditable dd {
-	min-height: 2.25em;
 	font-weight: bold;
 }
 
@@ -1750,7 +1751,7 @@ body {
 	padding: 0.5em;
 }
 
-[role="banner"] h1, [role="banner"] nav, [role="banner"] nav ul, [role="banner"] nav li {
+[role="banner"] h1, [role="banner"] nav, [role="banner"] nav ul {
 	display: block;
 	width: auto;
 	text-align: center;
@@ -1763,6 +1764,14 @@ body {
 
 header nav li {
 	margin: 0.5em;
+}
+
+ol.group-center div {
+	margin: 0;
+}
+
+ol.group-center li + li {
+	margin-top: 1.5em;
 }
 
 }
@@ -1822,7 +1831,7 @@ body * + * {
 	background-size: 100% 100%;
 }
 
-[class^="group-"] > * {
+[class^="group-"]:not(.export-header) > * {
 	display: block !important; 
 	width: auto !important;
 	margin-left: 0 !important;
