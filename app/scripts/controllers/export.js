@@ -1,17 +1,20 @@
 'use strict';
 
 angular.module('docready')
-  .controller('ExportCtrl', function ($scope, settings, symptomService, $window, $http, $resource, $timeout, Analytics, $location) {
+  .controller('ExportCtrl', function ($scope, settings, symptomService, $window, $http, $resource, $timeout, Analytics, $location, supplementary_content, custom_config) {
     var Email = $resource(settings.apiRoot + '/email');
     $scope.selections = symptomService.selections;
     $scope.settings = settings;
     $scope.showMailer = false;
+    $scope.app_domain = custom_config.app_domain;
+    $scope.supplementary = _.filter(supplementary_content, function(s){ return s.answer;});
 
     $scope.prepareMail = function(){
       $scope.showMailer = !$scope.showMailer;
       $scope.email = new Email({
         recipient: '',
         symptoms: _.chain(symptomService.exportSymptoms()).pluck('title').value(),
+        supplementary: $scope.supplementary,
         permalink: $scope.permalink()
       });
     };
@@ -28,6 +31,7 @@ angular.module('docready')
     $scope.getpdf = function(){
       var data = {
           surgery: settings.surgery,
+          supplementary: $scope.supplementary,
           symptoms: _.chain(symptomService.exportSymptoms()).pluck('title').value()
         };
       var checklistPdfLink = settings.apiRoot + '/pdf?data=' + encodeURIComponent(JSON.stringify(data));

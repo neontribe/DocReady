@@ -8,14 +8,22 @@
 			<span data-ng-switch-default>Put the things you want to talk about in order.<span data-ng-show="touch"> To reorder items, drag them using the <span class="handle key icon-drag"></span> handle.</span></span>
 			<span data-ng-switch-when="0">Your checklist is empty. <a href="#/picker">Pick some items?</a></span>
 		</p>
-        <ol data-ui-sortable="{axis:'y', 'cursor':'move', 'handle': (touch && '.handle' || null)}" data-ng-model="selections">
-            <li data-ng-class="{handle: touch}" data-ng-repeat="symptom in selections" data-ng-animate="{enter:'animated fadeInUp', leave:'animated fadeOutDown'}"><i>{{$index+1}}</i>{{symptom.title}} <span data-ng-show="touch" class="handle icon-drag"></span> <button data-ng-click="deselect(symptom)"><span class="a11y-hide">delete item</span> &#x274c;</button>
-            </li>
-        </ol>
-        <div class="add-symptoms">
+    <ol data-ui-sortable="{axis:'y', 'cursor':'move', 'handle': (touch && '.handle' || null)}" data-ng-model="selections">
+        <li data-ng-class="{handle: touch}" data-ng-repeat="symptom in selections" data-ng-animate="{enter:'animated fadeInUp', leave:'animated fadeOutDown'}"><i>{{$index+1}}</i>{{symptom.title}} <span data-ng-show="touch" class="handle icon-drag"></span> <button data-ng-click="deselect(symptom)"><span class="a11y-hide">delete item</span> &#x274c;</button>
+        </li>
+    </ol>
+    <div class="add-symptoms">
 			<h2>Anything you've missed out?</h2>
-            <div data-add-symptom data-mode="last" placeholder="e.g. I've recently lost my job"></div>
-        </div>
+      <div data-add-symptom data-mode="last" placeholder="e.g. I've recently lost my job"></div>
+    </div>
+
+    <section class="supplementary_questions" data-ng-if="supplementary.length">
+      <div ng-repeat="s in supplementary">
+        <h2>{{s.title}}</h2>
+        <p>{{s.rubric}}</p>
+        <textarea data-ng-model="s.answer" data-ng-change="track(s.id)"></textarea>
+      </div>
+    </section>
 		<div class="group-middle">
 			<div style="width: 50%" class="left"></div>
 			<div style="width: 50%" class="button-group right">

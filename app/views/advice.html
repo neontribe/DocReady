@@ -7,7 +7,7 @@
 		<div id="info">
 		    <div data-accordion="">
 		        <div data-accordion-group=""
-		            data-opened="setTopic"
+		            data-opened="track(t.slug);setTopic"
 		            data-is-open="topic === t"
 		            data-ng-repeat="t in topics"
 		            data-slug="{{t.slug}}" class="{{t.slug}}">
@@ -26,7 +26,6 @@
 
 		        </div>
 		    </div>
-		    <p><em>This information is based upon work completed by young people's mental health and wellbeing project <a target="_blank" href="http://right-here-brightonandhove.org.uk/">Right Here Brighton and Hove</a></em></p>
 		</div>
 	</div>
 </div>

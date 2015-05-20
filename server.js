@@ -78,7 +78,6 @@ app.get('/api/pdf', function(req, res){
   fs.readFile('./app/styles/main.css', function(err, styles) {
     data.styles = styles.toString();
     app.render('pdf', data, function(err, html) {
-      console.log(html);
       if (err) {
         return res.status(500).send(err.message);
       }
