@@ -683,7 +683,7 @@ textarea {
 select {
 	padding: 0.25em;
 	.box-sized;
-	border-radius: 20px;
+	border-radius: 10px;
 	border: 2px solid @blue-color;
 	width: 100%; 
 	font-size: 1.25em;
@@ -696,6 +696,14 @@ background: -webkit-linear-gradient(top, #ffffff 0%,#ffffff 27%,#eeeeee 100%); /
 background: -o-linear-gradient(top, #ffffff 0%,#ffffff 27%,#eeeeee 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top, #ffffff 0%,#ffffff 27%,#eeeeee 100%); /* IE10+ */
 background: linear-gradient(to bottom, #ffffff 0%,#ffffff 27%,#eeeeee 100%); /* W3C */
+}
+
+[name="feedbackform"] label {
+	display: block;
+}
+
+label + select {
+	margin-top: 0;
 }
 
 .embed {
