@@ -1125,6 +1125,15 @@ address {
 	margin: 0;
 }
 
+.button.with-icon, .introduction a.button, .actions button {
+	background: @red-color;
+}
+
+.button.with-icon:hover, .introduction a.button:hover, .actions button:hover, 
+.button.with-icon:focus, .introduction a.button:focus, .actions button:focus {
+	background: @font-color;
+}
+
 .with-icon span + span {
     display: none;
 }
@@ -1298,7 +1307,6 @@ ol h3 {
 [role="contentinfo"] a {
 	border: 0;
 	color: @dark-grey;
-
 }
 
 [role="contentinfo"] a:hover, [role="contentinfo"] a:active {
@@ -1406,10 +1414,34 @@ iframe {
 ----------------------------------------------------------------------
 */
 
+@-webkit-keyframes enter {
+	0%, 100% {
+		-webkit-transform: scale(1);
+		        transform: scale(1);
+	}
+	50% {
+		-webkit-transform: scale(1.125);
+		        transform: scale(1.125);
+	}
+}
+
+@keyframes enter {
+	0%, 100% {
+		-webkit-transform: scale(1);
+		        transform: scale(1);
+	}
+	50% {
+		-webkit-transform: scale(1.125);
+		        transform: scale(1.125);
+	}
+}
+
 .intro {
 	text-align: left;
 	padding: 2.25em 1.5em;
 	background: @font-color;
+	-webkit-animation: enter 0.75s ease-out 1;
+	        animation: enter 0.75s ease-out 1
 }
 
 .intro > h1, .intro > img {
@@ -1678,7 +1710,7 @@ form[name="mailer"] input {
 }
 
 dl.contenteditable {
-	margin-top: 0;
+	margin-top: 18px;
 }
 
 .contenteditable dt {
@@ -1690,7 +1722,7 @@ dl.contenteditable {
 	font-weight: bold;
 }
 
-.contenteditable [contenteditable] {
+.contenteditable dd {
 	border-bottom: 1px solid;
 }
 
