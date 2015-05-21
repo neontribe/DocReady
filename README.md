@@ -7,7 +7,7 @@ Getting started:
 
     git clone git@github.com:neontribe/DocReady.git
     cd DocReady
-    npm install && bower install
+    npm install
     grunt test
 
 Building Releases:
