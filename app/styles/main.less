@@ -1285,14 +1285,14 @@ ol h3 {
 	content: '\00B7\0020';
 }
 
-[role="contentinfo"] a {
+[role="contentinfo"] a:not(:focus) {
 	border: 0;
 }
 
 [role="contentinfo"] a:hover, [role="contentinfo"] a:active {
 	color: @link-color-lighter;
 }
-
+:not(:focus)
 [role="contentinfo"] ul, [role="contentinfo"] p {
 	display: inline-block;
 	width: 50%;
