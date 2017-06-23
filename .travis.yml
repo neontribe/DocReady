@@ -7,5 +7,5 @@ deploy:
   api_key:
     secure: OhkuPQcCYdaDMCWyMt6CiwIwX8+/qGx2OvFA3yvXVuHNlCdyurYHdcrBNcxfqd+IM65eQrHkSz+OUadjO87ZCrNMN5xWCzRH9a0lxffDouqkXZU2m4aTtbpYCoW89ZPqeVv4JUK8oHjmMFACJ5GkWQALA6BcJFi/cVgIkavS/LU=
   app:
-    master: docready-staging
+    master: docready-production
     develop: docready-staging
