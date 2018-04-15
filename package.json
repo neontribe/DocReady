@@ -33,7 +33,7 @@
     "grunt-usemin": "~0.1.10",
     "handlebars": "^3.0.3",
     "matchdep": "~0.1.1",
-    "newrelic": "^1.21.2",
+    "newrelic": "^4.0.0",
     "phantom-html-to-pdf": "^0.2.0",
     "phantomjs": "~1.9.0",
     "sendgrid": "^5.1.1",
