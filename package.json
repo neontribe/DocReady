@@ -38,7 +38,8 @@
     "phantomjs": "~1.9.0",
     "sendgrid": "^5.1.1",
     "st": "^0.5.3",
-    "underscore.string": "~2.3.2"
+    "underscore.string": "~2.3.2",
+    "snyk": "^1.88.2"
   },
   "engines": {
     "iojs": "3.3.x",
@@ -56,6 +57,9 @@
   "scripts": {
     "postinstall": "grunt build",
     "start": "node server.js",
-    "test": "grunt test"
-  }
+    "test": "grunt test",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
+  },
+  "snyk": true
 }
