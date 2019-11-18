@@ -1,7 +1,5 @@
 language: node_js
 sudo: false
-node_js:
-- iojs
 deploy:
   provider: heroku
   api_key:
