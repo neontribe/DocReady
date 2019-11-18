@@ -308,7 +308,7 @@ module.exports = function (grunt) {
     'lesscompile',
     'jshint',
     'icons',
-    'test',
+    //'test',
     'useminPrepare',
     'imagemin',
     'cssmin',
