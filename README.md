@@ -15,6 +15,7 @@ An angularjs application for the [Docready Project](http://www.docready.org)
     nvm use
     npm install -g yarn
     yarn
+    yarn dev
 
 # Building Releases:
 
