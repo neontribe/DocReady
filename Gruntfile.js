@@ -258,7 +258,7 @@ module.exports = function (grunt) {
         options: {
             source: 'dist/',
             dest: 'dist/',
-            env: 'production'
+            env: 'development'
           }
         }
       },
