@@ -111,7 +111,7 @@ app.get('/static/client/index.html', function(req, res){
  * Startup
  */
 var server = app.listen(process.env.PORT || 3000, function () {
-  var host = server.address().address;
+  var host = 'localhost';//server.address().address;
   var port = server.address().port;
   console.log('Listening at http://%s:%s', host, port);
   console.log('App env is ' + app.get('env'));

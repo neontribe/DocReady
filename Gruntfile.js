@@ -232,6 +232,10 @@ module.exports = function (grunt) {
     'lesscompile',
     'jshint',
     'icons',
+<<<<<<< HEAD
+=======
+    'test',
+>>>>>>> 9da25df... up-to-date doc:36
     'useminPrepare',
     'imagemin',
     'cssmin',
