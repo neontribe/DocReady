@@ -3,7 +3,10 @@ sudo: false
 deploy:
   provider: heroku
   api_key:
-    secure: OhkuPQcCYdaDMCWyMt6CiwIwX8+/qGx2OvFA3yvXVuHNlCdyurYHdcrBNcxfqd+IM65eQrHkSz+OUadjO87ZCrNMN5xWCzRH9a0lxffDouqkXZU2m4aTtbpYCoW89ZPqeVv4JUK8oHjmMFACJ5GkWQALA6BcJFi/cVgIkavS/LU=
+    secure: Gzr+++vABIUXIhBa2lWIUSbT93tVfbqSfL+/6QVdQ9ZNLBAkxskRFqjP0Y5yBPOx5xc2y5pMsFhOKxyB0lgebWobyapu2EOyLyt0rIZlOiK5fF2+oPihJTDZIHAMOh0egyA40e39fjtOAOP0EyDSIcm4xhyrLfH8/BtRSqk3b/I=
   app:
     master: docready-production
     develop: docready-staging
+env:
+  global:
+    secure: T50bnBoTSugm1+uWwCqKD/XkoMzPF5e7bgVC9s8VMLkhbe13ListkSqZKplLCHatuBG6FK3p/hwyLKyTF5G5dD+a2IketMMGUzfnmzvedE/UNoKqtVu+z74tnyMUpeFeTfGJaBtVuyC85s9oNErKS235/G/uFvHyJCtCm6XFT9Q=
