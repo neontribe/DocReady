@@ -317,7 +317,7 @@ module.exports = function (grunt) {
     'concat',
     'copy',
     'ngmin',
-    'uglify',
+    //'uglify',
     'rev',
     'usemin',
     'devcode:dist',
