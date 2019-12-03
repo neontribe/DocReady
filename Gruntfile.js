@@ -62,7 +62,7 @@ module.exports = function (grunt) {
 
     usemin: {
       html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css', '<%= yeoman.dist %>/images/icons/*.css'],
+      //css: ['<%= yeoman.dist %>/styles/{,*/}*.css', '<%= yeoman.dist %>/images/icons/*.css'],
       options: {
         basedir: '<%= yeoman.dist %>',
         dirs: ['<%= yeoman.dist %>']
@@ -101,11 +101,10 @@ module.exports = function (grunt) {
     },
 
     cssmin: {
-      dist: {
+      target: {
         files: {
-          '<%= yeoman.dist %>/styles/docready.css': [
-            '.tmp/styles/{,*/}*.css',
-            '<%= yeoman.app %>/styles/{,*/}*.css'
+          '<%= yeoman.dist %>/styles/main.css': [
+            '<%= yeoman.app %>/styles/main.css'
           ]
         }
       }
@@ -145,6 +144,9 @@ module.exports = function (grunt) {
     },
 
     uglify: {
+      options: {
+        mangle: false
+      },
       dist: {
         files: {
           '<%= yeoman.dist %>/scripts/scripts.js': [
@@ -157,26 +159,13 @@ module.exports = function (grunt) {
       }
     },
 
-    rev: {
-      dist: {
-        files: {
-          src: [
-            '<%= yeoman.dist %>/scripts/{,*/}*.js',
-            '<%= yeoman.dist %>/styles/{,*/}*.css',
-            '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
-          ]
-        }
-      }
-    },
-
     less: {
       app: {
         options: {
           paths: ['<%= yeoman.app %>/styles']
         },
         files: {
-          '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/styles/main.less',
-          '<%= yeoman.app %>/styles/animations.css': '<%= yeoman.app %>/styles/animations.less'
+          '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/styles/main.less'
         }
       }
     },
@@ -209,29 +198,29 @@ module.exports = function (grunt) {
       }
     },
 
-      json_wrapper: {
-        content: {
-          options: {
-            raw: true,
-            wrapper: 'angular.module(\'docready\').value(\'{filePrefix}_content\', {content});',
-            minify: false
-          },
-          files: {
-            '<%= yeoman.app %>/data/content.js': ['data/symptoms.json', 'data/advice.json', 'data/advice_topics.json']
-          }
+    json_wrapper: {
+      content: {
+        options: {
+          raw: true,
+          wrapper: 'angular.module(\'docready\').value(\'{filePrefix}_content\', {content});',
+          minify: false
         },
-        config: {
-          options: {
-            raw: true,
-            wrapper: 'angular.module(\'docready\').constant(\'custom_config\', {content});',
-            minify: false
-          },
-          files: {
-            '<%= yeoman.app %>/data/config.js': ['data/config.json']
-          }
+        files: {
+          '<%= yeoman.app %>/data/content.js': ['data/symptoms.json', 'data/advice.json', 'data/advice_topics.json']
+        }
+      },
+      config: {
+        options: {
+          raw: true,
+          wrapper: 'angular.module(\'docready\').constant(\'custom_config\', {content});',
+          minify: false
+        },
+        files: {
+          '<%= yeoman.app %>/data/config.js': ['data/config.json']
         }
       }
-    });
+    }
+  });
 
   grunt.registerTask('lesscompile', ['less:app']);
 
@@ -250,8 +239,7 @@ module.exports = function (grunt) {
     'concat',
     'copy',
     'ngmin',
-    //'uglify',
-    'rev',
+    'uglify',
     'usemin',
     'copy:pdf_css'
   ]);

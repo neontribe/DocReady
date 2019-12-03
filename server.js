@@ -10,7 +10,7 @@ var config = require('./data/config.json');
 var helper = require('sendgrid').mail;
 var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
 var bodyParser = require('body-parser');
-var conversion = require('phantom-html-to-pdf')();
+//var conversion = require('phantom-html-to-pdf')();
 
 /**
  * Static files
@@ -78,27 +78,27 @@ app.post('/api/email', function(req, res){
 
 });
 
-app.get('/api/pdf', function(req, res){
-  var data = JSON.parse(req.query.data);
-  data.permalink = config.baseUrl + data.permalink;
-  fs.readFile('./app/styles/main.css', function(err, styles) {
-    data.styles = styles.toString();
-    app.render('pdf', data, function(err, html) {
-      console.log(html);
-      if (err) {
-        return res.status(500).send(err.message);
-      }
-      conversion({ html: html }, function(err, pdf) {
-        if (err) {
-          res.status(500).send(err.message);
-        }
-        res.attachment('checklist.pdf');
-        pdf.stream.pipe(res);
-      });
-    });
-  });
+// app.get('/api/pdf', function(req, res){
+//   var data = JSON.parse(req.query.data);
+//   data.permalink = config.baseUrl + data.permalink;
+//   fs.readFile('./app/styles/main.css', function(err, styles) {
+//     data.styles = styles.toString();
+//     app.render('pdf', data, function(err, html) {
+//       console.log(html);
+//       if (err) {
+//         return res.status(500).send(err.message);
+//       }
+//       conversion({ html: html }, function(err, pdf) {
+//         if (err) {
+//           res.status(500).send(err.message);
+//         }
+//         res.attachment('checklist.pdf');
+//         pdf.stream.pipe(res);
+//       });
+//     });
+//   });
 
-});
+// });
 
 /**
  * Legacy Routes
