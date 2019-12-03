@@ -99,8 +99,8 @@ app.get('/api/pdf', function(req, res){
       });
     });
   });
-*/
 });
+*/
 
 /**
  * Legacy Routes
