@@ -5,8 +5,7 @@
 	</div>
 	<div class="content">
 		<div class="button-group actions center no-print">
-			<button class="icon-print" data-ng-click="track('print');print()">Print</button> 
-			<button class="icon-download" data-ng-click="track('download');getpdf()">Download</button>
+			<button class="icon-print" data-ng-click="track('print');print()">Print</button>
 			<a id="checklistDownloadLink" aria-hidden="true" ng-hide="true"></a>
 			<button class="icon-email" data-ng-click="prepareMail()">Email</button>
 		</div>
@@ -32,9 +31,9 @@
 					</div>
 				</div>
 				<div class="button-group center">
-					<button data-ng-disabled="mailer.$invalid" 
-									data-ng-click="track('email');sendEmail()" 
-									data-ng-switch="email.state" 
+					<button data-ng-disabled="mailer.$invalid"
+									data-ng-click="track('email');sendEmail()"
+									data-ng-switch="email.state"
 									data-ng-class="email.state">
 						<span data-ng-switch-when="sending">Sending</span>
 						<span data-ng-switch-when="sent">Sent</span>

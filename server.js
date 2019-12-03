@@ -11,7 +11,7 @@ var config = require('./data/config.json');
 var helper = require('sendgrid').mail;
 var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
 var bodyParser = require('body-parser');
-var conversion = require('phantom-html-to-pdf')();
+//var conversion = require('phantom-html-to-pdf')();
 
 /**
  * Static files
@@ -79,6 +79,7 @@ app.post('/api/email', function(req, res){
 
 });
 
+/*
 app.get('/api/pdf', function(req, res){
   var data = JSON.parse(req.query.data);
   data.permalink = config.baseUrl + data.permalink;
@@ -98,7 +99,7 @@ app.get('/api/pdf', function(req, res){
       });
     });
   });
-
+*/
 });
 
 /**
