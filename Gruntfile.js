@@ -1,10 +1,5 @@
 /* jshint -W106 */
 'use strict';
-var serveStatic = require('serve-static');
-
-var mountFolder = function (connect, dir) {
-  return serveStatic(require('path').resolve(dir));
-};
 
 module.exports = function (grunt) {
   // load all grunt tasks
@@ -23,24 +18,7 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     yeoman: yeomanConfig,
-    connect: {
-      options: {
-        port: 9000,
-        // Change this to '0.0.0.0' to access the server from outside.
-        hostname: '0.0.0.0'
-      },
-      test: {
-        options: {
-          middleware: function (connect) {
-            return [
-              mountFolder(connect, '.tmp'),
-              mountFolder(connect, 'test'),
-              mountFolder(connect, yeomanConfig.app)
-            ];
-          }
-        }
-      }
-    },
+
     clean: {
       dist: {
         files: [{
@@ -63,16 +41,7 @@ module.exports = function (grunt) {
         '<%= yeoman.app %>/scripts/{,*/}*.js'
       ]
     },
-    karma: {
-      unit: {
-        configFile: 'karma.conf.js',
-        singleRun: true
-      },
-      e2e: {
-        configFile: 'karma-e2e.conf.js',
-        singleRun: true
-      }
-    },
+
     concat: {
       dist: {
         files: {
@@ -83,20 +52,23 @@ module.exports = function (grunt) {
         }
       }
     },
+
     useminPrepare: {
-      html: ['<%= yeoman.app %>/index.html', '<%= yeoman.app %>/generator.html'],
+      html: ['<%= yeoman.app %>/index.html'],
       options: {
         dest: '<%= yeoman.dist %>'
       }
     },
+
     usemin: {
       html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css', '<%= yeoman.dist %>/images/icons/*.css'],
+      //css: ['<%= yeoman.dist %>/styles/{,*/}*.css', '<%= yeoman.dist %>/images/icons/*.css'],
       options: {
         basedir: '<%= yeoman.dist %>',
         dirs: ['<%= yeoman.dist %>']
       }
     },
+
     imagemin: {
       dist: {
         files: [{
@@ -107,16 +79,7 @@ module.exports = function (grunt) {
         }]
       }
     },
-    grunticon: {
-      icons: {
-        options: {
-          src: '<%= yeoman.app %>/images/src/icons/',
-          dest: '<%= yeoman.app %>/images/icons/',
-          defaultWidth: '80px',
-          defaultHeight: '80px'
-        }
-      }
-    },
+
     image_resize: {
       options: {
         overwrite: true
@@ -136,16 +99,17 @@ module.exports = function (grunt) {
         }]
       }
     },
+
     cssmin: {
-      dist: {
+      target: {
         files: {
-          '<%= yeoman.dist %>/styles/docready.css': [
-            '.tmp/styles/{,*/}*.css',
-            '<%= yeoman.app %>/styles/{,*/}*.css'
+          '<%= yeoman.dist %>/styles/main.css': [
+            '<%= yeoman.app %>/styles/main.css'
           ]
         }
       }
     },
+
     htmlmin: {
       dist: {
         options: {
@@ -167,6 +131,7 @@ module.exports = function (grunt) {
         }]
       }
     },
+
     ngmin: {
       dist: {
         files: [{
@@ -177,14 +142,15 @@ module.exports = function (grunt) {
         }]
       }
     },
+
     uglify: {
+      options: {
+        mangle: false
+      },
       dist: {
         files: {
           '<%= yeoman.dist %>/scripts/scripts.js': [
             '<%= yeoman.dist %>/scripts/scripts.js'
-          ],
-          '<%= yeoman.dist %>/scripts/drgenerator.js': [
-            '<%= yeoman.dist %>/scripts/drgenerator.js'
           ],
           '<%= yeoman.dist %>/docready.js': [
             '<%= yeoman.dist %>/docready.js'
@@ -192,29 +158,18 @@ module.exports = function (grunt) {
         }
       }
     },
-    rev: {
-      dist: {
-        files: {
-          src: [
-            '<%= yeoman.dist %>/scripts/{,*/}*.js',
-            '<%= yeoman.dist %>/styles/{,*/}*.css',
-            '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}'
-          ]
-        }
-      }
-    },
+
     less: {
       app: {
         options: {
           paths: ['<%= yeoman.app %>/styles']
         },
         files: {
-          '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/styles/main.less',
-          '<%= yeoman.app %>/styles/generator.css': '<%= yeoman.app %>/styles/generator.less',
-          '<%= yeoman.app %>/styles/animations.css': '<%= yeoman.app %>/styles/animations.less'
+          '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/styles/main.less'
         }
       }
     },
+
     copy: {
       dist: {
         files: [{
@@ -242,62 +197,30 @@ module.exports = function (grunt) {
         dest: '<%= yeoman.dist %>/images/icons/png/'
       }
     },
-    devcode: {
-      options: {
-        html: true,        // html files parsing?
-        js: false,          // javascript files parsing?
-        css: false,         // css files parsing?
-        clean: true,       // removes devcode comments even if code was not removed
-        block: {
-          open: 'devcode', // with this string we open a block of code
-          close: 'enddevcode' // with this string we close a block of code
-        },
-        dest: 'dist'       // default destination which overwrites environment variable
-      },
-      dist: {             // settings for task used with 'devcode:dist'
+
+    json_wrapper: {
+      content: {
         options: {
-            source: 'dist/',
-            dest: 'dist/',
-            env: 'development'
-          }
+          raw: true,
+          wrapper: 'angular.module(\'docready\').value(\'{filePrefix}_content\', {content});',
+          minify: false
+        },
+        files: {
+          '<%= yeoman.app %>/data/content.js': ['data/symptoms.json', 'data/advice.json', 'data/advice_topics.json']
         }
       },
-      json_wrapper: {
-        content: {
-          options: {
-            raw: true,
-            wrapper: 'angular.module(\'docready\').value(\'{filePrefix}_content\', {content});',
-            minify: false
-          },
-          files: {
-            '<%= yeoman.app %>/data/content.js': ['data/symptoms.json', 'data/advice.json', 'data/advice_topics.json']
-          }
+      config: {
+        options: {
+          raw: true,
+          wrapper: 'angular.module(\'docready\').constant(\'custom_config\', {content});',
+          minify: false
         },
-        config: {
-          options: {
-            raw: true,
-            wrapper: 'angular.module(\'docready\').constant(\'custom_config\', {content});',
-            minify: false
-          },
-          files: {
-            '<%= yeoman.app %>/data/config.js': ['data/config.json']
-          }
+        files: {
+          '<%= yeoman.app %>/data/config.js': ['data/config.json']
         }
       }
-    });
-
-  grunt.registerTask('test', [
-    'clean:server',
-    'jshint',
-    'connect:test',
-    'karma:unit'
-  ]);
-
-  grunt.registerTask('e2e', [
-    'clean:server',
-    'connect:test',
-    'karma:e2e'
-  ]);
+    }
+  });
 
   grunt.registerTask('lesscompile', ['less:app']);
 
@@ -309,7 +232,6 @@ module.exports = function (grunt) {
     'lesscompile',
     'jshint',
     'icons',
-    //'test',
     'useminPrepare',
     'imagemin',
     'cssmin',
@@ -318,9 +240,7 @@ module.exports = function (grunt) {
     'copy',
     'ngmin',
     'uglify',
-    'rev',
     'usemin',
-    'devcode:dist',
     'copy:pdf_css'
   ]);
 

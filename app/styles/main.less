@@ -176,7 +176,7 @@ footer {
 }
 
 /**
-* -------------------------------------------------------------- 
+* --------------------------------------------------------------
 End LESS CSS VARIABLES AND MIXINS
 */
 
@@ -196,8 +196,8 @@ nav ul { list-style: none }
 
 blockquote, q { quotes: none }
 
-table { 
-	border-collapse: collapse; 
+table {
+	border-collapse: collapse;
 	border-spacing: 0;
 }
 
@@ -214,7 +214,7 @@ input, select { vertical-align: middle }
 ----------------------------------------------------------------------
 */
 
-body { 
+body {
 	font-size: @font-size-base;
 	line-height: @v-space;
 	font-weight: 300;
@@ -229,18 +229,18 @@ body {
 ----------------------------------------------------------------------
 */
 
-a, a:visited { 
+a, a:visited {
 	color: @link-color;
 	border-bottom: 1px solid;
 	text-decoration: none;
 }
 
-a:hover { 
+a:hover {
 	color: @link-color-lighter;
 	border-bottom: 2px solid;
 }
 
-a:active { 
+a:active {
 	outline: none;
 	border-bottom: 3px solid;
 }
@@ -269,13 +269,13 @@ blockquote p {
 	font-style: italic;
 }
 
-caption { 
+caption {
 	text-align: center;
 	padding: @slim-spacing;
 	padding-bottom: 0;
 }
 
-blockquote footer:before { 
+blockquote footer:before {
 	content: '\2014';
 	padding: 0 @slim-spacing 0 0;
 }
@@ -376,10 +376,10 @@ img.center-image {
 }
 
 .mural {
-	background-image: url(../images/about.jpg); 
+	background-image: url(../images/about.jpg);
 	background-position: center center;
 	padding-top: 100px;
-	color: @font-color !important; 
+	color: @font-color !important;
 	text-shadow: 2px 2px 2px #fefefe, -2px 2px 2px #fefefe, -2px -2px 2px #fefefe, 2px -2px 2px #fefefe;
 }
 
@@ -397,7 +397,7 @@ img.center-image {
 
 .thumbs a {
 	border: 0;
-	display: inline-block; 
+	display: inline-block;
 	vertical-align: baseline;
 	width: 24%;
 	text-align: center;
@@ -462,14 +462,14 @@ h1, h2, h3, h4 {
 * + h1, * + h2, * + h3, * + hgroup { margin-top: @heading-before-space }
 * + h4 { margin-top: 1.5rem }
 
-h4 { 
-	font-size: 1em; 
+h4 {
+	font-size: 1em;
 	font-weight: bold;
 	font-family: @family-main;
 	text-align: left;
 }
 
-h3 { 
+h3 {
 	font-size: 1.25em;
 	text-align: left;
 }
@@ -657,7 +657,7 @@ select {
 	.box-sized;
 	border-radius: 20px;
 	border: 2px solid @blue-color;
-	width: 100%; 
+	width: 100%;
 	font-size: 1.25em;
 background: #ffffff; /* Old browsers */
 /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -682,7 +682,7 @@ background: linear-gradient(to bottom, #ffffff 0%,#ffffff 27%,#eeeeee 100%); /* 
 }
 
 .embed:after {
-	display: inline-block; 
+	display: inline-block;
 	background: @yellow-color;
 	font-family: @family-main;
 	padding: 0.5em;
@@ -799,7 +799,7 @@ input[type="checkbox"], input[type="radio"] {
 	box-shadow: 3px 3px 5px #ccc;
 }
 
-.ui-sortable-helper i, 
+.ui-sortable-helper i,
 #checklist li.ui-sortable-helper ~ li i {
 	color: @blue-color;
 }
@@ -833,7 +833,7 @@ li.handle {
 	height: auto;
 	font-size: inherit;
 }
-	
+
 #checklist ol li + li {
 	margin-top: @v-space/2;
 }
@@ -911,7 +911,7 @@ button:active, a[role="button"]:active, input[type="submit"]:active, .button:act
 ----------------------------------------------------------------------
 */
 
-div { 
+div {
 	.box-sized;
 }
 
@@ -922,10 +922,10 @@ div {
 */
 
 /* to remove inline-block white space separating children */
-[class^="group"] { 
-	font-size: 0; 
+[class^="group"] {
+	font-size: 0;
 	text-align: left;
-} 
+}
 
 [class^="group"] > * {
 	font-size: @font-size-base; /* override reset in above rule */
@@ -935,13 +935,13 @@ div {
 }
 
 /* adjacent boxes need gutters. We create this using margin on their direct children  */
-[class^="group"] > * > * { 
+[class^="group"] > * > * {
 	margin: 0 @h-space-reduced 0 0;
 }
-[class^="group"] > * + * > * { margin: 0 @h-space-reduced 0 } 
+[class^="group"] > * + * > * { margin: 0 @h-space-reduced 0 }
 [class^="group"] > *:last-child > * { margin-right: 0 }
 
-/* One from each of the following sets of three to be placed on the containing div element */ 
+/* One from each of the following sets of three to be placed on the containing div element */
 
 /* Set 1: Horizontal alignment of boxes */
 .group-left { text-align: left }
@@ -962,7 +962,7 @@ div {
 }
 
 .reverse > div > * {
-	margin: 0; 
+	margin: 0;
 }
 
 .reverse > div:last-child > * {
@@ -977,11 +977,11 @@ div {
 	overflow: hidden;
 }
 
-/** 
+/**
 * EXAMPLE
-* Inline styles are used to define width 
+* Inline styles are used to define width
 *(saves on spawning classes like ".three-fifths" etc)
-* Boxes are centered on vertical axis 
+* Boxes are centered on vertical axis
 ********************************************
 
 <div class="group-center group-middle">
@@ -1110,7 +1110,7 @@ address {
 	background: @red-color;
 }
 
-.button.with-icon:hover, .introduction a.button:hover, .actions button:hover, 
+.button.with-icon:hover, .introduction a.button:hover, .actions button:hover,
 .button.with-icon:focus, .introduction a.button:focus, .actions button:focus {
 	background: @font-color;
 }
@@ -1137,7 +1137,7 @@ address {
 
 .tally {
 	display: inline-block;
-	background: #fff; 
+	background: #fff;
 	color: @font-color;
 	border-radius: 20px;
 	width: 20px;
@@ -1160,7 +1160,7 @@ address {
 */
 
 [role="banner"] {
-	background: @font-color; 
+	background: @font-color;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -1277,7 +1277,7 @@ ol h3 {
 }
 
 [role="contentinfo"] li {
-	list-style: none; 
+	list-style: none;
 	display: inline-block;
 }
 
@@ -1365,7 +1365,7 @@ ol h3 {
 	width: 32%;
 }
 
-.tags.grid li:after, 
+.tags.grid li:after,
 .tags.grid li:before {
 	content: '';
 	white-space: normal;
@@ -1377,7 +1377,7 @@ ol h3 {
 
 figure {
 	background: @red-color-lighter;
-	padding: @v-space; 
+	padding: @v-space;
 	text-align: center;
 }
 
@@ -1595,12 +1595,12 @@ h3 span[class^="icon-"] + span {
     top: -0.1em;
 }
 
-.accordion a:hover h4:before, 
+.accordion a:hover h4:before,
 .accordion a:focus h4:before {
 	background: @link-color !important;
 }
 
-.accordion li:first-child h4 { 
+.accordion li:first-child h4 {
 	border-top: 0;
 	padding-top: 0;
 }
@@ -1627,7 +1627,7 @@ h3 span[class^="icon-"] + span {
 }
 
 .editable > div em {
-	position: absolute; 
+	position: absolute;
 	bottom: 2px;
 	left: 1em;
 	padding: 0.25em;
@@ -1680,7 +1680,7 @@ h3 span[class^="icon-"] + span {
 
 form[name="mailer"], form[name="pcsearch"] {
 	background-color: @blue-color-lighter;
-	padding: @v-space; 
+	padding: @v-space;
 	border-radius: 30px;
 }
 
@@ -1725,7 +1725,7 @@ dl.contenteditable {
 */
 
 @media all and (max-width: 1200px) {
-	
+
 [role="contentinfo"] {
 	position: static;
 }
@@ -1766,7 +1766,7 @@ body {
 }
 
 @media (max-width: 750px) {
-	
+
 [role="banner"] h1 {
 	padding-bottom: 0;
 }
@@ -1857,7 +1857,7 @@ body * + * {
 }
 
 [class^="group-"]:not(.export-header) > * {
-	display: block !important; 
+	display: block !important;
 	width: auto !important;
 	margin-left: 0 !important;
 	margin-right: 0 !important;
@@ -1882,9 +1882,9 @@ body * + * {
 }
 
 [role="contentinfo"] ul, [role="contentinfo"] p {
-	display: block; 
+	display: block;
 	width: auto;
-	text-align: left; 
+	text-align: left;
 	font-size: 14px;
 }
 
@@ -1906,7 +1906,7 @@ body * + * {
 }
 
 .reverse > * {
-	float: none; 
+	float: none;
 	margin: 0 0 @v-space/4 0;
 	text-align: center;
 	width: 100% !important;
@@ -1937,7 +1937,7 @@ div[class^="group"] [style] > div {
 }
 
 form[name="pcsearch"] strong {
-	display: block; 
+	display: block;
 	text-align: center;
 }
 
@@ -1966,56 +1966,101 @@ a.button {
 		padding: 0;
 		border: 0;
 	}
-	
+
 	#export section {
 		page-break-inside: avoid;
 	}
-	
+
 	[role="banner"], .button-group, [role="contentinfo"], .print-hide, .permalink  {
 		display: none;
 	}
-	
+
 	@page {
 		margin: 1cm 0.5cm;
 	}
-	
+
 	.collapse {
 		height: auto !important;
 	}
-	
+
 	.printable-header [style] {
 		width: 100% !important;
 	}
-	
+
 	.printable-header img  {
 		display: none !important;
 	}
-	
+
 	.printable-header h1 {
 		text-align: left;
 	}
-	
+
 	.printable-header [style] div {
 		margin-left: 0;
 	}
-	
+
 	.accordion h3 span {
 		padding: 0 !important;
 	}
-	
+
 	.accordion h3 span:first-child {
 		display: none;
 	}
-	
+
 	.accordion div {
 		margin-left: 0 !important;
 		margin-right: 0 !important;
 	}
-	
-	
+
+
 	.accordion li {
 		page-break-inside: avoid;
 	}
-	
+
 }
 
+@-webkit-keyframes tagEnter {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@-moz-keyframes tagEnter {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@-o-keyframes tagEnter {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes tagEnter {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.tagEnter {
+  -webkit-animation-duration: 500ms;
+  -moz-animation-duration: 500ms;
+  -o-animation-duration: 500ms;
+  animation-duration: 500ms;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  -moz-animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-name: tagEnter;
+  -moz-animation-name: tagEnter;
+  -o-animation-name: tagEnter;
+  animation-name: tagEnter;
+}
+.tagEnter:nth-child(2n+0) {
+  -webkit-animation-delay: 300ms;
+  animation-delay: 300ms;
+}
+.tagEnter:nth-child(3n+0) {
+  -webkit-animation-delay: 500ms;
+  animation-delay: 500ms;
+}
