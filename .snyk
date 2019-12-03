@@ -1,0 +1,75 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:extend:20180424':
+    - grunt-release > superagent > extend:
+        patched: '2019-12-03T11:50:50.059Z'
+  'npm:handlebars:20151207':
+    - grunt-grunticon > grunticon-lib > handlebars:
+        patched: '2019-12-03T11:50:50.059Z'
+  'npm:hoek:20180212':
+    - phantom-html-to-pdf > phantomjs > request > hawk > hoek:
+        patched: '2019-12-03T11:50:50.059Z'
+    - phantom-html-to-pdf > phantomjs > request > hawk > boom > hoek:
+        patched: '2019-12-03T11:50:50.059Z'
+    - phantom-html-to-pdf > phantomjs > request > hawk > sntp > hoek:
+        patched: '2019-12-03T11:50:50.059Z'
+    - phantom-html-to-pdf > phantom-workers > phantomjs > request > hawk > hoek:
+        patched: '2019-12-03T11:50:50.059Z'
+    - phantom-html-to-pdf > phantomjs > request > hawk > cryptiles > boom > hoek:
+        patched: '2019-12-03T11:50:50.059Z'
+    - phantom-html-to-pdf > phantom-workers > phantomjs > request > hawk > boom > hoek:
+        patched: '2019-12-03T11:50:50.059Z'
+    - phantom-html-to-pdf > phantom-workers > phantomjs > request > hawk > sntp > hoek:
+        patched: '2019-12-03T11:50:50.059Z'
+    - phantom-html-to-pdf > phantom-workers > phantomjs > request > hawk > cryptiles > boom > hoek:
+        patched: '2019-12-03T11:50:50.059Z'
+  SNYK-JS-LODASH-450202:
+    - phantom-html-to-pdf > lodash:
+        patched: '2019-12-03T11:50:50.059Z'
+  'npm:lodash:20180130':
+    - grunt-usemin > lodash:
+        patched: '2019-12-03T11:50:50.059Z'
+    - grunt-grunticon > grunticon-lib > lodash:
+        patched: '2019-12-03T11:50:50.059Z'
+  'npm:mime:20170907':
+    - grunt-release > superagent > mime:
+        patched: '2019-12-03T11:50:50.059Z'
+  'npm:minimatch:20160620':
+    - grunt-grunticon > grunticon-lib > svg-to-png > imagemin > vinyl-fs > glob-watcher > gaze > globule > minimatch:
+        patched: '2019-12-03T11:50:50.059Z'
+    - grunt-grunticon > grunticon-lib > svg-to-png > imagemin > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
+        patched: '2019-12-03T11:50:50.059Z'
+    - grunt-grunticon > grunticon-lib > svg-to-png > imagemin > vinyl-fs > glob-stream > minimatch:
+        patched: '2019-12-03T11:50:50.059Z'
+    - grunt-grunticon > grunticon-lib > svg-to-png > imagemin > vinyl-fs > glob-stream > glob > minimatch:
+        patched: '2019-12-03T11:50:50.059Z'
+  'npm:request:20160119':
+    - phantom-html-to-pdf > phantomjs > request:
+        patched: '2019-12-03T11:50:50.059Z'
+  'npm:tough-cookie:20170905':
+    - phantom-html-to-pdf > phantomjs > request > tough-cookie:
+        patched: '2019-12-03T11:50:50.059Z'
+    - phantom-html-to-pdf > phantom-workers > phantomjs > request > tough-cookie:
+        patched: '2019-12-03T11:50:50.059Z'
+  'npm:tunnel-agent:20170305':
+    - phantom-html-to-pdf > phantomjs > request > tunnel-agent:
+        patched: '2019-12-03T11:50:50.059Z'
+    - grunt-grunticon > grunticon-lib > svg-to-png > imagemin > imagemin-gifsicle > gifsicle > bin-build > download > caw > tunnel-agent:
+        patched: '2019-12-03T11:50:50.059Z'
+    - grunt-grunticon > grunticon-lib > svg-to-png > imagemin > imagemin-pngquant > pngquant-bin > bin-wrapper > download > caw > tunnel-agent:
+        patched: '2019-12-03T11:50:50.059Z'
+    - grunt-grunticon > grunticon-lib > svg-to-png > imagemin > imagemin-optipng > optipng-bin > bin-build > download > caw > tunnel-agent:
+        patched: '2019-12-03T11:50:50.059Z'
+    - grunt-grunticon > grunticon-lib > svg-to-png > imagemin > imagemin-pngquant > pngquant-bin > bin-build > download > caw > tunnel-agent:
+        patched: '2019-12-03T11:50:50.059Z'
+    - grunt-grunticon > grunticon-lib > svg-to-png > imagemin > imagemin-gifsicle > gifsicle > bin-wrapper > download > caw > tunnel-agent:
+        patched: '2019-12-03T11:50:50.059Z'
+    - grunt-grunticon > grunticon-lib > svg-to-png > imagemin > imagemin-jpegtran > jpegtran-bin > bin-wrapper > download > caw > tunnel-agent:
+        patched: '2019-12-03T11:50:50.059Z'
+    - grunt-grunticon > grunticon-lib > svg-to-png > imagemin > imagemin-optipng > optipng-bin > bin-wrapper > download > caw > tunnel-agent:
+        patched: '2019-12-03T11:50:50.059Z'
+    - grunt-grunticon > grunticon-lib > svg-to-png > imagemin > imagemin-jpegtran > jpegtran-bin > bin-build > download > caw > tunnel-agent:
+        patched: '2019-12-03T11:50:50.059Z'

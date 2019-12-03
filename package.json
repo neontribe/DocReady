@@ -39,7 +39,8 @@
     "sendgrid": "^5.1.1",
     "serve-static": "^1.14.1",
     "st": "^2.0.0",
-    "underscore.string": "~3.3.5"
+    "underscore.string": "~3.3.5",
+    "snyk": "^1.254.0"
   },
   "homepage": "http://www.docready.org",
   "keywords": [
@@ -55,9 +56,12 @@
     "build": "grunt build",
     "start": "cross-env NODE_ENV=production node server.js",
     "dev": "cross-env NODE_ENV=development node server.js",
-    "test": "grunt jshint && grunt build"
+    "test": "grunt jshint && grunt build",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "devDependencies": {
     "cross-env": "^6.0.3"
-  }
+  },
+  "snyk": true
 }
