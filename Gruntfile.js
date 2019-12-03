@@ -1,10 +1,5 @@
 /* jshint -W106 */
 'use strict';
-var serveStatic = require('serve-static');
-
-var mountFolder = function (connect, dir) {
-  return serveStatic(require('path').resolve(dir));
-};
 
 module.exports = function (grunt) {
   // load all grunt tasks
@@ -23,24 +18,7 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     yeoman: yeomanConfig,
-    connect: {
-      options: {
-        port: 9000,
-        // Change this to '0.0.0.0' to access the server from outside.
-        hostname: '0.0.0.0'
-      },
-      test: {
-        options: {
-          middleware: function (connect) {
-            return [
-              mountFolder(connect, '.tmp'),
-              mountFolder(connect, 'test'),
-              mountFolder(connect, yeomanConfig.app)
-            ];
-          }
-        }
-      }
-    },
+
     clean: {
       dist: {
         files: [{
@@ -63,16 +41,7 @@ module.exports = function (grunt) {
         '<%= yeoman.app %>/scripts/{,*/}*.js'
       ]
     },
-    karma: {
-      unit: {
-        configFile: 'karma.conf.js',
-        singleRun: true
-      },
-      e2e: {
-        configFile: 'karma-e2e.conf.js',
-        singleRun: true
-      }
-    },
+
     concat: {
       dist: {
         files: {
@@ -83,12 +52,14 @@ module.exports = function (grunt) {
         }
       }
     },
+
     useminPrepare: {
-      html: ['<%= yeoman.app %>/index.html', '<%= yeoman.app %>/generator.html'],
+      html: ['<%= yeoman.app %>/index.html'],
       options: {
         dest: '<%= yeoman.dist %>'
       }
     },
+
     usemin: {
       html: ['<%= yeoman.dist %>/{,*/}*.html'],
       css: ['<%= yeoman.dist %>/styles/{,*/}*.css', '<%= yeoman.dist %>/images/icons/*.css'],
@@ -97,6 +68,7 @@ module.exports = function (grunt) {
         dirs: ['<%= yeoman.dist %>']
       }
     },
+
     imagemin: {
       dist: {
         files: [{
@@ -107,16 +79,7 @@ module.exports = function (grunt) {
         }]
       }
     },
-    grunticon: {
-      icons: {
-        options: {
-          src: '<%= yeoman.app %>/images/src/icons/',
-          dest: '<%= yeoman.app %>/images/icons/',
-          defaultWidth: '80px',
-          defaultHeight: '80px'
-        }
-      }
-    },
+
     image_resize: {
       options: {
         overwrite: true
@@ -136,6 +99,7 @@ module.exports = function (grunt) {
         }]
       }
     },
+
     cssmin: {
       dist: {
         files: {
@@ -146,6 +110,7 @@ module.exports = function (grunt) {
         }
       }
     },
+
     htmlmin: {
       dist: {
         options: {
@@ -167,6 +132,7 @@ module.exports = function (grunt) {
         }]
       }
     },
+
     ngmin: {
       dist: {
         files: [{
@@ -177,14 +143,12 @@ module.exports = function (grunt) {
         }]
       }
     },
+
     uglify: {
       dist: {
         files: {
           '<%= yeoman.dist %>/scripts/scripts.js': [
             '<%= yeoman.dist %>/scripts/scripts.js'
-          ],
-          '<%= yeoman.dist %>/scripts/drgenerator.js': [
-            '<%= yeoman.dist %>/scripts/drgenerator.js'
           ],
           '<%= yeoman.dist %>/docready.js': [
             '<%= yeoman.dist %>/docready.js'
@@ -192,6 +156,7 @@ module.exports = function (grunt) {
         }
       }
     },
+
     rev: {
       dist: {
         files: {
@@ -203,6 +168,7 @@ module.exports = function (grunt) {
         }
       }
     },
+
     less: {
       app: {
         options: {
@@ -210,11 +176,11 @@ module.exports = function (grunt) {
         },
         files: {
           '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/styles/main.less',
-          '<%= yeoman.app %>/styles/generator.css': '<%= yeoman.app %>/styles/generator.less',
           '<%= yeoman.app %>/styles/animations.css': '<%= yeoman.app %>/styles/animations.less'
         }
       }
     },
+
     copy: {
       dist: {
         files: [{
@@ -242,26 +208,7 @@ module.exports = function (grunt) {
         dest: '<%= yeoman.dist %>/images/icons/png/'
       }
     },
-    devcode: {
-      options: {
-        html: true,        // html files parsing?
-        js: false,          // javascript files parsing?
-        css: false,         // css files parsing?
-        clean: true,       // removes devcode comments even if code was not removed
-        block: {
-          open: 'devcode', // with this string we open a block of code
-          close: 'enddevcode' // with this string we close a block of code
-        },
-        dest: 'dist'       // default destination which overwrites environment variable
-      },
-      dist: {             // settings for task used with 'devcode:dist'
-        options: {
-            source: 'dist/',
-            dest: 'dist/',
-            env: 'development'
-          }
-        }
-      },
+
       json_wrapper: {
         content: {
           options: {
@@ -286,22 +233,9 @@ module.exports = function (grunt) {
       }
     });
 
-  grunt.registerTask('test', [
-    'clean:server',
-    'jshint',
-    'connect:test',
-    'karma:unit'
-  ]);
-
-  grunt.registerTask('e2e', [
-    'clean:server',
-    'connect:test',
-    'karma:e2e'
-  ]);
-
   grunt.registerTask('lesscompile', ['less:app']);
 
-  grunt.registerTask('icons', ['grunticon:icons', 'copy:overwrite_png_icons']);
+  grunt.registerTask('icons', ['copy:overwrite_png_icons']);
 
   grunt.registerTask('build', [
     'clean:dist',
@@ -309,7 +243,6 @@ module.exports = function (grunt) {
     'lesscompile',
     'jshint',
     'icons',
-    //'test',
     'useminPrepare',
     'imagemin',
     'cssmin',
@@ -320,7 +253,6 @@ module.exports = function (grunt) {
     //'uglify',
     'rev',
     'usemin',
-    'devcode:dist',
     'copy:pdf_css'
   ]);
 
