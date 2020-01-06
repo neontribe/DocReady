@@ -3,14 +3,21 @@ DocReady [![Build Status](https://travis-ci.org/neontribe/DocReady.png?branch=de
 
 An angularjs application for the [Docready Project](http://www.docready.org)
 
-Getting started:
+# Prerequisites:
+
+  * git
+  * nvm
+
+# Getting started:
 
     git clone git@github.com:neontribe/DocReady.git
     cd DocReady
-    npm install
-    grunt test
+    nvm use
+    npm install -g yarn
+    yarn
+    yarn dev
 
-Building Releases:
+# Building Releases:
 
 	git flow release start x.x.x
 	# Bump the version in package.json and component.json
