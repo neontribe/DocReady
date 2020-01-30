@@ -110,7 +110,7 @@ app.get('/static/client/index.html', function(req, res){
 /**
  * Startup
  */
-var server = app.listen(3000, "127.0.0.1", function () {
+var server = app.listen("localhost", 3000, function () {
   var host = server.address().address;
   var port = server.address().port;
   console.log('Listening at http://%s:%s', host, port);
