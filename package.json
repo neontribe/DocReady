@@ -25,11 +25,12 @@
     "grunt-json-wrapper": "0.0.3",
     "grunt-ngmin": "~0.0.2",
     "grunt-usemin": "~3.1.1",
-    "handlebars": "^4.5.3",
+    "handlebars": "^4.6.0",
     "matchdep": "~2.0.0",
     "sendgrid": "^5.1.1",
     "st": "^2.0.0",
-    "underscore.string": "~3.3.5"
+    "underscore.string": "~3.3.5",
+    "snyk": "^1.316.2"
   },
   "homepage": "http://www.docready.org",
   "keywords": [
@@ -45,9 +46,12 @@
     "build": "grunt build",
     "start": "NODE_ENV=production node server.js",
     "dev": "cross-env NODE_ENV=development node server.js",
-    "test": "grunt jshint && grunt build"
+    "test": "grunt jshint && grunt build",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "devDependencies": {
     "cross-env": "^6.0.3"
-  }
+  },
+  "snyk": true
 }
