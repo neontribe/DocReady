@@ -18,7 +18,7 @@
     "grunt-contrib-cssmin": "~3.0.0",
     "grunt-contrib-htmlmin": "~3.1.0",
     "grunt-contrib-imagemin": "3.1.0",
-    "grunt-contrib-jshint": "~2.1.0",
+    "grunt-contrib-jshint": "~3.1.0",
     "grunt-contrib-less": "2.0.0",
     "grunt-contrib-uglify": "~4.0.1",
     "grunt-image-resize": "~1.0.0",
@@ -29,7 +29,7 @@
     "matchdep": "~2.0.0",
     "sendgrid": "^5.1.1",
     "st": "^2.0.0",
-    "underscore.string": "~3.3.5"
+    "underscore.string": "~3.3.6"
   },
   "homepage": "http://www.docready.org",
   "keywords": [
